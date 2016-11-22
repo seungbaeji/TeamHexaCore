@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TeamCard Test</title>
+<style>
+   @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+   /*font-family: 'Jeju Gothic', sans-serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+   /*font-family: 'Jeju Myeongjo', serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+   /*font-family: 'Jeju Hallasan', cursive;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+   /*font-family: 'KoPub Batang', serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+   /*font-family: 'Nanum Gothic', sans-serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+   /*font-family: 'Nanum Brush Script', cursive;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+   /*font-family: 'Nanum Gothic Coding', monospace;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+   /*font-family: 'Nanum Pen Script', cursive;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+   /*font-family: 'Noto Sans KR', sans-serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+   /*font-family: 'Hanna', sans-serif;*/
+   @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+   /*font-family: 'Nanum Myeongjo', serif;*/
+
+   * {
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+     }
+   
+   .layout-container {
+    padding: 0;
+    margin: 0;
+    max-width: 1280px;
+    
+   }
+   
+   body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+   }  
+    
+     
+   .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    padding: 0 20px;
+    overflow: hidden;
+    background-color: rgb(167,163,126);
+    width: 210px;
+    height: auto;
+    
+   }
+   .mainimg{
+         width:170px;
+         height:150px;
+   }
+   
+   .userSign{
+      margin-right: -21px;
+       margin-left: -20px;
+      
+      
+   }
+   .userSign li{
+      
+      width:50%;
+      display:inline-block;
+      float:left;
+   }
+   
+   .mainMenu{
+      display:block;
+   }
+   .mainMenu ul{
+      height:500px;
+      list-style-type:none;
+   }   
+   .mainMenu ul li{
+      margin-bottom: 80px;
+      width: auto;
+   }
+   
+   /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+   .test{
+      position:relative;
+      width:auto;
+      max-width: 800px;
+      height:300px;
+      /*border: 1px solid rgb(239,236,202);*/
+      display:block;
+      left:210px;
+      /*background-color:rgb(230,226,175);*/
+   }
+   div.districtset {
+      margin-bottom: 20px;
+      width: auto;
+   }
+   
+   .districtset h1 {
+	  margin-left: 40px;
+   }
+   
+   
+   .district {
+      margin-top: 5px;
+      margin-bottom: 5px;
+   }
+     
+   .district li {
+      display: inline;
+      border: 1px solid rgb(167, 163, 126);
+      margin: 10px 10px 2px 0px;
+      padding: 0px 6px 0px 6px;
+      box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+      float: left;
+      border-radius:/*100px/90px;*/;
+      /*background-color:rgb(239,236,202);*/
+      font-size: 16px;
+      font-family: 'Nanum Gothic', serif;
+      font-weight: bold;
+      color: rgb(55,55,55)
+      /*margin: 5px 5px 5px 0px;*/
+   }
+
+   
+</style>
+</head>
+<body>
+
+<div class="layout-container">
+
+   <div class="sidebar">
+      
+      <img class="mainimg" src="images/Logo01.svg">
+      
+      <div class="userSign">
+            <ul class="signInUp">
+                <li>회원가입</li>
+                <li>로그인</li>
+            </ul>
+           
+       </div>
+       <br/><br/><br/><br/><br/><br/><br/><br/>
+      
+      <div class="mainMenu">
+         <ul class="menuList">
+             <li>공 지 </li>
+             <li>정보 제공</li>
+             <li>커 뮤 니 티</li>
+             <li>팀 모 집</li>
+             <li>아 직 미 정</li>
+          </ul>
+      </div>
+      
+   </div>
+   
+   <div class="test">
+      <div class="districtset">
+            <h1 style="font-family: 'Noto Sans KR'">지역선택</h1>
+            <ul class="district">
+               <li>전체선택</li>
+               <li>서울특별시 </li>
+               <li>부산광역시 </li>
+               <li>대구광역시 </li>
+               <li>인천광역시 </li>
+               <li>광주광역시 </li>
+               <li>대전광역시 </li>
+               <li>울산광역시 </li>
+               <li>세종특별자치시 </li>
+               <li>경기도 </li>
+               <li>강원도 </li>
+               <li>충청북도 </li>
+               <li>충청남도 </li>
+               <li>전라북도 </li>
+               <li>전라남도 </li>
+               <li>경상북도 </li>
+               <li>경상남도 </li>
+               <li>제주특별자치도 </li>
+               <li>해외</li>
+            </ul>
+</div>
+   </div>
+   
+   
+</div>   <!--layout container  -->
+</body>
+</html>
