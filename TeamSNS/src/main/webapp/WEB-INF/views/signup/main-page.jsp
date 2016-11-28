@@ -30,9 +30,9 @@
    <div class="loginForm">
         <form method="post" name="" action="">
            <div class="box">
-            <input type="text" class="iText" value="아이디">
+            <input type="text" class="iText" placeholder="아이디">
             <br>
-            <input type="password" name="" id="" class="iText" value="asdf">
+            <input type="password" name="" id="" class="iText" placeholder="비밀번호">
             <br>
            <!-- <p>
               <span class="fleft"><input type="checkbox" id=""><label for=""> 아이디 저장</label></span> 
