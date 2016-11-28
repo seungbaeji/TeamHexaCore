@@ -8,11 +8,21 @@
 
 
 	<!-- DBCP(Database Connection Pool)을 사용하는 DataSource -->
-	<bean id="ds" class="oracle.jdbc.pool.OracleDataSource">
+	
+	<!-- MySQl DBCP -->
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://@52.78.8.223:3306/pentacore?characterEncoding=utf-8" />
+		<property name="username" value="pentacore" />
+		<property name="password" value="pentacore123" />
+	</bean>
+	
+	<!--  <bean id="ds" class="oracle.jdbc.pool.OracleDataSource">
 		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="user" value="scott" />
 		<property name="password" value="tiger" />
-	</bean>
+	</bean> -->
 
 	<!-- sqlSessionFactory: Datasource 객체를 사용해서 생성 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
