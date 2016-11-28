@@ -40,8 +40,8 @@
             </p>-->
           </div>
         </form>
-        <a href="#" id="" class="signIn">로그인</a>
-        <a href="#" id="" class="signUp">회원가입</a>
+        <button class="signIn">로그인</button>
+        <button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
       </div>
       <br/>
       <br/>
@@ -86,9 +86,58 @@
 	</ul>
 </div> <!-- end accordian-->
 
+	<!-- strat modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                    <div class="modal-body">
+                        <div id="div-main">
+                            <form method="post">
+                                <div>
+                                    <h1>회원 가입</h1>
+                                    <br>
+                                    <div class="form-group form-inline" id="div_user_id">
+                                        <label for="user_id" class="label label-default">아이디</label>
+                                        <input type="text" class="form-control user_register" id="user_id" name="user_id" placeholder="아이디 입력"> </div>
+                                    <div class="form-group form-inline" id="div_user_pw">
+                                        <label for="user_pw" class="label label-default">비밀번호</label>
+                                        <input type="password" class="form-control user_register" id="user_pw" name="user_pw" placeholder="비밀번호 입력"> </div>
+                                    <div class="form-group form-inline" id="div_user_email">
+                                        <label for="user_email" class="label label-default">이메일</label>
+                                        <input type="email" class="form-control user_register" id="user_email" name="user_email" placeholder="이메일 입력"> </div>
+                                    <div class="form-group form-inline" id="div_user_name">
+                                        <label for="user_name" class="label label-default">이름</label>
+                                        <input type="text" class="form-control user_register" id="user_name" name="user_name" placeholder="이름 입력"> </div>
+                                    <div class="form-group form-inline" id="div_user_nickname">
+                                        <label for="user_nickname" class="label label-default">닉네임</label>
+                                        <input type="text" class="form-control user_register" id="user_nickname" name="user_nickname" placeholder="닉네임을 입력하시오"> </div>
+                                    <div class="form-group form-inline" id="div_user_number">
+                                        <label for="user_number" class="label label-default">전화번호</label>
+                                        <input type="tel" class="form-control user_register" id="user_number" name="user_number" placeholder="전화번호를 입력하시오"> </div>
+                                    <div class="form-group form-inline" id="div_user_kkoid">
+                                        <label for="user_kkoid" class="label label-default">카카오톡</label>
+                                        <input type="text" class="form-control user_register" id="user_kkoid" name="user_kkoid" placeholder="카톡아이디 입력"> </div>
+                                    <div class="form-group form-inline" id="div_user_img">
+                                        <label for="user_kkoid" class="label label-default">사진</label>
+                                        <input type="text" class="form-control user_register" id="user_img" name="user_img" placeholder="사진 저장 경로"> </div>    
+                                    <br>
+                                    <input type="submit" class="btn btn-primary btn-lg" id="user_submit" value="등록 하기"> </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--  end modal -->
 
 
 
+
+
+
+<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ자바스크립트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
    <script>
         $(function(){
 	$("#accordian h3").click(function(){

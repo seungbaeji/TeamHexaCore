@@ -23,6 +23,7 @@ public class SignUpDAOImple implements SignUpDAO {
 	@Override
 	public int insert(SignUpVO vo) {
 		
+		logger.info("DAOvo" + vo);
 		return sqlSession.insert(NAMESPCAE + ".insert", vo);
 	}
 

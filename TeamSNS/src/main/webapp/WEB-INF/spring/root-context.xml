@@ -13,7 +13,7 @@
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://@52.78.8.223:3306/pentacore?characterEncoding=utf-8" />
+		<property name="url" value="jdbc:mysql://52.78.8.223:3306/pentacore?characterEncoding=utf-8" />
 		<property name="username" value="pentacore" />
 		<property name="password" value="pentacore123" />
 	</bean>

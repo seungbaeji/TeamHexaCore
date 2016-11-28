@@ -20,7 +20,7 @@ public class SignUpServieImple implements SignUpService {
 	@Override
 	public int create(SignUpVO vo) {
 		
-		
+		logger.info("service = " + vo);
 		return signUpDAO.insert(vo);
 	}
 
