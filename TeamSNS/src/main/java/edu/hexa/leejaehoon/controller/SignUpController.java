@@ -22,7 +22,7 @@ public class SignUpController {
 	
 	@RequestMapping(value="main-page", method=RequestMethod.GET)
 	public void mainTest(){	
-		logger.info("컨트롤러");
+		logger.info("硫붿씤");
 	}
 	
 	@RequestMapping(value="main-page", method=RequestMethod.POST)
