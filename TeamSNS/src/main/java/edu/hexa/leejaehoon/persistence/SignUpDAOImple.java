@@ -27,4 +27,10 @@ public class SignUpDAOImple implements SignUpDAO {
 		return sqlSession.insert(NAMESPCAE + ".insert", vo);
 	}
 
+	@Override
+	public SignUpVO login(SignUpVO vo) {
+		logger.info("DAO login" + vo);
+		return sqlSession.selectOne(NAMESPCAE + ".login", vo);
+	}
+
 }

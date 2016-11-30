@@ -24,4 +24,11 @@ public class SignUpServieImple implements SignUpService {
 		return signUpDAO.insert(vo);
 	}
 
+
+	@Override
+	public SignUpVO login(SignUpVO vo) {
+		logger.info("login = " + vo);
+		return signUpDAO.login(vo);
+	}
+
 }

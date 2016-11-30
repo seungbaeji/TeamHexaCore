@@ -8,5 +8,7 @@ public interface SignUpDAO {
 
 	public abstract int insert(SignUpVO vo);
 	
+	public abstract SignUpVO login(SignUpVO vo);
+	
 	
 } // end interface

@@ -3,42 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Main Page</title>
-
+    <meta charset="UTF-8">
+    <title>Main Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../resources/CSS/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
-    
-<style>
-	*{
-		margin: 0;
-		padding: 0;
-	}
-
-</style>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+   
+    </style>
 </head>
 <body>
-
-<div id="accordian">
+   <div id="accordian">
       
        <img id="logo" src="../resources/CSS/Logo_wide.svg"/>
        
-     <div class="loginForm">
-        <form action="login" method="post">
-           <div class="box">
-            <input type="text" name = "user_id" id="user_id" class="user_id" placeholder="아이디">
-            <br>
-            <input type="password" name="user_pw" id="user_pw" class="user_pw" placeholder="비밀번호">
-            <br>
-            <input type="submit"  id="signIn" class="signIn" value="로그인">
-          </div>
-        </form>
-        <button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
-      </div>
+   <div class="loginForm">
+    
+        
+        <button class="mypage">마이페이지</button>
+        <button class="logout">로그아웃</button>
+    </div>
       <br/>
       <br/>
    
@@ -81,8 +73,10 @@
 		</li>
 	</ul>
 </div> <!-- end accordian-->
-
-	<!-- strat modal -->
+    
+    
+    
+    
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -91,7 +85,7 @@
                         <h4 class="modal-title" id="myModalLabel"></h4> </div>
                     <div class="modal-body">
                         <div id="div-main">
-                            <form method="post">
+                            <form action="parent.html">
                                 <div>
                                     <h1>회원 가입</h1>
                                     <br>
@@ -116,9 +110,6 @@
                                     <div class="form-group form-inline" id="div_user_kkoid">
                                         <label for="user_kkoid" class="label label-default">카카오톡</label>
                                         <input type="text" class="form-control user_register" id="user_kkoid" name="user_kkoid" placeholder="카톡아이디 입력"> </div>
-                                    <div class="form-group form-inline" id="div_user_img">
-                                        <label for="user_kkoid" class="label label-default">사진</label>
-                                        <input type="text" class="form-control user_register" id="user_img" name="user_img" placeholder="사진 저장 경로"> </div>    
                                     <br>
                                     <input type="submit" class="btn btn-primary btn-lg" id="user_submit" value="등록 하기"> </div>
                             </form>
@@ -126,33 +117,41 @@
                     </div>
                 </div>
             </div>
-        </div> <!--  end modal -->
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        $(function() {
+			
+			$("#accordian h3").click(function() {
+				$("#accordian ul ul").slideUp();
+				if (!$(this).next().is(":visible")) {
+					$(this).next().slideDown();
+				}
+			});
 
+			if ('${login_result}' == 'success') {
+				alert('${longin_user.user_id}님 헬조센에 오신걸 환영합니다!');
+			} else if ('${login_result}' == 'fail') {
+				alert('로그인 실패!');
+			}
 
-
-
-
-
-<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ자바스크립트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-   <script>
-        $(function(){
-	$("#accordian h3").click(function(){
-		$("#accordian ul ul").slideUp();
-		if(!$(this).next().is(":visible"))
-		{
-			$(this).next().slideDown();
-		}
-	});
-});
-        
-        $(document).ready(function(){
-        	 if ('${insert_result}' == 'success') {
-        	        alert('신규 회원 가입 성공!');
-        	    } else if ('${insert_result}' == 'fail') {
-        	        alert('신규 회원 가입 실패!');
-        	    }
-        });
-    </script>
-
+		});
+	</script>
 </body>
 </html>

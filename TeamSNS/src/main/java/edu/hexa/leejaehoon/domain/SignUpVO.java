@@ -14,6 +14,16 @@ public class SignUpVO {
 	
 	public SignUpVO(){}
 	
+	
+	
+	public SignUpVO(String user_id, String user_pw) {
+		
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+	}
+
+
+
 	public SignUpVO(String user_id, String user_pw, String user_name, String user_nickname, String user_img,
 			String user_number, String user_kkoid, String user_email) {
 		
