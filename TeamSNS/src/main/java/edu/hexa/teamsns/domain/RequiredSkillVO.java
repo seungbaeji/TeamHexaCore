@@ -2,7 +2,6 @@ package edu.hexa.teamsns.domain;
 
 public class RequiredSkillVO {
 	
-	private String team_id;
 	private String project_id;
 	private String requried_skill_1;
 	private String requried_skill_2;
@@ -17,11 +16,10 @@ public class RequiredSkillVO {
 	
 	public RequiredSkillVO(){}
 
-	public RequiredSkillVO(String team_id, String project_id, String requried_skill_1, String requried_skill_2,
+	public RequiredSkillVO(String project_id, String requried_skill_1, String requried_skill_2,
 			String requried_skill_3, String requried_skill_4, String requried_skill_5, String requried_skill_6,
 			String requried_skill_7, String requried_skill_8, String requried_skill_9, String requried_skill_10) {
 		super();
-		this.team_id = team_id;
 		this.project_id = project_id;
 		this.requried_skill_1 = requried_skill_1;
 		this.requried_skill_2 = requried_skill_2;
@@ -33,14 +31,6 @@ public class RequiredSkillVO {
 		this.requried_skill_8 = requried_skill_8;
 		this.requried_skill_9 = requried_skill_9;
 		this.requried_skill_10 = requried_skill_10;
-	}
-
-	public String getTeam_id() {
-		return team_id;
-	}
-
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
 	}
 
 	public String getProject_id() {
