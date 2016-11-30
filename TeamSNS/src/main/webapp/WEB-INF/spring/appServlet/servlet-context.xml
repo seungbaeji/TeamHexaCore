@@ -23,6 +23,23 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 인터셉터 클래스 등록  -->
+	<beans:bean id="loginInterCepter" class="edu.hexa.leejaehoon.interceptor.LoginInterceptor">
+		
+	</beans:bean>
+	
+	<interceptors>
+		
+		<interceptor>
+			<mapping path="/signup/login"/>
+			<mapping path="/signup/main-page"/>
+			<beans:ref bean="loginIntereptor"/>
+		</interceptor>
+		
+	</interceptors>
+	
+	
+	<!--  -->
 	<context:component-scan base-package="edu.hexa.teamsns" />
 	<context:component-scan base-package="edu.hexa.leejaehoon.controller"/>
 	
