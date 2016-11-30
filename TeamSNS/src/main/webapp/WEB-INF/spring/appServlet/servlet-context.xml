@@ -24,7 +24,7 @@
 	</beans:bean>
 	
 	<!-- 인터셉터 클래스 등록  -->
-	<beans:bean id="loginInterCepter" class="edu.hexa.leejaehoon.interceptor.LoginInterceptor">
+	<!-- <beans:bean id="loginInterCepter" class="edu.hexa.leejaehoon.interceptor.LoginInterceptor">
 		
 	</beans:bean>
 	
@@ -36,12 +36,13 @@
 			<beans:ref bean="loginIntereptor"/>
 		</interceptor>
 		
-	</interceptors>
+	</interceptors> -->
 	
 	
 	<!--  -->
 	<context:component-scan base-package="edu.hexa.teamsns" />
 	<context:component-scan base-package="edu.hexa.leejaehoon.controller"/>
+	<context:component-scan base-package="edu.hexa.minjee.controller" />
 	
 	
 	

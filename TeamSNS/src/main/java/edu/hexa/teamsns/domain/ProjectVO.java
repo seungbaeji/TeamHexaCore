@@ -1,27 +1,30 @@
 package edu.hexa.teamsns.domain;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class ProjectVO {
 	private String project_id;
 	private String team_id;
-	private String projcet_name;
+	private String project_name;
 	private String project_category;
-	private Date projcet_start;
+	private Date project_start;
 	private Date project_end;
 	private String project_intro;
 	private String meeting_area;
 	
-	public ProjectVO(){}
+	public ProjectVO(){
+		project_id = "p" + UUID.randomUUID().toString();
+	}
 
-	public ProjectVO(String project_id, String team_id, String projcet_name, String project_category,
-			Date projcet_start, Date project_end, String project_intro, String meeting_area) {
-		super();
-		this.project_id = project_id;
+	public ProjectVO(String team_id, String project_name, String project_category,
+			Date project_start, Date project_end, String project_intro, String meeting_area) {
+		
+		project_id = "p" + UUID.randomUUID().toString();
 		this.team_id = team_id;
-		this.projcet_name = projcet_name;
+		this.project_name = project_name;
 		this.project_category = project_category;
-		this.projcet_start = projcet_start;
+		this.project_start = project_start;
 		this.project_end = project_end;
 		this.project_intro = project_intro;
 		this.meeting_area = meeting_area;
@@ -29,10 +32,6 @@ public class ProjectVO {
 
 	public String getProject_id() {
 		return project_id;
-	}
-
-	public void setProject_id(String project_id) {
-		this.project_id = project_id;
 	}
 
 	public String getTeam_id() {
@@ -43,12 +42,12 @@ public class ProjectVO {
 		this.team_id = team_id;
 	}
 
-	public String getProjcet_name() {
-		return projcet_name;
+	public String getproject_name() {
+		return project_name;
 	}
 
-	public void setProjcet_name(String projcet_name) {
-		this.projcet_name = projcet_name;
+	public void setproject_name(String project_name) {
+		this.project_name = project_name;
 	}
 
 	public String getProject_category() {
@@ -59,12 +58,12 @@ public class ProjectVO {
 		this.project_category = project_category;
 	}
 
-	public Date getProjcet_start() {
-		return projcet_start;
+	public Date getproject_start() {
+		return project_start;
 	}
 
-	public void setProjcet_start(Date projcet_start) {
-		this.projcet_start = projcet_start;
+	public void setproject_start(Date project_start) {
+		this.project_start = project_start;
 	}
 
 	public Date getProject_end() {

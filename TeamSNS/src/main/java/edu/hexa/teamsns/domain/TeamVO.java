@@ -1,6 +1,7 @@
 package edu.hexa.teamsns.domain;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class TeamVO {
 	
@@ -12,12 +13,14 @@ public class TeamVO {
 	private String team_area;
 	private String user_id;
 	
-	public TeamVO(){}
+	public TeamVO(){
+		team_id = "t" + UUID.randomUUID().toString();
+	}
 
-	public TeamVO(String team_id, String team_name, String team_logo_img, Date team_start, String team_intro,
+	public TeamVO(String team_name, String team_logo_img, Date team_start, String team_intro,
 			String team_area, String user_id) {
-		super();
-		this.team_id = team_id;
+
+		team_id = "t" + UUID.randomUUID().toString();
 		this.team_name = team_name;
 		this.team_logo_img = team_logo_img;
 		this.team_start = team_start;
@@ -30,9 +33,6 @@ public class TeamVO {
 		return team_id;
 	}
 
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
-	}
 
 	public String getTeam_name() {
 		return team_name;
