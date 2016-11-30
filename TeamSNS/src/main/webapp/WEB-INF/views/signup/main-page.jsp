@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/CSS/sidemenu.css"/>
+<link rel="stylesheet" href="../resources/css/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
@@ -25,7 +25,7 @@
 
 <div id="accordian">
       
-       <img id="logo" src="../resources/CSS/Logo_wide.svg"/>
+       <img id="logo" src="../resources/css/Logo_wide.svg"/>
        
      <div class="loginForm">
         <form action="login" method="post">

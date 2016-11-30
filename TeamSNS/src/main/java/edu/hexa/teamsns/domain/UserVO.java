@@ -7,7 +7,7 @@ public class UserVO {
 	private String user_name;
 	private String user_nickname;
 	private String user_img;
-	private String user_number;
+	private String user_phone;
 	private String user_kkoid;
 	private String user_email;
 	private int user_level;
@@ -22,7 +22,7 @@ public class UserVO {
 		this.user_name = user_name;
 		this.user_nickname = user_nickname;
 		this.user_img = user_img;
-		this.user_number = user_number;
+		this.user_phone = user_number;
 		this.user_kkoid = user_kkoid;
 		this.user_email = user_email;
 		this.user_level = user_level;
@@ -69,11 +69,11 @@ public class UserVO {
 	}
 
 	public String getUser_number() {
-		return user_number;
+		return user_phone;
 	}
 
 	public void setUser_number(String user_number) {
-		this.user_number = user_number;
+		this.user_phone = user_number;
 	}
 
 	public String getUser_kkoid() {

@@ -25,12 +25,14 @@ public class SignUpController {
 	
 	@RequestMapping(value="main-page", method=RequestMethod.GET)
 	public void mainTest(){	
+
 		logger.info("메인페이지 호출");
 	}
 	
 	@RequestMapping(value="main-login", method=RequestMethod.GET)
 	public void mainTest2(){	
 		logger.info("로그인완료 화면 호출");
+
 	}
 	
 	@RequestMapping(value="main-page", method=RequestMethod.POST)
