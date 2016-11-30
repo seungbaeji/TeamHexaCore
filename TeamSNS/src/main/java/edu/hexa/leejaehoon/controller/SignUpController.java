@@ -1,6 +1,7 @@
 package edu.hexa.leejaehoon.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,7 @@ public class SignUpController {
 	}
 	
 	@RequestMapping(value="main-page", method=RequestMethod.POST)
-	public String signUp(SignUpVO vo, RedirectAttributes attr){
+	public void signUp(SignUpVO vo, RedirectAttributes attr){
 		int result = signUpService.create(vo);
 		
 		if (result == 1) {
@@ -45,32 +46,49 @@ public class SignUpController {
 			attr.addFlashAttribute("insert_result", "fail");
 		}
 		logger.info(" controller result = " + result);
-		return "redirect:main-page";
+		/*return "redirect:main-page";*/
 	}
 	
 	@RequestMapping(value = "login", method=RequestMethod.POST)
-	public String login(SignUpVO vo, RedirectAttributes attr, Model model, HttpServletRequest request){
+	public void login(SignUpVO vo, RedirectAttributes attr, Model model, HttpServletRequest request,String query){
 		logger.info("main_login 호출");
 		logger.info("Id" + vo.user_id);
 		logger.info("pw" + vo.user_pw);
-		
+
 		SignUpVO result = signUpService.login(vo);
-		//model.addAttribute("user_id", result);
-		
-		
-		if(result != null){
-			logger.info("login 성공");
-			request.getSession().setAttribute("login_result", "success");
-			request.getSession().setAttribute("longin_user", result);
-//			attr.addFlashAttribute("login_result", "success");
-//			attr.addFlashAttribute("longin_user_id", result.getUser_id());
-		}else{
-//			attr.addAttribute("login_result", "fail");
-			request.getSession().setAttribute("login_result", "fail");
+		model.addAttribute("login_result", result);
+
+		// login-post 요청을 보낸 주소를 저장
+		logger.info("query: " + query);
+		if (query != null && !query.equals("null")) {
+			// 요청 파라미터 query에 값이 들어 있는 경우
+			String dest = query.substring(4);
+			logger.info("dest 정보: " + dest);
+			request.getSession().setAttribute("dest", dest);
 		}
-		
-		return "redirect:/signup/main-login";
+
+		/* return "redirect:/signup/main-login"; */
 	}
+	
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpServletRequest req){
+		
+		HttpSession session = req.getSession();
+		session.removeAttribute("login_id");
+		session.invalidate();
+		
+		
+		return "redirect:/signup/main-page";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 } // end SignUpController

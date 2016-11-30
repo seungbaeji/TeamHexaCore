@@ -57,11 +57,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			// 콘트롤러에서 SignUpVO 타입을 전달했기 때문에
 			// ModelAndView에서 꺼낸 attribute를 SignUpVO로 형변화(casting)
 			SignUpVO result = (SignUpVO) modelAndView.getModel().get("login_result");
-			
+			logger.info("postHandle() result : " + result);
+			logger.info("preHandle(): request: " + request);
+			logger.info("preHandle(): response: " + response);
 			if(result != null){ // DB 안의 id/pw 정보가 일치
-				
+				logger.info(" 로그인 성공!");
 				// 세션에 로그인 성공 아이디 저장
 				session.setAttribute(SESSION_ATTR_ID, result.getUser_id());
+				
+				
 				
 				// 기존에 요청 주소가 있는 경우 해당페이지로 이동
 				Object dest = session.getAttribute("dest");
@@ -72,7 +76,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				}
 				
 				
-			}else{ // DB 에 일치하는 회원 정보가 ㅇ벗을경우
+			}else{ // DB 에 일치하는 회원 정보가 없을경우
 				// 로그인실패 -> 세션에 저장하는 정보가 없음
 				logger.info("로그인 실패");
 				response.sendRedirect("/teamsns/signup/main-page");
@@ -80,7 +84,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 		
 		
-		super.postHandle(request, response, handler, modelAndView);
+	
 		
 		
 	} // end postHandle()

@@ -7,7 +7,7 @@
     <title>Main Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/CSS/sidemenu.css"/>
+<link rel="stylesheet" href="../resources/css/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -23,7 +23,7 @@
 <body>
    <div id="accordian">
       
-       <img id="logo" src="../resources/CSS/Logo_wide.svg"/>
+       <img id="logo" src="../resources/css/Logo_wide.svg"/>
        
    <div class="loginForm">
     
@@ -145,11 +145,16 @@
 				}
 			});
 
-			if ('${login_result}' == 'success') {
-				alert('${longin_user.user_id}님 헬조센에 오신걸 환영합니다!');
-			} else if ('${login_result}' == 'fail') {
+			if ('${login_id}' != null) {
+				alert('${login_id}님 헬조센에 오신걸 환영합니다!');
+			} else  {
 				alert('로그인 실패!');
 			}
+			
+			$('.logout').click(function(){
+				alert('${login_id}님 로그아웃 되셧습니다!');
+				location = '/teamsns/signup/logout';
+			});
 
 		});
 	</script>

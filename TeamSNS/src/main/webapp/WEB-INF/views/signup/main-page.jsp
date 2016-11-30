@@ -35,6 +35,9 @@
             <input type="password" name="user_pw" id="user_pw" class="user_pw" placeholder="비밀번호">
             <br>
             <input type="submit"  id="signIn" class="signIn" value="로그인">
+            
+            <input type="hidden" name="query" value="<%=request.getQueryString() %>"> <!-- 현재 페이지가 가지고 있는 주소  -->
+            
           </div>
         </form>
         <button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
