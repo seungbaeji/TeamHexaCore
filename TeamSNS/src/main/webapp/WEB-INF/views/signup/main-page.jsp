@@ -56,13 +56,12 @@
 			</ul>
 		</li>
 		<li class="active">
-			<h3><span class="icon-tasks"></span>Tasks</h3>
+			<h3><span class="icon-tasks"></span>정보</h3>
 			<ul>
-				<li><a href="#">Today's tasks</a></li>
-				<li><a href="#">Urgent</a></li>
-				<li><a href="#">Overdues</a></li>
-				<li><a href="#">Recurring</a></li>
-				<li><a href="#">Settings</a></li>
+				<li><a href="#">창업교육</a></li>
+				<li><a href="#">멘토링</a></li>
+				<li><a href="#">행사</a></li>
+				
 			</ul>
 		</li>
 		<li>
@@ -154,6 +153,8 @@
         	    } else if ('${insert_result}' == 'fail') {
         	        alert('신규 회원 가입 실패!');
         	    }
+        	 
+        	
         });
     </script>
 

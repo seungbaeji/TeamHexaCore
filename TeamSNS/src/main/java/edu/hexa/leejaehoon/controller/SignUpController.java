@@ -25,8 +25,10 @@ public class SignUpController {
 	private SignUpService signUpService;
 	
 	@RequestMapping(value="main-page", method=RequestMethod.GET)
-	public void mainTest(){	
-
+	public void mainTest(SignUpVO vo,Model model){	
+		
+		
+		
 		logger.info("메인페이지 호출");
 	}
 	
@@ -52,12 +54,15 @@ public class SignUpController {
 	@RequestMapping(value = "login", method=RequestMethod.POST)
 	public void login(SignUpVO vo, RedirectAttributes attr, Model model, HttpServletRequest request,String query){
 		logger.info("main_login 호출");
-		logger.info("Id" + vo.user_id);
-		logger.info("pw" + vo.user_pw);
+		logger.info("Id" + vo.uid);
+		logger.info("pw" + vo.pw);
 
 		SignUpVO result = signUpService.login(vo);
-		model.addAttribute("login_result", result);
-
+		model.addAttribute("login_id", result);
+		logger.info(" login controller result = " + result);
+		
+		
+		
 		// login-post 요청을 보낸 주소를 저장
 		logger.info("query: " + query);
 		if (query != null && !query.equals("null")) {

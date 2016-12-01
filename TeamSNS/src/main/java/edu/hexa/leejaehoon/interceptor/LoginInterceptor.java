@@ -14,7 +14,7 @@ import edu.hexa.leejaehoon.domain.SignUpVO;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	private static final String SESSION_ATTR_ID = "login_id";
-	
+		
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 	
 	
@@ -56,10 +56,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			
 			// 콘트롤러에서 SignUpVO 타입을 전달했기 때문에
 			// ModelAndView에서 꺼낸 attribute를 SignUpVO로 형변화(casting)
-			SignUpVO result = (SignUpVO) modelAndView.getModel().get("login_result");
+			SignUpVO result = (SignUpVO) modelAndView.getModel().get("login_id");
 			logger.info("postHandle() result : " + result);
-			logger.info("preHandle(): request: " + request);
-			logger.info("preHandle(): response: " + response);
+			logger.info("postHandle(): request: " + request);
+			logger.info("postHandle(): response: " + response);
 			if(result != null){ // DB 안의 id/pw 정보가 일치
 				logger.info(" 로그인 성공!");
 				// 세션에 로그인 성공 아이디 저장
@@ -79,6 +79,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}else{ // DB 에 일치하는 회원 정보가 없을경우
 				// 로그인실패 -> 세션에 저장하는 정보가 없음
 				logger.info("로그인 실패");
+				
 				response.sendRedirect("/teamsns/signup/main-page");
 			}
 			
