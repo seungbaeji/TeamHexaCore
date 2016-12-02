@@ -41,6 +41,8 @@ category_contest
 </head>
 <style>
 #main-div {
+	position:fixed;
+	left:250px;
 	width: 1000px;
 	border: solid;
 	margin: 20px;
@@ -101,6 +103,8 @@ h1 {
 </style>
 
 <body>
+	<jsp:include page="../signup/main-login.jsp"></jsp:include>
+
 	<div id="main-div">
 		<form action="project-register" method="post">
 			<div>

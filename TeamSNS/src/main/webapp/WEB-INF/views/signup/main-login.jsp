@@ -17,7 +17,16 @@
             margin: 0;
             padding: 0;
         }
-   
+        .car{
+        	position: fixed;
+        	left: 250px;
+        	width : 800px;
+        	height : 800px;
+        }
+        
+   .carousel-control {
+   	height : 800px
+   }
     </style>
 </head>
 <body>
@@ -39,7 +48,7 @@
 			<h3><span class="icon-dashboard"></span>프로젝트</h3>
 			<ul>
 				<li><a href="#">프로젝트 리스트</a></li>
-				<li><a href="#">프로젝트 등록</a></li>
+				<li id="project-register"><a href="#">프로젝트 등록</a></li>
 				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
 				
 			</ul>
@@ -77,8 +86,11 @@
 	<!-- <button id="projectInfo" type="button" class="btn btn-primary">프로젝트 관리</button> -->
 </div> <!-- end accordian-->
     
-    
-    
+ 
+
+
+
+
     
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -124,20 +136,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <script>
         $(function() {
 			
@@ -148,11 +146,11 @@
 				}
 			});
 
-			if ('${login_id}' != null) {
+			/* if ('${login_id}' != null) {
 				alert('${login_id}님 헬조센에 오신걸 환영합니다!');
 			} else  {
 				alert('로그인 실패!');
-			}
+			} */
 			
 			$('.logout').click(function(){
 				alert('${login_id}님 로그아웃 되셧습니다!');
@@ -161,6 +159,10 @@
 			
 			$('#projectInfo').click(function(){
 				location = '/teamsns/project/projectInfo';
+			});
+			
+			$('#project-register').click(function(){
+				location = '/teamsns/register/project-register';
 			});
 
 		});
