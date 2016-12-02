@@ -4,90 +4,100 @@ import java.util.Date;
 import java.util.UUID;
 
 public class ProjectVO {
-	private String project_id;
-	private String team_id;
-	private String project_name;
-	private String project_category;
-	private Date project_start;
-	private Date project_end;
-	private String project_intro;
-	private String meeting_area;
-	
-	public ProjectVO(){
-		project_id = "p" + UUID.randomUUID().toString();
-	}
+   private String pid;
+   private String pname;
+   private String category;
+   private Date start;
+   private Date end;
+   private String intro;
+   private String district;
+   private String meeting_area;
+   private String team_id;
+   
+   public ProjectVO(){
+	   pid = "p" + UUID.randomUUID().toString();
+   }
 
-	public ProjectVO(String team_id, String project_name, String project_category,
-			Date project_start, Date project_end, String project_intro, String meeting_area) {
-		
-		project_id = "p" + UUID.randomUUID().toString();
-		this.team_id = team_id;
-		this.project_name = project_name;
-		this.project_category = project_category;
-		this.project_start = project_start;
-		this.project_end = project_end;
-		this.project_intro = project_intro;
-		this.meeting_area = meeting_area;
-	}
+   public ProjectVO(String pname, String category, Date start, Date end, String intro, String district,
+         String meeting_area, String team_id) {
 
-	public String getProject_id() {
-		return project_id;
-	}
+	   pid = "p" + UUID.randomUUID().toString();
+      this.pname = pname;
+      this.category = category;
+      this.start = start;
+      this.end = end;
+      this.intro = intro;
+      this.district = district;
+      this.meeting_area = meeting_area;
+      this.team_id = team_id;
+   }
 
-	public String getTeam_id() {
-		return team_id;
-	}
+   public String getPid() {
+      return pid;
+   }
 
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
-	}
+   public String getPname() {
+      return pname;
+   }
 
-	public String getproject_name() {
-		return project_name;
-	}
+   public void setPname(String pname) {
+      this.pname = pname;
+   }
 
-	public void setproject_name(String project_name) {
-		this.project_name = project_name;
-	}
+   public String getCategory() {
+      return category;
+   }
 
-	public String getProject_category() {
-		return project_category;
-	}
+   public void setCategory(String category) {
+      this.category = category;
+   }
 
-	public void setProject_category(String project_category) {
-		this.project_category = project_category;
-	}
+   public Date getStart() {
+      return start;
+   }
 
-	public Date getproject_start() {
-		return project_start;
-	}
+   public void setStart(Date start) {
+      this.start = start;
+   }
 
-	public void setproject_start(Date project_start) {
-		this.project_start = project_start;
-	}
+   public Date getEnd() {
+      return end;
+   }
 
-	public Date getProject_end() {
-		return project_end;
-	}
+   public void setEnd(Date end) {
+      this.end = end;
+   }
 
-	public void setProject_end(Date project_end) {
-		this.project_end = project_end;
-	}
+   public String getIntro() {
+      return intro;
+   }
 
-	public String getProject_intro() {
-		return project_intro;
-	}
+   public void setIntro(String intro) {
+      this.intro = intro;
+   }
 
-	public void setProject_intro(String project_intro) {
-		this.project_intro = project_intro;
-	}
+   public String getDistrict() {
+      return district;
+   }
 
-	public String getMeeting_area() {
-		return meeting_area;
-	}
+   public void setDistrict(String district) {
+      this.district = district;
+   }
 
-	public void setMeeting_area(String meeting_area) {
-		this.meeting_area = meeting_area;
-	}
-	
+   public String getMeeting_area() {
+      return meeting_area;
+   }
+
+   public void setMeeting_area(String meeting_area) {
+      this.meeting_area = meeting_area;
+   }
+
+   public String getTeam_id() {
+      return team_id;
+   }
+
+   public void setTeam_id(String team_id) {
+      this.team_id = team_id;
+   }
+
 }

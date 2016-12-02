@@ -5,16 +5,21 @@
 <mapper namespace="edu.hexa.minjee.RegisterMapper">
 
 	<!-- 회원가입 연동 후 user_id 추가 -->
-	<insert id="insert_team">
-	insert into team(team_id, team_name, team_intro)
-	values (#{team_id}, #{team_name}, #{team_intro})
-	</insert>
 	
 	<insert id="insert_project">
-	insert into project(project_id, team_id, project_start, project_end)
-	values (#{project_id}, #{team_id}, #{project_start}, #{project_end})
+	insert into project(pid, pname, category, start, end, intro, district)
+	values (#{pid}, #{pname}, #{category}, #{start}, #{end}, #{intro}, #{district})
+	</insert>
+	
+	<insert id="insert_part">
+	insert into manage_project_part(pid, part)
+	values (#{pid}, #{part})
+	</insert>
+	
+	<insert id="insert_skill">
+	insert into required_skill(pid, skill_1)
+	values (#{pid}, #{skill_1})
 	</insert>
 	
 	
-
 </mapper>

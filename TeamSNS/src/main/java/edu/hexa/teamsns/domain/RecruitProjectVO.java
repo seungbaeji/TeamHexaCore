@@ -3,83 +3,83 @@ package edu.hexa.teamsns.domain;
 import java.util.Date;
 
 public class RecruitProjectVO {
-	
-	private int recruit_bno;
-	private String project_id;
-	private String team_id;
-	private String recruit_title;
-	private Date recruit_start;
-	private Date recruit_end;
-	private int recruit_hits;
-	
-	public RecruitProjectVO(){}
+   
+   private int rbno;
+   private String pid;
+   private String title;
+   private Date start;
+   private Date end;
+   private int recruit_hits;
+   private String team_id;
+   
+   public RecruitProjectVO(){}
 
-	public RecruitProjectVO(int recruit_bno, String project_id, String team_id, String recruit_title,
-			Date recruit_start, Date recruit_end, int recruit_hits) {
-		super();
-		this.recruit_bno = recruit_bno;
-		this.project_id = project_id;
-		this.team_id = team_id;
-		this.recruit_title = recruit_title;
-		this.recruit_start = recruit_start;
-		this.recruit_end = recruit_end;
-		this.recruit_hits = recruit_hits;
-	}
+   public RecruitProjectVO(int rbno, String pid, String title, Date start, Date end, int recruit_hits,
+         String team_id) {
+	   
+      this.rbno = rbno;
+      this.pid = pid;
+      this.title = title;
+      this.start = start;
+      this.end = end;
+      this.recruit_hits = recruit_hits;
+      this.team_id = team_id;
+   }
 
-	public int getRecruit_bno() {
-		return recruit_bno;
-	}
+   public int getRbno() {
+      return rbno;
+   }
 
-	public void setRecruit_bno(int recruit_bno) {
-		this.recruit_bno = recruit_bno;
-	}
+   public void setRbno(int rbno) {
+      this.rbno = rbno;
+   }
 
-	public String getProject_id() {
-		return project_id;
-	}
+   public String getPid() {
+      return pid;
+   }
 
-	public void setProject_id(String project_id) {
-		this.project_id = project_id;
-	}
+   public void setPid(String pid) {
+      this.pid = pid;
+   }
 
-	public String getTeam_id() {
-		return team_id;
-	}
+   public String getTitle() {
+      return title;
+   }
 
-	public void setTeam_id(String team_id) {
-		this.team_id = team_id;
-	}
+   public void setTitle(String title) {
+      this.title = title;
+   }
 
-	public String getRecruit_title() {
-		return recruit_title;
-	}
+   public Date getStart() {
+      return start;
+   }
 
-	public void setRecruit_title(String recruit_title) {
-		this.recruit_title = recruit_title;
-	}
+   public void setStart(Date start) {
+      this.start = start;
+   }
 
-	public Date getRecruit_start() {
-		return recruit_start;
-	}
+   public Date getEnd() {
+      return end;
+   }
 
-	public void setRecruit_start(Date recruit_start) {
-		this.recruit_start = recruit_start;
-	}
+   public void setEnd(Date end) {
+      this.end = end;
+   }
 
-	public Date getRecruit_end() {
-		return recruit_end;
-	}
+   public int getRecruit_hits() {
+      return recruit_hits;
+   }
 
-	public void setRecruit_end(Date recruit_end) {
-		this.recruit_end = recruit_end;
-	}
+   public void setRecruit_hits(int recruit_hits) {
+      this.recruit_hits = recruit_hits;
+   }
 
-	public int getRecruit_hits() {
-		return recruit_hits;
-	}
+   public String getTeam_id() {
+      return team_id;
+   }
 
-	public void setRecruit_hits(int recruit_hits) {
-		this.recruit_hits = recruit_hits;
-	}
+   public void setTeam_id(String team_id) {
+      this.team_id = team_id;
+   }
 
 }

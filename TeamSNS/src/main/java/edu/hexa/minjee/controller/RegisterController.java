@@ -2,6 +2,7 @@ package edu.hexa.minjee.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.hexa.minjee.service.ManageProjectPartService;
 import edu.hexa.minjee.service.ProjectService;
+import edu.hexa.minjee.service.RequiredSkillService;
 import edu.hexa.minjee.service.TeamService;
+import edu.hexa.teamsns.domain.ManageProjectPartVO;
 import edu.hexa.teamsns.domain.ProjectVO;
+import edu.hexa.teamsns.domain.RequiredSkillVO;
 import edu.hexa.teamsns.domain.TeamVO;
 
 
@@ -25,39 +30,47 @@ public class RegisterController {
 			LoggerFactory.getLogger(RegisterController.class);
 	
 	@Autowired
-	private TeamService teamService;
-	@Autowired
 	private ProjectService projectService;
+	@Autowired
+	private ManageProjectPartService partService;
+	@Autowired
+	private RequiredSkillService skillService;
 	
-	@RequestMapping(value = "register")
+	@RequestMapping(value = "project-register")
 	public void registerGET() {
 		logger.info("registerGET() 호출.... ");
 	}
 	
-	@RequestMapping(value="register", method=RequestMethod.POST)
-	public String registerPOST(TeamVO tvo, 
-				String project_start, String project_end, RedirectAttributes attr ) 
+	@RequestMapping(value="project-register", method=RequestMethod.POST)
+	public String registerPOST(String pname, String intro, String start, String end, 
+			String category, String district, 
+			ManageProjectPartVO mvo,
+			RequiredSkillVO rvo,
+			RedirectAttributes attr ) 
 						throws ParseException {
 		logger.info("registerPOST() 호출.... ");
-		int result_team = teamService.create(tvo);
-		logger.info("tvo.getTeam_id(): " + tvo.getTeam_id());
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-		ProjectVO pvo = new ProjectVO();
-		pvo.setTeam_id(tvo.getTeam_id());
-		pvo.setproject_start(format.parse(project_start));
-		pvo.setProject_end(format.parse(project_end));
+		Date dstart = format.parse(start);
+		Date dend = format.parse(end);
+		ProjectVO pvo = new ProjectVO(pname, category, dstart, dend, intro, district, null, null);
 		
 		int result_project = projectService.create(pvo);
 		
-		logger.info("pvo.getProject_id(): " + pvo.getProject_id());
-		if(result_team == 1 && result_project == 1) {
-			attr.addAttribute("insert_result", "success");
-		} else {
-			attr.addAttribute("insert_result", "fail");
-		}
+		logger.info("pvo.getProject_id(): " + pvo.getPid());
+		logger.info("result_project: " + result_project);
 		
-		return "redirect:home";
+		mvo.setPid(pvo.getPid());
+		int result_part = partService.create(mvo);
+		logger.info("mvo.getPart(): " + mvo.getPart());
+		
+		rvo.setPid(pvo.getPid());
+		int result_skill = skillService.create(rvo);
+		logger.info("rvo.getSkill_1()" + rvo.getSkill_1());
+		
+		
+		
+		return "redirect:project-register";
 		
 	}
 }
