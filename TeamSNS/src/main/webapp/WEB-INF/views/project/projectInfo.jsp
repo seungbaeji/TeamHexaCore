@@ -57,7 +57,7 @@
 			<h3><span class="icon-dashboard"></span>프로젝트</h3>
 			<ul>
 				<li><a href="#">프로젝트 리스트</a></li>
-				<li><a href="#">프로젝트 등록</a></li>
+				<li id="project-register"><a href="#">프로젝트 등록</a></li>
 				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
 				
 			</ul>
@@ -92,7 +92,7 @@
 	<br>
 	<br>
 	
-	<button id="projectInfo" type="button" class="btn btn-primary">프로젝트 관리</button>
+	
     
 </div> <!-- end accordian-->
 
@@ -219,6 +219,10 @@
         	$('.logout').click(function(){
 				alert('${login_id}님 로그아웃 되셧습니다!');
 				location = '/teamsns/signup/logout';
+			});
+        	
+        	$('#project-register').click(function(){
+				location = '/teamsns/register/project-register';
 			});
         });
         

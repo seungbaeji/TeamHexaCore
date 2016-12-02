@@ -43,9 +43,11 @@ category_contest
 #main-div {
 	position:fixed;
 	left:250px;
+	height:100%;
 	width: 1000px;
 	border: solid;
 	margin: 20px;
+	overflow-y:scroll;
 }
 
 form>div {
