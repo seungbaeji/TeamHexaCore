@@ -47,12 +47,10 @@
    
 	<ul>
 		<li>
-			<h3><span class="icon-dashboard"></span>Dashboard</h3>
+			<h3><span class="icon-dashboard"></span>프로젝트</h3>
 			<ul>
-				<li><a href="#">Reports</a></li>
-				<li><a href="#">Search</a></li>
-				<li><a href="#">Graphs</a></li>
-				<li><a href="#">Settings</a></li>
+				<li><a href="#">프로젝트 리스트</a></li>
+				
 			</ul>
 		</li>
 		<li class="active">
@@ -65,20 +63,20 @@
 			</ul>
 		</li>
 		<li>
-			<h3><span class="icon-calendar"></span>Calendar</h3>
+			<h3><span class="icon-calendar"></span>커뮤니티</h3>
 			<ul>
-				<li><a href="#">Team Calendar</a></li>
-				<li><a href="#">Private Calendar</a></li>
-				<li><a href="#">Settings</a></li>
+				<li><a href="#">Tip & Tech</a></li>
+				<li><a href="#">자유게시판</a></li>
+				<li><a href="#">Q & A</a></li>
 			</ul>
 		</li>
 		<li>
-			<h3><span class="icon-heart"></span>Favourites</h3>
+			<h3><span class="icon-heart"></span>null</h3>
 			<ul>
-				<li><a href="#">Global favs</a></li>
-				<li><a href="#">My favs</a></li>
-				<li><a href="#">Team favs</a></li>
-				<li><a href="#">Settings</a></li>
+				<li><a href="#">null</a></li>
+				<li><a href="#">null</a></li>
+				<li><a href="#">null</a></li>
+				<li><a href="#">null</a></li>
 			</ul>
 		</li>
 	</ul>

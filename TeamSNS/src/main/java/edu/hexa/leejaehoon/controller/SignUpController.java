@@ -25,7 +25,7 @@ public class SignUpController {
 	private SignUpService signUpService;
 	
 	@RequestMapping(value="main-page", method=RequestMethod.GET)
-	public void mainTest(SignUpVO vo,Model model){	
+	public void mainTest(){	
 		
 		
 		
@@ -89,7 +89,10 @@ public class SignUpController {
 	
 	
 	
-	
+	@RequestMapping(value="includeTest")
+	public void Test(){
+		
+	}
 	
 	
 	

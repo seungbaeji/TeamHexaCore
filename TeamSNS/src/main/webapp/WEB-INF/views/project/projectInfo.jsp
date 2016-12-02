@@ -1,26 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html >
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../resources/css/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  
     <style>
         *{
             margin: 0;
             padding: 0;
         }
+        
+        #projectInfo{
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .projectList{
+            position: fixed;
+            left: 250px;
+            width: 800px;
+            height: 500px;
+            border: 1px solid black;
+        }
    
     </style>
 </head>
 <body>
+   
+   
+   
    <div id="accordian">
       
        <img id="logo" src="../resources/css/Logo_wide.svg"/>
@@ -74,12 +92,59 @@
 	<br>
 	<br>
 	
-	<!-- <button id="projectInfo" type="button" class="btn btn-primary">프로젝트 관리</button> -->
+	<button id="projectInfo" type="button" class="btn btn-primary">프로젝트 관리</button>
+    
 </div> <!-- end accordian-->
+
+
+<div class="projectList">
+    <table class="table table-hover table-borerd">
+         <tr>
+             <td>카테고리</td>
+             <td>프로젝트 이름</td>
+             <td>프로젝트 소개</td>
+             <td>시작일</td>
+             <td>종료일</td>
+         </tr>
+		 <c:forEach var ="vo" items="${projectList}">
+		 <tr>
+		 	<td>${vo.category}</td>
+		 	<td>${vo.pname}</td>
+		 	<td>${vo.intro}</td>
+		 	<td>${vo.start}</td>
+		 	<td>${vo.end}</td>
+		 </tr>
+		 </c:forEach>
+		          
+         <tr>
+            <td>Mt. Lassen</td>
+            <td>California</td>
+            <td>1914-17</td>
+            <td>16.12.12</td>
+            <td>17.02.09</td>
+         </tr>
+         <tr>
+            <td>Mt. Hood</td>
+            <td>Oregon</td>
+            <td>1790s</td>
+            <td>16.12.12</td>
+            <td>17.02.09</td>
+         </tr>
+         <tr>
+            <td>Mt .St. Helens</td>
+            <td>Washington</td>
+            <td>1980</td>
+            <td>16.12.12</td>
+            <td>17.02.09</td>
+         </tr>
+    </table>
+    
+</div>    
     
     
-    
-    
+
+   
+            
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -139,31 +204,26 @@
     
     
     <script>
-        $(function() {
-			
-			$("#accordian h3").click(function() {
-				$("#accordian ul ul").slideUp();
-				if (!$(this).next().is(":visible")) {
-					$(this).next().slideDown();
-				}
-			});
-
-			if ('${login_id}' != null) {
-				alert('${login_id}님 헬조센에 오신걸 환영합니다!');
-			} else  {
-				alert('로그인 실패!');
-			}
-			
-			$('.logout').click(function(){
+        $(function(){
+	$("#accordian h3").click(function(){
+		$("#accordian ul ul").slideUp();
+		if(!$(this).next().is(":visible"))
+		{
+			$(this).next().slideDown();
+		}
+	});
+}); 	
+        
+        
+        $(document).ready(function(){
+        	$('.logout').click(function(){
 				alert('${login_id}님 로그아웃 되셧습니다!');
 				location = '/teamsns/signup/logout';
 			});
-			
-			$('#projectInfo').click(function(){
-				location = '/teamsns/project/projectInfo';
-			});
-
-		});
-	</script>
+        });
+        
+        
+        
+    </script>
 </body>
 </html>
