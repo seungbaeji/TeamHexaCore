@@ -28,6 +28,7 @@
        <img id="logo" src="../resources/css/Logo_wide.svg"/>
        
      <div class="loginForm">
+        	
         <form action="login" method="post">
            <div class="box">
             <input type="text" name = "user_id" id="user_id" class="user_id" placeholder="아이디">
@@ -80,6 +81,9 @@
 			</ul>
 		</li>
 	</ul>
+		<button class="mypage">마이페이지</button>
+    	<button class="logout">로그아웃</button>
+	
 </div> <!-- end accordian-->
 
 	<!-- strat modal -->
@@ -128,6 +132,7 @@
             </div>
         </div> <!--  end modal -->
 
+	
 
 
 
@@ -152,6 +157,17 @@
         	        alert('신규 회원 가입 실패!');
         	    }
         	 
+        	  if('${success}' == 'success'){
+        		 $('.loginForm').hide();
+        	  } else{
+        		  $('.logout').hide();
+        		  $('.mypage').hide();
+        	  }
+        	  
+        	 $('.logout').click(function(){
+ 				alert('${login_id}님 로그아웃 되셧습니다!');
+ 				location = '/teamsns/signup/logout';
+ 			});
         	
         });
     </script>

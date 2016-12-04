@@ -23,31 +23,33 @@ category_contest
 <head>
 <meta charset="UTF-8">
 <title>TeamRegi</title>
+
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!-- 달력 -->
-<link rel="stylesheet" href="/resources/demos/style.css">
-<!-- 달력 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- 달력 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+
+
 </head>
 <style>
+*{
+	margin:0;
+	padding:0;
+}
 #main-div {
-	position:fixed;
+	position:fixed; 
 	left:250px;
 	height:100%;
 	width: 1000px;
 	border: solid;
 	margin: 20px;
-	overflow-y:scroll;
+	 overflow-y:scroll; 
 }
 
 form>div {
@@ -73,6 +75,7 @@ h1 {
 }
 
 #start, #end {
+
 	width: 6em;
 	font-size: 20px;
 }
@@ -102,10 +105,11 @@ h1 {
 #part_1 {
 	background-color: goldenrod;
 }
+
 </style>
 
 <body>
-	<jsp:include page="../signup/main-login.jsp"></jsp:include>
+	<jsp:include page="../signup/main-login.jsp" flush="false"></jsp:include>
 
 	<div id="main-div">
 		<form action="project-register" method="post">

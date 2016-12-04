@@ -14,6 +14,7 @@ import edu.hexa.leejaehoon.domain.SignUpVO;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 	private static final String SESSION_ATTR_ID = "login_id";
+	private static final String SESSION_ATTR_SUCCESS = "success";
 		
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 	
@@ -29,7 +30,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			// 세션 객체를 얻어옴
 			HttpSession session = request.getSession();
 			logger.info("prehandle() 세션 : " + session.toString());
-			
+				
 			Object id = session.getAttribute(SESSION_ATTR_ID);
 			if(id != null){ // 세션에 기존정보가 남아있는 경우
 				session.removeAttribute(SESSION_ATTR_ID);
@@ -64,6 +65,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				logger.info(" 로그인 성공!");
 				// 세션에 로그인 성공 아이디 저장
 				session.setAttribute(SESSION_ATTR_ID, result.getUser_id());
+				session.setAttribute(SESSION_ATTR_SUCCESS, "success");
 				
 				
 				
@@ -72,7 +74,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				if(dest != null){
 					response.sendRedirect((String)dest);
 				} else {
-					response.sendRedirect("/teamsns/signup/main-login");
+					response.sendRedirect("/teamsns/signup/main-page");
 				}
 				
 				
