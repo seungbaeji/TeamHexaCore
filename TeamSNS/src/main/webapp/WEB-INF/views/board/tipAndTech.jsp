@@ -69,7 +69,7 @@
            <c:forEach var = "VO" items="${tiplist}">
            <tr>
                <td>${VO.bno}</td>
-               <td>${VO.title}</td>
+               <td><a href=>${VO.title}</a></td>
                <td>${VO.writer_uid}</td>
                <td>${VO.regdate}</td>
                <td>${VO.recommend}</td>
@@ -82,7 +82,17 @@
 	</div>
 	
 	<script>
-		
+		$(document).ready(function(){
+			$('#btnNew').click(function(){
+				location = '/teamsns/board/ttRegister'
+			});
+			
+			if ('${insert_tt}' == 'success') {
+    	        alert('글 작성 성공!');
+    	    } else if ('${insert_tt}' == 'fail') {
+    	        alert('글 작성 실패!');
+    	    }
+		});
 	</script>
 	
 	

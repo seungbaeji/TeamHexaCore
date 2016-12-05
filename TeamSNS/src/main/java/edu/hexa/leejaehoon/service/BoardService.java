@@ -8,4 +8,8 @@ public interface BoardService {
 	
 	public abstract List<BoardVO> selectTip();
 	
+	public abstract int insertTip(BoardVO vo);
+	
+	public abstract BoardVO read(int bno);
+	
 }

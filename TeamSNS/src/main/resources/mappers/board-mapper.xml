@@ -9,5 +9,12 @@
 	<select id="selectAllTip" resultType="edu.hexa.leejaehoon.domain.BoardVO">
 		select * from tt_board;
 	</select>
+	
+	<insert id="insertTip">
+		insert into tt_board (title,content,writer_uid) value (#{title},#{content},#{writer_uid})
+	</insert>
   
+  	<select id="selectBno">
+  		SELECT * FROM pentacore.tt_board WHERE bno={#bno};
+  	</select>
   </mapper>

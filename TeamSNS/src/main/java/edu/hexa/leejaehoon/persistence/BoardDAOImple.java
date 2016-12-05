@@ -27,4 +27,18 @@ public class BoardDAOImple implements BoardDAO {
 		return list;
 	}
 
+	@Override
+	public int insert(BoardVO vo) {
+		logger.info("insert(): title = " + vo.getTitle());	
+		int result = sqlsession.insert(NAMESPCAE + ".insertTip", vo);
+		return result;
+	}
+
+	@Override
+	public BoardVO select(int bno) {
+			BoardVO vo = sqlsession.selectOne(NAMESPCAE + ".selectBno", bno);
+			logger.info("select() 호출: bno = " + bno);
+		return vo;
+	}
+
 }

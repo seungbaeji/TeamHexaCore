@@ -20,4 +20,16 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.select();
 	}
 
+	@Override
+	public int insertTip(BoardVO vo) {
+		
+		return boardDao.insert(vo);
+	}
+
+	@Override
+	public BoardVO read(int bno) {
+		
+		return boardDao.select(bno);
+	}
+
 }
