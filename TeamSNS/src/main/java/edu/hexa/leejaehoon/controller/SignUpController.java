@@ -30,6 +30,7 @@ public class SignUpController {
 		
 		
 		logger.info("메인페이지 호출");
+//		return "main-page";
 	}
 	
 	@RequestMapping(value="main-login", method=RequestMethod.GET)

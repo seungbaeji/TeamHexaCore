@@ -37,64 +37,7 @@
 </head>
 <body>
    
-   
-   
-   <div id="accordian">
-      
-       <img id="logo" src="../resources/css/Logo_wide.svg"/>
-       
-   <div class="loginForm">
-    
-        
-        <button class="mypage">마이페이지</button>
-        <button class="logout">로그아웃</button>
-    </div>
-      <br/>
-      <br/>
-   
-	<ul>
-		<li>
-			<h3><span class="icon-dashboard"></span>프로젝트</h3>
-			<ul>
-				<li><a href="#">프로젝트 리스트</a></li>
-				<li id="project-register"><a href="#">프로젝트 등록</a></li>
-				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
-				
-			</ul>
-		</li>
-		<li class="active">
-			<h3><span class="icon-tasks"></span>정보</h3>
-			<ul>
-				<li><a href="#">창업교육</a></li>
-				<li><a href="#">멘토링</a></li>
-				<li><a href="#">행사</a></li>
-				
-			</ul>
-		</li>
-		<li>
-			<h3><span class="icon-calendar"></span>커뮤니티</h3>
-			<ul>
-				<li><a href="#">Tip & Tech</a></li>
-				<li><a href="#">자유게시판</a></li>
-				<li><a href="#">Q & A</a></li>
-			</ul>
-		</li>
-		<li>
-			<h3><span class="icon-heart"></span>null</h3>
-			<ul>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-			</ul>
-		</li>
-	</ul>
-	<br>
-	<br>
-	
-	
-    
-</div> <!-- end accordian-->
+<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
 
 
 <div class="projectList">
@@ -204,17 +147,7 @@
     
     
     <script>
-        $(function(){
-	$("#accordian h3").click(function(){
-		$("#accordian ul ul").slideUp();
-		if(!$(this).next().is(":visible"))
-		{
-			$(this).next().slideDown();
-		}
-	});
-}); 	
-        
-        
+                
         $(document).ready(function(){
         	$('.logout').click(function(){
 				alert('${login_id}님 로그아웃 되셧습니다!');

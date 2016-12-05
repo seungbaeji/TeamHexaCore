@@ -24,15 +24,16 @@ category_contest
 <meta charset="UTF-8">
 <title>TeamRegi</title>
 
-<!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+<!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+   <!--  달력 -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 
@@ -109,7 +110,7 @@ h1 {
 </style>
 
 <body>
-	<jsp:include page="../signup/main-login.jsp" flush="false"></jsp:include>
+	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
 
 	<div id="main-div">
 		<form action="project-register" method="post">
@@ -232,23 +233,7 @@ h1 {
 	</div>
 	<script>
         /* 달력 */
-        $(document).ready(function () {
-            $("#start, #end").datepicker({
-                dateFormat: 'yymmdd'
-                , monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-                , dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
-                , changeMonth: true, //월변경가능
-                changeYear: true, //년변경가능
-                showMonthAfterYear: true //년 뒤에 월 표시
-            });
-            /* 글자수 체크1 */
-            $('#pname, .part').keyup(function () {
-                if ($(this).val().length > $(this).attr('maxlength')) {
-                    alert('제한길이 초과');
-                    $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
-                }
-            });
-        });
+        
         /* 글자수 체크2 */
         function fnChkByte(obj, maxByte) {
             var str = obj.value;
