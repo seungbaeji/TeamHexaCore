@@ -1,5 +1,7 @@
 package edu.hexa.teamsns.domain;
 
+import java.util.Date;
+
 public class UserVO {
    
    private String uid;
@@ -10,25 +12,31 @@ public class UserVO {
    private String phone;
    private String kkoid;
    private String email;
+   private Boolean gender;
+   private Date birth;
+   private String address;
    private int user_level;
    
    public UserVO(){}
-
    public UserVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
-         String email, int user_level) {
-      super();
-      this.uid = uid;
-      this.pw = pw;
-      this.name = name;
-      this.nickname = nickname;
-      this.profile_img = profile_img;
-      this.phone = phone;
-      this.kkoid = kkoid;
-      this.email = email;
-      this.user_level = user_level;
-   }
+		String email, Boolean gender, Date birth, String address, int user_level) {
+	super();
+	this.uid = uid;
+	this.pw = pw;
+	this.name = name;
+	this.nickname = nickname;
+	this.profile_img = profile_img;
+	this.phone = phone;
+	this.kkoid = kkoid;
+	this.email = email;
+	this.gender = gender;
+	this.birth = birth;
+	this.address = address;
+	this.user_level = user_level;
+}
 
-   public String getUid() {
+
+public String getUid() {
       return uid;
    }
 
@@ -96,8 +104,29 @@ public class UserVO {
       return user_level;
    }
 
-   public void setUser_level(int user_level) {
-      this.user_level = user_level;
+   public Boolean getGender() {
+	return gender;
    }
+   
+	public void setGender(Boolean gender) {
+		this.gender = gender;
+	}
+	public Date getBirth() {
+		return birth;
+	}
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public void setUser_level(int user_level) {
+	      this.user_level = user_level;
+	}
+   
+   
    
 }

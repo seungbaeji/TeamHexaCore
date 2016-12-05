@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.hexa.minjee.domain.ManageProjectPartDTO;
 import edu.hexa.minjee.service.ManageProjectPartService;
 import edu.hexa.minjee.service.ProjectService;
 import edu.hexa.minjee.service.RequiredSkillService;
@@ -46,24 +47,34 @@ public class RegisterController {
 			String category, String district, 
 			ManageProjectPartVO mvo,
 			RequiredSkillVO rvo,
+			ManageProjectPartDTO mdto,
 			RedirectAttributes attr ) 
 						throws ParseException {
 		logger.info("registerPOST() 호출.... ");
 		
+		// project insert
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		Date dstart = format.parse(start);
 		Date dend = format.parse(end);
 		ProjectVO pvo = new ProjectVO(pname, category, dstart, dend, intro, district, null, null);
-		
 		int result_project = projectService.create(pvo);
-		
 		logger.info("pvo.getProject_id(): " + pvo.getPid());
 		logger.info("result_project: " + result_project);
 		
-		mvo.setPid(pvo.getPid());
-		int result_part = partService.create(mvo);
-		logger.info("mvo.getPart(): " + mvo.getPart());
+		// part insert
+		String[] parts = { mdto.getPart1(), mdto.getPart2(), mdto.getPart3(), 
+						mdto.getPart4(), mdto.getPart5(), mdto.getPart6() };
+			
+		for(String part: parts) {
+			mvo.setPid(pvo.getPid());
+			if(part != null) {
+				mvo.setPart(part);
+				int result_part = partService.create(mvo);
+				logger.info("mvo.getPart(): " + mvo.getPart());
+			}
+		}
 		
+		// skill insert
 		rvo.setPid(pvo.getPid());
 		int result_skill = skillService.create(rvo);
 		logger.info("rvo.getSkill_1()" + rvo.getSkill_1());

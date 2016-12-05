@@ -2,16 +2,16 @@ package edu.hexa.teamsns.domain;
 
 public class ManageProjectPartVO {
 	private String pid;
-	   private String user_id;
-	   private String part;
+	private String user_id;
+	private String part;
 	   
-	   public ManageProjectPartVO(){}
+	public ManageProjectPartVO(){}
 
-	   public ManageProjectPartVO(String pid, String user_id, String part) {
-	      super();
-	      this.pid = pid;
-	      this.user_id = user_id;
-	      this.part = part;
+	public ManageProjectPartVO(String pid, String user_id, String part) {
+		super();
+		this.pid = pid;
+		this.user_id = user_id;
+		this.part = part;
 	   }
 
 	   public String getPid() {

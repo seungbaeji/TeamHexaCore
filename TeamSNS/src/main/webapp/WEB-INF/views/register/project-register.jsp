@@ -172,12 +172,12 @@ h1 {
 				<div>
 					<label class="label label-default" id="label_part">모집 팀원 역할</label>
 					<div>
-						<input type="text" class="form-control part" maxlength="20"	id="part" name="part"> 
-						<input type="text" class="form-control part" maxlength="20"> 
-						<input type="text" class="form-control part" maxlength="20"> 
-						<input type="text" class="form-control part" maxlength="20"> 
-						<input type="text" class="form-control part" maxlength="20"> 
-						<input type="text" class="form-control part" maxlength="20">
+						<input type="text" class="form-control part" maxlength="20"	id="part1" name="part1"> 
+						<input type="text" class="form-control part" maxlength="20" id="part2" name="part2"> 
+						<input type="text" class="form-control part" maxlength="20" id="part3" name="part3"> 
+						<input type="text" class="form-control part" maxlength="20" id="part4" name="part4"> 
+						<input type="text" class="form-control part" maxlength="20" id="part5" name="part5"> 
+						<input type="text" class="form-control part" maxlength="20" id="part6" name="part6">
 					</div>
 				</div>
 				<br>
@@ -186,15 +186,15 @@ h1 {
 						기술태그</label>
 					<div>
 						<input type="text" class="form-control skill" maxlength="10" name="skill_1">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
-						<input type="text" class="form-control skill" maxlength="10">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_2">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_3">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_4">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_5">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_6">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_7">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_8">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_9">
+						<input type="text" class="form-control skill" maxlength="10" name="skill_10">
 					</div>
 				</div>
 				<br>

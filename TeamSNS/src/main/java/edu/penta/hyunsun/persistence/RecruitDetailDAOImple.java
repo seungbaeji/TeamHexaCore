@@ -1,0 +1,42 @@
+package edu.penta.hyunsun.persistence;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.hexa.teamsns.domain.ManageProjectPartVO;
+import edu.hexa.teamsns.domain.ProjectVO;
+import edu.hexa.teamsns.domain.RecruitProjectVO;
+import edu.hexa.teamsns.domain.RequiredSkillVO;
+import edu.hexa.teamsns.domain.UserVO;
+import edu.penta.hyunsun.domain.RecruitDetailDTO;
+
+@Repository
+public class RecruitDetailDAOImple implements RecruiteDetailDAO {
+	private static final Logger logger = LoggerFactory.getLogger(RecruitDetailDAOImple.class);
+	private static final String MAPPER = "edu.penta.hyunsun.recruit-detail-mapper";
+	
+	@Autowired
+	private SqlSession sqlSession;
+
+	@Override
+	public RecruitDetailDTO select(int rbno) {
+		logger.info("# 모집글 상세보기 DAO");
+		
+		RecruitProjectVO recruit = sqlSession.selectOne(MAPPER + ".select_recruit", rbno);
+		ProjectVO project = sqlSession.selectOne(MAPPER + ".select_project", rbno);
+		RequiredSkillVO skill = sqlSession.selectOne(MAPPER + ".select_skill", rbno);
+		List<ManageProjectPartVO> parts = sqlSession.selectList(MAPPER + ".select_part", rbno);
+		UserVO team_leader = sqlSession.selectOne(MAPPER + ".select_leader", rbno);
+		
+		RecruitDetailDTO dto = new RecruitDetailDTO(recruit, project, skill, parts, team_leader);
+		logger.info(dto.getProject().getPname());
+		
+		return dto;
+	} // end select()
+	
+}
