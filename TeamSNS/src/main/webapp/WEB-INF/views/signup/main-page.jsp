@@ -106,24 +106,20 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="../resources/css/caracell01.svg" alt="...">
+      <img src="../resources/css/carousel01.svg" alt="...">
       <div class="carousel-caption">
-        ...
       </div>
     </div>
     <div class="item">
-      <img src="../resources/css/caracell01.svg" alt="...">
+      <img src="../resources/css/carousel02.svg" alt="...">
       <div class="carousel-caption">
-        ...
       </div>
     </div>
     <div class="item">
-      <img src="../resources/css/caracell01.svg" alt="...">
+      <img src="../resources/css/carousel03.svg" alt="...">
       <div class="carousel-caption">
-        ...
       </div>
     </div>
-    ...
   </div>
 
   <!-- Controls -->
