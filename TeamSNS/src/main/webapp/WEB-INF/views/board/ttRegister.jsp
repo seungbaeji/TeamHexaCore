@@ -6,6 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+*{
+	margin:0;
+	padding:0;
+}
 	#ttRegister{
         position: fixed;
         width: 1000px;

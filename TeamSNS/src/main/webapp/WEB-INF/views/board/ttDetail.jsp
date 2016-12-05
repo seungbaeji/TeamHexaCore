@@ -31,7 +31,7 @@
         #writer_id{
             margin-left: 5px;
             padding-bottom: 10px;
-            margin-right: 550px;
+            margin-right: 450px;
             width: 30px;
         }
         #regdate{
@@ -56,6 +56,10 @@
         #title{
             margin-left: 10px;
         }
+        #ttDetail4 input{
+        	width:100%;
+        	height:100%;
+        }
 </style>
 </head>
 <body>
@@ -65,22 +69,31 @@
             
             <div id="ttDetail2">
                 <img id="profileImg"/>
-                <a id="writer_id">작성자</a>
-                <span id="regdate" title="16.23.21">16.23.21</span>
+                <a name="writer_uid" id="writer_id">작성자:  ${boardVO.writer_uid} </a>
+                <span id="regdate" title="16.23.21">${boardVO.regdate}</span>
                 <div id="recommend">
-                    <span id="recommend2">추천: </span>
+                    <span id="recommend2">추천:${boardVO.recommend}</span>
                 </div>
-                <span>조회수:</span>
+                <span>조회수:${boardVO.hits}</span>
                 
             </div>
-                <div id="ttDetail3">
-                    <h4 id="bno">#글번호</h4>
+            <div id="ttDetail3">
+                    <h4 id="bno"># ${boardVO.bno}</h4>
                     <br/>
-                    <h2 id="title">작성자 글 제목</h2>    
-                </div>
-            
+                    <h2 id="title">${boardVO.title}</h2>    
+            </div>
+            <div id="ttDetail4">
+            	<p>
+            	
+            	${boardVO.content}</p>
+            </div>	
            
-           
-       </div>
+       </div> <!-- end ttDetail -->
+       
+       <script>
+       	$(document).ready(function(){
+       		
+       	});
+       </script>
 </body>
 </html>

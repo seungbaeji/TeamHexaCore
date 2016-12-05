@@ -49,10 +49,9 @@ public class BoardController {
 		
 	}
 	@RequestMapping(value="ttDetail")
-	public void tipDetail(int bno, @ModelAttribute("page") int page,Model model){
+	public void tipDetail(int bno, Model model){
 		BoardVO vo = boardService.read(bno);
-		//asdasdasdasdasdasdasdasd
-		//asdasdasdasdasd
+		model.addAttribute("boardVO", vo);
 	}
 	
 	@RequestMapping(value="ttRegister",method=RequestMethod.POST)

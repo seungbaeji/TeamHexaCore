@@ -14,6 +14,10 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style>
+		*{
+			margin:0;
+			padding:0;
+		}
 	   #container{
 		position:fixed;
 		left:250px;
@@ -42,7 +46,7 @@
             width: 60px;
         }
         #two{
-            width: 300px;
+            width: 600px;
         }
 </style>
 </head>
@@ -69,7 +73,7 @@
            <c:forEach var = "VO" items="${tiplist}">
            <tr>
                <td>${VO.bno}</td>
-               <td><a href=>${VO.title}</a></td>
+               <td><a href="ttDetail?bno=${VO.bno}">${VO.title}</a></td>
                <td>${VO.writer_uid}</td>
                <td>${VO.regdate}</td>
                <td>${VO.recommend}</td>
@@ -81,11 +85,31 @@
 		
 	</div>
 	
+	<form id="pageForm">
+		<input type="hidden" name="bno" />
+		<%-- <input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
+		<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" /> --%>
+	</form>
+	
 	<script>
 		$(document).ready(function(){
+			
+			var frm = $('#pageForm');
+			
 			$('#btnNew').click(function(){
 				location = '/teamsns/board/ttRegister'
 			});
+			
+			 $('table tr td a').click(function(){
+				event.preventDefalt();
+				var bno = $(this).attr('href');
+				frm.find('[name="bno"]').val(bno);
+				frm.attr('action', 'ttdetail');
+				frm.attr('method', 'get');
+				frm.submit();
+			});
+			
+			
 			
 			if ('${insert_tt}' == 'success') {
     	        alert('글 작성 성공!');

@@ -14,7 +14,7 @@
 		insert into tt_board (title,content,writer_uid) value (#{title},#{content},#{writer_uid})
 	</insert>
   
-  	<select id="selectBno">
-  		SELECT * FROM pentacore.tt_board WHERE bno={#bno};
+  	<select id="selectBno" resultType="edu.hexa.leejaehoon.domain.BoardVO">
+  		SELECT * FROM pentacore.tt_board WHERE bno = #{bno};
   	</select>
   </mapper>

@@ -15,6 +15,10 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
 <style>
 	
+	*{
+		margin:0;
+		padding:0;
+	}
 	#car{
 		position: fixed;
 		left:250px;
