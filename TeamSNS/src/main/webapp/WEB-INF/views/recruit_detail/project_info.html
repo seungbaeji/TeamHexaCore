@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>프로젝트 정보</title>
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        width: 1400px;
+    }
+    
+    #div_info_list_main {
+        width: 800px;
+        border: solid;
+        margin: 20px;
+        float: left;
+    }
+    
+    #div_info_list_main > div {
+        margin: 20px;
+        font-size: 20px;
+    }
+    
+    .team_part {
+        width: 420px;
+    }
+    
+    #team_part_1 {
+        background-color: goldenrod;
+    }
+    
+    .required_skill {
+        width: 240px;
+        display: inline-block;
+    }
+    
+    #content {
+        overflow: hidden;
+    }
+    
+    aside {
+        float: right;
+        width: 520px;
+        height: 900px;
+        margin: 20px;
+        background-color: aqua;
+        font-size: 20px;
+    }
+    
+    aside > div {
+        margin: 20px;
+    }
+    
+    table {
+        font-size: 15px;
+    }
+    
+    .table_member_name {
+        width: 80px;
+    }
+    
+    #table_leader_phone {
+        width: 100px;
+    }
+    
+    #table_member_part {
+        width: 320px;
+    }
+    
+    .date {
+        width: 200px;
+    }
+</style>
+
+<body>
+    <div id="content">
+        <div id="div_info_list_main">
+            <div>
+                <label class="label label-default">팀 이름</label>
+                <input class="form-control" type="text" name="">
+                <br>
+                <label class="label label-default">카테고리</label>
+                <input class="form-control" type="text" name="">
+                <br>
+                <label class="label label-default">모집 기간</label>
+                <input class="form-control date" type="text" name=""> ~
+                <input class="form-control date" type="text" name="">
+                <br>
+                <label class="label label-default">활동 구역</label>
+                <input class="form-control" type="text" name=""> </div>
+            <div id="div_team_intro">
+                <label for="team_intro" class="label label-default" id="label_team_intro">프로젝트 소개</label>
+                <br>
+                <textarea class="form-control" name="team_intro" id="team_intro" cols="50" rows="5"></textarea>
+            </div>
+            <div>
+                <label class="label label-default" id="label_team_part">모집 팀원 역할</label>
+                <div>
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_1" id="team_part_1">
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_2">
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_3">
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_4">
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_5">
+                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_6"> </div>
+            </div>
+            <div>
+                <label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
+                <div>
+                    <input type="text" class="form-control required_skill" maxlength="10" id="required_skill" name="required_skill_1">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_2">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_3">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_4">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_5">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_6">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_7">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_8">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_9">
+                    <input type="text" class="form-control required_skill" maxlength="10" name="required_skill_10"> </div>
+            </div>
+        </div>
+        <aside>
+            <div>
+                <label class="label label-default">팀장</label>
+                <table class="table">
+                    <tr>
+                        <th class="table_member_name">이름</th>
+                        <th>ID</th>
+                        <th>EMAIL</th>
+                        <th id="table_leader_phone">PHONE</th>
+                    </tr>
+                    <tr>
+                        <td>누구ㅁㅁ</td>
+                        <th>ID</th>
+                        <td>abcd@abcd.com</td>
+                        <td>0100100100</td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label class="label label-default">멤버 모집 현황</label>
+                <table class="table">
+                    <tr>
+                        <th class="table_member_name">이름</th>
+                        <th>ID</th>
+                        <th id="table_member_part">역할</th>
+                    </tr>
+                    <tr>
+                        <td>누구ㅁㅁ</td>
+                        <th>ㅁㅁㅁㅁ</th>
+                        <td>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary">지원하기</button>
+            </div>
+        </aside>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('input').attr("readonly", "readonly");
+            $('textarea').attr("readonly", "readonly");
+        });
+    </script>
+</body>
+
+</html>
