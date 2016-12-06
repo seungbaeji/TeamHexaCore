@@ -27,8 +27,8 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	}
 	
 	@Override
-	public List<ProjectCardDTO> read(String district) {
-		return dao.select(district);
+	public List<ProjectCardDTO> read(String[] districts) {
+		return dao.select(districts);
 	}
 
 	@Override

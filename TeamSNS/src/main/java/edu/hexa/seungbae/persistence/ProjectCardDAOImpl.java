@@ -26,8 +26,8 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 
 
 	@Override
-	public List<ProjectCardDTO> select(String district) {
-		return sqlSession.selectList(NAMESPACE + ".selectByDistrict");
+	public List<ProjectCardDTO> select(String[] districts) {
+		return sqlSession.selectList(NAMESPACE + ".selectByDistricts");
 	}
 
 
