@@ -58,7 +58,7 @@
 		<li>
 			<h3><span class="icon-dashboard"></span>프로젝트</h3>
 			<ul>
-				<li><a href="#">프로젝트 리스트</a></li>
+				<li id="project-list"><a href="#">프로젝트 리스트</a></li>
 				<li id="project-register"><a href="#">프로젝트 등록</a></li>
 				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
 			</ul>
@@ -181,6 +181,10 @@
  				alert('${login_id}님 로그아웃 되셧습니다!');
  				location = '/teamsns/signup/logout';
  			});
+        	 
+        	 $('#project-list').click(function(){
+        		location = '/teamsns/project/projectList'; 
+        	 });
         	 
         	 $('#projectInfo').click(function(){
  				location = '/teamsns/project/projectInfo';

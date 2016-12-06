@@ -12,7 +12,8 @@
 	<context:component-scan base-package="edu.hexa.minjee.service" />
 	<context:component-scan base-package="edu.penta.hyunsun.persistence" />
 	<context:component-scan base-package="edu.penta.hyunsun.service" />
-
+	<context:component-scan base-package="edu.hexa.seungbae.persistence" />
+	<context:component-scan base-package="edu.hexa.seungbae.service" />
 	<!-- DBCP(Database Connection Pool)을 사용하는 DataSource -->
 	
 	<!-- MySQl DBCP -->
