@@ -21,7 +21,6 @@ public class ProjectVO {
    
    public ProjectVO(){
 	   pid = "p" + UUID.randomUUID().toString();
-	   logger.info("ProjectVO 생성" + pid);
    }
 
    public ProjectVO(String pname, String category, Date start, Date end, String intro, String district,
@@ -36,7 +35,6 @@ public class ProjectVO {
       this.district = district;
       this.meeting_area = meeting_area;
       this.team_id = team_id;
-      logger.info("ProjectVO 생성 with parameter" + pid);
    }
 
    public String getPid() {

@@ -51,9 +51,10 @@ public class RegisterController {
 	public String registerPOST(String pname, String intro, String start, String end, 
 			String category, String district, 
 			ManageProjectPartVO mvo,
-			RequiredSkillVO rvo,
 			ManageProjectPartDTO mdto,
-			RecruitProjectVO rcvo,
+			RequiredSkillVO rvo,
+//			RecruitProjectVO rcvo,
+			String title, String rcstart, String rcend,
 			RedirectAttributes attr ) 
 						throws ParseException {
 		logger.info("registerPOST() 호출.... ");
@@ -64,29 +65,31 @@ public class RegisterController {
 		Date dend = format.parse(end);
 		ProjectVO pvo = new ProjectVO(pname, category, dstart, dend, intro, district, null, null);
 		int result_project = projectService.create(pvo);
-		logger.info("pvo.getProject_id(): " + pvo.getPid());
-		logger.info("result_project: " + result_project);
+//		logger.info("pvo.getProject_id(): " + pvo.getPid());
+//		logger.info("result_project: " + result_project);
 		
 		// part insert
 		String[] parts = { mdto.getPart1(), mdto.getPart2(), mdto.getPart3(), 
 						mdto.getPart4(), mdto.getPart5(), mdto.getPart6() };
 			
 		for(String part: parts) {
-			mvo.setPid(pvo.getPid());
-			if(part != null) {
-				mvo.setPart(part);
+			if(part != null && part != "") {
+				logger.info("part:" + part.toString());
+				mvo = new ManageProjectPartVO(pvo.getPid(), null, part);
 				int result_part = partService.create(mvo);
 				logger.info("mvo.getPart(): " + mvo.getPart());
+//				logger.info("result_part: " + result_part);
 			}
 		}
 		
 		// skill insert
 		rvo.setPid(pvo.getPid());
 		int result_skill = skillService.create(rvo);
-		logger.info("rvo.getSkill_1()" + rvo.getSkill_1());
 		
 		// recruit insert
-		rcvo.setPid(pvo.getPid());
+		RecruitProjectVO rcvo = 
+				new RecruitProjectVO(0, pvo.getPid(), title, 
+						format.parse(rcstart), format.parse(rcend), 0, null);
 		int result_recruit = recruitService.create(rcvo);
 				
 		return "redirect:project-register";

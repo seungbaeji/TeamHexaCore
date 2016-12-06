@@ -58,19 +58,19 @@ public class RecruitProjectVO {
       this.title = title;
    }
 
-   public Date getStart() {
+   public Date getRcstart() {
       return start;
    }
 
-   public void setStart(Date start) {
+   public void setRcstart(Date start) {
       this.start = start;
    }
 
-   public Date getEnd() {
+   public Date getRcend() {
       return end;
    }
 
-   public void setEnd(Date end) {
+   public void setRcend(Date end) {
       this.end = end;
    }
 

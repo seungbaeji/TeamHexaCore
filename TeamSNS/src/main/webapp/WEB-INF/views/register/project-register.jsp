@@ -4,18 +4,17 @@
 <html lang="ko">
 <!--
 << name 목록 >>
-팀 이름 : team_name
-팀 소개 : team_info
+프로젝트 이름 : pname
+프로젝트 소개 : intro
 프로젝트 기간
-    시작일 : project_start
-    종료일 : project_end
-프로젝트 분야 : team_category
-모집 팀원 역할 : team_part
-주요 업무(프로젝트 소개) : project_intro
-업무관련 기술태그 : required_skill
-주요 활동 지역 : team_area
-팀장 연락처 : user_number
-팀장 이메일 : user_email
+    시작일 : start
+    종료일 : end
+프로젝트 분야 : category
+모집 팀원 역할 : part 
+업무관련 기술태그 : skill
+주요 활동 지역 : district
+팀장 연락처 : phone
+팀장 이메일 : email
 << id 목록 >>
 category_study
 category_contest
@@ -166,7 +165,7 @@ h1 {
 						<label for="team_name" class="label label-default">모집글 제목</label>
 						<br> <input type="text" class="form-control"
 							id="team_recruit_name" name="title"
-							placeholder="Hexa_Core 25자 내로 작성" maxlength="25" required>
+							placeholder="Hexa_Core 25자 내로 작성" maxlength="25" >
 					</div>
 					<br> <label class="label label-default"
 						id="label_project_recruit_date">모집 기간</label> <br>
@@ -195,13 +194,13 @@ h1 {
 					<div>
 						<input type="text" class="form-control required_skill" maxlength="10" name="skill_1"> 
 						<input type="text" class="form-control required_skill" maxlength="10" name="skill_2"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_3"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_4"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_5"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_6"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_7"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_8"> 
-						<input type="text" class="form-control required_skill" maxlength="10" name="skill_9"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_3">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_4">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_5">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_6">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_7">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_8">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_9">
 						<input type="text" class="form-control required_skill" maxlength="10" name="skill_10">
 					</div>
 				</div>
@@ -236,15 +235,15 @@ h1 {
 					<label class="label label-default">팀장 연락처</label> <br>
 					<div class="form-inline">
 						<label for="user_number" class="label label-info leader" id="label_user_number">phone</label> 
-						<input type="tel" class="form-control" id="user_number" value="01065534043" name="phone">
+						<input type="tel" class="form-control" id="user_number" value="01065534043" >
 					</div>
 					<div class="form-inline">
 						<label for="user_email" class="label label-info leader" id="label_user_email">email</label> 
-						<input type="email" class="form-control" id="user_email" value="itwill@it.com" name="email">
+						<input type="email" class="form-control" id="user_email" value="itwill@it.com" >
 					</div>
 					<div class="form-inline">
 						<label for="user_kkoid" class="label label-info leader" id="label_user_kkoid">카카오톡 ID</label> 
-						<input type="text" class="form-control" id="user_kkoid" value="hexacore" name="kkoid">
+						<input type="text" class="form-control" id="user_kkoid" value="hexacore" >
 					</div>
 				</div>
 				<br>
