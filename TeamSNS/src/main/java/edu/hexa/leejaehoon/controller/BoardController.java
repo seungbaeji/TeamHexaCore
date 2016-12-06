@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.hexa.leejaehoon.domain.BoardVO;
+import edu.hexa.leejaehoon.pageutill.PageMaker;
+import edu.hexa.leejaehoon.pageutill.PaginationCriteria;
 import edu.hexa.leejaehoon.service.BoardService;
 
 @Controller
@@ -27,15 +29,15 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@RequestMapping(value="tipAndTech")
-	public void boardList(Model model){
-		
-		List<BoardVO> list = boardService.selectTip();
-		
-		logger.info("controller list = " + list);
-		model.addAttribute("tiplist", list);
-		
-	}
+//	@RequestMapping(value="tipAndTech")
+//	public void boardList(Model model){
+//		
+//		List<BoardVO> list = boardService.selectTip();
+//		
+//		logger.info("controller list = " + list);
+//		model.addAttribute("tiplist", list);
+//		
+//	}
 	
 	@RequestMapping(value="ttRegister")
 	public void tipRegister(HttpServletRequest request,Model model){
@@ -49,7 +51,8 @@ public class BoardController {
 		
 	}
 	@RequestMapping(value="ttDetail")
-	public void tipDetail(int bno, Model model){
+	public void tipDetail(int bno, @ModelAttribute("page") int page,Model model){
+		logger.info("ttdetail======================");
 		BoardVO vo = boardService.read(bno);
 		model.addAttribute("boardVO", vo);
 	}
@@ -67,5 +70,44 @@ public class BoardController {
 		
 		return "redirect:tipAndTech";
 	}
+	
+	@RequestMapping(value="tipAndTech")
+	public void listPage(Integer page, Model model){
+		logger.info("listPage : " + page);
+		
+		PaginationCriteria c = new PaginationCriteria();
+		if(page != null){
+			c.setPage(page);
+		}
+		logger.info("controller :" + c);
+		
+		List<BoardVO> list = boardService.read(c);
+		model.addAttribute("tiplist", list);
+		
+		PageMaker maker = new PageMaker();
+		maker.setCriteria(c);
+		maker.setTotalCount(boardService.getNumOfRecords());
+		maker.setPageData();
+		model.addAttribute("pageMaker", maker);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 } // end class

@@ -41,7 +41,7 @@
 </div> <!--end ttRegister-->
 	<script>
 		$(document).ready(function(){
-			alert("${login_id}");
+			
 		});
 	</script>
 </body>

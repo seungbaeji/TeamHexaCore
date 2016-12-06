@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.hexa.leejaehoon.domain.BoardVO;
+import edu.hexa.leejaehoon.pageutill.PaginationCriteria;
 import edu.hexa.leejaehoon.persistence.BoardDAO;
 
 @Service
@@ -30,6 +31,18 @@ public class BoardServiceImple implements BoardService {
 	public BoardVO read(int bno) {
 		
 		return boardDao.select(bno);
+	}
+
+	@Override
+	public int getNumOfRecords() {
+		
+		return boardDao.getNumOfRecords();
+	}
+
+	@Override
+	public List<BoardVO> read(PaginationCriteria c) {
+		// TODO Auto-generated method stub
+		return boardDao.select(c);
 	}
 
 }

@@ -46,8 +46,20 @@
             width: 60px;
         }
         #two{
-            width: 600px;
+            width: 450px;
         }
+        ul {
+			list-style-type: none;
+		}
+		#links{
+			width:100%;
+			text-align: center;
+		}
+		.pageLinks li{
+			display: inline-block;
+			margin-left:10px;
+			margin-right:10px;
+		}
 </style>
 </head>
 <body>
@@ -67,13 +79,13 @@
              <th id="three">작성자</th>
              <th id="four">작성일</th>
              <th id="five">추천수</th>
-             <th id="six">좋아요</th>
+             <th id="six">조회수</th>
              
           </tr>
            <c:forEach var = "VO" items="${tiplist}">
            <tr>
                <td>${VO.bno}</td>
-               <td><a href="ttDetail?bno=${VO.bno}">${VO.title}</a></td>
+               <td><a href="${VO.bno}">${VO.title}</a></td> 
                <td>${VO.writer_uid}</td>
                <td>${VO.regdate}</td>
                <td>${VO.recommend}</td>
@@ -83,12 +95,31 @@
             
         </table>
 		
+		<div id="links">
+		<ul class="pageLinks">
+		<c:if test="${pageMaker.hasPrev }">
+			<li><a href="${pageMaker.startPageNum - 1 }">&laquo;이전</a></li>
+		</c:if>
+
+		<c:forEach begin="${pageMaker.startPageNum }"
+			end="${pageMaker.endPageNum }" var="num">
+			<li><a href="${num }">${num }</a></li>
+		</c:forEach>
+
+		<c:if test="${pageMaker.hasNext }">
+			<li><a href="${pageMaker.endPageNum + 1 }">다음&raquo;</a></li>
+		</c:if>
+
+		</ul>
+		</div>
 	</div>
+	
+	
 	
 	<form id="pageForm">
 		<input type="hidden" name="bno" />
-		<%-- <input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
-		<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" /> --%>
+		<input type="hidden" name="page" value="${pageMaker.criteria.page }" /> 
+		<input type="hidden" name="perPage" value="${pageMaker.criteria.perPage }" />
 	</form>
 	
 	<script>
@@ -101,14 +132,27 @@
 			});
 			
 			 $('table tr td a').click(function(){
-				event.preventDefalt();
+				 console.log('===================================');
+				event.preventDefault();
 				var bno = $(this).attr('href');
 				frm.find('[name="bno"]').val(bno);
-				frm.attr('action', 'ttdetail');
+				frm.attr('action', 'ttDetail');
 				frm.attr('method', 'get');
 				frm.submit();
 			});
-			
+			 $('.pageLinks li a').click(function() {
+					event.preventDefault(); // 기본 이벤트 처리 방식을 방지(막음)
+					// pageForm 안에 있는 name="page"인 요소를 찾아서
+					// 이동할 페이지 번호를 세팅
+					var targetPage = $(this).attr('href');
+					frm.find('[name="page"]').val(targetPage);
+					// 페이징 화면으로 보내기 위한 action 정보
+					frm.attr('action', 'tipAndTech');
+					// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)
+					frm.attr('method', 'get');
+					// 폼 양식을 서버로 전송
+					frm.submit();
+				});
 			
 			
 			if ('${insert_tt}' == 'success') {

@@ -12,6 +12,7 @@ public class ProjectInfoVO {
    private String district;
    private String meeting_area;
    private String team_id;
+   private String uid;
    
    public ProjectInfoVO(){}
 
