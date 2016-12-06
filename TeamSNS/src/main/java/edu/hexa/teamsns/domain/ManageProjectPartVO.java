@@ -28,11 +28,13 @@ public class ManageProjectPartVO {
 	}
 
 	public String getPart_pk() {
+		logger.info("part_pk 획득");
 		return part_pk;
 	}
 
 	public void setPart_pk(String part_pk) {
 		this.part_pk = part_pk;
+		logger.info("part_pk 설정");
 	}
 
 	public String getPid() {
