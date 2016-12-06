@@ -15,10 +15,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.hexa.minjee.domain.ManageProjectPartDTO;
 import edu.hexa.minjee.service.ManageProjectPartService;
 import edu.hexa.minjee.service.ProjectService;
+import edu.hexa.minjee.service.RecruitProjectService;
 import edu.hexa.minjee.service.RequiredSkillService;
 import edu.hexa.minjee.service.TeamService;
 import edu.hexa.teamsns.domain.ManageProjectPartVO;
 import edu.hexa.teamsns.domain.ProjectVO;
+import edu.hexa.teamsns.domain.RecruitProjectVO;
 import edu.hexa.teamsns.domain.RequiredSkillVO;
 import edu.hexa.teamsns.domain.TeamVO;
 
@@ -36,6 +38,9 @@ public class RegisterController {
 	private ManageProjectPartService partService;
 	@Autowired
 	private RequiredSkillService skillService;
+	@Autowired
+	private RecruitProjectService recruitService;
+	
 	
 	@RequestMapping(value = "project-register")
 	public void registerGET() {
@@ -48,6 +53,7 @@ public class RegisterController {
 			ManageProjectPartVO mvo,
 			RequiredSkillVO rvo,
 			ManageProjectPartDTO mdto,
+			RecruitProjectVO rcvo,
 			RedirectAttributes attr ) 
 						throws ParseException {
 		logger.info("registerPOST() 호출.... ");
@@ -79,8 +85,10 @@ public class RegisterController {
 		int result_skill = skillService.create(rvo);
 		logger.info("rvo.getSkill_1()" + rvo.getSkill_1());
 		
-		
-		
+		// recruit insert
+		rcvo.setPid(pvo.getPid());
+		int result_recruit = recruitService.create(rcvo);
+				
 		return "redirect:project-register";
 		
 	}

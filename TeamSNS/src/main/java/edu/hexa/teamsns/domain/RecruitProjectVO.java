@@ -3,7 +3,7 @@ package edu.hexa.teamsns.domain;
 import java.util.Date;
 
 public class RecruitProjectVO {
-   
+	
    private int rbno;
    private String pid;
    private String title;

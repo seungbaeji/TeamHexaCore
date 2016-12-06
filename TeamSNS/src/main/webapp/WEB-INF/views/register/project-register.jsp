@@ -4,17 +4,18 @@
 <html lang="ko">
 <!--
 << name 목록 >>
-프로젝트 이름 : pname
-프로젝트 소개 : intro
+팀 이름 : team_name
+팀 소개 : team_info
 프로젝트 기간
-    시작일 : start
-    종료일 : end
-프로젝트 분야 : category
-모집 팀원 역할 : part 
-업무관련 기술태그 : skill
-주요 활동 지역 : district
-팀장 연락처 : phone
-팀장 이메일 : email
+    시작일 : project_start
+    종료일 : project_end
+프로젝트 분야 : team_category
+모집 팀원 역할 : team_part
+주요 업무(프로젝트 소개) : project_intro
+업무관련 기술태그 : required_skill
+주요 활동 지역 : team_area
+팀장 연락처 : user_number
+팀장 이메일 : user_email
 << id 목록 >>
 category_study
 category_contest
@@ -23,34 +24,27 @@ category_contest
 <head>
 <meta charset="UTF-8">
 <title>TeamRegi</title>
-
-<!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- 부트스트랩 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-   <!--  달력 -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
+<!-- 부트스트랩 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- 달력 -->
+<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- 달력 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 달력 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <style>
-*{
-	margin:0;
-	padding:0;
-}
-#main-div {
-	position:fixed; 
-	left:250px;
-	height:100%;
-	width: 1000px;
+#team_register_main_div {
+	width: 800px;
 	border: solid;
 	margin: 20px;
-	 overflow-y:scroll; 
 }
 
 form>div {
@@ -66,162 +60,191 @@ h1 {
 	font-size: 20px;
 }
 
-#pname {
+#team_name {
 	width: 480px;
 }
 
 .day, .leader {
-	/* 시작일 / 종료일, 팀장 전화번호 / 이메일 라벨 */
+	/* 시작일 / 종료일, 팀장 전화번호 / 이메일 라벨  / 카카오톡 */ 
 	font-size: 15px;
 }
 
-#start, #end {
-
+#project_start, #project_end, #project_recruit_start,
+	#project_recruit_end {
 	width: 6em;
 	font-size: 20px;
 }
 
-#label_email {
+#label_user_email {
 	margin-right: 8px;
 }
 
-#district {
+#team_area {
 	width: 19em;
 	font-size: 20px;
 }
 
-.text_part {
-	width: 200px;
-}
-
-.part {
+.team_part {
 	width: 420px;
 }
 
-.skill {
+.required_skill {
 	width: 240px;
 	display: inline-block;
 }
 
-#part_1 {
+#team_part_1 {
 	background-color: goldenrod;
 }
 
+.category_type1 {
+	width: 150px;
+}
 </style>
 
 <body>
-	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
-
-	<div id="main-div">
+	<div id="team_register_main_div">
 		<form action="project-register" method="post">
 			<div>
-				<h1>팀 등록</h1>
+				<h1>프로젝트 등록</h1>
 				<br>
-				<div class="form-group form-inline" id="div-pname">
-					<label for="pname" class="label label-default">프로젝트 이름</label> <br>
-					<input type="text" class="form-control" id="pname" name="pname"
-						placeholder="HexaCore 25자 내로 작성" maxlength="25" required>
+				<div class="form-group form-inline" id="div-team-name">
+					<label for="team_name" class="label label-default">프로젝트 이름</label>
+					<br> <input type="text" class="form-control" id="team_name"
+						name="pname" placeholder="Hexa_Core 25자 내로 작성" maxlength="25"
+						required>
 				</div>
 				<br>
-				<div id="div_intro">
-					<label for="intro" class="label label-default" id="label_intro">프로젝트
-						소개</label> <br>
-					<textarea name="intro" id="intro" cols="50" rows="5"
-						onkeyup="javascript:fnChkByte(this,'500')"></textarea>
-					<span id="byteInfo">0</span>/500Byte
-				</div>
-				<br>
-				<div>
-					<label class="label label-default" id="label_project_date">프로젝트
-						기간</label> <br>
-					<div class="form-group form-inline">
-						<label class="label label-info day">시작일</label> <input type="text"
-							id="start" class="form-control" name="start"> ~ <label
-							class="label label-info day">종료일</label> <input type="text"
-							id="end" class="form-control" name="end">
-					</div>
-				</div>
-				<br>
-				<div class="form-group form-inline" id="div_category">
-					<label for="info_category" class="label label-default">프로젝트
-						분야</label> <br>
-					<div class="input-group ">
-						<span class="input-group-addon"> <input type="radio"
-							name="category" value="스터디"
-							onclick="this.form.team_etc.disabled=true" aria-label="">
-						</span> <input type="text" name="category" class="form-control"
+				<div class="form-group form-inline" id="div_team_category">
+					<label for="info_category" class="label label-default">프로젝트 분야</label> <br>
+					<div class="input-group category_type1">
+						<span class="input-group-addon"> 
+						<input type="radio" name="category" value="스터디"
+							onclick="this.form.team_category_etc.disabled=true" aria-label="">
+						</span> <input type="text" class="form-control"
 							aria-label="" value="스터디" disabled="true">
 					</div>
-					<div class="input-group">
+					<div class="input-group category_type1">
 						<span class="input-group-addon"> <input type="radio"
 							name="category" value="공모전"
-							onclick="this.form.team_etc.disabled=true" aria-label="">
-						</span> <input type="text" name="category" class="form-control"
+							onclick="this.form.team_category_etc.disabled=true" aria-label="">
+						</span> <input type="text" class="form-control"
 							aria-label="" value="공모전" disabled="true">
 					</div>
-					<!-- category=etc & category_etc = 텍스트값 -->
+					<!-- team_category=etc & team_category_etc = 텍스트값 -->
 					<div class="input-group">
 						<span class="input-group-addon"> <input type="radio"
 							name="category" value="etc"
-							onclick="this.form.team_etc.disabled=false" aria-label="">
-						</span> <input type="text" name="category" class="form-control"
-							aria-label="" placeholder="기타" disabled="true">
+							onclick="this.form.team_category_etc.disabled=false"
+							aria-label="">
+						</span> <input type="text" name="category_etc"
+							class="form-control category_type2" aria-label=""
+							placeholder="기타" disabled="true">
+					</div>
+				</div>
+				<br>
+				<div id="div_team_intro">
+					<label for="team_intro" class="label label-default"
+						id="label_team_intro">프로젝트 소개</label> <br>
+					<textarea name="intro" id="team_intro" cols="50" rows="5"
+						onkeyup="javascript:fnChkByte(this,'500')"></textarea>
+					<span id="byteInfo">0</span>/500Byte
+				</div>
+				<div>
+					<label class="label label-default" id="label_project_date">프로젝트 기간</label>
+					<div class="form-group form-inline">
+						<label class="label label-info day">시작일</label> 
+						<input type="text" id="project_start" class="form-control datepicker" name="start"> ~ 
+						<label class="label label-info day">종료일</label> 
+						<input type="text" id="project_end" class="form-control datepicker" name="end">
+					</div>
+				</div>
+				<br>
+				<hr style="border: solid 1px black;">
+				<div>
+					<div class="form-group form-inline" id="div_recruit_name">
+						<label for="team_name" class="label label-default">모집글 제목</label>
+						<br> <input type="text" class="form-control"
+							id="team_recruit_name" name="title"
+							placeholder="Hexa_Core 25자 내로 작성" maxlength="25" required>
+					</div>
+					<br> <label class="label label-default"
+						id="label_project_recruit_date">모집 기간</label> <br>
+					<div class="form-group form-inline">
+						<label class="label label-info day">시작일</label> 
+						<input type="text" id="project_recruit_start" class="form-control datepicker" name="rcstart"> ~ 
+						<label class="label label-info day">종료일</label> 
+						<input type="text" id="project_recruit_end" class="form-control datepicker" name="rcend">
 					</div>
 				</div>
 				<br>
 				<div>
-					<label class="label label-default" id="label_part">모집 팀원 역할</label>
+					<label class="label label-default" id="label_team_part">모집 팀원 역할</label>
 					<div>
-						<input type="text" class="form-control part" maxlength="20"	id="part1" name="part1"> 
-						<input type="text" class="form-control part" maxlength="20" id="part2" name="part2"> 
-						<input type="text" class="form-control part" maxlength="20" id="part3" name="part3"> 
-						<input type="text" class="form-control part" maxlength="20" id="part4" name="part4"> 
-						<input type="text" class="form-control part" maxlength="20" id="part5" name="part5"> 
-						<input type="text" class="form-control part" maxlength="20" id="part6" name="part6">
+						<input type="text" class="form-control team_part" maxlength="20" name="part1" id="team_part_1" placeholder="팀장 역할"> 
+						<input type="text" class="form-control team_part" maxlength="20" name="part2">
+						<input type="text" class="form-control team_part" maxlength="20" name="part3"> 
+						<input type="text" class="form-control team_part" maxlength="20" name="part4">
+						<input type="text" class="form-control team_part" maxlength="20" name="part5"> 
+						<input type="text" class="form-control team_part" maxlength="20" name="part6">
 					</div>
 				</div>
 				<br>
 				<div>
-					<label for="skill" class="label label-default" id="label_skill">업무관련
-						기술태그</label>
+					<label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
 					<div>
-						<input type="text" class="form-control skill" maxlength="10" name="skill_1">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_2">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_3">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_4">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_5">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_6">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_7">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_8">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_9">
-						<input type="text" class="form-control skill" maxlength="10" name="skill_10">
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_1"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_2"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_3"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_4"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_5"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_6"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_7"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_8"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_9"> 
+						<input type="text" class="form-control required_skill" maxlength="10" name="skill_10">
 					</div>
 				</div>
 				<br>
 				<div class="form-group">
-					<label class="label label-default" id="label-district">주요
+					<label class="label label-default" id="label-team-area">주요
 						활동 지역</label> <br> <select name="district">
 						<option value="전국" selected="selected">전국</option>
 						<option value="서울">서울</option>
+						<option value="부산">부산</option>
+						<option value="대구">대구</option>
 						<option value="인천">인천</option>
+						<option value="광주">광주</option>
+						<option value="대전">대전</option>
+						<option value="울산">울산</option>
+						<option value="제주">제주</option>
 						<optgroup label="경기">
-							<option value="안양">안양</option>
-							<option value="부천">부천</option>
+							<option value="경기-안양">안양</option>
+							<option value="경기-부천">부천</option>
 						</optgroup>
+						<optgroup label="강원"></optgroup>
+						<optgroup label="충북"></optgroup>
+						<optgroup label="충남"></optgroup>
+						<optgroup label="전북"></optgroup>
+						<optgroup label="전남"></optgroup>
+						<optgroup label="경북"></optgroup>
+						<optgroup label="경남"></optgroup>
 					</select>
 				</div>
 				<br>
 				<div class="form-group">
 					<label class="label label-default">팀장 연락처</label> <br>
 					<div class="form-inline">
-						<label for="phone" class="label label-info leader"
-							id="label_phone">phone</label> <input type="tel"
-							class="form-control" id="phone" value="01020020290">
+						<label for="user_number" class="label label-info leader" id="label_user_number">phone</label> 
+						<input type="tel" class="form-control" id="user_number" value="01065534043" name="phone">
 					</div>
 					<div class="form-inline">
-						<label for="email" class="label label-info leader"
-							id="label_email">email</label> <input type="email"
-							class="form-control" id="email" value="m40030811@gmail.com">
+						<label for="user_email" class="label label-info leader" id="label_user_email">email</label> 
+						<input type="email" class="form-control" id="user_email" value="itwill@it.com" name="email">
+					</div>
+					<div class="form-inline">
+						<label for="user_kkoid" class="label label-info leader" id="label_user_kkoid">카카오톡 ID</label> 
+						<input type="text" class="form-control" id="user_kkoid" value="hexacore" name="kkoid">
 					</div>
 				</div>
 				<br>
@@ -233,7 +256,23 @@ h1 {
 	</div>
 	<script>
         /* 달력 */
-        
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                dateFormat: 'yymmdd'
+                , monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+                , dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
+                , changeMonth: true, //월변경가능
+                changeYear: true, //년변경가능
+                showMonthAfterYear: true //년 뒤에 월 표시
+            });
+            /* 글자수 체크1 */
+            $('#team_name, .team_part').keyup(function () {
+                if ($(this).val().length > $(this).attr('maxlength')) {
+                    alert('제한길이 초과');
+                    $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
+                }
+            });
+        });
         /* 글자수 체크2 */
         function fnChkByte(obj, maxByte) {
             var str = obj.value;

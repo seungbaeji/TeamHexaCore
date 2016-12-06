@@ -153,7 +153,5 @@ public class ProjectCardDTO {
 	public void setParts(String parts) {
 		this.parts = parts;
 	}
-	
-	
-		
+			
 }

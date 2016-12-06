@@ -35,7 +35,7 @@
 </div>
 
 <c:forEach var="vo" items="${projectCardList }">
-<div class="cardlist">
+<div class="cardlist" >
 	<img id="logo" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRmHEcuCodTRyqammU2sZxpkTwxSiKVBE9xEntM8LA6sd5qoRVd"
 		alt =" 이미지 로딩 실패시 나타나는 설명">
 	<div class="counts">
@@ -49,7 +49,7 @@
 		<li>마감일: ${vo.rcend }</li>
 	</ul>
 	</div>	
-	<h4 class="teamdesc">${vo.intro }</h4>
+	<h4 class="teamdesc"><a href="">${vo.intro }</a></h4>
 	<h5 class="teamname">${vo.pname }</h5>
 	<div class="skillbox">
 		<ul class="skills">
