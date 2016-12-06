@@ -13,6 +13,9 @@ public class InfoBoardVO {
 	private String user_id;
 	
 	public InfoBoardVO() {}
+	public InfoBoardVO(String category) {
+		this.category = category;
+	}
 	
 	public InfoBoardVO(int bno, String category, String title, String url, Date start, Date end, Date regdate,
 			String user_id) {

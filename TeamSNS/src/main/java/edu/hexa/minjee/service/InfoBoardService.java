@@ -13,6 +13,6 @@ public interface InfoBoardService {
 	public abstract int update(InfoBoardVO vo);
 	public abstract int delete(int bno);
 	
-	public abstract int getNumOfRecords();
-	public abstract List<InfoBoardVO> read(PaginationCriteria c);
+	public abstract int getNumOfRecords(String category);
+	public abstract List<InfoBoardVO> read(PaginationCriteria c, InfoBoardVO vo);
 }

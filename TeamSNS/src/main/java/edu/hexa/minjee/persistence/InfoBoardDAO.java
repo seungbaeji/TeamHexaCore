@@ -13,6 +13,6 @@ public interface InfoBoardDAO {
 	public abstract int delete(int bno);
 	
 	// 페이징 처리
-	public abstract int getNumOfRecords();
-	public abstract List<InfoBoardVO> select(PaginationCriteria c);
+	public abstract int getNumOfRecords(String category);
+	public abstract List<InfoBoardVO> select(PaginationCriteria c, InfoBoardVO vo);
 }

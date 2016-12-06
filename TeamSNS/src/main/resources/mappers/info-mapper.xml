@@ -35,18 +35,20 @@
 	<!-- 페이징 처리 -->
 	<select id="totalCount" resultType="Integer">
 	select count(*) from info_board
+	where category = #{category}
 	</select>
 	
-	<select id="listPage" resultType="edu.hexa.teamsns.domain.InfoBoardVO" >
+	<select id="listPage" parameterType="hashmap" resultType="edu.hexa.teamsns.domain.InfoBoardVO" >
 	select b.*
 		from (
 			select @rn:=@rn+1 as rownum, a.*
 			from (	
 				select * from info_board
+				where category = #{vo.category}
 				order by bno desc
 			) a, (select @rn:=0) as r
 		) b
-		where b.rownum between #{start} and #{end}
+		where b.rownum between #{c.start} and #{c.end}
 	</select>
 	
 </mapper>

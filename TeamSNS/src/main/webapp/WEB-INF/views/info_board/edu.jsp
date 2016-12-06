@@ -161,13 +161,13 @@ h1 {
 				<th>정보제공</th>
 				<th>마감일자</th>
 			</tr>
-			<c:forEach var="vo" items="${infoVO }">
+			<c:forEach var="vo" items="${eduList }">
 				<tr>
-					<td>${vo.bno }</td>
-					<td>${vo.title }</td>
-					<td>${vo.category }</td>
-					<td>${vo.user_id }</td>
-					<td><fmt:formatDate value="${vo.end }"
+					<td id="info_board_bno">${vo.bno }</td>
+					<td id="info_title"><a href="${vo.url }">${vo.title }</a></td>
+					<td id="info_category">${vo.category }</td>
+					<td id="info_id">${vo.user_id }</td>
+					<td id="info_end"><fmt:formatDate value="${vo.end }"
 							pattern="yyMMdd HH:mm:ss" /></td>
 				</tr>
 			</c:forEach>
@@ -193,7 +193,6 @@ h1 {
 
 		<form id="pageForm">
 			<input type="hidden" name="page" value="${pageMaker.criteria.page }" />
-			<input type="hidden" name="bno" />
 		</form>
 		<!--<div> 현재 페이지에서 이동
             <input type="button" value="parkDex" name="parkDexBtn" onclick="location.href='http://parkDex.tistory.com'">
@@ -257,11 +256,8 @@ h1 {
 										</div>
 										<!-- 마감일자의 저장방식 << 1) 날짜선택 : info_end=20161201 >> << 2) 상시모집 : info_end_every=상시모집 >> -->
 										<div class="form-group form-inline" id="div_info_end">
-											<label for="info_start" class="label label-default">시작일자</label>
+											<label for="info_end" class="label label-default">마감일자</label>
 											<br> <input type="text" class="form-control datepicker"
-												id="info_register_start" name="istart"> <br> <label
-												for="info_end" class="label label-default">마감일자</label> <br>
-											<input type="text" class="form-control datepicker"
 												id="info_register_end" name="iend"> <br> <input
 												type="checkbox" id="info_end_every" value="상시모집"
 												onclick="checkDisable(this.form)"> <label
@@ -278,12 +274,11 @@ h1 {
 				</div>
 			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
 			/* 달력 */
 			$(document).ready(
 					function() {
-						$(".datepicker").datepicker(
+						$("#info_register_end").datepicker(
 								{
 									dateFormat : 'yymmdd',
 									monthNamesShort : [ '1월', '2월', '3월', '4월',
@@ -312,29 +307,27 @@ h1 {
 					frm.info_end.disabled = false;
 				}
 			}
-
-			
 		</script>
 	</div>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>
-	
-	$(document).ready(function() {
-		var frm = $("#pageForm");
 
-		$(".page-links li a").click(function() {
-			event.preventDefault();
-			var targetPage = $(this).attr("href");
-			frm.find("[name='page']").val(targetPage);
-			frm.attr("action", "edu");
-			frm.attr("method", "get");
-			frm.submit();
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var frm = $("#pageForm");
+
+			$(".page-links li a").click(function() {
+				event.preventDefault();
+				var targetPage = $(this).attr("href");
+				frm.find("[name='page']").val(targetPage);
+				frm.attr("action", "edu");
+				frm.attr("method", "get");
+				frm.submit();
+			});
+
 		});
-	});
-	
 	</script>
-	
-	
+
+
 </body>
 </html>

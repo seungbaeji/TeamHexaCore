@@ -1,6 +1,8 @@
 package edu.hexa.minjee.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -48,13 +50,17 @@ public class InfoBoardDAOImpl implements InfoBoardDAO {
 	}
 
 	@Override
-	public int getNumOfRecords() {
-		return sqlSession.selectOne(NAMESPACE + ".totalCount");
+	public int getNumOfRecords(String category) {
+		return sqlSession.selectOne(NAMESPACE + ".totalCount" , category);
 	}
 
 	@Override
-	public List<InfoBoardVO> select(PaginationCriteria c) {
-		return sqlSession.selectList(NAMESPACE + ".listPage", c);
+	public List<InfoBoardVO> select(PaginationCriteria c, InfoBoardVO vo) {
+		logger.info("InfoBoardDAO: select(c, vo) 호출...");
+		Map<String, Object> input = new HashMap<>();
+		input.put("c", c);
+		input.put("vo", vo);
+		return sqlSession.selectList(NAMESPACE + ".listPage", input);
 	}
 
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,6 +28,14 @@
     행사
     -->
 <style>
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	display: inline-block;
+}
     /* 달력크기 */
     .ui-datepicker {
         width: 300px;
@@ -144,16 +154,37 @@
                 <th>정보제공</th>
                 <th>마감일자</th>
             </tr>
-            <tr>
-                <td id="info_board_bno" name="info_board_bno"> 글번호 </td>
-                <td id="info_title" name="info_title"><a href="http://www.k-startup.go.kr/common/announcement/announcementDetail.do?_searchTargetAgeCodeAll=on&searchDtlAncmSn=0&searchAppAtBinet=&searchTargetAgeCodeAll=A&searchPrefixCode=BOARD_701_001&_searchTargetComAgeCodeAll=on&searchTargetTypeCodeAll=A&searchAncmId=&searchType=&_searchAreaCodeAll=on&searchSortOrder=DATE&_searchTargetTypeCodeAll=on&pageIndex=1&searchKeyword=&searchTargetComAgeCodeAll=A&searchAreaCodeAll=A&searchAppAt=A&_searchTargetComAgeCode=onononononon&CSRF_NONCE=siEW4BB6hDOUOiglFh4/R5EZ&searchPostSn=76637&searchDetailAt=A&_searchTargetTypeCode=ononononononon&bid=701&_searchAreaCode=onononononononononononononononononon&mid=30256&searchSupportBizTypeCodeAll=N&_searchTargetAgeCode=ononon&searchBusinessSn=0">고객평가단 Pool 모집 안내</a></td>
-                <td id="info_category" name="info_category"> 행사 </td>
-                <td id="info_id" name="info_id">창업진흥원</td>
-                <td id="info_end" name="info_end">상시접수</td>
-            </tr>
+            <c:forEach var="vo" items="${eventList }">
+				<tr>
+					<td id="info_board_bno">${vo.bno }</td>
+					<td id="info_title"><a href="${vo.url }">${vo.title }</a></td>
+					<td id="info_category">${vo.category }</td>
+					<td id="info_id">${vo.user_id }</td>
+					<td id="info_end"><fmt:formatDate value="${vo.end }"
+							pattern="yyMMdd HH:mm:ss" /></td>
+				</tr>
+			</c:forEach>
         </table>
         <br>
-        <ul class="page-links"> 페이지 링크 </ul>
+        
+       <ul class="page-links">
+			<c:if test="${pageMaker.hasPrev }">
+				<li><a href="${pageMaker.startPageNum -1 }">이전</a></li>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPageNum }"
+				end="${pageMaker.endPageNum }" var="num">
+				<li><a href="${num }">${num }</a></li>
+
+			</c:forEach>
+			<c:if test="${pageMaker.hasNext }">
+				<li><a href="${pageMaker.endPageNum + 1 }">다음</a></li>
+			</c:if>
+		</ul>
+
+		<form id="pageForm">
+			<input type="hidden" name="page" value="${pageMaker.criteria.page }" />
+		</form>
         <!--<div> 현재 페이지에서 이동
             <input type="button" value="parkDex" name="parkDexBtn" onclick="location.href='http://parkDex.tistory.com'">
             <br/>
@@ -173,7 +204,7 @@
                         <div class="modal-body">
                             <!-- 모달안에 들어갈 내용 -->
                             <div id="div-main">
-                                <form action="">
+                                <form action="event" method="post">
                                     <div>
                                         <div>
                                             <h1>정부 정보 등록</h1></div>
@@ -181,32 +212,32 @@
                                         <div class="form-group form-inline" id="div_info_board_title">
                                             <label for="info_register_title" class="label label-default">제목</label>
                                             <br>
-                                            <input type="text" class="form-control" id="info_register_title" name="info_board_title" placeholder="20글자"> </div>
+                                            <input type="text" class="form-control" id="info_register_title" name="title" placeholder="20글자"> </div>
                                         <div class="form-group form-inline" id="div_info_category">
                                             <label for="info_category" class="label label-default">카테고리</label>
                                             <br>
                                             <label class="radio-inline">
-                                                <input type="radio" name="info_category" id="category_register_edu" value="창업교육"> 창업교육 </label>
+                                                <input type="radio" name="category" id="category_register_edu" value="창업교육"> 창업교육 </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="info_category" id="category_register_mentor" value="멘토링"> 멘토링 </label>
+                                                <input type="radio" name="category" id="category_register_mentor" value="멘토링"> 멘토링 </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="info_category" id="category_register_event" value="행사"> 행사 </label>
+                                                <input type="radio" name="category" id="category_register_event" value="행사"> 행사 </label>
                                         </div>
                                         <div class="form-group form-inline" id="div_info_url">
                                             <label for="info_register_url" class="label label-default">URL</label>
                                             <br>
-                                            <input type="url" class="form-control" id="info_register_url" name="info_url" value="http://"> </div>
+                                            <input type="url" class="form-control" id="info_register_url" name="url" value="http://"> </div>
                                         <div class="form-group form-inline" id="div_info_id">
                                             <label for="info_register_id" class="label label-default">작성자</label>
                                             <br>
-                                            <input type="text" class="form-control" id="info_register_id" name="info_id" placeholder="12글자"> </div>
+                                            <input type="text" class="form-control" id="info_register_id" name="user_id" placeholder="12글자"> </div>
                                         <!-- 마감일자의 저장방식 << 1) 날짜선택 : info_end=20161201 >> << 2) 상시모집 : info_end_every=상시모집 >> -->
                                         <div class="form-group form-inline" id="div_info_end">
                                             <label for="info_end" class="label label-default">마감일자</label>
                                             <br>
-                                            <input type="text" class="form-control" id="info_register_end" name="info_end">
+                                            <input type="text" class="form-control" id="info_register_end" name="iend">
                                             <br>
-                                            <input type="checkbox" id="info_end_every" name="info_end_every" value="상시모집" onclick="checkDisable(this.form)">
+                                            <input type="checkbox" id="info_end_every"  value="상시모집" onclick="checkDisable(this.form)">
                                             <label for="info_end_every">상시모집</label>
                                         </div>
                                         <br>
@@ -248,5 +279,23 @@
             }
         </script>
     </div>
+    <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var frm = $("#pageForm");
+
+			$(".page-links li a").click(function() {
+				event.preventDefault();
+				var targetPage = $(this).attr("href");
+				frm.find("[name='page']").val(targetPage);
+				frm.attr("action", "event");
+				frm.attr("method", "get");
+				frm.submit();
+			});
+
+		});
+	</script>
 </body>
+
 </html>
