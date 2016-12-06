@@ -17,7 +17,7 @@
 	</insert>
 	
 	<insert id="insert_skill">
-	insert into required_skill(pid, skill_1, skill_2, skill_3, skill_4, skill_5, skill_6, skill_7, skill_8, skill_9, skill_10)
+	insert into required_skill
 	values (#{pid}, #{skill_1}, #{skill_2}, #{skill_3}, #{skill_4}, #{skill_5}, #{skill_6}, #{skill_7}, #{skill_8}, #{skill_9}, #{skill_10})
 	</insert>
 	
