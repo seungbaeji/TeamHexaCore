@@ -2,6 +2,9 @@ package edu.hexa.teamsns.domain;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class UserVO {
    
    private String uid;
@@ -17,7 +20,11 @@ public class UserVO {
    private String address;
    private int user_level;
    
-   public UserVO(){}
+   private Logger logger = LoggerFactory.getLogger(UserVO.class);
+   
+   public UserVO(){
+	   logger.info("UserVO 생성" + uid);
+   }
    public UserVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
 		String email, Boolean gender, Date birth, String address, int user_level) {
 	super();
@@ -33,6 +40,7 @@ public class UserVO {
 	this.birth = birth;
 	this.address = address;
 	this.user_level = user_level;
+	 logger.info("UserVO 생성 with parameter" + uid);
 }
 
 

@@ -24,23 +24,34 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 		return sqlSession.selectList(NAMESPACE +".selectAll");
 	}
 
+
 	@Override
-	public ProjectCardDTO select(int teamId) {
+	public List<ProjectCardDTO> select(String district) {
+		return sqlSession.selectList(NAMESPACE + ".selectByDistrict");
+	}
+
+
+	@Override
+	public ProjectCardDTO select(int pId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+
 	@Override
-	public int update(ProjectCardDTO vo) {
+	public int update(ProjectCardDTO dto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+
 	@Override
-	public int delete(int teamId) {
+	public int delete(int pId) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 	
 
 }

@@ -1,5 +1,10 @@
 package edu.hexa.minjee.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import edu.hexa.teamsns.domain.ManageProjectPartVO;
+
 public class ManageProjectPartDTO {
 	private String part1;
 	private String part2;
@@ -8,7 +13,11 @@ public class ManageProjectPartDTO {
 	private String part5;
 	private String part6;
 	
-	public ManageProjectPartDTO() {}
+	private Logger logger = LoggerFactory.getLogger(ManageProjectPartDTO.class);
+	
+	public ManageProjectPartDTO() {
+		logger.info("ManageProjectPartDTO 생성");
+	}
 
 	public ManageProjectPartDTO(String part1, String part2, String part3, String part4, String part5, String part6) {
 		this.part1 = part1;
@@ -17,6 +26,8 @@ public class ManageProjectPartDTO {
 		this.part4 = part4;
 		this.part5 = part5;
 		this.part6 = part6;
+		
+		logger.info("ManageProjectPartDTO 생성 with parameter");
 	}
 
 	public String getPart1() {

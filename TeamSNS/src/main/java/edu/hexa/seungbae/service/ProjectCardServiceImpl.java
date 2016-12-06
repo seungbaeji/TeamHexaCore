@@ -25,6 +25,11 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	public List<ProjectCardDTO> read() {
 		return dao.select();
 	}
+	
+	@Override
+	public List<ProjectCardDTO> read(String district) {
+		return dao.select(district);
+	}
 
 	@Override
 	public int update() {
@@ -37,8 +42,5 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
-	
 
 }

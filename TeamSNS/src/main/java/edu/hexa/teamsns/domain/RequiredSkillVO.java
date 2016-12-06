@@ -1,5 +1,8 @@
 package edu.hexa.teamsns.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RequiredSkillVO {
    
    private String pid;
@@ -14,7 +17,11 @@ public class RequiredSkillVO {
    private String skill_9;
    private String skill_10;
    
-   public RequiredSkillVO(){}
+   private Logger logger = LoggerFactory.getLogger(RequiredSkillVO.class);
+   
+   public RequiredSkillVO(){
+	   logger.info("RequiredSkillVO 생성");
+   }
 
    public RequiredSkillVO(String pid, String skill_1, String skill_2, String skill_3, String skill_4, String skill_5,
          String skill_6, String skill_7, String skill_8, String skill_9, String skill_10) {
@@ -30,6 +37,7 @@ public class RequiredSkillVO {
       this.skill_8 = skill_8;
       this.skill_9 = skill_9;
       this.skill_10 = skill_10;
+      logger.info("RequiredSkillVO 생성 with parameter");
    }
 
    public String getPid() {

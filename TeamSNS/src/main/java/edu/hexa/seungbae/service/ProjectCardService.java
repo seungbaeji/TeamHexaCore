@@ -8,6 +8,7 @@ public interface ProjectCardService {
 	
 	int create();
 	List<ProjectCardDTO>read();
+	List<ProjectCardDTO>read(String district);
 	int update();
 	int delete();
 	

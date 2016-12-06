@@ -2,6 +2,9 @@ package edu.hexa.teamsns.domain;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RecruitProjectVO {
 	
    private int rbno;
@@ -12,7 +15,11 @@ public class RecruitProjectVO {
    private int recruit_hits;
    private String team_id;
    
-   public RecruitProjectVO(){}
+   private Logger logger = LoggerFactory.getLogger(RecruitProjectVO.class);
+   
+   public RecruitProjectVO(){
+	   logger.info("RecruitProjectVO 생성");
+   }
 
    public RecruitProjectVO(int rbno, String pid, String title, Date start, Date end, int recruit_hits,
          String team_id) {
@@ -24,6 +31,7 @@ public class RecruitProjectVO {
       this.end = end;
       this.recruit_hits = recruit_hits;
       this.team_id = team_id;
+      logger.info("RecruitProjectVO 생성 with parameter");
    }
 
    public int getRbno() {

@@ -20,7 +20,7 @@
 		Order by rp.rcend desc;
 	</select>
 	
-	<select id="selectBydistrict" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
+	<select id="selectByDistrict" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
 			p.pid, p.category, p.pname, p.intro, p.district, p.meeting_area, p.start, p.end,
 			concat(rs.skill_1, ',', rs.skill_2, ',', rs.skill_3, ',', rs.skill_4, ',', rs.skill_5, ',', rs.skill_6, ',', rs.skill_7, ',', rs.skill_8, ',', rs.skill_9, ',', rs.skill_10) skills,

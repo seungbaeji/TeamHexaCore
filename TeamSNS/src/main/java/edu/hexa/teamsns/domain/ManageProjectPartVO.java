@@ -2,14 +2,20 @@ package edu.hexa.teamsns.domain;
 
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ManageProjectPartVO {
 	private String part_pk;
 	private String pid;
 	private String user_id;
 	private String part;
+	
+	private Logger logger = LoggerFactory.getLogger(ManageProjectPartVO.class);
 
 	public ManageProjectPartVO() {
 		part_pk = "pt" + UUID.randomUUID().toString();
+		logger.info("ManageProjectPartVO 생성");
 	}
 
 	public ManageProjectPartVO(String pid, String user_id, String part) {
@@ -18,6 +24,7 @@ public class ManageProjectPartVO {
 		this.pid = pid;
 		this.user_id = user_id;
 		this.part = part;
+		logger.info("ManageProjectPartVO 생성  with parameter");
 	}
 
 	public String getPart_pk() {

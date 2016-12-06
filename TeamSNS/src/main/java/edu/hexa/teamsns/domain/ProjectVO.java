@@ -3,6 +3,9 @@ package edu.hexa.teamsns.domain;
 import java.util.Date;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ProjectVO {
    private String pid;
    private String pname;
@@ -14,8 +17,11 @@ public class ProjectVO {
    private String meeting_area;
    private String team_id;
    
+   private Logger logger = LoggerFactory.getLogger(ProjectVO.class);
+   
    public ProjectVO(){
 	   pid = "p" + UUID.randomUUID().toString();
+	   logger.info("ProjectVO 생성" + pid);
    }
 
    public ProjectVO(String pname, String category, Date start, Date end, String intro, String district,
@@ -30,6 +36,7 @@ public class ProjectVO {
       this.district = district;
       this.meeting_area = meeting_area;
       this.team_id = team_id;
+      logger.info("ProjectVO 생성 with parameter" + pid);
    }
 
    public String getPid() {
