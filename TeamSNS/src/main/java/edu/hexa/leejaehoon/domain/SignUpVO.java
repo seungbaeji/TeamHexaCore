@@ -13,14 +13,6 @@ public class SignUpVO {
 	public String user_level;
 	
 	public SignUpVO(){}
-	
-	
-	
-
-
-
-	
-
 	public SignUpVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
 			String email, String user_level) {
 		

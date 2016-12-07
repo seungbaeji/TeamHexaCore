@@ -4,27 +4,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.penta.hyunsun.recruit-detail-mapper">
+<sql id="find_pid">
+SELECT pid FROM pentacore.recruit_project WHERE rbno = #{rbno }
+</sql>
 
 <select id="select_recruit" resultType="edu.hexa.teamsns.domain.RecruitProjectVO">
-SELECT * FROM pentacore.recruit_project WHERE rbno = #{rbno };
+SELECT * FROM pentacore.recruit_project WHERE rbno = #{rbno }
 </select>
 
 <select id="select_project" resultType="edu.hexa.teamsns.domain.ProjectVO">
 SELECT * FROM pentacore.project 
-WHERE pid = 
-(SELECT pid FROM pentacore.recruit_project WHERE rbno = #{rbno });
+WHERE pid = (
+<include refid="find_pid" />
+)
 </select>
 
 <select id="select_part" resultType="edu.hexa.teamsns.domain.ManageProjectPartVO">
 SELECT * FROM pentacore.manage_project_part 
 WHERE pid = 
-(SELECT pid FROM pentacore.recruit_project WHERE rbno = #{rbno });
+(<include refid="find_pid" />)
 </select>
 
 <select id="select_skill" resultType="edu.hexa.teamsns.domain.RequiredSkillVO">
 SELECT * FROM pentacore.required_skill
 WHERE pid = 
-(SELECT pid FROM pentacore.recruit_project WHERE rbno = #{rbno });
+(<include refid="find_pid" />)
 </select>
 
 <select id="select_leader" resultType="edu.hexa.teamsns.domain.UserVO">
@@ -32,10 +36,14 @@ SELECT * FROM pentacore.user
 WHERE uid = (
 	SELECT leader_uid FROM pentacore.project_leader
 	WHERE pid = (
-		SELECT pid FROM pentacore.recruit_project
-		WHERE rbno = #{rbno }
+		<include refid="find_pid" />
 	)
-);
+)
+</select>
+
+
+<select id="sb_select1" resultType="String">
+SELECT 
 </select>
 
 
