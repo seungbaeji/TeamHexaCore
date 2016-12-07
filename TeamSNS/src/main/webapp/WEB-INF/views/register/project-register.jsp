@@ -153,9 +153,9 @@ h1 {
 					<label class="label label-default" id="label_project_date">프로젝트 기간</label>
 					<div class="form-group form-inline">
 						<label class="label label-info day">시작일</label> 
-						<input type="text" id="project_start" class="form-control datepicker" name="start"> ~ 
+						<input type="text" id="project_start" class="form-control datepicker" name="pstart"> ~ 
 						<label class="label label-info day">종료일</label> 
-						<input type="text" id="project_end" class="form-control datepicker" name="end">
+						<input type="text" id="project_end" class="form-control datepicker" name="pend">
 					</div>
 				</div>
 				<br>
@@ -254,6 +254,7 @@ h1 {
 		</form>
 	</div>
 	<script>
+	
         /* 달력 */
         $(document).ready(function () {
             $(".datepicker").datepicker({
@@ -272,6 +273,7 @@ h1 {
                 }
             });
         });
+        
         /* 글자수 체크2 */
         function fnChkByte(obj, maxByte) {
             var str = obj.value;
