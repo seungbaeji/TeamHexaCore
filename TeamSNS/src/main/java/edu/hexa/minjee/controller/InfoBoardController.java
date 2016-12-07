@@ -46,6 +46,7 @@ public class InfoBoardController {
 		
 		// 해당 페이지에 보여줄 list만 검색
 		// TODO: "창업교육" category만 보여줌
+		
 		InfoBoardVO vo = new InfoBoardVO("창업교육");
 		List<InfoBoardVO> list = infoService.read(c, vo);
 		model.addAttribute("eduList", list);

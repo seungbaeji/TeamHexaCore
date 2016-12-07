@@ -26,5 +26,9 @@
 	values (#{pid}, #{title}, #{rcstart}, #{rcend})
 	</insert>
 	
+	<select id="select_user" resultType="edu.hexa.teamsns.domain.UserVO">
+	select * from user
+	where uid = #{uid}
+	</select>
 	
 </mapper>
