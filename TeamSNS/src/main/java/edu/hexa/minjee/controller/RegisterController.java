@@ -27,9 +27,10 @@ import edu.hexa.teamsns.domain.UserVO;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
+	
 	private static final Logger logger =
 			LoggerFactory.getLogger(RegisterController.class);
-	
+	private static final String SESSION_ATTR_ID = "login_id";
 	private SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 	
 	@Autowired
@@ -37,8 +38,12 @@ public class RegisterController {
 	
 	
 	@RequestMapping(value = "project-register")
-	public void registerGET() {
-		logger.info("registerGET() 호출.... ");
+	public void registerGET(HttpServletRequest request, Model model) {
+		String uid = (String) request.getSession().getAttribute(SESSION_ATTR_ID);
+		logger.info("registerGET: uid: " + uid);
+		UserVO uvo = registerService.read(uid);
+		model.addAttribute("userVO", uvo);
+		
 	}
 	
 	@RequestMapping(value="project-register", method=RequestMethod.POST)

@@ -8,6 +8,7 @@ import edu.hexa.teamsns.domain.ManageProjectPartVO;
 import edu.hexa.teamsns.domain.ProjectVO;
 import edu.hexa.teamsns.domain.RecruitProjectVO;
 import edu.hexa.teamsns.domain.RequiredSkillVO;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Repository
 public class ProjectRegisterDAOImpl implements ProjectRegisterDAO {
@@ -31,6 +32,10 @@ public class ProjectRegisterDAOImpl implements ProjectRegisterDAO {
 	@Override
 	public int insert(RecruitProjectVO rpvo) {
 		return sqlSession.insert(NAMESPACE + ".insert_recruit", rpvo);
+	}
+	@Override
+	public UserVO select(String uid) {
+		return sqlSession.selectOne(NAMESPACE + ".select_user", uid);
 	}
 
 }

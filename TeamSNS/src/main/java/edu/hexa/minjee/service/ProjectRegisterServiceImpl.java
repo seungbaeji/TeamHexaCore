@@ -8,6 +8,7 @@ import edu.hexa.teamsns.domain.ManageProjectPartVO;
 import edu.hexa.teamsns.domain.ProjectVO;
 import edu.hexa.teamsns.domain.RecruitProjectVO;
 import edu.hexa.teamsns.domain.RequiredSkillVO;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Service
 public class ProjectRegisterServiceImpl implements ProjectRegisterService {
@@ -33,6 +34,11 @@ public class ProjectRegisterServiceImpl implements ProjectRegisterService {
 	@Override
 	public int create(RecruitProjectVO rpvo) {
 		return registerDAO.insert(rpvo);
+	}
+
+	@Override
+	public UserVO read(String uid) {
+		return registerDAO.select(uid);
 	}
 
 }
