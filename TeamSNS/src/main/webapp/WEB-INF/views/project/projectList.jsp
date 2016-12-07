@@ -49,7 +49,7 @@
 		<li>마감일: ${vo.rcend }</li>
 	</ul>
 	</div>	
-	<h4 class="teamdesc"><a href="">${vo.intro }</a></h4>
+	<h4 class="teamdesc"><a href="projectDetail?${vo.pid }">${vo.intro }</a></h4>
 	<h5 class="teamname">${vo.pname }</h5>
 	<div class="skillbox">
 		<ul class="skills">
@@ -64,7 +64,7 @@
 				<c:forTokens var="part" items="${vo.parts }" delims=",">
 				<th>${part }</th>
 				</c:forTokens>
-			</tr>
+<!-- 			</tr>
 			<tr class="memberPhotos">
 				<td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자1"></td>
 				<td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자2"></td>
@@ -72,7 +72,7 @@
 				<td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자4"></td>
 				<td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자5"></td>
 				<td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자6"></td>
-			</tr>
+			</tr> -->
 		</table>	
 	</div>
 </div>
