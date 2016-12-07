@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <!--
@@ -153,9 +154,9 @@ h1 {
 					<label class="label label-default" id="label_project_date">프로젝트 기간</label>
 					<div class="form-group form-inline">
 						<label class="label label-info day">시작일</label> 
-						<input type="text" id="project_start" class="form-control datepicker" name="start"> ~ 
+						<input type="text" id="project_start" class="form-control datepicker" name="pstart"> ~ 
 						<label class="label label-info day">종료일</label> 
-						<input type="text" id="project_end" class="form-control datepicker" name="end">
+						<input type="text" id="project_end" class="form-control datepicker" name="pend">
 					</div>
 				</div>
 				<br>
@@ -238,15 +239,15 @@ h1 {
 					<label class="label label-default">팀장 연락처</label> <br>
 					<div class="form-inline">
 						<label for="user_number" class="label label-info leader" id="label_user_number">phone</label> 
-						<input type="tel" class="form-control" id="user_number" value="01065534043" >
+						<input type="tel" class="form-control" id="user_number" value="${userVO.phone}" >
 					</div>
 					<div class="form-inline">
 						<label for="user_email" class="label label-info leader" id="label_user_email">email</label> 
-						<input type="email" class="form-control" id="user_email" value="itwill@it.com" >
+						<input type="email" class="form-control" id="user_email" value="${userVO.email }" >
 					</div>
 					<div class="form-inline">
 						<label for="user_kkoid" class="label label-info leader" id="label_user_kkoid">카카오톡 ID</label> 
-						<input type="text" class="form-control" id="user_kkoid" value="hexacore" >
+						<input type="text" class="form-control" id="user_kkoid" value="${userVO.kkoid }" >
 					</div>
 				</div>
 				<br>
@@ -256,7 +257,11 @@ h1 {
 			</div>
 		</form>
 	</div>
+	
+	
+	
 	<script>
+	
         /* 달력 */
         $(document).ready(function () {
             $(".datepicker").datepicker({
@@ -275,6 +280,7 @@ h1 {
                 }
             });
         });
+        
         /* 글자수 체크2 */
         function fnChkByte(obj, maxByte) {
             var str = obj.value;
