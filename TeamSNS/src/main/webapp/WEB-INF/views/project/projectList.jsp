@@ -12,25 +12,25 @@
 <div class="districtset">
 	<h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
 		<ul class="district">
-			<li id ="all">전체선택</li>
-			<li id ="seoul" value="서울">서울특별시 </li>
-			<li id ="busan" value="부산">부산광역시 </li>
-			<li id ="daegu" value="대구">대구광역시 </li>
-			<li id ="inchen" value="인천">인천광역시 </li>
-			<li id ="gwangju" value="광주">광주광역시 </li>
-			<li id ="daejeon" value="대전">대전광역시 </li>	
-			<li id ="ulsan" value="울산">울산광역시 </li>
-			<li id ="sejong" value="세종">세종특별자치시 </li>
-			<li id ="gyeonggi" value="경기">경기도 </li>
-			<li id ="gangwon" value="강원">강원도 </li>
-			<li id ="nChungcheong" value="충청북도">충청북도 </li>
-			<li id ="sChungcheong" value="충청남도">충청남도 </li>
-			<li id ="nJeolla" value="전라북도">전라북도 </li>
-			<li id ="sJeolla" value="전라남도">전라남도 </li>
-			<li id ="nGyeongsang" value="경상북도">경상북도 </li>
-			<li id ="sGyeongsang" value="경상남도">경상남도 </li>
-			<li id ="jeju" value="제주">제주특별자치도 </li>
-			<li id ="foreignCountry" value="해외">해외</li>
+			<li id ="all"><a href="projectList?districtList">전체선택</a></li>
+			<li id ="seoul">서울특별시 </li>
+			<li id ="busan">부산광역시 </li>
+			<li id ="daegu">대구광역시 </li>
+			<li id ="inchen">인천광역시 </li>
+			<li id ="gwangju">광주광역시 </li>
+			<li id ="daejeon">대전광역시 </li>	
+			<li id ="ulsan">울산광역시 </li>
+			<li id ="sejong">세종특별자치시 </li>
+			<li id ="gyeonggi">경기도 </li>
+			<li id ="gangwon">강원도 </li>
+			<li id ="nChungcheong">충청북도 </li>
+			<li id ="sChungcheong">충청남도 </li>
+			<li id ="nJeolla">전라북도 </li>
+			<li id ="sJeolla">전라남도 </li>
+			<li id ="nGyeongsang">경상북도 </li>
+			<li id ="sGyeongsang">경상남도 </li>
+			<li id ="jeju">제주특별자치도 </li>
+			<li id ="foreignCountry">해외</li>
 		</ul>
 </div>
 
@@ -83,6 +83,7 @@
 $(document).ready(function(){
 	
 	var districts = {
+		all : {name: "전체선택", toggle: 0},
 		seoul: {name: "서울", toggle: 0}, 
 		busan: {name: "부산", toggle: 0}, 
 		daegu: {name: "대구", toggle: 0}, 
@@ -104,8 +105,7 @@ $(document).ready(function(){
 	} 
 	
 	var districtList = [];
-	var toggle = true;
-	
+
 	$(".district li").click(function(){
 		var target = $(this); // 클릭 했을때의 li
 		var district = $(this).attr('id'); // li의 id에 입력된 string값
@@ -115,6 +115,7 @@ $(document).ready(function(){
 		console.log(districts[district].name + ', ' + districts[district].toggle);
 		var x = districts[district].toggle;
 		
+		// 지역이름 색 바꾸기
 		if (x == 0){
 			changeColor1(target);
 			districts[district].toggle = 1;
@@ -122,11 +123,17 @@ $(document).ready(function(){
 			changeColor2(target);
 			districts[district].toggle = 0;
 		}
-				
+		
+		// 선택한 지역이름 리스트로 저장하기
 		for (var y in districts){
 			if (districts[y].toggle == 1) {
 				districtList.push(districts[y].name);
 			}	
+		}
+		
+		// 전체선택시 선택한 지역이름 리스트 비우기
+		if (districts.all.toggle == 1){
+			districtList = null;
 		}
 		console.log(districtList);
 		

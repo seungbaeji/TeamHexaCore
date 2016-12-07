@@ -23,9 +23,9 @@ public class ProjectListController {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectListController.class);
 	
 	@RequestMapping(value="projectList", method=RequestMethod.GET)
-	public void getTeamList(Model model, String[] districts){
+	public void getTeamList(Model model, String[] districtList){
 		logger.info("TeamList 호출");
-		List<ProjectCardDTO> projectCardList = service.read(districts);
+		List<ProjectCardDTO> projectCardList = service.read(districtList);
 		model.addAttribute("projectCardList", projectCardList);	
 	} // end teamCard()
 
