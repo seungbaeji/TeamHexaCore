@@ -13,7 +13,7 @@ import edu.hexa.seungbae.domain.ProjectCardDTO;
 @Repository
 public class ProjectCardDAOImpl implements ProjectCardDAO{
 	
-	private static final String NAMESPACE = "edu.penta.seungbae.proejctcard";
+	private static final String NAMESPACE = "edu.penta.seungbae.projectcard";
 	private Logger logger = LoggerFactory.getLogger(ProjectCardDAOImpl.class);
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 
 	@Override
 	public List<ProjectCardDTO> select(String[] districts) {
-		logger.info("ProjectCardDAO: 지역검색 실행");
+		logger.info("ProjectCardDAO: 지역검색 실행, 갯수: " + districts.length);
 		return sqlSession.selectList(NAMESPACE + ".selectByDistricts");
 	}
 

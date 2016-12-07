@@ -82,7 +82,7 @@
 <script>
 $(document).ready(function(){
 	
-	var districts = {
+	var districtObjects = {
 		all : {name: "전체선택", toggle: 0},
 		seoul: {name: "서울", toggle: 0}, 
 		busan: {name: "부산", toggle: 0}, 
@@ -104,38 +104,51 @@ $(document).ready(function(){
 		foreignCountry: {name: "해외", toggle: 0} 	
 	} 
 	
-	var districtList = [];
+	var districts = [];
 
 	$(".district li").click(function(){
 		var target = $(this); // 클릭 했을때의 li
 		var district = $(this).attr('id'); // li의 id에 입력된 string값
-		districtList = []; // 검색할 지역 리스트
+		districts = []; // 검색할 지역 리스트
 		
 		console.log(district);
-		console.log(districts[district].name + ', ' + districts[district].toggle);
-		var x = districts[district].toggle;
+		console.log(districtObjects[district].name + ', ' + districtObjects[district].toggle);
+		var x = districtObjects[district].toggle;
 		
 		// 지역이름 색 바꾸기
 		if (x == 0){
 			changeColor1(target);
-			districts[district].toggle = 1;
+			districtObjects[district].toggle = 1;
 		} else {
 			changeColor2(target);
-			districts[district].toggle = 0;
+			districtObjects[district].toggle = 0;
 		}
 		
 		// 선택한 지역이름 리스트로 저장하기
-		for (var y in districts){
-			if (districts[y].toggle == 1) {
-				districtList.push(districts[y].name);
+		for (var y in districtObjects){
+			if (districtObjects[y].toggle == 1) {
+				districts.push(districtObjects[y].name);
 			}	
 		}
 		
 		// 전체선택시 선택한 지역이름 리스트 비우기
-		if (districts.all.toggle == 1){
-			districtList = null;
+		if (districtObjects.all.toggle == 1){
+			districts = [];
 		}
-		console.log(districtList);
+		console.log(districts);
+		
+		var url = "/teamsns/projects/" + districts;
+		$.getJSON(url, function(result){
+			console.log("프로젝트 개수:" + result.length);
+			
+		})
+		
+		
+		
+		
+		
+		
+		
 		
 	});
 

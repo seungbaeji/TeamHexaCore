@@ -25,10 +25,10 @@ public class ProjectsRESTController {
 	private ProjectCardService service;
 	
 	
-	@RequestMapping(value="{districtList}", method=RequestMethod.GET)
-	public ResponseEntity<List<ProjectCardDTO>> readProjects (@PathVariable("districtList") String[] districtList){
-		logger.info("readProjectsByDistricts" + districtList);
-		List<ProjectCardDTO> list = service.read(districtList);
+	@RequestMapping(value="{districts}", method=RequestMethod.GET)
+	public ResponseEntity<List<ProjectCardDTO>> readProjects (@PathVariable("districts") String[] districts){
+		logger.info("readProjectsByDistricts, count: " + districts.length);
+		List<ProjectCardDTO> list = service.read(districts);
 		
 		ResponseEntity<List<ProjectCardDTO>> entity = null;
 		
