@@ -19,9 +19,9 @@ public class ProjectInfoServiceImple implements ProjectInfoService {
 	private ProjectInfoDAOImple dao;
 	
 	@Override
-	public List<ProjectInfoVO> select() {
+	public List<ProjectInfoVO> select(String uid) {
 		// TODO Auto-generated method stub
-		return dao.select();
+		return dao.select(uid);
 	}
 
 }

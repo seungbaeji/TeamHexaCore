@@ -3,6 +3,9 @@ package edu.hexa.teamsns.domain;
 import java.util.Date;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class TeamVO {
 	
 	private String team_id;
@@ -12,6 +15,8 @@ public class TeamVO {
 	private String team_intro;
 	private String team_area;
 	private String user_id;
+	
+	private Logger logger = LoggerFactory.getLogger(TeamVO.class);
 	
 	public TeamVO(){
 		team_id = "t" + UUID.randomUUID().toString();

@@ -14,9 +14,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
 <style>
+	
 	*{
-		margin: 0;
-		padding: 0;
+		margin:0;
+		padding:0;
 	}
 	#car{
 		position: fixed;
@@ -57,7 +58,7 @@
 		<li>
 			<h3><span class="icon-dashboard"></span>프로젝트</h3>
 			<ul>
-				<li><a href="#">프로젝트 리스트</a></li>
+				<li id="project-list"><a href="#">프로젝트 리스트</a></li>
 				<li id="project-register"><a href="#">프로젝트 등록</a></li>
 				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
 			</ul>
@@ -180,6 +181,10 @@
  				alert('${login_id}님 로그아웃 되셧습니다!');
  				location = '/teamsns/signup/logout';
  			});
+        	 
+        	 $('#project-list').click(function(){
+        		location = '/teamsns/project/projectList'; 
+        	 });
         	 
         	 $('#projectInfo').click(function(){
  				location = '/teamsns/project/projectInfo';

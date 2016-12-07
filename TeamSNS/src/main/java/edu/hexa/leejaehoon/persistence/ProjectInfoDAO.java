@@ -6,7 +6,7 @@ import edu.hexa.leejaehoon.domain.ProjectInfoVO;
 
 public interface ProjectInfoDAO {
 
-	public abstract List<ProjectInfoVO> select();
+	public abstract List<ProjectInfoVO> select(String uid);
 	
 	
 } // end interface

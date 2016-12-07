@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.hexa.leejaehoon.domain.BoardVO;
+import edu.hexa.leejaehoon.pageutill.PaginationCriteria;
 
 @Repository
 public class BoardDAOImple implements BoardDAO {
@@ -25,6 +26,33 @@ public class BoardDAOImple implements BoardDAO {
 		
 		logger.info("dao list = " + list.size());
 		return list;
+	}
+
+	@Override
+	public int insert(BoardVO vo) {
+		logger.info("insert(): title = " + vo.getTitle());	
+		int result = sqlsession.insert(NAMESPCAE + ".insertTip", vo);
+		return result;
+	}
+
+	@Override
+	public BoardVO select(int bno) {
+			BoardVO vo = sqlsession.selectOne(NAMESPCAE + ".selectBno", bno);
+			logger.info("select() 호출: bno = " + bno);
+		return vo;
+	}
+
+	@Override
+	public int getNumOfRecords() {
+		
+		return sqlsession.selectOne(NAMESPCAE + ".totalCount");
+	}
+
+	@Override
+	public List<BoardVO> select(PaginationCriteria c) {
+		
+		
+		return sqlsession.selectList(NAMESPCAE + ".listPage", c);
 	}
 
 }

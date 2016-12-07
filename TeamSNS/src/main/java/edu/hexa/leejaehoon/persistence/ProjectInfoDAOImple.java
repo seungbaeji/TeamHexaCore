@@ -21,9 +21,9 @@ public class ProjectInfoDAOImple implements ProjectInfoDAO {
 	SqlSession sqlsession;
 	
 	@Override
-	public List<ProjectInfoVO> select() {
+	public List<ProjectInfoVO> select(String uid) {
 		 
-		List<ProjectInfoVO> list = sqlsession.selectList(NAMESPCAE + ".selectProject");
+		List<ProjectInfoVO> list = sqlsession.selectList(NAMESPCAE + ".selectProject", uid);
 		
 		return list;
 	}

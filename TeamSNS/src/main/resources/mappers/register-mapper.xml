@@ -12,14 +12,23 @@
 	</insert>
 	
 	<insert id="insert_part">
-	insert into manage_project_part(pid, part)
-	values (#{pid}, #{part})
+	insert into manage_project_part(part_pk, pid, part)
+	values (#{part_pk}, #{pid}, #{part})
 	</insert>
 	
 	<insert id="insert_skill">
-	insert into required_skill(pid, skill_1)
-	values (#{pid}, #{skill_1})
+	insert into required_skill
+	values (#{pid}, #{skill_1}, #{skill_2}, #{skill_3}, #{skill_4}, #{skill_5}, #{skill_6}, #{skill_7}, #{skill_8}, #{skill_9}, #{skill_10})
 	</insert>
 	
+	<insert id="insert_recruit">
+	insert into recruit_project(pid, title, rcstart, rcend)
+	values (#{pid}, #{title}, #{rcstart}, #{rcend})
+	</insert>
+	
+	<select id="select_user" resultType="edu.hexa.teamsns.domain.UserVO">
+	select * from user
+	where uid = #{uid}
+	</select>
 	
 </mapper>

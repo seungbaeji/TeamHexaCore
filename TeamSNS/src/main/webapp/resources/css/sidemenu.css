@@ -67,14 +67,7 @@
  .loginForm .box{
      width:250px
         }
- .loginForm .box .user_id{
-    color: black;
-     width:246px;
-     margin:5px 0;
-     padding:10px 12px;
-     border:1px solid #e1e1e1
-        }
-         .loginForm .box .user_pw{
+ .loginForm .box .iText{
     color: black;
      width:246px;
      margin:5px 0;
@@ -106,7 +99,7 @@
      text-shadow:1px 1px 1px #004773;
      background:#333;
      float: left;
-    margin-right: 87px;
+    margin-right: 45px;
         }
         .signUp{
             display:block;
@@ -122,38 +115,7 @@
      text-shadow:1px 1px 1px #004773;
      background:#333;
      float: left;
-     
-        }
-        .mypage{
-     display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     border-color: #333;
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
-    margin-right: 87px;
-        }
-        .logout{
-            display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     border-color: #333;
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
+     margin-right: 45px;
         }
     
     

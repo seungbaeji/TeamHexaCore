@@ -4,18 +4,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.hexa.teamsns.domain.ManageProjectPartVO;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Repository
-public class ManageProjectPartDAOImpl implements ManageProjectPartDAO {
+public class UserDAOImpl implements UserDAO {
 
 	private static final String NAMESPACE = "edu.hexa.minjee.RegisterMapper";
 	@Autowired
 	private SqlSession sqlSession;
 	@Override
-	public int insert(ManageProjectPartVO vo) {
-		
-		return sqlSession.insert(NAMESPACE + ".insert_part", vo);
+	public UserVO select(String uid) {
+		return sqlSession.selectOne(NAMESPACE + ".select_user", uid);
 	}
 
 }
