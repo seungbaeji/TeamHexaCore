@@ -7,7 +7,7 @@
   	
   	
 	<select id="selectAllTip" resultType="edu.hexa.leejaehoon.domain.BoardVO">
-		select * from tt_board;
+		select * from tt_board order by bno desc
 	</select>
 	
 	<insert id="insertTip">
