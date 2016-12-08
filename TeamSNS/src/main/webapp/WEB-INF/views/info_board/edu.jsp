@@ -5,20 +5,6 @@
 <!DOCTYPE html >
 <html>
 <head>
-<!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!-- 달력 -->
-<link rel="stylesheet" href="/resources/demos/style.css">
-<!-- 달력 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <!--
     << name 목록>>
@@ -111,7 +97,7 @@ th {
 text-align : center;
 }
 /* 모달창 시작 */
-form>div {
+#div-main>div {
 	margin: 20px;
 	font-size: 25px;
 }

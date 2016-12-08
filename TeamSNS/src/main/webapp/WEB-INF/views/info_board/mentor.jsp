@@ -111,7 +111,7 @@ th {
 text-align : center;
 }
 /* 모달창 시작 */
-form>div {
+#div-main>div {
 	margin: 20px;
 	font-size: 25px;
 }
