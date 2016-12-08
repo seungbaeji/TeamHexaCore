@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../resources/css/teamList.css" rel="stylesheet" type="text/css"></link>
+<link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
 <div class="districtset">
