@@ -12,7 +12,7 @@
 <div class="districtset">
 	<h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
 		<ul class="district">
-			<li id ="all"><a href="projectList?districtList">전체선택</a></li>
+			<li id ="all">전체선택</li>
 			<li id ="seoul">서울특별시 </li>
 			<li id ="busan">부산광역시 </li>
 			<li id ="daegu">대구광역시 </li>
