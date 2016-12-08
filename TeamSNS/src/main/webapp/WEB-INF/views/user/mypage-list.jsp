@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<a href="mypage?uid=${uid }">내 정보 수정</a>
-<a href="my-board?uid=${uid }">작성한 글 목록</a>
+<a href="mypage?uid=${login_id}">내 정보 수정</a>
+<a href="my-board?uid=${login_id}">작성한 글 목록</a>
 
 </body>
 </html>

@@ -1,5 +1,10 @@
 package edu.penta.hyunsun.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.hexa.teamsns.domain.UserVO;
+import edu.penta.hyunsun.domain.BoardVO;
 import edu.penta.hyunsun.service.MypageService;
 
 @Controller
@@ -21,10 +27,12 @@ public class MypageController {
 	
 	// 마이페이지 목록
 	@RequestMapping(value="/user/mypage-list")
-	public void mypageList(String uid, Model model) {
+	public void mypageList(String uid, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		
 		logger.info("마이페이지 리스트");
-		uid = "hs_hshs";
-		model.addAttribute("uid", uid);
+		uid = (String)session.getAttribute("login-id");
 		
 	}
 	
@@ -60,8 +68,14 @@ public class MypageController {
 		return "/";
 	}
 	
+	@RequestMapping(value="/user/my-board", method=RequestMethod.GET)
 	public void myBoardList(String uid, Model model) {
+		
+		
 		logger.info("내가 쓴 글 리스트");
+		List<BoardVO> vo = service.my_board(uid);
+		logger.info(vo.get(0).getBk());
+		model.addAttribute("board", vo);
 	}
 	
 	

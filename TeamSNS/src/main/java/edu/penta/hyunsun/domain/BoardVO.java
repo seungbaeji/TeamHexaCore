@@ -1,5 +1,6 @@
 package edu.penta.hyunsun.domain;
 
+
 public class BoardVO {
 
 	private int bno;

@@ -16,15 +16,14 @@
 		<th>게시판</th>
 		<th>글번호</th>
 		<th>제목</th>
-		<th>작성시간</th>
 	</tr>
 	
-	<c:forEach var="board" items="${vo }}">
+	<c:forEach var="vo" items="${board }">
 		<tr>
-			<td>${board.bk }</td>
-			<td>${board.bno }</td>
-			<td>${board.title }</td>
-			<td><fmt:formatDate value="${board.regdate }" pattern="yy-MM-dd HH:mm:ss" /></td>
+			<td>${vo.bk }</td>
+			<td>${vo.bno }</td>
+			<td>${vo.title }</td>
+			
 		</tr>
 	</c:forEach>
 </table>
