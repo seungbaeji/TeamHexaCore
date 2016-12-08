@@ -15,31 +15,31 @@
 	</insert>
   
   	<select id="selectBno" resultType="edu.hexa.leejaehoon.domain.BoardVO">
-  		SELECT * FROM pentacore.tt_board WHERE bno = #{bno};
+  		SELECT * FROM pentacore.tt_board WHERE bno = #{bno}
   	</select>
   	
   	
   	<select id="totalCount" resultType="Integer">
-		select count(*) from tt_board;
+		select count(*) from tt_board
 	</select>
  	
  	<select id="listPage" resultType="edu.hexa.leejaehoon.domain.BoardVO">
-SELECT b.bno, b.title, b.content, b.writeqr_uid, b.regdate, b.recommend, b.hits
+	SELECT b.bno, b.title, b.content, b.writer_uid, b.regdate, b.recommend, b.hits
 FROM (
-	SELECT @rownum := @rownum +1 AS rownum, pentacore.tt_board.* 
-	FROM pentacore.tt_board, (SELECT @rownum := 0) bno
+   SELECT @rownum := @rownum +1 AS rownum, pentacore.tt_board.* 
+   FROM pentacore.tt_board, (SELECT @rownum := 0) bno
     ORDER BY pentacore.tt_board.regdate DESC
 ) b
-WHERE rownum between #{start } and #{end };
+WHERE rownum between #{start } and #{end }
  	</select> 	
 
 	<delete id="delete">
-	DELETE FROM pentacore.tt_board WHERE bno = #{bno};
+	DELETE FROM pentacore.tt_board WHERE bno = #{bno}
 	</delete>
 	
 	<update id="update">
 	UPDATE pentacore.tt_board SET title = #{title }, content = #{content}  
-	WHERE bno = #{bno}; 
+	WHERE bno = #{bno} 
 	</update>
 	
 	
