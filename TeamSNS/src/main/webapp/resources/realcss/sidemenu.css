@@ -1,13 +1,14 @@
 @CHARSET "UTF-8";
+#logo {
+	width: 90%;
+	margin: 20px 4%;
+}
 
 #accordian {
-	position: fixed;
-	background: #333333;
-	width: 210px; 
+	background: #333333; 
 	color : white;
 	box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.6), 0 0 200px 1px
 		rgba(255, 255, 255, 0.5);
-	height: 100%;
 	color: white;
 }
 
@@ -150,7 +151,6 @@
 	text-shadow: 1px 1px 1px #004773;
 	background: #333;
 	float: left;
-	margin-right: 87px;
 }
 
 .logout {
@@ -168,4 +168,5 @@
 	text-shadow: 1px 1px 1px #004773;
 	background: #333;
 	float: left;
+}
 }

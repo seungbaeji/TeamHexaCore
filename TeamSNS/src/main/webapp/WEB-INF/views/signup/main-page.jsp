@@ -18,36 +18,68 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
-body {
-	font-family: "Apple SD Gothic Neo", Arial;
-	display: flex;
-}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
+body {
+	font-family: "Apple SD Gothic Neo", Arial;
+}
+
 #container {
 	display: flex;
 	flex-direction: row;
 }
 
-#car {
-	position: relative;
-	left: 210px;
-	width: 70%;
-	min-width: 768px;
-	right: 15%;
+@media ( max-width : 768px) {
+	#container {
+		flex-direction: column;
+	}
+}
+
+nav, aside {
+	flex-basis: 210px;
+	flex-shrink: 0;
+}
+
+@media ( max-width : 768px) {
+	nav {
+		display: none;
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	width: 100%;
+}
+
+@media ( min-width : 768px) {
+	header {
+		min-width: 768px;
+	}
 }
 
 #main_section {
-	position: relative;
 	padding: 30px;
-	margin-left: 210px;
-	top: 40%;
-	width: 70%;
-	min-width: 768px;
 	background-color:;
+}
+
+@media ( max-width : 768px) {
+	#main-section {
+		flex-direction: column;
+	}
+}
+
+@media ( min-width : 768px) {
+	#main-section {
+		min-width: 768px;
+	}
 }
 
 #section1 {
@@ -55,7 +87,6 @@ body {
 	width: 50%;
 	height: auto;
 	display: inline-block;
-	width: 50%;
 }
 
 #section2 {
@@ -77,6 +108,12 @@ body {
 	width: 49%;
 	height: 25%;
 	display: inline-block;
+}
+
+@media ( max-width : 768px) {
+	#section1, #section2, #section3, #section4 {
+		width: 100%;
+	}
 }
 
 .main_table {
@@ -429,9 +466,7 @@ body {
 			</section>
 		</div>
 		<!-- end index -->
-		<aside>
-		날짜
-		</aside>
+		<aside>날씨</aside>
 
 	</div>
 	<!-- end container -->
