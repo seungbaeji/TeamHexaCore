@@ -6,10 +6,11 @@ import edu.hexa.seungbae.domain.ProjectCardDTO;
 
 public interface ProjectCardDAO {
 	
-	List<ProjectCardDTO> select();
-	List<ProjectCardDTO> select(String[] districts);
-	ProjectCardDTO select(int pId);
-	int update(ProjectCardDTO dto);
-	int delete(int pId);
+	public abstract List<ProjectCardDTO> select();
+	public abstract List<ProjectCardDTO> select(String[] districts);
+	public abstract ProjectCardDTO select(int pId);
+	public abstract int update(ProjectCardDTO dto);
+	public abstract int delete(int pId);
+	
 
 }

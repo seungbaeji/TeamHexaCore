@@ -44,28 +44,4 @@
 	</select>
 
 
-	<select id="select_project" resultType="edu.hexa.teamsns.domain.ProjectVO">
-		SELECT * FROM
-		pentacore.project
-		WHERE pid = #{pid}
-	</select>
-
-	<select id="select_part" resultType="edu.hexa.teamsns.domain.ManageProjectPartVO">
-		SELECT * FROM
-		pentacore.manage_project_part
-		WHERE pid = #{pid}
-	</select>
-
-	<select id="select_skill" resultType="edu.hexa.teamsns.domain.RequiredSkillVO">
-		SELECT * FROM
-		pentacore.required_skill
-		WHERE pid = #{pid}
-	</select>
-
-	<select id="select_user" resultType="edu.hexa.teamsns.domain.UserVO">
-		SELECT * FROM
-		pentacore.user
-		WHERE pid =#{pid}
-	</select>
-
 </mapper>  

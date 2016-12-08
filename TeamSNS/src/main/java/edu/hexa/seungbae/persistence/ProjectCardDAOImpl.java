@@ -41,7 +41,6 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 
 	@Override
 	public ProjectCardDTO select(int pId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
