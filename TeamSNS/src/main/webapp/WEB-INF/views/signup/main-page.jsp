@@ -42,7 +42,6 @@
 	right: 15%;
 }
 
-}
 #main_section {
 	position: relative;
 	padding: 30px;
