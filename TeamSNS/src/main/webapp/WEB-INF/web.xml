@@ -55,5 +55,19 @@
 		<filter-name>httpMethod</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<error-page>
+		<error-code>404</error-code><!-- 에러 코드 -->
+		<location>/error/error404.jsp</location><!-- 에러페이지의 URI -->
+	</error-page>
 
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/error500.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/error/errorNullPointer.jsp</location>
+	</error-page>
 </web-app>
