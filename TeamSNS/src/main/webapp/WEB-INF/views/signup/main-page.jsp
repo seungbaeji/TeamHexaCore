@@ -35,13 +35,14 @@
 }
 
 #car {
-	position: flex;
+	position: relative;
 	left: 210px;
 	width: 70%;
 	min-width: 768px;
 	right: 15%;
 }
 
+}
 #main_section {
 	position: relative;
 	padding: 30px;
