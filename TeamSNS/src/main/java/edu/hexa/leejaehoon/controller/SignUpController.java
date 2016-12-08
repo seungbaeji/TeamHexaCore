@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.hexa.leejaehoon.domain.SignUpVO;
 import edu.hexa.leejaehoon.service.SignUpService;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Controller
 @RequestMapping(value="signup")
@@ -40,8 +41,8 @@ public class SignUpController {
 	}
 	
 	@RequestMapping(value="main-page", method=RequestMethod.POST)
-	public void signUp(SignUpVO vo, RedirectAttributes attr){
-		int result = signUpService.create(vo);
+	public void signUp(UserVO vo, RedirectAttributes attr){
+		int result = signUpService.create_user(vo);
 		
 		if (result == 1) {
 			attr.addFlashAttribute("insert_result", "success");
@@ -51,7 +52,7 @@ public class SignUpController {
 		logger.info(" controller result = " + result);
 		/*return "redirect:main-page";*/
 	}
-	
+	  
 	@RequestMapping(value = "login", method=RequestMethod.POST)
 	public void login(SignUpVO vo, RedirectAttributes attr, Model model, HttpServletRequest request,String query){
 		logger.info("main_login 호출");

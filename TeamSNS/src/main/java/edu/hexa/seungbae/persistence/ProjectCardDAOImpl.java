@@ -1,5 +1,6 @@
 package edu.hexa.seungbae.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,7 +14,7 @@ import edu.hexa.seungbae.domain.ProjectCardDTO;
 @Repository
 public class ProjectCardDAOImpl implements ProjectCardDAO{
 	
-	private static final String NAMESPACE = "edu.penta.seungbae.proejctcard";
+	private static final String NAMESPACE = "edu.penta.seungbae.projectcard";
 	private Logger logger = LoggerFactory.getLogger(ProjectCardDAOImpl.class);
 	
 	@Autowired
@@ -28,8 +29,13 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 
 	@Override
 	public List<ProjectCardDTO> select(String[] districts) {
-		logger.info("ProjectCardDAO: 지역검색 실행");
-		return sqlSession.selectList(NAMESPACE + ".selectByDistricts");
+		logger.info("ProjectCardDAO: 지역검색 실행, 갯수: " + districts.length);
+		ArrayList<String> list = new ArrayList<>();
+		for (String d : districts) {
+			list.add(d);
+		}
+		// MyBatis에는 String배열을 넘길 수 없음.
+		return sqlSession.selectList(NAMESPACE + ".selectByDistricts", list);
 	}
 
 

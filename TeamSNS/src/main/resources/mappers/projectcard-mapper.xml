@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.penta.seungbae.proejctcard">
+<mapper namespace="edu.penta.seungbae.projectcard">
 
 	<select id="selectAll" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
@@ -31,12 +31,14 @@
 		FROM
 			pentacore.project p, pentacore.required_skill rs,
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
-		WHERE
-			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid
-		<if test="districts != null">
-			AND p.district = #{districts}
-		</if>
-		Group by
+		WHERE 
+			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid AND 
+			<if test = "list != null and !list.isEmpty">
+			<foreach collection="list" item="district" open="(" close=")" separator="and">
+			p.district = Like %#{district}%
+			</foreach>
+			</if>
+		Group by 
 			pid
 			Order by rp.rcend desc;
 	</select>
@@ -65,6 +67,5 @@
 		pentacore.user
 		WHERE pid =#{pid}
 	</select>
-
 
 </mapper>  
