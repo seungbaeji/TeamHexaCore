@@ -156,4 +156,13 @@ public class InfoBoardController {
 		return "redirect:event";
 	}
 	
+	@RequestMapping(value="edu2")
+	public void registerEdu2(){
+		
+	}
+	
+	@RequestMapping(value="test")
+	public void registerTest(){
+		
+	}
 }
