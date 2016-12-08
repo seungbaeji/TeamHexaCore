@@ -2,9 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>정부 제공 정보 리스트</title>
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -34,10 +36,13 @@
     행사
     -->
 <style>
-	*{
-		margin:0;
-		padding:0;
-	}
+ul {
+	list-style-type: none;
+}
+
+li {
+	display: inline-block;
+}
 /* 달력크기 */
 .ui-datepicker {
 	width: 300px;
@@ -48,15 +53,13 @@ body {
 }
 
 #div_info_list_main {
-
-position:fixed;
-	left:300px;
 	width: 1000px;
 	height: 900px;
+	border: solid;
 	margin: 20px
 }
 
-table {
+div, table {
 	margin: 20px;
 	font-size: 20px;
 }
@@ -101,15 +104,6 @@ th {
 #info_end {
 	width: 100px;
 }
-
-.title, .id, .end {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-.table_th {
-text-align : center;
-}
 /* 모달창 시작 */
 form>div {
 	margin: 20px;
@@ -122,10 +116,6 @@ form>div {
 	margin: 20px;
 }
 
-#btnReset {
-	display: inline-block;
-}
-
 h1 {
 	background-color: aquamarine;
 }
@@ -135,7 +125,7 @@ h1 {
 }
 
 #info_register_end {
-	width: 200px;
+	width: 6em;
 }
 
 #info_register_title, #info_register_url {
@@ -145,75 +135,79 @@ h1 {
 #info_register_category {
 	width: 8em;
 }
-
-.list_li {
-	display: inline-block;
-}
-
-.list_ul {
-	list-style-type: none;
-}
-.list_ul > li > a {
-	font-size : 20px;
-}
 /* 모달창 끝 */
 </style>
 
 <body>
-	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
 	<div id="div_info_list_main">
 		<div>
 			<h1>정보 리스트</h1>
 		</div>
+		<br>
+		<div id="category">
+			<input type="button" class="category btn btn-info" value="창업교육"
+				onclick="location.href='edu'" /> <input type="button"
+				class="category btn btn-default" value="멘토링"
+				onclick="location.href='mentor'" /> <input type="button"
+				class="category btn btn-default" value="행사"
+				onclick="location.href='event'" />
+		</div>
 		<table>
 			<tr>
-				<th class="table_th">글번호</th>
-				<th class="table_th">글제목</th>
-				<th class="table_th">카테고리</th>
-				<th class="table_th">정보제공</th>
-				<th class="table_th">마감일자</th>
+				<th>글번호</th>
+				<th>글제목</th>
+				<th>카테고리</th>
+				<th>정보제공</th>
+				<th>마감일자</th>
 			</tr>
-			<c:forEach var="vo" items="${eventList }">
+			<c:forEach var="vo" items="${eduList }">
 				<tr>
 					<td id="info_board_bno">${vo.bno }</td>
-					<td class="title" id="info_title"><a href="${vo.url }">${vo.title }</a></td>
+					<td id="info_title"><a href="${vo.url }">${vo.title }</a></td>
 					<td id="info_category">${vo.category }</td>
-					<td class="id" id="info_id">${vo.user_id }</td>
-					<td class="end" id="info_end"><fmt:formatDate
-							value="${vo.end }" pattern="yy-MM-dd" /></td>
+					<td id="info_id">${vo.user_id }</td>
+					<td id="info_end"><fmt:formatDate value="${vo.end }"
+							pattern="yyMMdd HH:mm:ss" /></td>
 				</tr>
 			</c:forEach>
+
 		</table>
-			<ul class="page-links list_ul">
-				<c:if test="${pageMaker.hasPrev }">
-					<li class="list_li"><a href="${pageMaker.startPageNum -1 }">이전</a></li>
-				</c:if>
+		<br>
 
-				<c:forEach begin="${pageMaker.startPageNum }"
-					end="${pageMaker.endPageNum }" var="num">
-					<li class="list_li"><a href="${num }">${num }</a></li>
 
-				</c:forEach>
-				<c:if test="${pageMaker.hasNext }">
-					<li class="list_li"><a href="${pageMaker.endPageNum + 1 }">다음</a></li>
-				</c:if>
-			</ul>
+		<ul class="page-links">
+			<c:if test="${pageMaker.hasPrev }">
+				<li><a href="${pageMaker.startPageNum -1 }">이전</a></li>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPageNum }"
+				end="${pageMaker.endPageNum }" var="num">
+				<li><a href="${num }">${num }</a></li>
+
+			</c:forEach>
+			<c:if test="${pageMaker.hasNext }">
+				<li><a href="${pageMaker.endPageNum + 1 }">다음</a></li>
+			</c:if>
+		</ul>
+
 		<form id="pageForm">
 			<input type="hidden" name="page" value="${pageMaker.criteria.page }" />
 		</form>
-		<!--<div> 현재 페이지에서 이동
-            <input type="button" value="parkDex" name="parkDexBtn" onclick="location.href='http://parkDex.tistory.com'">
-            <br/>
-            <br/> 새 창에서 이동
-            <input type="button" value="parkDex2" name="parkDex2Btn" onclick="window.open('http://parkDex.tistory.com')"> </div>-->
+		<!-- <div>
+			현재 페이지에서 이동 <input type="button" value="parkDex" name="parkDexBtn"
+				onclick="location.href='http://parkDex.tistory.com'"> <br />
+			<br /> 새 창에서 이동 <input type="button" value="parkDex2"
+				name="parkDex2Btn"
+				onclick="window.open('http://parkDex.tistory.com')">
+		</div> -->
 		<!-- 모달 시작 -->
 		<div>
 			<!-- 버튼 -->
 			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#info_register_modal" id="btnReset">
+				data-toggle="modal" data-target="#myModal" id="btnReset">
 				새글 작성</button>
 			<!-- 모달 팝업 -->
-			<div class="modal fade" id="info_register_modal" tabindex="-1" role="dialog"
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -226,7 +220,7 @@ h1 {
 						<div class="modal-body">
 							<!-- 모달안에 들어갈 내용 -->
 							<div id="div-main">
-								<form action="">
+								<form action="edu" method="post">
 									<div>
 										<div>
 											<h1>정부 정보 등록</h1>
@@ -235,41 +229,39 @@ h1 {
 										<div class="form-group form-inline" id="div_info_board_title">
 											<label for="info_register_title" class="label label-default">제목</label>
 											<br> <input type="text" class="form-control"
-												id="info_register_title" name="info_board_title"
-												placeholder="20글자" required maxlength="20">
+												id="info_register_title" name="title" placeholder="20글자">
 										</div>
 										<div class="form-group form-inline" id="div_info_category">
 											<label for="info_category" class="label label-default">카테고리</label>
 											<br> <label class="radio-inline"> <input
-												type="radio" name="info_category" id="category_register_edu"
+												type="radio" name="category" id="category_register_edu"
 												value="창업교육"> 창업교육
 											</label> <label class="radio-inline"> <input type="radio"
-												name="info_category" id="category_register_mentor"
-												value="멘토링"> 멘토링
+												name="category" id="category_register_mentor" value="멘토링">
+												멘토링
 											</label> <label class="radio-inline"> <input type="radio"
-												name="info_category" id="category_register_event" value="행사">
+												name="category" id="category_register_event" value="행사">
 												행사
 											</label>
 										</div>
 										<div class="form-group form-inline" id="div_info_url">
 											<label for="info_register_url" class="label label-default">URL</label>
 											<br> <input type="url" class="form-control"
-												id="info_register_url" name="info_url"
-												placeholder="http:// 반드시 넣을것!!" required>
+												id="info_register_url" name="url"
+												placeholder="http:// 반드시 넣을것!!">
 										</div>
 										<div class="form-group form-inline" id="div_info_id">
-											<label for="info_register_id" class="label label-default">정보제공</label>
+											<label for="info_register_id" class="label label-default">작성자</label>
 											<br> <input type="text" class="form-control"
-												id="info_register_id" name="info_id" placeholder="12글자"
-												required maxlength="12">
+												id="info_register_id" name="user_id" placeholder="12글자">
 										</div>
 										<!-- 마감일자의 저장방식 << 1) 날짜선택 : info_end=20161201 >> << 2) 상시모집 : info_end_every=상시모집 >> -->
 										<div class="form-group form-inline" id="div_info_end">
 											<label for="info_end" class="label label-default">마감일자</label>
-											<br> <input type="date" class="form-control"
-												id="info_register_end" name="info_end"> <br> <input
-												type="checkbox" id="info_end_every" name="info_end_every"
-												value="상시모집" onclick="checkDisable(this.form)"> <label
+											<br> <input type="text" class="form-control datepicker"
+												id="info_register_end" name="iend"> <br> <input
+												type="checkbox" id="info_end_every" value="상시모집"
+												onclick="checkDisable(this.form)"> <label
 												for="info_end_every">상시모집</label>
 										</div>
 										<br> <input type="submit" class="btn btn-primary btn-lg"
@@ -283,49 +275,60 @@ h1 {
 				</div>
 			</div>
 		</div>
-		<script>
-			$(document).ready(
-					function() {
-						var frm = $("#pageForm");
+		<!-- <script>
+			/* 달력 */
+			$(document).ready(function() {
+				/* $("#info_register_end").datepicker(
+						{
+							dateFormat : 'yymmdd',
+							monthNamesShort : [ '1월', '2월', '3월', '4월',
+									'5월', '6월', '7월', '8월', '9월',
+									'10월', '11월', '12월' ],
+							dayNamesMin : [ '일', '월', '화', '수', '목',
+									'금', '토' ],
+							changeMonth : true, //월변경가능
+							changeYear : true, //년변경가능
+							showMonthAfterYear : true
+						//년 뒤에 월 표시
+						}); */
+				/* 폼 초기화 */
 
-						$(".page-links li a").click(function() {
-							event.preventDefault();
-							var targetPage = $(this).attr("href");
-							frm.find("[name='page']").val(targetPage);
-							frm.attr("action", "event");
-							frm.attr("method", "get");
-							frm.submit();
-						});
+			});
 
-						/* 폼 초기화 */
-						$("#btnReset").click(function() {
-							$("form").each(function() {
-								this.reset();
-							});
-						});
-						/* 글자길이 체크 */
-						$('#info_register_title, #info_register_id').keyup(
-								function() {
-									if ($(this).val().length > $(this).attr(
-											'maxlength')) {
-										alert('제한길이 초과');
-										$(this).val(
-												$(this).val().substr(
-														0,
-														$(this).attr(
-																'maxlength')));
-									}
-								});
-
-					});
 			/* 상시모집 체크박스 */
-			function checkDisable(frm1) {
-				if (frm1.info_end_every.checked == true) {
-					frm1.info_end.disabled = true;
-				} else {
-					frm1.info_end.disabled = false;
-				}
-			}
-		</script>
+		</script> -->
 	</div>
+
+	<!-- <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<script>
+		function checkDisable(frm1) {
+			if (frm1.info_end_every.checked == true) {
+				frm1.info_end.disabled = true;
+			} else {
+				frm1.info_end.disabled = false;
+			}
+		}
+		$(document).ready(function() {
+			var frm = $("#pageForm");
+
+			$(".page-links li a").click(function() {
+				event.preventDefault();
+				var targetPage = $(this).attr("href");
+				frm.find("[name='page']").val(targetPage);
+				frm.attr("action", "edu");
+				frm.attr("method", "get");
+				frm.submit();
+			});
+			$("#btnReset").click(function() {
+				$("form").each(function() {
+					this.reset();
+				});
+			});
+
+		});
+	</script>
+
+
 </body>
+</html>

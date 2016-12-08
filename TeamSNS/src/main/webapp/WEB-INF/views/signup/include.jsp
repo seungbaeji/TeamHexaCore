@@ -66,9 +66,9 @@
 		<li class="active">
 			<h3><span class="icon-tasks"></span>정보</h3>
 			<ul>
-				<li><a href="#">창업교육</a></li>
-				<li><a href="#">멘토링</a></li>
-				<li><a href="#">행사</a></li>
+				<li id="info_board_edu"><a href="#">창업교육</a></li>
+				<li id="info_board_mentor"><a href="#">멘토링</a></li>
+				<li id="info_board_event"><a href="#">행사</a></li>
 				
 			</ul>
 		</li>
@@ -200,7 +200,15 @@
  			$('#logo').click(function(){
  				location = '/teamsns/signup/main-page';
  			});
- 			
+ 			$('#info_board_edu').click(function(){
+ 				location = '/teamsns/info_board/edu';
+ 			});
+ 			$('#info_board_event').click(function(){
+ 				location = '/teamsns/info_board/event';
+ 			});
+ 			$('#info_board_mentor').click(function(){
+ 				location = '/teamsns/info_board/mentor';
+ 			});
  			
  			
  	            $("#start, #end").datepicker({
