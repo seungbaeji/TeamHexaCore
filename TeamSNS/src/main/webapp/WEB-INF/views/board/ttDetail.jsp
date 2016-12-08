@@ -102,6 +102,7 @@
         width: 100px;
         height: 100px;
         overflow: auto;
+        overflow-x: none;
         
     }
     
@@ -151,11 +152,41 @@
     #replyAll{
     
     }
+    #ttDetail8 p{
+        height: 720px;
+        border-bottom: 1px solid darkgray;
+    }
+    #btndelete{
+        float: right;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    #btnlist{
+        float: right;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    #btnupdate{
+        float: right;
+        margin-left: 5px;
+    }
+     #updatetitle{
+        width: 500px;
+    }
+    #updatecontent{
+        width: 536px;
+        height: 500px;
+    }
 </style>
 </head>
 <body>
 	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
-
+	
+	<form id="frm">
+    	<input type="hidden" name="page" value="${page }" />
+    	<input type="hidden" name="bno" value="${boardVO.bno }" />
+    </form>
+	
 	<div id="ttDetail">
             
             <div id="ttDetail2">
@@ -177,7 +208,7 @@
                  </div>
                  
                  <div id="ttDetail6">
-                     <span>조회수:${boardVO.hits}</span>
+                     <span>조회수:${boardVO.hits} , ${count}</span>
                  </div>
                 
                 <div id="ttDetail7">
@@ -189,12 +220,15 @@
                 <div id="ttDetail8">
             	<p>${boardVO.content}</p>
                 </div>
+                <button id="btndelete"type="button" class="btn btn-danger">삭제</button>
+                <button id="btnupdate" type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal">수정</button>
+                <button id="btnlist" type="button" class="btn btn-info">목록으로</button>
                 
         </div>
        </div> <!-- end ttDetail -->
        <ul id="replyboard">
       
-           <li id="replycount"><h3 id="count">답변:</h3></li>
+           <li id="replycount"><h3 id="count">답변: ${count}</h3></li>
            <li id="replyAll"></li>
            
            
@@ -225,10 +259,39 @@
            
            
            
+           
        </ul>
+       
+       
+       <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		<h4 class="modal-title" id="myModalLabel">작성글 수정</h4>
+	      </div>
+	      <div class="modal-body">
+	      <form id="updateForm">
+	          제목: <input id="updatetitle" name="title" value="${boardVO.title}"/><br><br>
+              <h5>본문</h5><textarea id="updatecontent" name="content">${boardVO.content}</textarea>
+	        <input type="hidden" name="page" value="${page }" />
+    		<input type="hidden" name="bno" value="${boardVO.bno }" />  
+	      </form>
+		
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+		<button  id="updatecomplete" type="button" class="btn btn-primary">수정 완료</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+       
        
        <script>
        	$(document).ready(function(){
+       		var ufrm = $('#updateForm');
+       		var frm = $('#frm');
        		var bno = ${boardVO.bno};
        		
 				getAllReplies();
@@ -289,33 +352,63 @@
        			console.log(replierString);
        			console.log(rtextString);
        			console.log(rbnoString);
+       			if('${login_id}' == ''){
+       				alert("로그인이 필요합니다");
+       			}else{
+       				$.ajax({
+           				type: 'post',
+           				url: '/teamsns/replies',
+           				headers: {
+           					'Content-Type': 'application/json',
+           					'X-HTTP-Method-Override': 'POST'
+           				},
+           				data: JSON.stringify({
+           					tt_bno: rbnoString,
+           					replier_uid: replierString,
+           					content: rtextString
+           				}),
+           				success: function(result) {
+           					if (result == 1) {
+           						alert('댓글 입력 성공');
+           						$('textarea#replywrite').val('');
+           					}
+           					getAllReplies();
+           				} /* 콜백 함수 끝 */
+           				
+           			}); // end ajax
+       			}
        			
-       			$.ajax({
-       				type: 'post',
-       				url: '/teamsns/replies',
-       				headers: {
-       					'Content-Type': 'application/json',
-       					'X-HTTP-Method-Override': 'POST'
-       				},
-       				data: JSON.stringify({
-       					tt_bno: rbnoString,
-       					replier_uid: replierString,
-       					content: rtextString
-       				}),
-       				success: function(result) {
-       					if (result == 1) {
-       						alert('댓글 입력 성공');
-       						$('textarea#replywrite').val('');
-       					}
-       					getAllReplies();
-       				} /* 콜백 함수 끝 */
-       				
-       			}); // end ajax
        			
        		}); // end click
+       		/* ========================================================= */
+       		
+       		$('#btndelete').click(function(){
+       			var result = confirm('정말 삭제 하시겠습니까?');
+       			if(result == true){
+       				frm.attr('action','delete');
+       				frm.attr('method','post');
+       				frm.submit();
+       			}
+       		});
+       		
+       		$('#updatecomplete').click(function() {
+       			ufrm.attr('action', 'update');
+       			ufrm.attr('method', 'post');
+       			console.log("업데이트 버튼 확인");
+       			ufrm.submit();
+       		});
        		
        		
-       	});
+       		if('${boardVO.writer_uid}' != '${login_id}'){
+          	 	 
+           		$('#btndelete').hide();
+           		$('#btnupdate').hide();
+           		$('#btntest').hide();
+           	}
+       		
+       	}); // end document
+       	
+       	
        	
        	
        	

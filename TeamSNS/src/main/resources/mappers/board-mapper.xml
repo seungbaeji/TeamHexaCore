@@ -7,7 +7,7 @@
   	
   	
 	<select id="selectAllTip" resultType="edu.hexa.leejaehoon.domain.BoardVO">
-		select * from tt_board;
+		select * from tt_board ORDER BY regdate desc;
 	</select>
 	
 	<insert id="insertTip">
@@ -27,10 +27,21 @@
  		select b.bno, b.title, b.content, b.writer_uid, b.regdate, b.recommend, b.hits
 from (
    SELECT @rownum := @rownum + 1 AS rownum, pentacore.tt_board.* 
-    FROM pentacore.tt_board, (SELECT @rownum := 0) bno
+    FROM pentacore.tt_board, (SELECT @rownum := 0) bno 
+     ORDER BY pentacore.tt_board.regdate DESC
 ) b
 where rownum between #{start} and #{end}; 
  	</select> 	
 
+	<delete id="delete">
+	DELETE FROM pentacore.tt_board WHERE bno = #{bno};
+	</delete>
+	
+	<update id="update">
+	UPDATE pentacore.tt_board SET title = #{title }, content = #{content}  
+	WHERE bno = #{bno}; 
+	</update>
+	
+	
  
   </mapper>

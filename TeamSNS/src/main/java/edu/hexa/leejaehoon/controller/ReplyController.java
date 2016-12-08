@@ -45,17 +45,22 @@ public class ReplyController {
 		}
 		
 		@RequestMapping(value="/all/{no}", method=RequestMethod.GET)
-		public ResponseEntity<List<ReplyVO>> readReplies(@PathVariable("no") Integer bno){
+		public ResponseEntity<List<ReplyVO>> readReplies(@PathVariable("no") Integer bno,Model model){
 			
 			List<ReplyVO> list = replyservice.read(bno);
+			
 			
 			ResponseEntity<List<ReplyVO>> entity = null;
 			if (list != null) { // select 성공
 				entity = new ResponseEntity<>(list, HttpStatus.OK);
+				
 			} else { // select 실패
 				entity = new ResponseEntity<>(list, HttpStatus.BAD_REQUEST);
 			}
 			
+			int count = list.size();
+			logger.info("count:" + count);
+			model.addAttribute("count", count);
 			return entity;
 		}
 	

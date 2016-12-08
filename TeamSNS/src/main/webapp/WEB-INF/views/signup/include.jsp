@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css"/>
+<link rel="stylesheet" href="../resources/realcss/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
@@ -33,11 +33,11 @@
 
 <div id="accordian">
       
-       <img id="logo" src="../resources/css/Logo_wide.svg"/>
+       <img id="logo" src="../resources/realcss/Logo_wide.svg"/>
        
      <div class="loginForm">
         	
-        <form action="login" method="post">
+        <form action="/teamsns/signup/login" method="post"> <!-- /teamsns/signup/login -->
            <div class="box">
             <input type="text" name = "user_id" id="user_id" class="user_id" placeholder="아이디">
             <br>
@@ -45,7 +45,7 @@
             <br>
             <input type="submit"  id="signIn" class="signIn" value="로그인">
             
-            <input type="hidden" name="query" value="<%=request.getQueryString() %>"> <!-- 현재 페이지가 가지고 있는 주소  -->
+            <%-- <input type="hidden" name="query" value="<%=request.getQueryString() %>"> --%> <!-- 현재 페이지가 가지고 있는 주소  -->
             
           </div>
         </form>

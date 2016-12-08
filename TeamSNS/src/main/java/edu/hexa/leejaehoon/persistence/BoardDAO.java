@@ -13,6 +13,9 @@ public interface BoardDAO {
 	
 	public abstract BoardVO select(int bno);
 	
+	public abstract int delete(int bno);
+	
+	public abstract int update(BoardVO vo);
 	
 	public abstract int getNumOfRecords();
 	public abstract List<BoardVO> select(PaginationCriteria c);

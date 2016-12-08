@@ -45,4 +45,16 @@ public class BoardServiceImple implements BoardService {
 		return boardDao.select(c);
 	}
 
+	@Override
+	public int delete(int bno) {
+		
+		return boardDao.delete(bno);
+	}
+
+	@Override
+	public int update(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return boardDao.update(vo);
+	}
+
 }
