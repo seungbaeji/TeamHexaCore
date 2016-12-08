@@ -16,7 +16,7 @@ import edu.hexa.teamsns.domain.UserVO;
 import edu.penta.hyunsun.domain.RecruitDetailDTO;
 
 @Repository
-public class RecruitDetailDAOImple implements RecruiteDetailDAO {
+public class RecruitDetailDAOImple implements RecruitDetailDAO {
 	private static final Logger logger = LoggerFactory.getLogger(RecruitDetailDAOImple.class);
 	private static final String MAPPER = "edu.penta.hyunsun.recruit-detail-mapper";
 	

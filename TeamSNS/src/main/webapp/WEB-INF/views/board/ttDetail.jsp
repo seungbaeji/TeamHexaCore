@@ -208,7 +208,7 @@
                  </div>
                  
                  <div id="ttDetail6">
-                     <span>조회수:${boardVO.hits} , ${count}</span>
+                     <span>조회수:${boardVO.hits} </span>
                  </div>
                 
                 <div id="ttDetail7">

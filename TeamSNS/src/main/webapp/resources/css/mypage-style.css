@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+body {
+	width: 400px;
+}
+    
+form > div {
+	margin: 20px;
+	font-size: 25px;
+}
+    
+h1 {
+	background-color: aquamarine;
+}
+
+#div-main {
+	margin: 20px;
+	width: 300px;
+	border: solid;
+}
+
+.user_register {
+	font-size: 20px;
+}
+
+#user_id, #user_pw, #user_name, #user_nickname, #user_number, #userkkoid,
+	#user_email {
+	width: 250px;
+}
+
+.user_gender {
+	width: 100px;
+}
+
+

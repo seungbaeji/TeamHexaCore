@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.penta.seungbae.proejctcard">
+<mapper namespace="edu.penta.seungbae.projectcard">
 
 	<select id="selectAll" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
@@ -31,14 +31,15 @@
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid 
-			<if test = "districts != null">
-			AND p.district = #{districts}
+			<if test = "districts != '' or districts != null">
+			AND p.district =
+			<foreach collection="districts" item="district" separator=", " open="(" close=")">
+			 #{district}
+			</foreach>
 			</if>
 		Group by 
 			pid
 		Order by rp.rcend desc;
 	</select>
-	
-	
 
 </mapper>  

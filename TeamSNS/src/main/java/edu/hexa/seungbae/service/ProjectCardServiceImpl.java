@@ -31,7 +31,7 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	
 	@Override
 	public List<ProjectCardDTO> read(String[] districts) {
-		logger.info("ProjectCardService: 지역검색 실행");
+		logger.info("ProjectCardService: 지역검색 실행, 갯수: " + districts.length);
 		return dao.select(districts);
 	}
 

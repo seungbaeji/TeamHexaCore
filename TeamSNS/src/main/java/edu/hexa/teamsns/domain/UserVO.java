@@ -15,8 +15,8 @@ public class UserVO {
    private String phone;
    private String kkoid;
    private String email;
-   private Boolean gender;
-   private Date birth;
+   private int gender;
+   private String birth;
    private String address;
    private int user_level;
    
@@ -26,7 +26,7 @@ public class UserVO {
 	   logger.info("UserVO 생성" + uid);
    }
    public UserVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
-		String email, Boolean gender, Date birth, String address, int user_level) {
+		String email, int gender, String birth, String address, int user_level) {
 	super();
 	this.uid = uid;
 	this.pw = pw;
@@ -112,17 +112,17 @@ public String getUid() {
       return user_level;
    }
 
-   public Boolean getGender() {
+   public int getGender() {
 	return gender;
    }
    
-	public void setGender(Boolean gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getAddress() {

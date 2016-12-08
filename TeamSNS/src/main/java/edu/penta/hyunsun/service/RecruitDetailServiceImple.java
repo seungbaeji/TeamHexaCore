@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.penta.hyunsun.domain.RecruitDetailDTO;
-import edu.penta.hyunsun.persistence.RecruiteDetailDAO;
+import edu.penta.hyunsun.persistence.RecruitDetailDAO;
 
 @Service
 public class RecruitDetailServiceImple implements RecruitDetailService {
 
 	@Autowired
-	private RecruiteDetailDAO dao;
+	private RecruitDetailDAO dao;
 	
 	@Override
 	public RecruitDetailDTO select(int rbno) {

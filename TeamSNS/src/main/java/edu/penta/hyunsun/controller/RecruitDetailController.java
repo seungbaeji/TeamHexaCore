@@ -19,7 +19,7 @@ public class RecruitDetailController {
 	private RecruitDetailService service;
 	
 	// /recruit_detail/detail-recruit-bno
-	@RequestMapping(value="/recruit_detail/detail-recruit-bno", method=RequestMethod.GET)
+	@RequestMapping(value="/recruit_detail/detail-recruit", method=RequestMethod.GET)
 	public void recruitDetailView(int rbno, Model model) {
 		logger.info("상세보기 controller");
 		

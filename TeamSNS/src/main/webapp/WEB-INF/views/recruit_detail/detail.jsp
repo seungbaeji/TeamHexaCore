@@ -9,8 +9,10 @@
 <title>Recruit Detail</title>
 </head>
 <body>
+============== 프로젝트 모집글 상세보기 프로토 화면 ==============
+<hr/><hr/>
 
-	프로젝트 제목 : ${dto.project.pname } <br/>
+	프로젝트 이름 : ${dto.project.pname } <br/>
 	프로젝트 카테고리 : ${dto.project.category } <br/>
 	프로젝트 시작일 : <fmt:formatDate value="${dto.project.start }" pattern="yy-MM-dd" /> <br/>
 	프로젝트 종료일 : <fmt:formatDate value="${dto.project.end }" pattern="yy-MM-dd"/> <br/>
@@ -44,7 +46,7 @@
 	==== Aside ====<br/>
 	팀장 이름 : ${dto.team_leader.name} (닉네임 : ${dto.team_leader.nickname })
 	|| 카톡ID : ${dto.team_leader.kkoid } || EMAIL : ${dto.team_leader.email }
-	
+	|| 핸드폰 : ${dto.team_leader.phone }
 	
 </body>
 </html>
