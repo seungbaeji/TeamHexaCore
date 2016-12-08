@@ -25,7 +25,69 @@
       width: 1680px;
       height:300px;
    }
-
+#main_section {
+position:fixed;
+left:250px;
+top:400px;
+        width: 1200px;
+        height: 550px;
+        background-color: ;
+    }
+    
+    #section1 {
+        width: 550px;
+        height: 230px;
+        display: inline-block;
+        margin: 15px;
+    }
+    
+    #section2 {
+        width: 550px;
+        height: 230px;
+        display: inline-block;
+        margin: 15px;
+    }
+    
+    #section3 {
+        width: 550px;
+        height: 230px;
+        display: inline-block;
+        margin: 15px;
+    }
+    
+    #section4 {
+        width: 550px;
+        height: 230px;
+        display: inline-block;
+        margin: 15px;
+    }
+    
+    .main_table {
+        font-size: 15px;
+        table-layout: fixed;
+        width: 550px;
+        height: auto;
+    }
+    .main_table_name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    
+    .main_table_id {
+        width: 100px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    
+    .main_table_date {
+        width: 100px;
+    }
+    
+    .main_table_caption {
+        font-size: 18px;
+    }
 </style>
 </head>
 <body>
@@ -185,8 +247,130 @@
             </div>
         </div> <!--  end modal -->
 
-   
-
+<!-- 메인섹션 시작 테이블 4개  -->
+<div id="main_section">
+        <div id="section1">
+            <div class="label label-info main_table_caption">프로젝트</div>
+            <table class="table main_table">
+                <tr>
+                    <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
+                    <td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+                    <td class="main_table_date">2016-12-06</td>
+                </tr>
+                <tr>
+                    <td>adfsafsafafaf</td>
+                    <td>a</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td>b</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td>c</td>
+                    <td>c</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+            </table>
+        </div>
+        <div id="section2">
+            <div class="label label-info main_table_caption">정보</div>
+            <table class="table main_table">
+                <tr>
+                    <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
+                    <td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+                    <td class="main_table_date">2016-12-06</td>
+                </tr>
+                <tr>
+                    <td>adfsafsafafaf</td>
+                    <td>a</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td>b</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td>c</td>
+                    <td>c</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+            </table>
+        </div>
+        <div id="section3">
+            <div class="label label-info main_table_caption">커뮤니티</div>
+            <table class="table main_table">
+                <tr>
+                    <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
+                    <td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+                    <td class="main_table_date">2016-12-06</td>
+                </tr>
+                <tr>
+                    <td>adfsafsafafaf</td>
+                    <td>a</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td>b</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td>c</td>
+                    <td>c</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+            </table>
+        </div>
+        <div id="section4">
+            <div class="label label-info main_table_caption">몰라</div>
+            <table class="table main_table">
+                <tr>
+                    <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
+                    <td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+                    <td class="main_table_date">2016-12-06</td>
+                </tr>
+                <tr>
+                    <td>adfsafsafafaf</td>
+                    <td>a</td>
+                    <td>a</td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td>b</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td>c</td>
+                    <td>c</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<!-- 메인섹션 테이블 4개 끝 -->
 
 
 
