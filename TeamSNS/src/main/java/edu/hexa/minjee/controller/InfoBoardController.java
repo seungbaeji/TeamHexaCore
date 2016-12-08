@@ -160,4 +160,9 @@ public class InfoBoardController {
 	public void registerEdu2(){
 		
 	}
+	
+	@RequestMapping(value="test")
+	public void registerTest(){
+		
+	}
 }

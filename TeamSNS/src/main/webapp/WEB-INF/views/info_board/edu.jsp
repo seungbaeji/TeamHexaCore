@@ -56,7 +56,7 @@ position:fixed;
 	margin: 20px
 }
 
-div, table {
+table {
 	margin: 20px;
 	font-size: 20px;
 }
@@ -107,7 +107,9 @@ th {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
-
+.table_th {
+text-align : center;
+}
 /* 모달창 시작 */
 form>div {
 	margin: 20px;
@@ -144,12 +146,15 @@ h1 {
 	width: 8em;
 }
 
-li {
+.list_li {
 	display: inline-block;
 }
 
-ul {
+.list_ul {
 	list-style-type: none;
+}
+.list_ul > li > a {
+	font-size : 20px;
 }
 /* 모달창 끝 */
 </style>
@@ -160,21 +165,13 @@ ul {
 		<div>
 			<h1>정보 리스트</h1>
 		</div>
-		<div id="category">
-			<input type="button" class="category btn btn-info" value="창업교육"
-				onclick="location.href='info_list_edu.html'" /> <input
-				type="button" class="category btn btn-default" value="멘토링"
-				onclick="location.href='info_list_mentor.html'" /> <input
-				type="button" class="category btn btn-default" value="행사"
-				onclick="location.href='info_list_event.html'" />
-		</div>
 		<table>
 			<tr>
-				<th>글번호</th>
-				<th>글제목</th>
-				<th>카테고리</th>
-				<th>정보제공</th>
-				<th>마감일자</th>
+				<th class="table_th">글번호</th>
+				<th class="table_th">글제목</th>
+				<th class="table_th">카테고리</th>
+				<th class="table_th">정보제공</th>
+				<th class="table_th">마감일자</th>
 			</tr>
 			<c:forEach var="vo" items="${eduList }">
 				<tr>
@@ -183,22 +180,22 @@ ul {
 					<td id="info_category">${vo.category }</td>
 					<td class="id" id="info_id">${vo.user_id }</td>
 					<td class="end" id="info_end"><fmt:formatDate
-							value="${vo.end }" pattern="yyMMdd HH:mm:ss" /></td>
+							value="${vo.end }" pattern="yy-MM-dd" /></td>
 				</tr>
 			</c:forEach>
 		</table>
-			<ul class="page-links">
+			<ul class="page-links list_ul">
 				<c:if test="${pageMaker.hasPrev }">
-					<li><a href="${pageMaker.startPageNum -1 }">이전</a></li>
+					<li class="list_li"><a href="${pageMaker.startPageNum -1 }">이전</a></li>
 				</c:if>
 
 				<c:forEach begin="${pageMaker.startPageNum }"
 					end="${pageMaker.endPageNum }" var="num">
-					<li><a href="${num }">${num }</a></li>
+					<li class="list_li"><a href="${num }">${num }</a></li>
 
 				</c:forEach>
 				<c:if test="${pageMaker.hasNext }">
-					<li><a href="${pageMaker.endPageNum + 1 }">다음</a></li>
+					<li class="list_li"><a href="${pageMaker.endPageNum + 1 }">다음</a></li>
 				</c:if>
 			</ul>
 		<form id="pageForm">
@@ -213,10 +210,10 @@ ul {
 		<div>
 			<!-- 버튼 -->
 			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal" id="btnReset">
+				data-toggle="modal" data-target="#info_register_modal" id="btnReset">
 				새글 작성</button>
 			<!-- 모달 팝업 -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			<div class="modal fade" id="info_register_modal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
