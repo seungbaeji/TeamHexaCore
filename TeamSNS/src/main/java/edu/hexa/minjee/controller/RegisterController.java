@@ -47,7 +47,7 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value="project-register", method=RequestMethod.POST)
-	public void registerPOST(
+	public String registerPOST(
 			ProjectVO pvo, String pstart, String pend, 
 			ManageProjectPartVO mvo, ManageProjectPartDTO mdto, 
 			RequiredSkillVO rvo,
@@ -80,7 +80,7 @@ public class RegisterController {
 		RecruitProjectVO rcvo = new RecruitProjectVO(0, pvo.getPid(), title, 
 						format.parse(rcstart), format.parse(rcend), 0, null);
 		int result_recruit = registerService.create(rcvo);
-//		return "redirect:project-register";
+		return "redirect:../project/projectList";
 		
 	}
 }

@@ -49,7 +49,7 @@
 		<li>모집 마감일: ${vo.rcend }</li>
 	</ul>
 	</div>	
-	<h4 class="teamdesc"><a href="projectDetail?${vo.pid }">${vo.intro }</a></h4>
+	<h4 class="teamdesc"><a href="${vo.pid }">${vo.intro }</a></h4>
 	<h5 class="teamname">${vo.pname }</h5>
 	<div class="skillbox">
 		<ul class="skills">
@@ -77,6 +77,10 @@
 	</div>
 </div>
 </c:forEach>
+
+<form id="frm">
+	<input type="hidden" name="pid">
+</form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
@@ -150,6 +154,17 @@ $(document).ready(function(){
 		
 		
 		
+	});
+	
+	
+	$('.teamdesc a').click(function() {
+		var frm = $('#frm');
+		event.preventDefault();
+		var pid = $(this).attr("href");
+		frm.find("[name='pid']").val(pid);
+		frm.attr("action", "projectDetail");
+		frm.attr("method", "get");
+		frm.submit();
 	});
 
 });
