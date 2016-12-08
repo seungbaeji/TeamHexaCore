@@ -6,7 +6,7 @@
 <mapper namespace="edu.hexa.leejaehoon.projectinfo">
 	
 	<select id="selectProject" resultType="edu.hexa.leejaehoon.domain.ProjectInfoVO">
-		select pid, category, pname, intro, start, end 
+	select pid, category, pname, intro, start, end 
 	from pentacore.project 
 	where pid = (select pid from pentacore.project_leader where leader_uid =#{uid});
 	</select>

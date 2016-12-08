@@ -69,7 +69,9 @@ public class SignUpController {
 		logger.info("query: " + query);
 		if (query != null && !query.equals("null")) {
 			// 요청 파라미터 query에 값이 들어 있는 경우
-			String dest = query.substring(4);
+			/*String[] attr1 = query.split("."); 
+			String dest = attr1[1];*/
+			String dest = query.substring(4);	
 			logger.info("dest 정보: " + dest);
 			request.getSession().setAttribute("dest", dest);
 		}

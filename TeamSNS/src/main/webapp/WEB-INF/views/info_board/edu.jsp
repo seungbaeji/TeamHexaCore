@@ -140,6 +140,8 @@ h1 {
 </style>
 
 <body>
+	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
+
 	<div id="div_info_list_main">
 		<div>
 			<h1>정보 리스트</h1>

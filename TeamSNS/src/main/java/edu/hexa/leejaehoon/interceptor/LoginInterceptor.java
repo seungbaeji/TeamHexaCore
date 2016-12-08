@@ -71,6 +71,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 				
 				// 기존에 요청 주소가 있는 경우 해당페이지로 이동
 				Object dest = session.getAttribute("dest");
+				logger.info("dest 정보 :" + dest);
 				if(dest != null){
 					response.sendRedirect((String)dest);
 				} else {

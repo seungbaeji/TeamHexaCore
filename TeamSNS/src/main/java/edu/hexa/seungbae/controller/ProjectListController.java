@@ -23,11 +23,16 @@ public class ProjectListController {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectListController.class);
 	
 	@RequestMapping(value="projectList", method=RequestMethod.GET)
-	public void getTeamList(Model model, String[] districtList){
+	public void getTeamList(Model model){
 		logger.info("TeamList 호출");
-		List<ProjectCardDTO> projectCardList = service.read(districtList);
+		List<ProjectCardDTO> projectCardList = service.read();
 		model.addAttribute("projectCardList", projectCardList);	
 	} // end teamCard()
+	
+	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
+	public void getTeamDetail() {
+		
+	}
 
 }// end class TeamListController
 

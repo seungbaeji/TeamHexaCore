@@ -39,6 +39,7 @@ public class BoardController {
 //		
 //	}
 	
+	
 	@RequestMapping(value="ttRegister")
 	public void tipRegister(HttpServletRequest request,Model model){
 		
@@ -72,8 +73,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="tipAndTech")
-	public void listPage(Integer page, Model model){
+	public void listPage(Integer page, Model model,HttpServletRequest request){
 		logger.info("listPage : " + page);
+		
+		HttpSession session = request.getSession();
+		session.getAttribute("login_id");
 		
 		PaginationCriteria c = new PaginationCriteria();
 		if(page != null){
@@ -91,9 +95,35 @@ public class BoardController {
 		model.addAttribute("pageMaker", maker);
 	}
 	
+	@RequestMapping(value="delete", method=RequestMethod.POST)
+	public String delete(int bno, int page, RedirectAttributes attr){
+		logger.info("delete 할 번호 호츌(): bno= " + bno );
+		logger.info("page 값:" + page);
+		int result = boardService.delete(bno);
+		
+		if (result == 1) {
+			attr.addFlashAttribute("delete_result", "success");
+		} else {
+			attr.addFlashAttribute("delete_result", "fail");
+		}
+		attr.addFlashAttribute("bno", bno);
+		return "redirect:tipAndTech?page=" + page;
+	}
 	
-	
-	
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public String boardUpdate(BoardVO vo,int page, RedirectAttributes attr){
+		logger.info("update 호출: page= " + page);
+		int result = boardService.update(vo);
+		if (result == 1) {
+			attr.addFlashAttribute("update_result", "success");
+		} else {
+			attr.addFlashAttribute("update_result", "fail");
+		}
+		attr.addFlashAttribute("bno",vo.getBno());
+		
+		return "redirect:tipAndTech?page=" + page;
+		
+	}
 	
 	
 	

@@ -13,6 +13,10 @@ public interface BoardService {
 	
 	public abstract BoardVO read(int bno);
 	
+	public abstract int delete(int bno);
+	
+	public abstract int update(BoardVO vo);
+	
 	
 	public abstract int getNumOfRecords();
 	public abstract List<BoardVO> read(PaginationCriteria c);
