@@ -239,15 +239,15 @@ h1 {
 					<label class="label label-default">팀장 연락처</label> <br>
 					<div class="form-inline">
 						<label for="user_number" class="label label-info leader" id="label_user_number">phone</label> 
-						<input type="tel" class="form-control" id="user_number" value="${userVO.phone}" >
+						<input type="tel" class="form-control" id="user_number" value="${userVO.phone}" readonly>
 					</div>
 					<div class="form-inline">
 						<label for="user_email" class="label label-info leader" id="label_user_email">email</label> 
-						<input type="email" class="form-control" id="user_email" value="${userVO.email }" >
+						<input type="email" class="form-control" id="user_email" value="${userVO.email }" readonly >
 					</div>
 					<div class="form-inline">
 						<label for="user_kkoid" class="label label-info leader" id="label_user_kkoid">카카오톡 ID</label> 
-						<input type="text" class="form-control" id="user_kkoid" value="${userVO.kkoid }" >
+						<input type="text" class="form-control" id="user_kkoid" value="${userVO.kkoid }" readonly>
 					</div>
 				</div>
 				<br>

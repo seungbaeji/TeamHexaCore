@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.hexa.minjee.domain.ManageProjectPartDTO;
 import edu.hexa.minjee.service.ProjectRegisterService;
 import edu.hexa.teamsns.domain.ManageProjectPartVO;
+import edu.hexa.teamsns.domain.ProjectLeaderVO;
 import edu.hexa.teamsns.domain.ProjectVO;
 import edu.hexa.teamsns.domain.RecruitProjectVO;
 import edu.hexa.teamsns.domain.RequiredSkillVO;
@@ -32,6 +33,7 @@ public class RegisterController {
 			LoggerFactory.getLogger(RegisterController.class);
 	private static final String SESSION_ATTR_ID = "login_id";
 	private SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+	private String uid;
 	
 	@Autowired
 	private ProjectRegisterService registerService;
@@ -39,7 +41,7 @@ public class RegisterController {
 	
 	@RequestMapping(value = "project-register")
 	public void registerGET(HttpServletRequest request, Model model) {
-		String uid = (String) request.getSession().getAttribute(SESSION_ATTR_ID);
+		uid = (String) request.getSession().getAttribute(SESSION_ATTR_ID);
 		logger.info("registerGET: uid: " + uid);
 		UserVO uvo = registerService.read(uid);
 		model.addAttribute("userVO", uvo);
@@ -80,6 +82,11 @@ public class RegisterController {
 		RecruitProjectVO rcvo = new RecruitProjectVO(0, pvo.getPid(), title, 
 						format.parse(rcstart), format.parse(rcend), 0, null);
 		int result_recruit = registerService.create(rcvo);
+		
+		// leader insert
+		ProjectLeaderVO lvo = new ProjectLeaderVO(pvo.getPid(), uid);
+		registerService.create(lvo);
+		
 		return "redirect:../project/projectList";
 		
 	}

@@ -26,6 +26,11 @@
 	values (#{pid}, #{title}, #{rcstart}, #{rcend})
 	</insert>
 	
+	<insert id="insert_leader">
+	insert into project_leader
+	values (#{pid}, #{leader_uid})
+	</insert>
+	
 	<select id="select_user" resultType="edu.hexa.teamsns.domain.UserVO">
 	select * from user
 	where uid = #{uid}
