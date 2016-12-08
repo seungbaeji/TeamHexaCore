@@ -88,6 +88,7 @@ top:400px;
     .main_table_caption {
         font-size: 18px;
     }
+   
 </style>
 </head>
 <body>
