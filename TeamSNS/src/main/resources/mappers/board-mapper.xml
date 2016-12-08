@@ -31,8 +31,6 @@ FROM (
     ORDER BY pentacore.tt_board.regdate DESC
 ) b
 WHERE rownum between #{start } and #{end };
-
-
  	</select> 	
 
 	<delete id="delete">
