@@ -228,7 +228,7 @@
        </div> <!-- end ttDetail -->
        <ul id="replyboard">
       
-           <li id="replycount"><h3 id="count">답변: ${count}</h3></li>
+           <li id="replycount"><h3 id="count">답변: </h3></li>
            <li id="replyAll"></li>
            
            
@@ -303,6 +303,7 @@
        			$.getJSON(url,function(result) {
        				
        				console.log("댓글 개수: " + result.length);
+       				$('#count').html('답변: ' + result.length);
        				
        				var list = '';
        				
@@ -398,6 +399,9 @@
        			ufrm.submit();
        		});
        		
+       		$('#btnlist').click(function(){
+       			location = '/teamsns/board/tipAndTech?page=${page}';
+       		});
        		
        		if('${boardVO.writer_uid}' != '${login_id}'){
           	 	 
