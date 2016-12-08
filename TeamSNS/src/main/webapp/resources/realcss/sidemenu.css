@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 
-* {
-	box-sizing: border-box;
-}
 #accordian {
 	position: fixed;
 	background: #333333;
@@ -153,6 +150,7 @@
 	text-shadow: 1px 1px 1px #004773;
 	background: #333;
 	float: left;
+	margin-right: 87px;
 }
 
 .logout {
