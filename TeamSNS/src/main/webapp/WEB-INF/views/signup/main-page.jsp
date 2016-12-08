@@ -48,7 +48,7 @@
             
             
             <%-- <input type="hidden" name="query" value="<%=request.getRequestURI() %>"> --%>  <!-- 현재 페이지가 가지고 있는 주소  -->
-            
+            <!--  씨부랄 깃 -->
           </div>
         </form>
         <button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
