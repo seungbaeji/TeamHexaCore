@@ -14,17 +14,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
 <style>
-	*{
-		margin: 0;
-		padding: 0;
-	}
-	#car{
-		position: fixed;
-		left:250px;
-		
-		width: 1680px;
-		height:300px;
-	}
+   *{
+      margin: 0;
+      padding: 0;
+   }
+   #car{
+      position: fixed;
+      left:250px;
+      
+      width: 1680px;
+      height:300px;
+   }
 
 </style>
 </head>
@@ -35,7 +35,7 @@
        <img id="logo" src="../resources/css/Logo_wide.svg"/>
        
      <div class="loginForm">
-        	
+           
         <form action="login" method="post">
            <div class="box">
             <input type="text" name = "user_id" id="user_id" class="user_id" placeholder="아이디">
@@ -53,45 +53,45 @@
       <br/>
       <br/>
    
-	<ul>
-		<li>
-			<h3><span class="icon-dashboard"></span>프로젝트</h3>
-			<ul>
-				<li id="project-list"><a href="#">프로젝트 리스트</a></li>
-				<li id="project-register"><a href="#">프로젝트 등록</a></li>
-				<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
-			</ul>
-		</li>
-		<li class="active">
-			<h3><span class="icon-tasks"></span>정보</h3>
-			<ul>
-				<li><a href="#">창업교육</a></li>
-				<li><a href="#">멘토링</a></li>
-				<li><a href="#">행사</a></li>
-				
-			</ul>
-		</li>
-		<li>
-			<h3><span class="icon-calendar"></span>커뮤니티</h3>
-			<ul>
-				<li id="tipAndTech"><a href="#">Tip & Tech</a></li>
-				<li><a href="#">자유게시판</a></li>
-				<li><a href="#">Q & A</a></li>
-			</ul>
-		</li>
-		<li>
-			<h3><span class="icon-heart"></span>null</h3>
-			<ul>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-				<li><a href="#">null</a></li>
-			</ul>
-		</li>
-	</ul>
-		<button class="mypage">마이페이지</button>
-    	<button class="logout">로그아웃</button>
-	
+   <ul>
+      <li>
+         <h3><span class="icon-dashboard"></span>프로젝트</h3>
+         <ul>
+            <li id="project-list"><a href="#">프로젝트 리스트</a></li>
+            <li id="project-register"><a href="#">프로젝트 등록</a></li>
+            <li id="projectInfo"><a href="#">프로젝트 관리</a></li>
+         </ul>
+      </li>
+      <li class="active">
+         <h3><span class="icon-tasks"></span>정보</h3>
+         <ul>
+            <li><a href="#">창업교육</a></li>
+            <li><a href="#">멘토링</a></li>
+            <li><a href="#">행사</a></li>
+            
+         </ul>
+      </li>
+      <li>
+         <h3><span class="icon-calendar"></span>커뮤니티</h3>
+         <ul>
+            <li id="tipAndTech"><a href="#">Tip & Tech</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">Q & A</a></li>
+         </ul>
+      </li>
+      <li>
+         <h3><span class="icon-heart"></span>null</h3>
+         <ul>
+            <li><a href="#">null</a></li>
+            <li><a href="#">null</a></li>
+            <li><a href="#">null</a></li>
+            <li><a href="#">null</a></li>
+         </ul>
+      </li>
+   </ul>
+      <button class="mypage">마이페이지</button>
+       <button class="logout">로그아웃</button>
+   
 </div> <!-- end accordian-->
 
 <div id="car">
@@ -135,7 +135,7 @@
 </div>
 
 
-	<!-- strat modal -->
+   <!-- strat modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -174,6 +174,7 @@
                                         <input type="text" class="form-control user_register" id="user_img" name="user_img" placeholder="사진 저장 경로"> </div>    
                                     <br>
                                     <input type="submit" class="btn btn-primary btn-lg" id="user_submit" value="등록 하기"> </div>
+                                    
                             </form>
                         </div>
                     </div>
@@ -181,7 +182,7 @@
             </div>
         </div> <!--  end modal -->
 
-	
+   
 
 
 
@@ -190,71 +191,71 @@
 <!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ자바스크립트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
    <script>
         $(function(){
-	$("#accordian h3").click(function(){
-		$("#accordian ul ul").slideUp();
-		if(!$(this).next().is(":visible"))
-		{
-			$(this).next().slideDown();
-		}
-	});
+   $("#accordian h3").click(function(){
+      $("#accordian ul ul").slideUp();
+      if(!$(this).next().is(":visible"))
+      {
+         $(this).next().slideDown();
+      }
+   });
 });
         
         $(document).ready(function(){
-        	 if ('${insert_result}' == 'success') {
-        	        alert('신규 회원 가입 성공!');
-        	    } else if ('${insert_result}' == 'fail') {
-        	        alert('신규 회원 가입 실패!');
-        	    }
-        	 
-        	  if('${success}' == 'success'){
-        		 $('.loginForm').hide();
-        	  } else{
-        		  $('.logout').hide();
-        		  $('.mypage').hide();
-        		  $('#projectInfo').hide();
-        		  $('#project-register').hide();
-        	  }
-        	  
-        	 $('.logout').click(function(){
- 				alert('${login_id}님 로그아웃 되셧습니다!');
- 				location = '/teamsns/signup/logout';
- 			});
-        	 
-	       	 $('#project-list').click(function(){
-		     		location = '/teamsns/project/projectList'; 
-	     	 });
-        	 
-        	 $('#projectInfo').click(function(){
- 				location = '/teamsns/project/projectInfo';
- 			});
- 			
- 			$('#project-register').click(function(){
- 				location = '/teamsns/register/project-register';
- 			});
- 			
- 			$('#tipAndTech').click(function(){
- 				location = '/teamsns/board/tipAndTech';
- 			});
- 			
-        	
- 			
- 	            $("#start, #end").datepicker({
- 	                dateFormat: 'yymmdd'
- 	                , monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
- 	                , dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
- 	                , changeMonth: true, //월변경가능
- 	                changeYear: true, //년변경가능
- 	                showMonthAfterYear: true //년 뒤에 월 표시
- 	            });
- 	            /* 글자수 체크1 */
- 	            $('#pname, .part').keyup(function () {
- 	                if ($(this).val().length > $(this).attr('maxlength')) {
- 	                    alert('제한길이 초과');
- 	                    $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
- 	                }
- 	            });
- 	        
- 			
+            if ('${insert_result}' == 'success') {
+                   alert('신규 회원 가입 성공!');
+               } else if ('${insert_result}' == 'fail') {
+                   alert('신규 회원 가입 실패!');
+               }
+            
+             if('${success}' == 'success'){
+               $('.loginForm').hide();
+             } else{
+                $('.logout').hide();
+                $('.mypage').hide();
+                $('#projectInfo').hide();
+                $('#project-register').hide();
+             }
+             
+            $('.logout').click(function(){
+             alert('${login_id}님 로그아웃 되셧습니다!');
+             location = '/teamsns/signup/logout';
+          });
+            
+              $('#project-list').click(function(){
+                 location = '/teamsns/project/projectList'; 
+            });
+            
+            $('#projectInfo').click(function(){
+             location = '/teamsns/project/projectInfo';
+          });
+          
+          $('#project-register').click(function(){
+             location = '/teamsns/register/project-register';
+          });
+          
+          $('#tipAndTech').click(function(){
+             location = '/teamsns/board/tipAndTech';
+          });
+          
+           
+          
+                $("#start, #end").datepicker({
+                    dateFormat: 'yymmdd'
+                    , monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+                    , dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
+                    , changeMonth: true, //월변경가능
+                    changeYear: true, //년변경가능
+                    showMonthAfterYear: true //년 뒤에 월 표시
+                });
+                /* 글자수 체크1 */
+                $('#pname, .part').keyup(function () {
+                    if ($(this).val().length > $(this).attr('maxlength')) {
+                        alert('제한길이 초과');
+                        $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
+                    }
+                });
+            
+          
         });
     </script>
 

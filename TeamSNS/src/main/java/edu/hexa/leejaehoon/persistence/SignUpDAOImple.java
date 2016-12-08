@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 import edu.hexa.leejaehoon.domain.SignUpVO;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Repository
 public class SignUpDAOImple implements SignUpDAO {
@@ -21,10 +22,10 @@ public class SignUpDAOImple implements SignUpDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public int insert(SignUpVO vo) {
+	public int insert(UserVO vo) {
 		
 		logger.info("DAOvo" + vo);
-		return sqlSession.insert(NAMESPCAE + ".insert", vo);
+		return sqlSession.insert(NAMESPCAE + ".insert_user", vo);
 	}
 
 	@Override

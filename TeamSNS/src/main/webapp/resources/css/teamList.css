@@ -54,6 +54,11 @@ div.districtset {
 	float: left;
 	/*margin: 5px 5px 5px 0px;*/
 }
+
+.district li a {
+	text-decoration:none; 
+	color:black;
+}
 	
 div.cardlist {
 	height: 180px; /* cardlist class의 높이 지정  */

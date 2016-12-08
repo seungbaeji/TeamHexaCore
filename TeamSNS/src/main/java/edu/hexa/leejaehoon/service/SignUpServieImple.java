@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import edu.hexa.leejaehoon.domain.SignUpVO;
 import edu.hexa.leejaehoon.persistence.SignUpDAO;
+import edu.hexa.teamsns.domain.UserVO;
 
 @Service
 public class SignUpServieImple implements SignUpService {
@@ -18,7 +19,7 @@ public class SignUpServieImple implements SignUpService {
 	
 	
 	@Override
-	public int create(SignUpVO vo) {
+	public int create_user(UserVO vo) {
 		
 		logger.info("service = " + vo);
 		return signUpDAO.insert(vo);
