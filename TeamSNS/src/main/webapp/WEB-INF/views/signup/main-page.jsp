@@ -110,7 +110,7 @@ header {
 	display: inline-block;
 }
 
-@media ( max-width : 768px) {
+@media ( max-width : 767px) {
 	#section1, #section2, #section3, #section4 {
 		width: 100%;
 	}
