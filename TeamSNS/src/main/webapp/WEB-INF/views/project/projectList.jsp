@@ -12,7 +12,7 @@
 <div class="districtset">
    <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
       <ul class="district">
-         <li id ="all"><a href="projectList?districtList">전체선택</a></li>
+         <li id ="all">전체선택</li>
          <li id ="seoul">서울특별시 </li>
          <li id ="busan">부산광역시 </li>
          <li id ="daegu">대구광역시 </li>
@@ -144,11 +144,31 @@ $(document).ready(function(){
       var url = "/teamsns/projects/" + districts;
       $.getJSON(url, function(result){
          console.log("프로젝트 개수:" + result.length);
+         $(result).each(function(){
+        	 var rcstart = new Date(this.rcstart);
+        	 var rcend = new Date(this.rcend);
+        	 console.log(this.recruit_hits);
+             console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
+             console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
+             console.log(this.rbno);
+             console.log(this.intro);
+             console.log(this.pname);
+             console.log(this.skills);
+             console.log(this.parts);
+             
+             
+             
+ 
+         });// end result each
          
-      })
+         
+         
+         
+    
+      });// end getJSON
       
       
-   });
+   });// end district li click
    
    
    $('.teamdesc a').click(function() {

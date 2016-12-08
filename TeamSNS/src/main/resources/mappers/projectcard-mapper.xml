@@ -34,7 +34,7 @@
 		WHERE 
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid AND 
 			<if test = "list != null and !list.isEmpty">
-			<foreach collection="list" item="district" open="(" close=")" separator="and">
+			<foreach collection="list" item="district" open="(" close=")" separator="or">
 			p.district Like concat('%',#{district},'%')
 			</foreach>
 			</if>
