@@ -29,10 +29,10 @@ public class ProjectListController {
 		model.addAttribute("projectCardList", projectCardList);	
 	} // end teamCard()
 	
-	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
+/*	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
 	public void getTeamDetail() {
 		
-	}
+	}*/
 
 }// end class TeamListController
 

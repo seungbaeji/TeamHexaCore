@@ -10,8 +10,8 @@ public class RecruitProjectVO {
    private int rbno;
    private String pid;
    private String title;
-   private Date start;
-   private Date end;
+   private Date rcstart;
+   private Date rcend;
    private int recruit_hits;
    private String team_id;
    
@@ -27,8 +27,8 @@ public class RecruitProjectVO {
       this.rbno = rbno;
       this.pid = pid;
       this.title = title;
-      this.start = start;
-      this.end = end;
+      this.rcstart = start;
+      this.rcend = end;
       this.recruit_hits = recruit_hits;
       this.team_id = team_id;
       logger.info("RecruitProjectVO 생성 with parameter");
@@ -59,19 +59,19 @@ public class RecruitProjectVO {
    }
 
    public Date getRcstart() {
-      return start;
+      return rcstart;
    }
 
    public void setRcstart(Date start) {
-      this.start = start;
+      this.rcstart = start;
    }
 
    public Date getRcend() {
-      return end;
+      return rcend;
    }
 
    public void setRcend(Date end) {
-      this.end = end;
+      this.rcend = end;
    }
 
    public int getRecruit_hits() {
