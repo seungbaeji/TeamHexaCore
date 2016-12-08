@@ -398,6 +398,9 @@
        			ufrm.submit();
        		});
        		
+       		$('#btnlist').click(function(){
+       			location = '/teamsns/board/tipAndTech?page=${page}';
+       		});
        		
        		if('${boardVO.writer_uid}' != '${login_id}'){
           	 	 
