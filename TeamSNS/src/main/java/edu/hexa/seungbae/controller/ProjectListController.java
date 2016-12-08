@@ -28,6 +28,11 @@ public class ProjectListController {
 		List<ProjectCardDTO> projectCardList = service.read(districts);
 		model.addAttribute("projectCardList", projectCardList);	
 	} // end teamCard()
+	
+	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
+	public void getTeamDetail() {
+		
+	}
 
 }// end class TeamListController
 
