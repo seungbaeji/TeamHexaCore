@@ -41,7 +41,7 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 
 	@Override
 	public ProjectCardDTO select(int pId) {
-		return null;
+		return sqlSession.selectOne(NAMESPACE + ".selectByPid", pId);
 	}
 
 
@@ -58,7 +58,5 @@ public class ProjectCardDAOImpl implements ProjectCardDAO{
 		return 0;
 	}
 
-
-	
 
 }
