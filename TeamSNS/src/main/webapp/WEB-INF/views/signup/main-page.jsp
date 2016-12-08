@@ -25,6 +25,12 @@
       width: 1680px;
       height:300px;
    }
+   
+   @media (max-width: 1024px) { 
+   		#car {
+   		     width: 1024px;
+   		 }
+   }
 
 </style>
 </head>
