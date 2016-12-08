@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="../resources/css/teamList.css" rel="stylesheet" type="text/css"></link>
+<link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
 <div class="districtset">
@@ -49,7 +49,7 @@
 		<li>모집 마감일: ${vo.rcend }</li>
 	</ul>
 	</div>	
-	<h4 class="teamdesc"><a href="${vo.pid }">${vo.intro }</a></h4>
+	<h4 class="teamdesc"><a href="${vo.rbno }">${vo.intro }</a></h4>
 	<h5 class="teamname">${vo.pname }</h5>
 	<div class="skillbox">
 		<ul class="skills">
@@ -79,7 +79,7 @@
 </c:forEach>
 
 <form id="frm">
-	<input type="hidden" name="pid">
+	<input type="hidden" name="rbno">
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -148,21 +148,15 @@ $(document).ready(function(){
 		})
 		
 		
-		
-		
-		
-		
-		
-		
 	});
 	
 	
 	$('.teamdesc a').click(function() {
 		var frm = $('#frm');
 		event.preventDefault();
-		var pid = $(this).attr("href");
-		frm.find("[name='pid']").val(pid);
-		frm.attr("action", "projectDetail");
+		var rbno = $(this).attr("href");
+		frm.find("[name='rbno']").val(rbno);
+		frm.attr("action", "/teamsns/project/projectDetail");
 		frm.attr("method", "get");
 		frm.submit();
 	});

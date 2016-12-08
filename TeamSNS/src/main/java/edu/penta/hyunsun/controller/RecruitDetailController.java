@@ -19,12 +19,15 @@ public class RecruitDetailController {
 	private RecruitDetailService service;
 	
 	// /recruit_detail/detail-recruit-bno
-	@RequestMapping(value="/recruit_detail/detail-recruit", method=RequestMethod.GET)
+	@RequestMapping(value="/project/projectDetail", method=RequestMethod.GET)
 	public void recruitDetailView(int rbno, Model model) {
 		logger.info("상세보기 controller");
 		
 		RecruitDetailDTO dto = service.select(rbno);
 		model.addAttribute("dto", dto);
+		
+/*		RecruitDetailDTO dto = service.select(rbno);
+		model.addAttribute("dto", dto);*/
 		
 	} // end detailView()
 	
