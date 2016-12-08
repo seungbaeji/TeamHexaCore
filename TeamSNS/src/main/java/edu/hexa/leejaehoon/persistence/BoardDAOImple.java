@@ -55,4 +55,16 @@ public class BoardDAOImple implements BoardDAO {
 		return sqlsession.selectList(NAMESPCAE + ".listPage", c);
 	}
 
+	@Override
+	public int delete(int bno) {
+		
+		return sqlsession.delete(NAMESPCAE + ".delete", bno);
+	}
+
+	@Override
+	public int update(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return sqlsession.update(NAMESPCAE + ".update", vo);
+	}
+
 }

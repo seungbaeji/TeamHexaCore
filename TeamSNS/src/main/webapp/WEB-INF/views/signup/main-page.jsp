@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css"/>
+<link rel="stylesheet" href="../resources/realcss/sidemenu.css"/>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
@@ -32,11 +32,13 @@
 
 <div id="accordian">
       
-       <img id="logo" src="../resources/css/Logo_wide.svg"/>
+       <img id="logo" src="../resources/realcss/Logo_wide.svg"/>
        
      <div class="loginForm">
-           
-        <form action="login" method="post">
+
+        	
+        <form action="/teamsns/signup/login" method="post">
+
            <div class="box">
             <input type="text" name = "user_id" id="user_id" class="user_id" placeholder="아이디">
             <br>
@@ -44,8 +46,9 @@
             <br>
             <input type="submit"  id="signIn" class="signIn" value="로그인">
             
-            <input type="hidden" name="query" value="<%=request.getQueryString() %>"> <!-- 현재 페이지가 가지고 있는 주소  -->
             
+            <%-- <input type="hidden" name="query" value="<%=request.getRequestURI() %>"> --%>  <!-- 현재 페이지가 가지고 있는 주소  -->
+            <!--  씨부랄 깃 -->
           </div>
         </form>
         <button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
@@ -106,17 +109,17 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="../resources/css/carousel01.svg" alt="...">
+      <img src="../resources/realcss/carousel01.svg" alt="...">
       <div class="carousel-caption">
       </div>
     </div>
     <div class="item">
-      <img src="../resources/css/carousel02.svg" alt="...">
+      <img src="../resources/realcss/carousel02.svg" alt="...">
       <div class="carousel-caption">
       </div>
     </div>
     <div class="item">
-      <img src="../resources/css/carousel03.svg" alt="...">
+      <img src="../resources/realcss/carousel03.svg" alt="...">
       <div class="carousel-caption">
       </div>
     </div>

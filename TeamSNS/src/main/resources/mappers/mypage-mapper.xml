@@ -21,14 +21,13 @@ DELETE FROM pentacore.user WHERE uid = ${uid }
 </delete>
 
 <select id="my-board" resultType="edu.penta.hyunsun.domain.BoardVO">
-(SELECT @bk := 'tt' AS bk, tt.bno, tt.title 
+(SELECT @bk := 'tt' AS bk, tt.bno, tt.title
 FROM pentacore.tt_board AS tt WHERE writer_uid = #{uid}
 ORDER BY bno DESC) 
 UNION
-(SELECT @bk := 'free' AS bk, free.bno, free.title 
+(SELECT @bk := 'free' AS bk, free.bno, free.title
 FROM pentacore.free_board AS free WHERE writer_uid = #{uid}
-ORDER BY bno DESC
-)
+ORDER BY bno DESC)
 </select>
 
 </mapper>

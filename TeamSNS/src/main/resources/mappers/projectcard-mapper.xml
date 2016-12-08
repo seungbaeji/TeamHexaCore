@@ -7,39 +7,41 @@
 	<select id="selectAll" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
 			p.pid, p.category, p.pname, p.intro, p.district, p.meeting_area, p.start, p.end,
-			concat(rs.skill_1, ',', rs.skill_2, ',', rs.skill_3, ',', rs.skill_4, ',', rs.skill_5, ',', rs.skill_6, ',', rs.skill_7, ',', rs.skill_8, ',', rs.skill_9, ',', rs.skill_10) skills,
+			concat(rs.skill_1, ',', rs.skill_2, ',', rs.skill_3, ',', rs.skill_4,',', rs.skill_5, ',', 
+					rs.skill_6, ',', rs.skill_7, ',', rs.skill_8, ',', rs.skill_9,',', rs.skill_10) skills,
 			rp.title, rp.rbno, rp.recruit_hits, rp.rcstart, rp.rcend,
 			group_concat(mpp.part separator ',') parts
-		FROM 
+		FROM
 			pentacore.project p, pentacore.required_skill rs,
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
-		WHERE 
+		WHERE
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid
-		Group by 
+		Group by
 			pid
-		Order by rp.rcend desc;
+			Order by rp.rcend desc;
 	</select>
-	
+
 	<select id="selectByDistricts" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
 			p.pid, p.category, p.pname, p.intro, p.district, p.meeting_area, p.start, p.end,
-			concat(rs.skill_1, ',', rs.skill_2, ',', rs.skill_3, ',', rs.skill_4, ',', rs.skill_5, ',', rs.skill_6, ',', rs.skill_7, ',', rs.skill_8, ',', rs.skill_9, ',', rs.skill_10) skills,
+			concat(rs.skill_1, ',', rs.skill_2, ',', rs.skill_3, ',', rs.skill_4, ',', rs.skill_5, ',', 
+					rs.skill_6, ',', rs.skill_7, ',', rs.skill_8, ',', rs.skill_9, ',', rs.skill_10) skills,
 			rp.title, rp.rbno, rp.recruit_hits, rp.rcstart, rp.rcend,
 			group_concat(mpp.part separator ',') parts
-		FROM 
+		FROM
 			pentacore.project p, pentacore.required_skill rs,
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
-			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid 
-			<if test = "districts != '' or districts != null">
-			AND p.district =
-			<foreach collection="districts" item="district" separator=", " open="(" close=")">
-			 #{district}
+			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid AND 
+			<if test = "list != null and !list.isEmpty">
+			<foreach collection="list" item="district" open="(" close=")" separator="and">
+			p.district = Like %#{district}%
 			</foreach>
 			</if>
 		Group by 
 			pid
-		Order by rp.rcend desc;
+			Order by rp.rcend desc;
 	</select>
+
 
 </mapper>  

@@ -24,7 +24,7 @@
 		margin-left: 10px;
 		width:1000px;
 		height:100%;
-		border: 1px solid black;
+		
 	}
         
         #tipHead{
@@ -128,7 +128,15 @@
 			var frm = $('#pageForm');
 			
 			$('#btnNew').click(function(){
-				location = '/teamsns/board/ttRegister'
+				if('${login_id}' == ''){
+					location = '/teamsns/board/tipAndTech'
+					alert("로그인이 필요합니다!");
+				} else{
+					location = '/teamsns/board/ttRegister' 
+				}	
+			 
+					
+				
 			});
 			
 			 $('table tr td a').click(function(){
@@ -160,6 +168,13 @@
     	    } else if ('${insert_tt}' == 'fail') {
     	        alert('글 작성 실패!');
     	    }
+			
+			if ('${delete_result}' == 'success') {
+				alert('${bno}번 글이 삭제됐습니다.');
+			} else if ('${insert_result}' == 'fail') {
+				alert('${bno}번 글 삭제 실패!');
+			}
+			
 		});
 	</script>
 	
