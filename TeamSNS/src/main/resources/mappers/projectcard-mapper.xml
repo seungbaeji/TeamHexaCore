@@ -30,11 +30,10 @@
 			pentacore.project p, pentacore.required_skill rs,
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
-			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid 
-			<if test = "districts != '' or districts != null">
-			AND p.district =
-			<foreach collection="districts" item="district" separator=", " open="(" close=")">
-			 #{district}
+			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid AND 
+			<if test = "list != null and !list.isEmpty">
+			<foreach collection="list" item="district" open="(" close=")" separator="and">
+			p.district = Like %#{district}%
 			</foreach>
 			</if>
 		Group by 
