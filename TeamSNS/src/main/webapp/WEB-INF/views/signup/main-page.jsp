@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 <title>Main Page</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -18,13 +18,21 @@
       margin: 0;
       padding: 0;
    }
-   #car{
+ /*   #car{
       position: fixed;
-      left:250px;
+      left: 250px;
       
-      width: 1680px;
-      height:300px;
-   }
+      width: 1024px;
+      height: 244px;
+   } */
+   #car{
+		position: fixed;
+		left:20%;
+		width: 80%;
+		height: 25%;
+	}
+   
+   @media(max-width: )
    
 
 </style>

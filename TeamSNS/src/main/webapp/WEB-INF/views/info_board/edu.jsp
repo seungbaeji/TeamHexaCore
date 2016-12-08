@@ -44,15 +44,15 @@
 }
 
 body {
-	width: 1050px;
+	width: 80%;
 }
 
 #div_info_list_main {
 
 position:fixed;
-	left:300px;
-	width: 1000px;
-	height: 900px;
+	left: 20%;
+	width: 80%;
+	height: 100%;
 	margin: 20px
 }
 
@@ -75,7 +75,7 @@ table, td, tr, th {
 }
 
 table {
-	width: 950px;
+	width: 650px;
 }
 
 th {
@@ -83,23 +83,23 @@ th {
 }
 
 #info_board_bno {
-	width: 80px;
+	width: 10%;
 }
 
 #info_title {
-	width: 380px;
+	width: 50%;
 }
 
 #info_category {
-	width: 90px;
+	width: 15%;
 }
 
 #info_id {
-	width: 230px;
+	width: 15%;
 }
 
 #info_end {
-	width: 100px;
+	width: 10%;
 }
 
 .title, .id, .end {
@@ -117,7 +117,7 @@ form>div {
 }
 
 #div_info_register_main {
-	width: 500px;
+	width: 50%;
 	border: solid;
 	margin: 20px;
 }
@@ -155,6 +155,10 @@ h1 {
 }
 .list_ul > li > a {
 	font-size : 20px;
+}
+
+* {
+	font-size: 1.3rem;
 }
 /* 모달창 끝 */
 </style>
@@ -226,7 +230,7 @@ h1 {
 						<div class="modal-body">
 							<!-- 모달안에 들어갈 내용 -->
 							<div id="div-main">
-								<form action="">
+								<form action="edu" method="post">
 									<div>
 										<div>
 											<h1>정부 정보 등록</h1>
@@ -235,40 +239,40 @@ h1 {
 										<div class="form-group form-inline" id="div_info_board_title">
 											<label for="info_register_title" class="label label-default">제목</label>
 											<br> <input type="text" class="form-control"
-												id="info_register_title" name="info_board_title"
+												id="info_register_title" name="title"
 												placeholder="20글자" required maxlength="20">
 										</div>
 										<div class="form-group form-inline" id="div_info_category">
 											<label for="info_category" class="label label-default">카테고리</label>
 											<br> <label class="radio-inline"> <input
-												type="radio" name="info_category" id="category_register_edu"
+												type="radio" name="category" id="category_register_edu"
 												value="창업교육"> 창업교육
 											</label> <label class="radio-inline"> <input type="radio"
-												name="info_category" id="category_register_mentor"
+												name="category" id="category_register_mentor"
 												value="멘토링"> 멘토링
 											</label> <label class="radio-inline"> <input type="radio"
-												name="info_category" id="category_register_event" value="행사">
+												name="category" id="category_register_event" value="행사">
 												행사
 											</label>
 										</div>
 										<div class="form-group form-inline" id="div_info_url">
 											<label for="info_register_url" class="label label-default">URL</label>
 											<br> <input type="url" class="form-control"
-												id="info_register_url" name="info_url"
+												id="info_register_url" name="url"
 												placeholder="http:// 반드시 넣을것!!" required>
 										</div>
 										<div class="form-group form-inline" id="div_info_id">
 											<label for="info_register_id" class="label label-default">정보제공</label>
 											<br> <input type="text" class="form-control"
-												id="info_register_id" name="info_id" placeholder="12글자"
+												id="info_register_id" name="user_id" placeholder="12글자"
 												required maxlength="12">
 										</div>
 										<!-- 마감일자의 저장방식 << 1) 날짜선택 : info_end=20161201 >> << 2) 상시모집 : info_end_every=상시모집 >> -->
 										<div class="form-group form-inline" id="div_info_end">
 											<label for="info_end" class="label label-default">마감일자</label>
 											<br> <input type="date" class="form-control"
-												id="info_register_end" name="info_end"> <br> <input
-												type="checkbox" id="info_end_every" name="info_end_every"
+												id="info_register_end" name="iend"> <br> <input
+												type="checkbox" id="info_end_every" name="iend"
 												value="상시모집" onclick="checkDisable(this.form)"> <label
 												for="info_end_every">상시모집</label>
 										</div>
