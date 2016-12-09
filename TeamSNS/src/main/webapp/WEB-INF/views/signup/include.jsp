@@ -54,30 +54,23 @@ nav, aside {
 	flex-direction: column;
 }
 
-header {
-	width: 100%;
-}
-
 @media ( min-width : 768px) {
-	header {
+	.content {
 		min-width: 768px;
 	}
 }
 
-#main_section {
-	padding: 30px;
+header {
+	width: 100%;
+}
+
+#main-section {
 	background-color:;
 }
 
 @media ( max-width : 768px) {
 	#main-section {
 		flex-direction: column;
-	}
-}
-
-@media ( min-width : 768px) {
-	#main-section {
-		min-width: 768px;
 	}
 }
 
