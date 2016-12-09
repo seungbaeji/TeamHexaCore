@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html >
 <html>
 <head>
@@ -8,7 +9,13 @@
     <title>Main Page</title>
 
 <link rel="stylesheet" href="../resources/realcss/sidemenu.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../resources/realcss/sidemenu.css"/>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <style>
@@ -82,8 +89,8 @@
 </head>
 <body>
    
-<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
-
+<%-- <jsp:include page="../signup/include.jsp" flush="false"></jsp:include> --%>
+<!-- LJH -->
 
 <div class="projectList">
     <table class="table table-hover table-borerd">
@@ -106,6 +113,9 @@
 		 </c:forEach>
 		   
     </table>
+    
+    <br>
+    <br>
     
 </div>    
     
@@ -135,11 +145,12 @@
               <br>
               
               <div id="pro_start">
-              <label  id="start_pro" class="label label-info day">시작일</label>
-              <input type="text" id="project_start" class="form-control" name="start" value=""> 
+              <label id="start_pro" class="label label-info day">시작일</label>
+              <input type="date" id="project_start" class="form-control" name="project_start"
+                        value="">
 				
               <label  id="pro_end" class="label label-info day">종료일</label>
-              <input type="text" id="project_end" class="form-control" 
+              <input type="date" id="project_end" class="form-control" 
 				name="end" value="">
               </div>
               
@@ -157,17 +168,10 @@
 			<input class="form-control" type="text" name="district"
 				value="${dto.project.district }" id="team_area">
            <label class="label label-default" id="label_team_part">모집 팀원 역할</label>
-           <div>
-					<c:forEach var="parts" items="${dto.parts }">
-						<input type="text" class="form-control team_part" maxlength="20" 
-							name="part" value="${parts.part }">
-					</c:forEach>
-                    <!-- <input type="text" class="form-control team_part" maxlength="20" name="team_part_1" id="team_part_1">
-                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_2">
-                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_3">
-                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_4">
-                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_5">
-                    <input type="text" class="form-control team_part" maxlength="20" name="team_part_6"> -->
+           <div id="partList">
+					
+			<!-- <input type="text" class="form-control team_part" maxlength="20" id="partlist" name="part" value="ㅁㄴㅇㅁㄴㅇ"> -->
+				
 				</div> <br>
                   <label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
                    
@@ -196,9 +200,8 @@
             </div>                
 	      </div>
 	      <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+		<button type="button" class="btn btn-primary">수정</button>
 	      </div>
 	    </div>
 	  </div>
@@ -244,7 +247,7 @@
     			
     			$.getJSON(url,callProject);
     			
-    			function callProject(result){
+    			function callProject(result){ /* 콜백함수^^ */
     				
     				var title = result.recruit.title;
     				var pname = result.project.pname;
@@ -253,11 +256,23 @@
     				
     				var district = result.project.district;
     				
-    				var start = result.project.start;
-    				var newStart = new Date(start);
-    				var end = result.project.end;
-    				var rcstart = result.recruit.rcstart;
-    				var rcend = result.recruit.rcstart
+    				var startPro = result.project.start;
+    				console.log(startPro);
+    				var startPro2 = new Date(startPro);
+    				var startPro3 = startPro2.getFullYear()+"-"+startPro2.getMonth()+"-"+startPro2.getDate();
+    				console.log(startPro3);
+    				
+    				var endPro = result.project.end;
+    				var endPro2 = new Date(endPro);
+    				var endPro3 = endPro2.getFullYear()+"-"+endPro2.getMonth()+"-"+endPro2.getDate();
+    				
+    				var startRec = result.recruit.rcstart;
+    				var startRec2 = new Date(startRec);
+    				var startRec3 = startRec2.getFullYear()+"-"+startRec2.getMonth()+"-"+startRec2.getDate();
+    				
+    				var endRec = result.recruit.rcstart
+    				var endRec2 = new Date(endRec);
+    				var endRec3 = endRec2.getFullYear()+"-"+endRec2.getMonth()+"-"+endRec2.getDate();
     				
     				var skill1 = result.skills.skill_1;
     				var skill2 = result.skills.skill_2;
@@ -273,10 +288,13 @@
     				
     				console.log(result);
     				console.log("타이틀" + title);
-    				console.log(start);
-    				console.log(end);
-    				console.log(rcstart);
-    				console.log(rcend);
+    				console.log(result.parts[0].part);
+    				console.log(result.parts[1].part);
+    				console.log(result.parts.length);
+    				
+    				 
+    				 
+    				
     				
     				$('#team_info_name').val(title);
     				$('#team_name').val(pname);
@@ -285,10 +303,11 @@
     				
     				$('#team_area').val(district);
     				
-    				$('#project_start').val(newStart);
-    				$('#project_end').val(end);
-    				$('#project_recruit_start').val();
-    				$('#project_recruit_end').val();
+    				$('#project_start').val(startPro3);
+    				$('#project_end').val(endPro3);
+    				$('#project_recruit_start').val(startRec3);
+    				$('#project_recruit_end').val(startRec3);
+    				
     				
     				$('#required_skill').val(skill1);
     				$('#required_skill_2').val(skill2);
@@ -300,6 +319,16 @@
     				$('#required_skill_8').val(skill8);
     				$('#required_skill_9').val(skill9);
     				$('#required_skill_10').val(skill10);
+    				
+    				var list = '';
+    				var i = result.parts.length;
+    				var y = null;
+    				$(result.parts).each(function(i){
+    					list += '<input type="text" class="form-control team_part" maxlength="20" name="part" value="'+result.parts[i].part+'">'
+    				});
+    				
+    				$('#partList').html(list);
+    				console.log(list);
     			};
     			
     			
@@ -308,6 +337,8 @@
                 $('#projectOne').attr('data-toggle','modal'); */
                 
             });
+        	
+        	
         	
         });
         

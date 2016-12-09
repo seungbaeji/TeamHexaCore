@@ -12,7 +12,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css" />
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script
@@ -22,20 +21,27 @@
 	font-size: 1.3rem;
 }
 
-#main-section {
-	margin: 40px;
-	display: flex;
-	flex-direction: column;
+@media ( min-width : 768px) {
+	.content {
+		padding: 40px;
+	}
 }
 
-#tipHead {
-	height: 3rem;
+@media ( max-width : 767px) {
+	.content {
+		padding: 20px;
+	}
 }
-
 #btn {
 	margin: 10px;
 	display: flex;
 	flex-direction: row-reverse;
+}
+
+#tt_table {
+	border: 1px solid gray;
+	border-left: 3px solid #337ab7;
+	width: 100%;
 }
 
 .table th {
@@ -83,38 +89,39 @@ ul {
 		<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
 		<div id="main-index">
 			<section class="content">
-				<div id="main-section">
-					<header>
-						<h2 id="tip">Tip And Tech</h2>
-						<div id="btn">
+				<header>
+					<h2 id="tip">Tip And Tech</h2>
+					<div id="btn">
 						<button id="btnNew" type="button" class="btn btn-primary">새
 							글 쓰기</button>
-						</div>
-					</header>
-					
+					</div>
+				</header>
+				<div id="main-section">
+
+
 					<div id="tt_table">
-					<table class="table table-bordered ">
-						<tr>
-							<th id="one">글번호</th>
-							<th id="two">제목</th>
-							<th id="three">작성자</th>
-							<th id="four">작성일</th>
-							<th id="five">추천수</th>
-							<th id="six">조회수</th>
-
-						</tr>
-						<c:forEach var="VO" items="${tiplist}">
+						<table class="table table-bordered ">
 							<tr>
-								<td>${VO.bno}</td>
-								<td><a href="${VO.bno}">${VO.title}</a></td>
-								<td>${VO.writer_uid}</td>
-								<td>${VO.regdate}</td>
-								<td>${VO.recommend}</td>
-								<td>${VO.hits}</td>
-							</tr>
-						</c:forEach>
+								<th id="one">글번호</th>
+								<th id="two">제목</th>
+								<th id="three">작성자</th>
+								<th id="four">작성일</th>
+								<th id="five">추천수</th>
+								<th id="six">조회수</th>
 
-					</table>
+							</tr>
+							<c:forEach var="VO" items="${tiplist}">
+								<tr>
+									<td>${VO.bno}</td>
+									<td><a href="${VO.bno}">${VO.title}</a></td>
+									<td>${VO.writer_uid}</td>
+									<td>${VO.regdate}</td>
+									<td>${VO.recommend}</td>
+									<td>${VO.hits}</td>
+								</tr>
+							</c:forEach>
+
+						</table>
 					</div>
 					<div id="links">
 						<ul class="pageLinks">

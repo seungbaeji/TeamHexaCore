@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page errorPage="/error/viewErrorMessage.jsp" %>
+<%@ page errorPage="/error/viewErrorMessage.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +18,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
 * {
 	margin: 0;
@@ -27,6 +29,7 @@
 
 body {
 	font-family: "Apple SD Gothic Neo", Arial;
+	background-color: #f8f8f8;
 }
 
 #container {
@@ -56,41 +59,36 @@ nav, aside {
 	flex-direction: column;
 }
 
-header {
-	width: 100%;
-}
-
 @media ( min-width : 768px) {
-	header {
+	.content {
 		min-width: 768px;
 	}
 }
 
-#main_section {
+header {
+	width: 100%;
+}
+
+#main-section {
 	padding: 30px;
 	background-color:;
 }
 
 @media ( max-width : 768px) {
 	#main-section {
+		padding: 20px;
 		flex-direction: column;
 	}
 }
 
-@media ( min-width : 768px) {
-	#main-section {
-		min-width: 768px;
-	}
+#section1, #section2, #section3, #section4 {
+	padding: 10px 15px;
+	width: 50%;
+	height: auto;
+	display: inline-block;
+	margin: -2px;
 }
 
-#section1, #section2, #section3, #section4 {
-		padding: 10px 15px;
-		width: 50%;
-		height: auto;
-		display: inline-block;
-		margin: -2px;
-	}
-	
 @media ( max-width : 767px) {
 	#section1, #section2, #section3, #section4 {
 		width: 100%;
@@ -102,6 +100,7 @@ header {
 	table-layout: fixed;
 	width: 100%;
 	height: auto;
+	border-left: 3px solid #337ab7;
 }
 
 .main_table_name {
@@ -123,6 +122,15 @@ header {
 
 .main_table_caption {
 	font-size: 1.5rem;
+}
+
+h4 {
+	color: #56595c;
+	font-size: 1.5rem;
+}
+
+i {
+	color: #337ab7;
 }
 </style>
 </head>
@@ -158,6 +166,7 @@ header {
 			<ul>
 				<li>
 					<h3>
+
 						<span class="icon-dashboard"></span>프로젝트
 					</h3>
 					<ul>
@@ -201,78 +210,78 @@ header {
 			</ul>
 			<button class="mypage">마이페이지</button>
 			<button class="logout">로그아웃</button>
-			
-			
-				<!-- strat modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">
-									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-								</button>
-								<h4 class="modal-title" id="myModalLabel"></h4>
-							</div>
-							<div class="modal-body">
-								<div id="div-main">
-									<form method="post">
-										<div>
-											<h1 style="color: black;">회원 가입</h1>
-											<br>
-											<div class="form-group form-inline" id="div_user_id">
-												<label for="user_id" class="label label-default">아이디</label>
-												<input type="text" class="form-control user_register"
-													id="user_id" name="user_id" placeholder="아이디 입력">
-											</div>
-											<div class="form-group form-inline" id="div_user_pw">
-												<label for="user_pw" class="label label-default">비밀번호</label>
-												<input type="password" class="form-control user_register"
-													id="user_pw" name="user_pw" placeholder="비밀번호 입력">
-											</div>
-											<div class="form-group form-inline" id="div_user_email">
-												<label for="user_email" class="label label-default">이메일</label>
-												<input type="email" class="form-control user_register"
-													id="user_email" name="user_email" placeholder="이메일 입력">
-											</div>
-											<div class="form-group form-inline" id="div_user_name">
-												<label for="user_name" class="label label-default">이름</label>
-												<input type="text" class="form-control user_register"
-													id="user_name" name="user_name" placeholder="이름 입력">
-											</div>
-											<div class="form-group form-inline" id="div_user_nickname">
-												<label for="user_nickname" class="label label-default">닉네임</label>
-												<input type="text" class="form-control user_register"
-													id="user_nickname" name="user_nickname"
-													placeholder="닉네임을 입력하시오">
-											</div>
-											<div class="form-group form-inline" id="div_user_number">
-												<label for="user_number" class="label label-default">전화번호</label>
-												<input type="tel" class="form-control user_register"
-													id="user_number" name="user_number"
-													placeholder="전화번호를 입력하시오">
-											</div>
-											<div class="form-group form-inline" id="div_user_kkoid">
-												<label for="user_kkoid" class="label label-default">카카오톡</label>
-												<input type="text" class="form-control user_register"
-													id="user_kkoid" name="user_kkoid" placeholder="카톡아이디 입력">
-											</div>
-											<div class="form-group form-inline" id="div_user_img">
-												<label for="user_kkoid" class="label label-default">사진</label>
-												<input type="text" class="form-control user_register"
-													id="user_img" name="user_img" placeholder="사진 저장 경로">
-											</div>
-											<br> <input type="submit" class="btn btn-primary btn-lg"
-												id="user_submit" value="등록 하기">
-										</div>
 
-									</form>
-								</div>
+
+			<!-- strat modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel"></h4>
+						</div>
+						<div class="modal-body">
+							<div id="div-main">
+								<form method="post">
+									<div>
+										<h1 style="color: black;">회원 가입</h1>
+										<br>
+										<div class="form-group form-inline" id="div_user_id">
+											<label for="user_id" class="label label-default">아이디</label>
+											<input type="text" class="form-control user_register"
+												id="user_id" name="user_id" placeholder="아이디 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_pw">
+											<label for="user_pw" class="label label-default">비밀번호</label>
+											<input type="password" class="form-control user_register"
+												id="user_pw" name="user_pw" placeholder="비밀번호 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_email">
+											<label for="user_email" class="label label-default">이메일</label>
+											<input type="email" class="form-control user_register"
+												id="user_email" name="user_email" placeholder="이메일 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_name">
+											<label for="user_name" class="label label-default">이름</label>
+											<input type="text" class="form-control user_register"
+												id="user_name" name="user_name" placeholder="이름 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_nickname">
+											<label for="user_nickname" class="label label-default">닉네임</label>
+											<input type="text" class="form-control user_register"
+												id="user_nickname" name="user_nickname"
+												placeholder="닉네임을 입력하시오">
+										</div>
+										<div class="form-group form-inline" id="div_user_number">
+											<label for="user_number" class="label label-default">전화번호</label>
+											<input type="tel" class="form-control user_register"
+												id="user_number" name="user_number"
+												placeholder="전화번호를 입력하시오">
+										</div>
+										<div class="form-group form-inline" id="div_user_kkoid">
+											<label for="user_kkoid" class="label label-default">카카오톡</label>
+											<input type="text" class="form-control user_register"
+												id="user_kkoid" name="user_kkoid" placeholder="카톡아이디 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_img">
+											<label for="user_kkoid" class="label label-default">사진</label>
+											<input type="text" class="form-control user_register"
+												id="user_img" name="user_img" placeholder="사진 저장 경로">
+										</div>
+										<br> <input type="submit" class="btn btn-primary btn-lg"
+											id="user_submit" value="등록 하기">
+									</div>
+
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--  end modal -->
+			</div>
+			<!--  end modal -->
 		</nav>
 
 		<!-- end accordian-->
@@ -320,9 +329,13 @@ header {
 				</header>
 				<!-- end carousel -->
 				<!-- 메인섹션 시작 테이블 4개  -->
-				<div id="main_section">
+				<div id="main-section">
 					<div id="section1">
-						<div class="label label-info main_table_caption">프로젝트</div>
+						<!-- <div class="label label-info main_table_caption">프로젝트</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">subject</i>
+							프로젝트 리스트
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -352,7 +365,11 @@ header {
 						</table>
 					</div>
 					<div id="section2">
-						<div class="label label-info main_table_caption">정보</div>
+						<!-- <div class="label label-info main_table_caption">정보</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">widgets</i>
+							Tip & Tech
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -382,7 +399,11 @@ header {
 						</table>
 					</div>
 					<div id="section3">
-						<div class="label label-info main_table_caption">커뮤니티</div>
+						<!-- <div class="label label-info main_table_caption">커뮤니티</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q
+							& A
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -412,7 +433,11 @@ header {
 						</table>
 					</div>
 					<div id="section4">
-						<div class="label label-info main_table_caption">몰라</div>
+						<!-- <div class="label label-info main_table_caption">몰라</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">info</i> 정보
+							게시판
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
