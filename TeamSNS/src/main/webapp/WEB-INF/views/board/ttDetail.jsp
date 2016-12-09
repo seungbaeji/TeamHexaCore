@@ -303,6 +303,7 @@
        			$.getJSON(url,function(result) {
        				
        				console.log("댓글 개수: " + result.length);
+       				
        				$('#count').html('답변: ' + result.length);
        				
        				var list = '';

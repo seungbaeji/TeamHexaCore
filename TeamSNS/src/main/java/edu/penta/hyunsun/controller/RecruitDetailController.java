@@ -31,5 +31,6 @@ public class RecruitDetailController {
 		
 	} // end detailView()
 	
+	
 
 } // end class RecruitDetailController

@@ -141,7 +141,7 @@
 			<input type="text" id="project_end" class="form-control" 
 				name="end" value="<fmt:formatDate value="${dto.project.end }" pattern="yy-MM-dd"/>"> </div>
 			</div> <br/>
-			<hr style="border: solid 1px black;">
+			<hr style="border: solid 1px black;">c
 			<div>
 			<label class="label label-default" id="label_project_recruit_date">모집 기간</label> <br/>
 			<div class="form-group form-inline">
