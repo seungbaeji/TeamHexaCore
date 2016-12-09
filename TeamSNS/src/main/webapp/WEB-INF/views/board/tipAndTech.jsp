@@ -12,7 +12,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/css/sidemenu.css" />
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script
@@ -22,27 +21,21 @@
 	font-size: 1.3rem;
 }
 
-@media ( min-width : 426px) {
+@media ( min-width : 768px) {
 	.content {
 		padding: 40px;
-		display: flex;
-		flex-direction: column;
 	}
 }
 
-@media ( max-width : 425px ) {
+@media ( max-width : 767px) {
 	.content {
 		padding: 20px;
-		display: flex;
-		flex-direction: column;
 	}
 }
-
 #btn {
 	margin: 10px;
 	display: flex;
 	flex-direction: row-reverse;
-	display: flex;
 }
 
 #tt_table {

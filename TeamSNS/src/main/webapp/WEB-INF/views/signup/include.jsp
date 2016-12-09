@@ -50,6 +50,7 @@ nav, aside {
 }
 
 .content {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -58,10 +59,6 @@ nav, aside {
 	.content {
 		min-width: 768px;
 	}
-}
-
-header {
-	width: 100%;
 }
 
 #main-section {

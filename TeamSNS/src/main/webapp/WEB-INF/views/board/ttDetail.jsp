@@ -3,26 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
+	charset="UTF-8">
 <title>Insert title here</title>
 <style>
 * {
 	font-size: 1.3rem;
 }
 
-@media ( min-width : 426px) {
+@media ( min-width : 768px) {
 	.content {
 		padding: 40px;
-		display: flex;
-		flex-direction: column;
 	}
 }
 
-@media ( max-width : 425px ) {
+@media ( max-width : 767px) {
 	.content {
 		padding: 20px;
-		display: flex;
-		flex-direction: column;
 	}
 }
 
@@ -33,38 +30,33 @@
 }
 
 #ttDetail {
-	margin-bottom: 50px;
 	width: 100%;
+	margin-bottom: 50px;
 	min-height: 500px;
 	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 }
 
-#ttReply {
+#replyboard {
 	width: 100%;
 	min-height: 500px;
 	border: 1px solid darkgray;
-	min-height: 500px;
 }
-
 
 @media ( min-width : 1440px) {
 	#main-section {
 		display: flex;
 		flex-direction: row;
 	}
-	
 	#ttDetail {
 		margin-bottom: 0;
 		margin-right: 30px;
 	}
 }
 
-
 #ttDetailHead {
 	padding: 10px;
-	width: 100%;
 	border-bottom: 1px solid gray;
 	display: flex;
 	flex-direction: row;
@@ -136,12 +128,11 @@
 }
 
 #replycount h3 {
-	padding-bottom: 10px;
-	padding-top: 10px;
+	padding: 10px 0;
 }
 
 #replyMenu {
-	float: left;
+	/* float: left; */
 	width: 100%;
 	border-bottom: 1px solid darkgray;
 	border-right: 1px solid darkgray;
@@ -199,21 +190,24 @@
 }
 
 #btnhits {
-	margin-top: 30px;
-	margin-left: 20px;
+	/* margin-top: 30px;
+	margin-left: 20px; */
+	
 }
 
 #btninsert {
-	margin-top: 30px;
-	margin-left: 20px;
+	/* margin-top: 30px;
+	margin-left: 20px; */
+	
 }
 
-#replyAll {
+#replyForm {    
+    display: flex;
+    flex-direction: row;
 	
 }
 
 #ttDetail8 p {
-	height: 100%;
 	min-height: 300px;
 	border-bottom: 1px solid darkgray;
 }
@@ -261,10 +255,7 @@
 
 				<!-- 메인섹션 시작  -->
 				<div id="main-section">
-					<form id="frm">
-						<input type="hidden" name="page" value="${page }" /> <input
-							type="hidden" name="bno" value="${boardVO.bno }" />
-					</form>
+
 					<div id="ttDetail">
 
 						<div id="ttDetailHead">
@@ -313,33 +304,35 @@
 						<!-- end detail buttons -->
 					</div>
 					<!-- end ttDetail -->
-					<div id="ttReply">
-						<ul id="replyboard">
 
-							<li id="replycount"><h3 id="count">답변:</h3></li>
-							<li id="replyAll"></li>
-							<li id="replyList2">
 
-								<form id="replyMenu" action="replyCreate" method="post">
+					<ul id="replyboard">
+
+						<li id="replycount"><h3 id="count">답변:</h3></li>
+						<li id="replyAll"></li>
+						<li id="replyList2">
+
+							<form id="replyMenu" action="replyCreate" method="post">
+								<div id="replyForm">
 									<div id="profileimg">
 										<img>
 									</div>
-
-									<a id="wirter_id" value="${login_id}">${login_id}</a> <br>
+									<div id="writerId">
+									<a id="writer_id" value="${login_id}">${login_id}아이디</a> <br>
+									</div>
 									<br> <br> <br>
+									
 									<div id="replyContentBox">
 										<textarea id="replywrite"></textarea>
 									</div>
 									<input type="hidden" id="rbno" value="${boardVO.bno}">
-
-								</form>
-
-								<div id="replyregister">
-									<button id="btninsert" type="button" class="btn btn-success">등록</button>
+									<div id="replyregister">
+										<button id="btninsert" type="button" class="btn btn-success">등록</button>
+									</div>
 								</div>
-							</li>
-						</ul>
-					</div>
+							</form>
+						</li>
+					</ul>
 					<!-- end ttReply  -->
 					<div class="modal fade" id="updateModal" tabindex="-1"
 						role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -381,6 +374,11 @@
 		<aside>날씨</aside>
 	</div>
 	<!-- end container -->
+
+	<form id="frm">
+		<input type="hidden" name="page" value="${page }" /> <input
+			type="hidden" name="bno" value="${boardVO.bno }" />
+	</form>
 
 	<script>
 		$(document)
