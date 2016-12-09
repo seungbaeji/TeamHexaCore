@@ -36,7 +36,7 @@ public class ProjectsRESTController {
 		}else {
 			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.BAD_REQUEST);
 		}		
-		return entity;
+		return entity;	
 	}
 	
 	

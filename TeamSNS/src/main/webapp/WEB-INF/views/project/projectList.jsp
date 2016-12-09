@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,52 +34,39 @@
          <li id ="foreignCountry">해외</li>
       </ul>
 </div>
-<c:forEach var="vo" items="${projectCardList }">
 <ul id="cardContainer">
-<li class="cardlist" >
-   <img id="logo" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRmHEcuCodTRyqammU2sZxpkTwxSiKVBE9xEntM8LA6sd5qoRVd"
-      alt =" 이미지 로딩 실패시 나타나는 설명">
-   <div class="counts">
-   <ul>
-      <li>조회수: ${vo.recruit_hits }</li>
-   </ul>
-   </div>
-   <div class="dates">
-   <ul>
-      <li>모집 시작일: ${vo.rcstart }</li>
-      <li>모집 마감일: ${vo.rcend }</li>
-   </ul>
-   </div>   
-   <h4 class="teamdesc"><a href="${vo.rbno }">${vo.intro }</a></h4>
-   <h5 class="teamname">${vo.pname }</h5>
-   <div class="skillbox">
-      <ul class="skills">
-         <c:forTokens var="skill" items="${vo.skills }" delims=",">
-         <li>${skill }</li>
-         </c:forTokens>
-      </ul>
-   </div>
-   <div class="memberbox">
-      <table>
-         <tr class="memberNames">
-            <c:forTokens var="part" items="${vo.parts }" delims=",">
-            <th>${part }</th>
-            </c:forTokens>
-<!--          </tr>
-         <tr class="memberPhotos">
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자1"></td>
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자2"></td>
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자3"></td>
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자4"></td>
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자5"></td>
-            <td><img src="http://writedirection.com/website/wp-content/uploads/2016/09/blank-profile-picture-973460_960_720.png" alt="참여자6"></td>
-         </tr> -->
-      </table>   
-   </div>
+<c:forEach var="vo" items="${projectCardList }">
+<li class="projectCard">
+   <div class="cardTop">
+        <div class="cardCom01">
+            <p class="title">${vo.title }</p>
+            <p class="category"><${vo.category }></p>
+            <p class="pname">${vo.pname }</p>
+        </div>
+        <p class="cardCom02"> 조회수: ${vo.recruit_hits }
+            <br>
+            <br>모집마감일
+            <fmt:formatDate value="${vo.rcend }" pattern="yyyy.MM.dd" var="rcend"/>
+            <br>${rcend } </p>
+    </div>
+    <p class="intro">${vo.intro }</p>
+    <div class="cardCom03">
+        <ul>요구기술:
+        <c:forTokens var="skill" items="${vo.skills }" delims=",">
+            <li>${skill }</li>
+        </c:forTokens>
+        </ul>
+    </div>
+    <div class="cardCom04">
+        <ul>모집역할:
+        <c:forTokens var="part" items="${vo.parts }" delims=",">
+            <li>${part }</li>
+        </c:forTokens>
+        </ul>
+    </div>
 </li>
-</ul>
 </c:forEach>
-
+</ul>
 <form id="frm">
    <input type="hidden" name="rbno">
 </form>
@@ -152,18 +140,24 @@ $(document).ready(function(){
             var parts;
             var skillList = '';
             var partList = '';
+            var rchits;
             
             var rcstart = new Date(this.rcstart);
             var rcend = new Date(this.rcend);
             var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
             console.log(this.recruit_hits);
-             console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
-             console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
-             console.log(this.rbno);
-             console.log(this.intro);
-             console.log(this.pname);
-             console.log(this.skills);
-             if (this.skills != null) {
+            if (this.recruit_hits == null){
+            	rchits = 0;
+            }
+            console.log(this.rcstart);
+            console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
+            console.log(this.rcend);
+            console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
+            console.log(this.rbno);
+            console.log(this.intro);
+            console.log(this.pname);
+            console.log(this.skills);
+            if (this.skills != null) {
                 skills = this.skills.split(",");
                 console.log(skills);
                 skills.forEach(function(item, index) {
@@ -184,14 +178,14 @@ $(document).ready(function(){
                          + '<div class="cardCom01">'
                          + '<p class="title">'
                          + this.title + '</p>'
-                         + '<p class="category">'
-                         + this.category + '</p>'
+                         + '<p class="category"><'
+                         + this.category + '> </p>'
                          + '<p class="pname">'
                          + this.pname + '</p>'
                          + '</div>'
                          + '<p class="cardCom02">'
                          + ' 조회수 '
-                         + this.recruit_hits + '<br>'
+                         + rchits + '<br>'
                          + '<br>모집마감일<br>'
                          + deadline +'<br>'
                          + '</p></div>'
@@ -200,11 +194,13 @@ $(document).ready(function(){
                          + '<div class="cardCom03">'
                          + '<ul>요구기술: '
                          + skillList
-                         + '</ul>'
+                         + '</ul></div>'
+                         + '<div class="cardCom04">'
                          + '<ul>모집역할: '
                          + partList
                          + '</ul></div></li>'
          });// end result each
+         $("#cardContainer").empty();
          $("#cardContainer").html(cardList);
 
       });// end getJSON

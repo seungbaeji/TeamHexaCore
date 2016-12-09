@@ -22,15 +22,14 @@
 /*font-family: 'Hanna', sans-serif;*/
 @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 /*font-family: 'Nanum Myeongjo', serif;*/
-@import
-   url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:700')
-   ;
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:700');
 /*font-family: 'Open Sans', 'Nunito Sans', sans-serif;*/
+
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: 'Jeju Gothic', sans-serif;
+   /* font-family: 'Jeju Gothic', sans-serif; */
 }
 
 body {
@@ -51,6 +50,7 @@ body {
    font-size: 14px;
    margin-bottom: 5px;
    line-height: 1.8;
+   font-family: 'Jeju Gothic', sans-serif;
 }
 
 .district li {
@@ -71,83 +71,82 @@ body {
    height: auto;
    border: 1px solid gray;
    box-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
+   margin-bottom: 10px;
 }
 
 .cardTop {
-   display: flex;
-   align-content: space-between;
+    display: flex;
+    align-content: space-between;
 }
 
 .cardCom01 {
-   margin: 0px 5px 10px 0px;
-   flex-grow: 7;
+    margin: 0px 5px 10px 0px;
+    flex-grow: 7;
 }
 
 .cardCom02 {
-   font-size: 14px;
-   flex-basis: 70px;
-   flex-shrink: 0;
-   flex-grow: 1;
-   display: inline-block;
-   flex-direction: column;
-   text-align: right;
+    font-size: 14px;
+    flex-basis: 70px;
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: inline-block;
+    flex-direction: column;
+    text-align: right;
 }
 
 .cardCom03 {
-   margin: 10px 0px 0px 0px;
-   line-height: 1.5;
+    margin: 10px 0px 0px 0px;
+    line-height: 1.8;
 }
 
 .cardCom03 ul li {
-   display: inline;
-   border: 1px solid gray;
-   background-color: floralwhite;
-   border-style: ridge;
-   box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-   padding: 1px 5px 1px 5px;
-   line-height: 1.5;
-   font-family: 'Open Sans', 'Jeju Gothic', sans-serif;
+    display: inline;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 20, 0.5);
+    border-style: ridge;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    padding: 1px 5px 1px 5px;
+    margin: 0px 5px 0px 0px;
+    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
 }
 
 .cardCom04 {
-   margin: 10px 0px 15px 0px;
-   line-height: 1.5;
+    margin: 10px 0px 15px 0px;
+    line-height: 1.8;
 }
 
-.cardCom04 ul {
-   
-}
+.cardCom04 ul {}
 
 .cardCom04 ul li {
-   display: inline;
-   border: 1px solid gray;
-   background-color: floralwhite;
-   border-style: ridge;
-   box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-   padding: 1px 5px 1px 5px;
-   line-height: 1.5;
-   font-family: 'Open Sans', 'Jeju Gothic', sans-serif;
+    display: inline;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 20, 0.5);
+    border-style: ridge;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    padding: 1px 5px 1px 5px;
+    margin: 0px 5px 0px 0px;
+    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
 }
 
 .title {
-   font-size: 23px;
-   margin: 0px 0px 10px 0px;
+    font-size: 23px;
+    margin: 0px 0px 10px 0px;
 }
 
 .category {
-   font-size: 18px;
-   display: inline;
-   font-family: 'Jeju Hallasan', cursive;
+    font-size: 18px;
+    display: inline;
+    font-family: 'Jeju Hallasan', cursive;
 }
 
 .pname {
-   font-size: 18px;
-   display: inline;
+    font-size: 18px;
+    display: inline;
 }
 
 .intro {
-   font-size: 14px;
-   font-family: 'Nanum Gothic', sans-serif;
-   line-height: 1.3;
-   color: dimgray;
+    font-size: 14px;
+    font-family: 'Nanum Gothic', sans-serif;
+    line-height: 1.3;
+    color: dimgray;
 }
