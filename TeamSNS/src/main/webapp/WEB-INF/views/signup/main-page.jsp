@@ -83,34 +83,14 @@ header {
 	}
 }
 
-#section1 {
-	padding-right: 15px;
-	width: 50%;
-	height: auto;
-	display: inline-block;
-}
-
-#section2 {
-	padding-left: 15px;
-	width: 49%;
-	height: 25%;
-	display: inline-block;
-}
-
-#section3 {
-	padding-right: 15px;
-	width: 50%;
-	height: 25%;
-	display: inline-block;
-}
-
-#section4 {
-	padding-left: 15px;
-	width: 49%;
-	height: 25%;
-	display: inline-block;
-}
-
+#section1, #section2, #section3, #section4 {
+		padding: 10px 15px;
+		width: 50%;
+		height: auto;
+		display: inline-block;
+		margin: -2px;
+	}
+	
 @media ( max-width : 767px) {
 	#section1, #section2, #section3, #section4 {
 		width: 100%;
@@ -221,53 +201,8 @@ header {
 			</ul>
 			<button class="mypage">마이페이지</button>
 			<button class="logout">로그아웃</button>
-		</nav>
-
-		<!-- end accordian-->
-
-		<div id="index">
-			<section class="content">
-				<header id="car">
-					<div id="carousel-example-generic" class="carousel slide"
-						data-ride="carousel">
-						<!-- Indicators -->
-						<ol class="carousel-indicators">
-							<li data-target="#carousel-example-generic" data-slide-to="0"
-								class="active"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						</ol>
-
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<img src="../resources/realcss/carousel01.svg" alt="...">
-								<div class="carousel-caption"></div>
-							</div>
-							<div class="item">
-								<img src="../resources/realcss/carousel02.svg" alt="...">
-								<div class="carousel-caption"></div>
-							</div>
-							<div class="item">
-								<img src="../resources/realcss/carousel03.svg" alt="...">
-								<div class="carousel-caption"></div>
-							</div>
-						</div>
-
-						<!-- Controls -->
-						<a class="left carousel-control" href="#carousel-example-generic"
-							role="button" data-slide="prev"> <span
-							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a> <a class="right carousel-control"
-							href="#carousel-example-generic" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right"
-							aria-hidden="true"></span> <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</header>
-				<!-- end carousel -->
-
+			
+			
 				<!-- strat modal -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
@@ -283,7 +218,7 @@ header {
 								<div id="div-main">
 									<form method="post">
 										<div>
-											<h1>회원 가입</h1>
+											<h1 style="color: black;">회원 가입</h1>
 											<br>
 											<div class="form-group form-inline" id="div_user_id">
 												<label for="user_id" class="label label-default">아이디</label>
@@ -338,7 +273,52 @@ header {
 					</div>
 				</div>
 				<!--  end modal -->
+		</nav>
 
+		<!-- end accordian-->
+
+		<div id="main-index">
+			<section class="content">
+				<header id="car">
+					<div id="carousel-example-generic" class="carousel slide"
+						data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<img src="../resources/realcss/carousel01.svg" alt="...">
+								<div class="carousel-caption"></div>
+							</div>
+							<div class="item">
+								<img src="../resources/realcss/carousel02.svg" alt="...">
+								<div class="carousel-caption"></div>
+							</div>
+							<div class="item">
+								<img src="../resources/realcss/carousel03.svg" alt="...">
+								<div class="carousel-caption"></div>
+							</div>
+						</div>
+
+						<!-- Controls -->
+						<a class="left carousel-control" href="#carousel-example-generic"
+							role="button" data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a> <a class="right carousel-control"
+							href="#carousel-example-generic" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"
+							aria-hidden="true"></span> <span class="sr-only">Next</span>
+						</a>
+					</div>
+				</header>
+				<!-- end carousel -->
 				<!-- 메인섹션 시작 테이블 4개  -->
 				<div id="main_section">
 					<div id="section1">
@@ -466,7 +446,7 @@ header {
 				<footer> </footer>
 			</section>
 		</div>
-		<!-- end index -->
+		<!-- end main-index -->
 		<aside>날씨</aside>
 
 	</div>

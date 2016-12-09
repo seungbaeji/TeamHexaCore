@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
 	
-	*{
-        margin: 0;
-        padding: 0;
-        
-    }
     #ttDetail{
         position: fixed;
         left: 260px;
@@ -186,7 +181,6 @@
     	<input type="hidden" name="page" value="${page }" />
     	<input type="hidden" name="bno" value="${boardVO.bno }" />
     </form>
-	
 	<div id="ttDetail">
             
             <div id="ttDetail2">
