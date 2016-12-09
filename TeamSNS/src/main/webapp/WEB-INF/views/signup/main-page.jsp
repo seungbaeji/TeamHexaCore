@@ -18,6 +18,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
 * {
 	margin: 0;
@@ -27,6 +29,7 @@
 
 body {
 	font-family: "Apple SD Gothic Neo", Arial;
+	background-color: #f8f8f8;
 }
 
 #container {
@@ -66,11 +69,9 @@ header {
 	width: 100%;
 }
 
-
 #main-section {
 	padding: 30px;
 	background-color:;
-
 }
 
 @media ( max-width : 768px) {
@@ -99,6 +100,7 @@ header {
 	table-layout: fixed;
 	width: 100%;
 	height: auto;
+	border-left: 3px solid #337ab7;
 }
 
 .main_table_name {
@@ -120,6 +122,15 @@ header {
 
 .main_table_caption {
 	font-size: 1.5rem;
+}
+
+h4 {
+	color: #56595c;
+	font-size: 1.5rem;
+}
+
+i {
+	color: #337ab7;
 }
 </style>
 </head>
@@ -155,6 +166,7 @@ header {
 			<ul>
 				<li>
 					<h3>
+
 						<span class="icon-dashboard"></span>프로젝트
 					</h3>
 					<ul>
@@ -319,7 +331,11 @@ header {
 				<!-- 메인섹션 시작 테이블 4개  -->
 				<div id="main-section">
 					<div id="section1">
-						<div class="label label-info main_table_caption">프로젝트</div>
+						<!-- <div class="label label-info main_table_caption">프로젝트</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">subject</i>
+							프로젝트 리스트
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -349,7 +365,11 @@ header {
 						</table>
 					</div>
 					<div id="section2">
-						<div class="label label-info main_table_caption">정보</div>
+						<!-- <div class="label label-info main_table_caption">정보</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">widgets</i>
+							Tip & Tech
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -379,7 +399,11 @@ header {
 						</table>
 					</div>
 					<div id="section3">
-						<div class="label label-info main_table_caption">커뮤니티</div>
+						<!-- <div class="label label-info main_table_caption">커뮤니티</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q
+							& A
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
@@ -409,7 +433,11 @@ header {
 						</table>
 					</div>
 					<div id="section4">
-						<div class="label label-info main_table_caption">몰라</div>
+						<!-- <div class="label label-info main_table_caption">몰라</div> -->
+						<h4 class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">info</i> 정보
+							게시판
+						</h4>
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>

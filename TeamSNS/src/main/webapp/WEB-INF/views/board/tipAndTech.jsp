@@ -39,6 +39,7 @@
 }
 
 #tt_table {
+	border: 1px solid gray;
 	border-left: 3px solid #337ab7;
 	width: 100%;
 }
