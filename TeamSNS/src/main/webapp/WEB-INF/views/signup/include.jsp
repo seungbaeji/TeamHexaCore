@@ -21,9 +21,9 @@
 	}
 	#car{
 		position: fixed;
-		left:250px;
-		top:200px;
-		width: 1680px;
+		left:20%;
+		top: 200px;
+		width: 80%;
 		height:300px;
 	}
 

@@ -53,7 +53,7 @@ form>div {
 }
 
 h1 {
-	background-color: aquamarine;
+	background-color: lightsalmon;
 }
 
 .form-control {
@@ -71,7 +71,7 @@ h1 {
 
 #project_start, #project_end, #project_recruit_start,
 	#project_recruit_end {
-	width: 6em;
+	width: 12em;
 	font-size: 20px;
 }
 
@@ -94,7 +94,7 @@ h1 {
 }
 
 #team_part_1 {
-	background-color: goldenrod;
+	background-color: firebrick;
 }
 
 .category_type1 {
@@ -154,9 +154,9 @@ h1 {
 					<label class="label label-default" id="label_project_date">프로젝트 기간</label>
 					<div class="form-group form-inline">
 						<label class="label label-info day">시작일</label> 
-						<input type="text" id="project_start" class="form-control datepicker" name="pstart"> ~ 
+						<input type="date" id="project_start" class="form-control datepicker" name="pstart"> ~ 
 						<label class="label label-info day">종료일</label> 
-						<input type="text" id="project_end" class="form-control datepicker" name="pend">
+						<input type="date" id="project_end" class="form-control datepicker" name="pend">
 					</div>
 				</div>
 				<br>
@@ -172,9 +172,9 @@ h1 {
 						id="label_project_recruit_date">모집 기간</label> <br>
 					<div class="form-group form-inline">
 						<label class="label label-info day">시작일</label> 
-						<input type="text" id="project_recruit_start" class="form-control datepicker" name="rcstart"> ~ 
+						<input type="date" id="project_recruit_start" class="form-control datepicker" name="rcstart"> ~ 
 						<label class="label label-info day">종료일</label> 
-						<input type="text" id="project_recruit_end" class="form-control datepicker" name="rcend">
+						<input type="date" id="project_recruit_end" class="form-control datepicker" name="rcend">
 					</div>
 				</div>
 				<br>

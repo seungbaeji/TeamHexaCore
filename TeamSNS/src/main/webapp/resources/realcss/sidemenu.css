@@ -1,14 +1,15 @@
 @CHARSET "UTF-8";
+#logo {
+	width: 90%;
+	margin: 20px 4%;
+}
+
 #accordian {
-    position: fixed;
-	background: #333333;
-	width: 250px;
+	background: #333333; 
+	color : white;
+	box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.6), 0 0 200px 1px
+		rgba(255, 255, 255, 0.5);
 	color: white;
-	box-shadow: 
-		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
-		0 0 200px 1px rgba(255, 255, 255, 0.5);
-    height: 100%;
-    
 }
 
 /* 메뉴 스타일 */
@@ -20,6 +21,7 @@
 	background: #064461;
 	background: linear-gradient(#003040, #002535);
 }
+
 #accordian h3:hover {
 	text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
 }
@@ -29,6 +31,7 @@
 	font-size: 16px;
 	margin-right: 10px;
 }
+
 #accordian li {
 	list-style-type: none;
 }
@@ -47,6 +50,7 @@
 	-ms-transition: all 0.15s;
 	transition: all 0.15s;
 }
+
 #accordian ul ul li a:hover {
 	background: #003545;
 	border-left: 5px solid #09c;
@@ -56,104 +60,113 @@
 #accordian ul ul {
 	display: none;
 }
+
 #accordian li.active ul {
 	display: block;
 }
 
-   .loginForm{
-    position:relative;
-    width:250px
-        }
- .loginForm .box{
-     width:250px
-        }
- .loginForm .box .user_id{
-    color: black;
-     width:246px;
-     margin:5px 0;
-     padding:10px 12px;
-     border:1px solid #e1e1e1
-        }
-         .loginForm .box .user_pw{
-    color: black;
-     width:246px;
-     margin:5px 0;
-     padding:10px 12px;
-     border:1px solid #e1e1e1
-        }
- .loginForm .box p{
-     margin-top:1em
-        }
- .loginForm .box p span,
- .loginForm .box p input{
-     height:18px;
-     font-size:11px;
-     color:#737373;
-     line-height:18px;
-     vertical-align:middle
-        }
-    .signIn{
-     display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
-    margin-right: 87px;
-        }
-        .signUp{
-            display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
-     
-        }
-        .mypage{
-     display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     border-color: #333;
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
-    margin-right: 87px;
-        }
-        .logout{
-            display:block;
-     top:0;right:0;
-     width:80px;
-     height:60px;
-     border-radius:5px;
-     font-size:14px;
-     font-weight:700;
-     border-color: #333;
-     line-height:60px;
-     text-align:center;
-     text-shadow:1px 1px 1px #004773;
-     background:#333;
-     float: left;
-        }
-    
-    
+.loginForm {
+	position: relative;
+	width: 100%;
+}
+
+.loginForm .box {
+	width: 100%;
+}
+
+.loginForm .box .user_id {
+	color: black;
+	width: 80%;
+	margin-top: 10%;
+	margin: 5% 10%;
+	padding: 5px;
+	border: 1px solid #e1e1e1
+}
+
+.loginForm .box .user_pw {
+	color: black;
+	width: 80%;
+	margin: 0 10%;
+	margin-bottom: 10%;
+	padding: 5px;
+	border: 1px solid #e1e1e1
+}
+
+.loginForm .box p {
+	margin-top: 1em
+}
+
+.loginForm .box p span, .loginForm .box p input {
+	height: 18px;
+	font-size: 1rem;
+	color: #737373;
+	line-height: 18px;
+	vertical-align: middle
+}
+
+.signIn {
+	display: block;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 40px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #004773;
+	background: #333;
+	float: left;
+}
+
+.signUp {
+	display: block;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 40px;
+	text-align: center;
+	text-shadow: 1px 1px 1px #004773;
+	background: #333;
+	float: left;
+}
+
+.mypage {
+	display: block;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 40px;
+	border-color: #333;
+	text-align: center;
+	text-shadow: 1px 1px 1px #004773;
+	background: #333;
+	float: left;
+}
+
+.logout {
+	display: block;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 1.3rem;
+	font-weight: 700;
+	line-height: 40px;
+	border-color: #333;
+	text-align: center;
+	text-shadow: 1px 1px 1px #004773;
+	background: #333;
+	float: left;
+}
+}

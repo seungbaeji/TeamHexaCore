@@ -12,7 +12,7 @@
 <div class="districtset">
    <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
       <ul class="district">
-         <li id ="all"><a href="projectList?districtList">전체선택</a></li>
+         <li id ="all">전체선택</li>
          <li id ="seoul">서울특별시 </li>
          <li id ="busan">부산광역시 </li>
          <li id ="daegu">대구광역시 </li>
@@ -33,7 +33,7 @@
          <li id ="foreignCountry">해외</li>
       </ul>
 </div>
-
+<div id="sample"></div>
 <c:forEach var="vo" items="${projectCardList }">
 <div class="cardlist" >
    <img id="logo" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRmHEcuCodTRyqammU2sZxpkTwxSiKVBE9xEntM8LA6sd5qoRVd"
@@ -141,14 +141,58 @@ $(document).ready(function(){
       }
       console.log(districts);
       
+      var cardList ="";
+      
       var url = "/teamsns/projects/" + districts;
       $.getJSON(url, function(result){
          console.log("프로젝트 개수:" + result.length);
+         $(result).each(function(){
+        	 var rcstart = new Date(this.rcstart);
+        	 var rcend = new Date(this.rcend);
+        	 var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
+        	 console.log(this.recruit_hits);
+             console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
+             console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
+             console.log(this.rbno);
+             console.log(this.intro);
+             console.log(this.pname);
+             console.log(this.skills);
+             console.log(this.parts);
+             
+             cardList +='<div class="projectCard">'
+             				+ '<div class="cardTop">'
+             				+ '<div class="cardCom01">'
+             				+ '<p class="title">'
+             				+ this.title + '</p>'
+             				+ '<p class="category">'
+             				+ this.category + '</p>'
+             				+ '<p class="pname">'
+             				+ this.pname + '</p>'
+             				+ '</div>'
+             				+ '<div class="cardCom02">'
+             				+ '<p class="counts">조회수'
+             				+ this.recruit_hits + '</p>'
+             				+ '<p class="end">모집마감일<br>'
+             				+ deadline +'</p>'
+             				+ '</div></div>'
+             				+ '<p class="intro">'
+             				+ this.intro +'</p>'
+             				+ '<div class="cardCom03">'
+             				+ '<ul>요구기술: '
+             				+ '</ul></div></div>'
+             
+             
+ 
+         });// end result each
+         $("#sample").html(cardList);
          
-      })
+         
+         
+    
+      });// end getJSON
       
       
-   });
+   });// end district li click
    
    
    $('.teamdesc a').click(function() {
@@ -172,6 +216,18 @@ function changeColor1(target){
 function changeColor2(target){
       target.css('backgroundColor', 'white');
       target.css('color', 'black');
+}
+
+function getSkills(skills){
+	for (i = 0; i < skills.length; i++){
+		
+	}
+}
+
+function getParts(parts){
+	for (i = 0; i < parts.length; i++){
+		
+	}
 }
 
 </script>
