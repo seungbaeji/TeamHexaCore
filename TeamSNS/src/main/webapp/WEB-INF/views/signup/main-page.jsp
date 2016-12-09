@@ -346,28 +346,28 @@ header {
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+								<td class="main_table_id">asdfafasdfsafafsafsafsafsafsafdasfsaf</td>
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td>adfsafsafafaf</td>
-								<td>a</td>
-								<td>a</td>
+								<td class="main_table_name">adfsafsafafaf</td>
+								<td class="main_table_id">a</td>
+								<td class="main_table_date">a</td>
 							</tr>
 							<tr>
-								<td>b</td>
-								<td>b</td>
-								<td>b</td>
+								<td class="main_table_name">b</td>
+								<td class="main_table_id">b</td>
+								<td class="main_table_date">b</td>
 							</tr>
 							<tr>
-								<td>c</td>
-								<td>c</td>
-								<td>c</td>
+								<td class="main_table_name">c</td>
+								<td class="main_table_id">c</td>
+								<td class="main_table_date">c</td>
 							</tr>
 							<tr>
-								<td>d</td>
-								<td>d</td>
-								<td>d</td>
+								<td class="main_table_name">d</td>
+								<td class="main_table_id">d</td>
+								<td class="main_table_date">d</td>
 							</tr>
 						</table>
 					</div>
@@ -376,28 +376,28 @@ header {
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+								<td class="main_table_id">뭐야 왜안돼</td>
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td>adfsafsafafaf</td>
-								<td>a</td>
-								<td>a</td>
+								<td class="main_table_name">adfsafsafafaf</td>
+								<td class="main_table_id">a</td>
+								<td class="main_table_date">a</td>
 							</tr>
 							<tr>
-								<td>b</td>
-								<td>b</td>
-								<td>b</td>
+								<td class="main_table_name">b</td>
+								<td class="main_table_id">b</td>
+								<td class="main_table_date">b</td>
 							</tr>
 							<tr>
-								<td>c</td>
-								<td>c</td>
-								<td>c</td>
+								<td class="main_table_name">c</td>
+								<td class="main_table_id">c</td>
+								<td class="main_table_date">c</td>
 							</tr>
 							<tr>
-								<td>d</td>
-								<td>d</td>
-								<td>d</td>
+								<td class="main_table_name">d</td>
+								<td class="main_table_id">d</td>
+								<td class="main_table_date">d</td>
 							</tr>
 						</table>
 					</div>
@@ -406,7 +406,7 @@ header {
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
+								<td class="main_table_id">ffasdfsafafsafsafsafsafsafdasfsaf</td>
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
