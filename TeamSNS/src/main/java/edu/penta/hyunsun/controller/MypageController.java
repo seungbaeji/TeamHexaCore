@@ -78,6 +78,9 @@ public class MypageController {
 		model.addAttribute("board", vo);
 	}
 	
-	
+	@RequestMapping(value="/user/mypage-real")
+	public void myPageReal(){
+		
+	}
 
 } // end class MypageController

@@ -33,9 +33,9 @@
          <li id ="foreignCountry">해외</li>
       </ul>
 </div>
-<div id="sample"></div>
 <c:forEach var="vo" items="${projectCardList }">
-<div class="cardlist" >
+<ul id="cardContainer">
+<li class="cardlist" >
    <img id="logo" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRmHEcuCodTRyqammU2sZxpkTwxSiKVBE9xEntM8LA6sd5qoRVd"
       alt =" 이미지 로딩 실패시 나타나는 설명">
    <div class="counts">
@@ -75,7 +75,8 @@
          </tr> -->
       </table>   
    </div>
-</div>
+</li>
+</ul>
 </c:forEach>
 
 <form id="frm">
@@ -147,48 +148,65 @@ $(document).ready(function(){
       $.getJSON(url, function(result){
          console.log("프로젝트 개수:" + result.length);
          $(result).each(function(){
-        	 var rcstart = new Date(this.rcstart);
-        	 var rcend = new Date(this.rcend);
-        	 var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
-        	 console.log(this.recruit_hits);
+            var skills;
+            var parts;
+            var skillList = '';
+            var partList = '';
+            
+            var rcstart = new Date(this.rcstart);
+            var rcend = new Date(this.rcend);
+            var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
+            console.log(this.recruit_hits);
              console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
              console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
              console.log(this.rbno);
              console.log(this.intro);
              console.log(this.pname);
              console.log(this.skills);
+             if (this.skills != null) {
+                skills = this.skills.split(",");
+                console.log(skills);
+                skills.forEach(function(item, index) {
+                   skillList += '<li>' + item + '</li>';
+                });
+             }
              console.log(this.parts);
-             
-             cardList +='<div class="projectCard">'
-             				+ '<div class="cardTop">'
-             				+ '<div class="cardCom01">'
-             				+ '<p class="title">'
-             				+ this.title + '</p>'
-             				+ '<p class="category">'
-             				+ this.category + '</p>'
-             				+ '<p class="pname">'
-             				+ this.pname + '</p>'
-             				+ '</div>'
-             				+ '<div class="cardCom02">'
-             				+ '<p class="counts">조회수'
-             				+ this.recruit_hits + '</p>'
-             				+ '<p class="end">모집마감일<br>'
-             				+ deadline +'</p>'
-             				+ '</div></div>'
-             				+ '<p class="intro">'
-             				+ this.intro +'</p>'
-             				+ '<div class="cardCom03">'
-             				+ '<ul>요구기술: '
-             				+ '</ul></div></div>'
-             
-             
- 
+             if (this.parts != null){
+                parts = this.parts.split(",");
+                console.log(parts);
+                parts.forEach(function(item, index){
+                  partList += '<li>' + item + '</li>'; 
+                });
+             }
+       
+             cardList +='<li class="projectCard">'
+                         + '<div class="cardTop">'
+                         + '<div class="cardCom01">'
+                         + '<p class="title">'
+                         + this.title + '</p>'
+                         + '<p class="category">'
+                         + this.category + '</p>'
+                         + '<p class="pname">'
+                         + this.pname + '</p>'
+                         + '</div>'
+                         + '<p class="cardCom02">'
+                         + ' 조회수 '
+                         + this.recruit_hits + '<br>'
+                         + '<br>모집마감일<br>'
+                         + deadline +'<br>'
+                         + '</p></div>'
+                         + '<p class="intro">'
+                         + this.intro +'</p>'
+                         + '<div class="cardCom03">'
+                         + '<ul>요구기술: '
+                         + skillList
+                         + '</ul>'
+                         + '<ul>모집역할: '
+                         + partList
+                         + '</ul></div></li>'
          });// end result each
-         $("#sample").html(cardList);
-         
-         
-         
-    
+         $("#cardContainer").html(cardList);
+
       });// end getJSON
       
       
@@ -217,19 +235,6 @@ function changeColor2(target){
       target.css('backgroundColor', 'white');
       target.css('color', 'black');
 }
-
-function getSkills(skills){
-	for (i = 0; i < skills.length; i++){
-		
-	}
-}
-
-function getParts(parts){
-	for (i = 0; i < parts.length; i++){
-		
-	}
-}
-
 </script>
 </body>
 </html>

@@ -90,7 +90,7 @@
 <body>
    
 <%-- <jsp:include page="../signup/include.jsp" flush="false"></jsp:include> --%>
-
+<!-- LJH -->
 
 <div class="projectList">
     <table class="table table-hover table-borerd">
@@ -201,7 +201,6 @@
 	      </div>
 	      <div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal">수정</button>
 		<button type="button" class="btn btn-primary">수정</button>
 	      </div>
 	    </div>
@@ -248,7 +247,7 @@
     			
     			$.getJSON(url,callProject);
     			
-    			function callProject(result){
+    			function callProject(result){ /* 콜백함수^^ */
     				
     				var title = result.recruit.title;
     				var pname = result.project.pname;
