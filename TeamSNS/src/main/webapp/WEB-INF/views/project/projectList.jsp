@@ -13,7 +13,7 @@
 <div class="districtset">
    <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
       <ul class="district">
-         <li id ="all">전체선택</li>
+         <li id ="all"><a href="projectList">전체선택</a></li>
          <li id ="seoul">서울특별시 </li>
          <li id ="busan">부산광역시 </li>
          <li id ="daegu">대구광역시 </li>
@@ -99,7 +99,7 @@ $(document).ready(function(){
    
    var districts = [];
 
-   $(".district li").click(function(){
+   $(".district li").click(function(){     
       var target = $(this); // 클릭 했을때의 li
       var district = $(this).attr('id'); // li의 id에 입력된 string값
       districts = []; // 검색할 지역 리스트
