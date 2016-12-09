@@ -177,6 +177,7 @@
         width: 536px;
         height: 500px;
     }
+    
 </style>
 </head>
 <body>

@@ -26,6 +26,7 @@ public class ProjectInfoREST {
 	public ResponseEntity<RecruitDetailDTO> selectProject(@PathVariable("no") Integer rbno){
 		
 		RecruitDetailDTO dto = service.select(rbno);
+		
 		logger.info("RESTcontoroller dto : " + dto);
 		ResponseEntity<RecruitDetailDTO> entity = null;
 		if (dto != null) { // select 성공
@@ -34,7 +35,7 @@ public class ProjectInfoREST {
 		} else { // select 실패
 			entity = new ResponseEntity<RecruitDetailDTO>(dto, HttpStatus.BAD_REQUEST);
 		}
-		
+		logger.info("date" + dto.getProject().getStart());
 		return entity;
 	}
 	
