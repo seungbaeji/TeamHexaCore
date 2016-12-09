@@ -131,17 +131,16 @@
 	padding: 10px 0;
 }
 
-#replyMenu {
+#replyMenu, #replyForm {
 	/* float: left; */
 	width: 100%;
 	border-bottom: 1px solid darkgray;
 	border-right: 1px solid darkgray;
+	display: flex;
+	flex-direction: row;
 }
 
 #replyregister {
-	right: 0px;
-	width: 100px;
-	height: 100px;
 	overflow: auto;
 	overflow-x: none;
 }
@@ -160,14 +159,14 @@
 
 #replyList {
 	box-sizing: border-box;
-	display: block;
 	border: 1px solid black;
 	overflow: auto;
+	display: flex;
+	flex-direction: row;
 }
 
 #replyList2 {
 	box-sizing: border-box;
-	display: block;
 	border: 1px solid black;
 	overflow: auto;
 }
@@ -193,224 +192,6 @@
 	/* margin-top: 30px;
 	margin-left: 20px; */
 	
-<<<<<<< HEAD
-	*{
-        margin: 0;
-        padding: 0;
-        
-    }
-    #ttDetail{
-        position: fixed;
-        left: 260px;
-        width: 800px;
-        height: 100%;
-        border: 1px solid black;
-    }
-    
-    #ttDetail2{
-        width: 100%;
-        height: 70px;
-        border-bottom: 1px solid gray;
-    }
-    #profileimg{
-        width: 60px;
-        height: 60px;
-        border: 1px solid darkgray;
-        margin-left: 5px;
-        margin-top: 3px;
-        margin-right: 0;
-        float: left;
-    }
-    #ttDetail3{
-        width: 280px;
-        margin-right: 0;
-        float: right;
-        
-    }
-    #ttDetail4{
-        width: 400px;
-    }
-    #ttDetail5{
-        margin-top: 10px;
-        margin-right: 420px;
-        float: left;
-    }
-    #ttDetail6{
-       margin-top: 10px;
-    }
-    #ttDetail7{
-        margin-top: 20px;
-        border-bottom: 1px solid darkgray;
-    }
-    #bno{
-        color: darkgray;
-        margin-left: 10px;
-    }
-    #title{
-        margin-left: 10px;
-    }
-    #ttDetail8{
-        font-size: 18px;
-        margin-left: 5px;
-    }
-    #count{
-    	margin-top:0;
-    }
-    #replyboard{
-    	left:1060px;
-        position: relative;
-        width: 850px;
-        height: 100%;
-        border: 1px solid darkgray;
-    }
-    #replyboard li{
-        list-style: none;
-    }
-    #replycount{
-    	
-        border-bottom: 1px solid darkgray;
-        background-color: lightgray;
-    }
-    #replycount h3{
-        padding-bottom: 10px;
-        padding-top:10px;
-    }
-    #replyMenu{
-        
-        float: left;
-        width: 750px;
-        border-bottom: 1px solid darkgray;
-        border-right: 1px solid darkgray;
-        
-    }
-    #replyregister{
-        position: absolute;
-        right: 0px;
-        width: 100px;
-        height: 100px;
-        overflow: auto;
-        overflow-x: none;
-        
-    }
-    
-    #wirter_uid{
-        margin-left: 5px;
-    }#wirter_id{
-        margin-left: 5px;
-    }
-    #replyregdate{
-        margin-left: 5px;
-    }
-    #replyList{
-        box-sizing:border-box;
-        display: block;
-        border: 1px solid black;
-        overflow: auto;
-    }
-    #replyList2{
-        box-sizing:border-box;
-        display: block;
-        border: 1px solid black;
-        overflow: auto;
-    }
-    #replyContent{
-        width: 700px;
-        overflow: auto;
-        
-    }
-    #replyContentBox{
-        width: 700px;
-        overflow: auto;
-        margin-bottom: 10px;
-        margin-left: 10px
-    }
-    #replywrite{
-        width: 650px;
-        overflow: auto;
-    }
-    #btnhits{
-    	margin-top:30px;
-    	margin-left:20px;
-    }
-    #btninsert{
-    	margin-top:30px;
-    	margin-left:20px;
-    }
-    #replyAll{
-    
-    }
-    #ttDetail8 p{
-        height: 720px;
-        border-bottom: 1px solid darkgray;
-    }
-    #btndelete{
-        float: right;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    #btnlist{
-        float: right;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    #btnupdate{
-        float: right;
-        margin-left: 5px;
-    }
-     #updatetitle{
-        width: 500px;
-    }
-    #updatecontent{
-        width: 536px;
-        height: 500px;
-    }
-    
-=======
-}
-
-#btninsert {
-	/* margin-top: 30px;
-	margin-left: 20px; */
-	
-}
-
-#replyForm {    
-    display: flex;
-    flex-direction: row;
-	
-}
-
-#ttDetail8 p {
-	min-height: 300px;
-	border-bottom: 1px solid darkgray;
-}
-
-#btndelete {
-	float: right;
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-#btnlist {
-	float: right;
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-#btnupdate {
-	float: right;
-	margin-left: 5px;
-}
-
-#updatetitle {
-	width: 70%;
-}
-
-#updatecontent {
-	width: 75%;
-	height: 70%;
-}
->>>>>>> branch 'master' of https://github.com/tch2000/TeamHexaCore.git
 </style>
 </head>
 <body>
@@ -555,28 +336,26 @@
 	</form>
 
 	<script>
-		$(document)
-				.ready(
-						function() {
-							var ufrm = $('#updateForm');
-							var frm = $('#frm');
-							var bno = ${boardVO.bno};
+		$(document).ready(function() {
+			var ufrm = $('#updateForm');
+			var frm = $('#frm');
+			var bno = ${boardVO.bno};
 
-							getAllReplies();
+			getAllReplies();
 
-							function getAllReplies() {
+			function getAllReplies() {
 
-								var url = '/teamsns/replies/all/' + bno;
+				var url = '/teamsns/replies/all/' + bno;
 
-							$.getJSON(url,function(result) {
-									console.log("댓글 개수: "+ result.length);
+				$.getJSON(url,function(result) {
+					
+					console.log("댓글 개수: "+ result.length);
+					$('#count').html('답변: '+ result.length);
+					var list = '';
 
-							$('#count').html('답변: '+ result.length);
-								var list = '';
-
-							/* data의 개수만큼 function()의 내용을 반복해서 수행 */
-							$(result).each(function(){
-								list += '<li id="replyList">'
+					/* data의 개수만큼 function()의 내용을 반복해서 수행 */
+					$(result).each(function(){
+						list += '<li id="replyList">'
 								+ '<div id="replyMenu">'
 								+ '<div id="profileimg">'
 								+ '<img>'
