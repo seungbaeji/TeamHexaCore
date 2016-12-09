@@ -3,8 +3,8 @@ package edu.hexa.seungbae.domain;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class ProjectCardDTO {
 
@@ -16,7 +16,7 @@ public class ProjectCardDTO {
 	private Timestamp rcstart, rcend;
 	private String parts;
 	
-	private static final Logger logger = LoggerFactory.getLogger(ProjectCardDTO.class);
+	//private static final Logger logger = LoggerFactory.getLogger(ProjectCardDTO.class);
 	
 	public ProjectCardDTO(String pid, String category, String pname, String intro, String district, String meeting_area,
 			Date start, Date end, String skills, String title, Integer rbno, Integer recruit_hits, Timestamp rcstart,
@@ -130,7 +130,6 @@ public class ProjectCardDTO {
 	public Integer getRecruit_hits() {
 		if(recruit_hits == null){
 			recruit_hits = 0;
-			logger.info("조회수: "+recruit_hits);
 		}
 		return recruit_hits;
 	}
