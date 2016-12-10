@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +12,7 @@
 <div class="districtset">
    <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
       <ul class="district">
-         <li id ="all"><a href="projectList">전체선택</a></li>
+         <li id ="all">전체선택</li>
          <li id ="seoul">서울특별시 </li>
          <li id ="busan">부산광역시 </li>
          <li id ="daegu">대구광역시 </li>
@@ -39,7 +38,7 @@
 <li class="projectCard">
    <div class="cardTop">
         <div class="cardCom01">
-            <p class="title">${vo.title }</p>
+            <p class="title"><a href="${vo.rbno }">${vo.title }</a></p>
             <p class="category"><${vo.category }></p>
             <p class="pname">${vo.pname }</p>
         </div>
@@ -74,9 +73,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-   
+	
+	// toggle: 지역선택 상태를 나타냄. 초기에는 전체선택되어 있음
+	//	- 1: 선택됨
+	//	- 0: 선택안됨
    var districtObjects = {
-      all : {name: "전체선택", toggle: 0},
+      all : {name: "전체선택", toggle: 1},
       seoul: {name: "서울", toggle: 0}, 
       busan: {name: "부산", toggle: 0}, 
       daegu: {name: "대구", toggle: 0}, 
@@ -97,15 +99,16 @@ $(document).ready(function(){
       foreignCountry: {name: "해외", toggle: 0}    
    } 
    
-   var districts = [];
-
-   $(".district li").click(function(){     
+   var districts = []; 
+   
+   $(".district li").click(function(){
+	  console.log("지역선택 개수"+districts.length);
       var target = $(this); // 클릭 했을때의 li
       var district = $(this).attr('id'); // li의 id에 입력된 string값
-      districts = []; // 검색할 지역 리스트
+      districts = []; // 지역선택 리스트의 초기화
       
-      console.log(district);
-      console.log(districtObjects[district].name + ', ' + districtObjects[district].toggle);
+      //console.log(district);
+      //console.log(districtObjects[district].name + ', ' + districtObjects[district].toggle);
       var x = districtObjects[district].toggle;
       
       // 지역이름 색 바꾸기
@@ -121,17 +124,19 @@ $(document).ready(function(){
       for (var y in districtObjects){
          if (districtObjects[y].toggle == 1) {
             districts.push(districtObjects[y].name);
-            if(districts == null){
-            	districts = [];
-            }
-         }   
-      }
+            } // end if
+         } // end forEach
+         console.log("지역선택 리스트작성 완료")
+         console.log(districts);   
+/*          if(districts.length = 0){
+         	districts = ["none"];
+      	 } */
       
       // 전체선택시 선택한 지역이름 리스트 비우기
-      if (districtObjects.all.toggle == 1){
+/*       if (districtObjects.all.toggle == 1){
          districts = [];
-      }
-      console.log("지역선택 수: "+districts);
+      }  */
+      console.log("선택 지역: "+districts);
       
       var cardList ="";
       
@@ -147,36 +152,43 @@ $(document).ready(function(){
             var rcstart = new Date(this.rcstart);
             var rcend = new Date(this.rcend);
             var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
-            console.log(this.recruit_hits);
-            console.log(this.rcstart);
-            console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
-            console.log(this.rcend);
-            console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
-            console.log(this.rbno);
-            console.log(this.intro);
-            console.log(this.pname);
-            console.log(this.skills);
+            //console.log(this.recruit_hits);
+            //console.log(this.rcstart);
+            //console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
+            //console.log(this.rcend);
+            //console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
+            //console.log(this.rbno);
+            //console.log(this.intro);
+            //console.log(this.pname);
+            
+         	// 요구기술 li 요소 생성
+            //console.log(this.skills);
             if (this.skills != null) {
-                skills = this.skills.split(",");
-                console.log(skills);
+                // ,로 구분된 문자열인 요구스킬의 array화
+            	skills = this.skills.split(",");
+                //console.log(skills);
                 skills.forEach(function(item, index) {
                    skillList += '<li>' + item + '</li>';
                 });
-             }
-             console.log(this.parts);
-             if (this.parts != null){
+            }
+            
+            // 
+            //console.log(this.parts);
+            if (this.parts != null){
                 parts = this.parts.split(",");
-                console.log(parts);
+                //console.log(parts);
                 parts.forEach(function(item, index){
                   partList += '<li>' + item + '</li>'; 
                 });
-             }
-       
+            }
+            
              cardList +='<li class="projectCard">'
                          + '<div class="cardTop">'
                          + '<div class="cardCom01">'
                          + '<p class="title">'
-                         + this.title + '</p>'
+                         + '<a href="'
+                         + this.rbno+'">'
+                         + this.title + '</a></p>'
                          + '<p class="category"><'
                          + this.category + '> </p>'
                          + '<p class="pname">'
@@ -198,34 +210,40 @@ $(document).ready(function(){
                          + '<ul>모집역할: '
                          + partList
                          + '</ul></div></li>'
-         });// end result each
+         });// end result eachLoop
+      		
+      	 //cardList += '<form id="frm"><input type ="hidden" name="rbno"></form>'
+         // 기존 projectCardList 삭제
          $("#cardContainer").empty();
+         // 새로운 projectCardList 추가
          $("#cardContainer").html(cardList);
+                  
 
       });// end getJSON
       
       
    });// end district li click
    
+   $('.title a').click(function() {
+	    var frm = $('#frm');
+	    event.preventDefault();
+	    var rbno = $(this).attr("href");
+	    frm.find("[name='rbno']").val(rbno);
+	    frm.attr("action", "/teamsns/project/projectDetail");
+	    frm.attr("method", "get");
+	    frm.submit();
+	 });
    
-   $('.teamdesc a').click(function() {
-      var frm = $('#frm');
-      event.preventDefault();
-      var rbno = $(this).attr("href");
-      frm.find("[name='rbno']").val(rbno);
-      frm.attr("action", "/teamsns/project/projectDetail");
-      frm.attr("method", "get");
-      frm.submit();
-   });
-
 });
 
 
+
+// 지역선택 되었을때의 효과
 function changeColor1(target){
       target.css('backgroundColor', 'lightblue');
       target.css('color', 'white');
 }
-   
+// 지역선택 해제 되었을때의 효과   
 function changeColor2(target){
       target.css('backgroundColor', 'white');
       target.css('color', 'black');
