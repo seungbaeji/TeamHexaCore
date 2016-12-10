@@ -6,12 +6,36 @@
 <mapper namespace="edu.hexa.leejaehoon.projectinfo">
 	
 	<select id="selectProject" resultType="edu.hexa.leejaehoon.domain.ProjectInfoVO">
-	SELECT p.pid, p.category, p.pname, p.intro, p.start, p.end, r.rbno
-FROM pentacore.project AS p 
-JOIN pentacore.recruit_project AS r
-ON p.pid = r.pid
-WHERE p.pid IN (SELECT pid FROM pentacore.project_leader WHERE leader_uid = #{uid })
+		SELECT p.pid, p.category, p.pname, p.intro, p.start, p.end, r.rbno
+		FROM pentacore.project AS p 
+		JOIN pentacore.recruit_project AS r
+		ON p.pid = r.pid
+		WHERE p.pid IN (SELECT pid FROM pentacore.project_leader WHERE leader_uid = #{uid })
 	</select>
 	
+	<sql id="find-pid">
+		SELECT pid FROM pentacore.recruit_project WHERE rbno = #{rbno }
+	</sql>
+
+	<update id="update-recruit">
+		UPDATE pentacore.recruit_project 
+		SET title = #{title}, rcstart=#{rcstart }, rcend=#{rcend } 
+		WHERE rbno=#{rbno }
+		<!-- ${title } : 모집글 제목, ${rcstart, rcend } : 모집기간 -->
+	</update>
+
+	<update id="update-project">
+		UPDATE pentacore.project 
+		SET pname = #{pname }, category = #{category }, start = #{start}, end = #{end}, 
+		intro = #{intro }, district = #{district }
+		WHERE pid = (<include refid="find-pid" />)
+	</update>
+
+	<update id="update-skill">
+		UPDATE pentacore.required_skill
+		SET skill_1 = #{skill_1 }, skill_2 = #{skill_2 }, skill_3 = #{skill_3 }, skill_4 = #{skill_4 }, skill_5 = #{skill_5 }, skill_6 = #{skill_6 },
+		skill_7 = #{skill_7 }, skill_8 = #{skill_8 }, skill_9 = #{skill_9 }, skill_10 = #{skill_10 }
+		WHERE pid = (<include refid="find-pid" />)
+	</update>
 
 </mapper>
