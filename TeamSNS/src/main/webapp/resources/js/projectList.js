@@ -132,13 +132,16 @@ $(document).ready(function(){
                          + '<p class="intro">'
                          + this.intro +'</p>'
                          + '<div class="cardCom03">'
-                         + '<ul>요구기술: '
+                         + '<p>요구기술</p>'
+                         + '<ul>'
                          + skillList
                          + '</ul></div>'
                          + '<div class="cardCom04">'
-                         + '<ul>모집역할: '
+                         + '<p>모집역할</p>'
+                         + '<ul>'
                          + partList
-                         + '</ul></div></li>'
+                         + '</ul></div>'
+                         + '<p class="cardCom05"></p></li>'
                console.groupEnd();          
                cardNum++;
          });// end result eachLoop

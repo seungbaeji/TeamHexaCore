@@ -23,7 +23,9 @@
             margin: 0;
             padding: 0;
         }
-        
+        .projectOne{
+        	cursor: pointer;
+        }
         #projectInfo{
             position: relative;
             display: block;

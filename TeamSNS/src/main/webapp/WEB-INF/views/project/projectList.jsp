@@ -50,19 +50,22 @@
     </div>
     <p class="intro">${vo.intro }</p>
     <div class="cardCom03">
-        <ul>요구기술:
+        <p>요구기술</p>
+        <ul>
         <c:forTokens var="skill" items="${vo.skills }" delims=",">
             <li>${skill }</li>
         </c:forTokens>
         </ul>
     </div>
     <div class="cardCom04">
-        <ul>모집역할:
+        <p>모집역할</p>
+        <ul>
         <c:forTokens var="part" items="${vo.parts }" delims=",">
             <li>${part }</li>
         </c:forTokens>
         </ul>
     </div>
+    <p class="cardCom05"></p>
 </li>
 </c:forEach>
 </ul>
