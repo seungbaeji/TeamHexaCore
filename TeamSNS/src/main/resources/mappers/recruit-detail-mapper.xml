@@ -41,11 +41,9 @@ WHERE uid = (
 )
 </select>
 
-
-<select id="sb_select1" resultType="String">
-SELECT 
+<select id="apply_project" resultType="Integer">
+INSERT INTO pentacore.manage_recruit (part_pk, user_id, comment) VALUE (#{part_pk}, #{user_id}, #{comment})
 </select>
-
 
 
 </mapper>
