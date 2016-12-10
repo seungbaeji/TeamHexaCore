@@ -167,16 +167,18 @@ $(document).ready(function(){
                 // ,로 구분된 문자열인 요구스킬의 array화
             	skills = this.skills.split(",");
                 //console.log(skills);
+                skills.sort();
                 skills.forEach(function(item, index) {
                    skillList += '<li>' + item + '</li>';
                 });
             }
             
-            // 
+            // 모집역할 part 요소 생성
             //console.log(this.parts);
             if (this.parts != null){
                 parts = this.parts.split(",");
                 //console.log(parts);
+                parts.sort();
                 parts.forEach(function(item, index){
                   partList += '<li>' + item + '</li>'; 
                 });
@@ -217,14 +219,23 @@ $(document).ready(function(){
          $("#cardContainer").empty();
          // 새로운 projectCardList 추가
          $("#cardContainer").html(cardList);
+         
+         // empty() 함수를 실행함에 따라 삭제된 함수를 재선언
+         $('.title a').click(function() {
+     	    var frm = $('#frm');
+     	    event.preventDefault();
+     	    var rbno = $(this).attr("href");
+     	    frm.find("[name='rbno']").val(rbno);
+     	    frm.attr("action", "/teamsns/project/projectDetail");
+     	    frm.attr("method", "get");
+     	    frm.submit();
+     	 });
                   
 
-      });// end getJSON
-      
-      
+      });// end getJSON 
    });// end district li click
    
-   $('.title a').click(function() {
+	 $('.title a').click(function() {
 	    var frm = $('#frm');
 	    event.preventDefault();
 	    var rbno = $(this).attr("href");
@@ -232,7 +243,7 @@ $(document).ready(function(){
 	    frm.attr("action", "/teamsns/project/projectDetail");
 	    frm.attr("method", "get");
 	    frm.submit();
-	 });
+	 }); 
    
 });
 

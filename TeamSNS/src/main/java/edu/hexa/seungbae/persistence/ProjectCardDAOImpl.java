@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.hexa.seungbae.domain.ProjectCardDTO;
+import edu.hexa.seungbae.pagetuil.PaginationCriteria;
 
 @Repository
 public class ProjectCardDAOImpl implements ProjectCardDAO {
@@ -41,20 +42,17 @@ public class ProjectCardDAOImpl implements ProjectCardDAO {
 	}
 
 	@Override
-	public ProjectCardDTO select(int pId) {
-		return sqlSession.selectOne(NAMESPACE + ".selectByPid", pId);
-	}
-
-	@Override
-	public int update(ProjectCardDTO dto) {
+	public int getNumOfRecords() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(int pId) {
+	public List<ProjectCardDTO> select(PaginationCriteria c) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
+	
+	
 
 }
