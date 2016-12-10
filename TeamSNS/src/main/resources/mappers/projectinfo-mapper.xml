@@ -6,9 +6,11 @@
 <mapper namespace="edu.hexa.leejaehoon.projectinfo">
 	
 	<select id="selectProject" resultType="edu.hexa.leejaehoon.domain.ProjectInfoVO">
-	select pid, category, pname, intro, start, end 
-	from pentacore.project 
-	where pid = (select pid from pentacore.project_leader where leader_uid =#{uid});
+	SELECT p.pid, p.category, p.pname, p.intro, p.start, p.end, r.rbno
+FROM pentacore.project AS p 
+JOIN pentacore.recruit_project AS r
+ON p.pid = r.pid
+WHERE p.pid IN (SELECT pid FROM pentacore.project_leader WHERE leader_uid = #{uid })
 	</select>
 	
 

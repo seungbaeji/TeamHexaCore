@@ -1,4 +1,3 @@
-@CHARSET "UTF-8";
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 /*font-family: 'Jeju Gothic', sans-serif;*/
 @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
@@ -9,9 +8,11 @@
 /*font-family: 'KoPub Batang', serif;*/
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /*font-family: 'Nanum Gothic', sans-serif;*/
-@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import
+   url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
 /*font-family: 'Nanum Brush Script', cursive;*/
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import
+   url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 /*font-family: 'Nanum Gothic Coding', monospace;*/
 @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 /*font-family: 'Nanum Pen Script', cursive;*/
@@ -21,110 +22,137 @@
 /*font-family: 'Hanna', sans-serif;*/
 @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
 /*font-family: 'Nanum Myeongjo', serif;*/
-
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:700');
+/*font-family: 'Open Sans', 'Nunito Sans', sans-serif;*/
 
 * {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   /* font-family: 'Jeju Gothic', sans-serif; */
 }
 
 body {
-	margin: 16px;
-	width: 600px;
+   display: flex;
+   flex-direction: column;
+   margin: 10px;
 }
 
-div.districtset {
-	margin-bottom: 20px;
-	width: 500px;
+.districtset {
+   margin-bottom: 20px;
+   max-width: 650px;
+   min-width: 300px;
+   width: 40%;
 }
 
 .district {
-	margin-top: 5px;
-	font-size: 12px;
-	margin-bottom: 5px;
+   margin-top: 5px;
+   font-size: 14px;
+   margin-bottom: 5px;
+   line-height: 1.8;
+   font-family: 'Jeju Gothic', sans-serif;
+   cursor: pointer;
 }
 
 .district li {
-	display: inline;
-	border: 1px solid gray;
-	margin: 2px 3px 2px 0px;
-	padding: 0px 3px 0px 3px;
-	box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-	float: left;
-	/*margin: 5px 5px 5px 0px;*/
-}
-	
-div.cardlist {
-	height: 180px; /* cardlist class의 높이 지정  */
-	border : 1px solid gray; /* 외부 경계값 설정. 굵기, 선타입, 선색 */
-	width: 500px;
-	margin: 20px auto 10px auto;
-
-	padding-left: 10px; /* border기준 안쪽으로 여백 주기  */
-	padding-top: 10px;
-	padding-right: 10px;
-	
-	box-shadow: 2px 2px 1px rgba(0, 0, 0, .2); /* 오른쪽, 위쪽, 그림자 범위, 그림자 색상(r, g, b, 흐림정도) */ 	
-	clear: left;
-	float: left;
+   display: inline;
+   border: 1px solid gray;
+   margin: 2px 3px 2px 0px;
+   padding: 0px 3px 0px 3px;
+   box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+   float: left;
+   /*margin: 5px 5px 5px 0px;*/
 }
 
-#logo {
-	display: inline;
-	height: 50px;
-	width: 50px;
-	float: left;
+#all a{
+	text-decoration: none;
+	color: black;
 }
 
-h4.teamdesc {
-	padding-left: 65px;
-	font-family: 'Nanum Gothic';
+.projectCard {
+   padding: 0px 10px 0px 10px;
+   max-width: 650px;
+   min-width: 300px;
+   width: 40%;
+   height: auto;
+   border: 1px solid gray;
+   box-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
+   margin-bottom: 10px;
 }
 
-h5.teamname {
-	padding-top: 3px;
-	padding-left: 65px;
-	font-family: 'Nanum Gothic';
-}
-.counts li{
-	font-size: 12px;
-	float: right;
-	display: block;
-}
-.dates li {
-	font-size: 12px;
-	clear:right;
-	float: right;
+.cardTop {
+    display: flex;
+    align-content: space-between;
 }
 
-.skillbox {
-	margin-top: 20px;
-}
-.skills li {
-	display: inline;
-	border: 1px solid gray;
-	font-size: 12px;
-	padding: 0px 3px 0px 3px; /* 상 우 하 좌, 시계방향 */
-	box-shadow: 2px 2px 1px rgba(0, 0, 0, .2)
+.cardCom01 {
+    margin: 0px 5px 10px 0px;
+    flex-grow: 7;
 }
 
-.memberbox{
-	margin-top: 20px;
+.cardCom02 {
+    font-size: 14px;
+    flex-basis: 70px;
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: inline-block;
+    flex-direction: column;
+    text-align: right;
 }
-.memberNames th {
-	border: 1px solid gray;
-	font-size: 12px;
-	padding: 0px 3px 0px 3px;
-	box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-	font-family: 'Nanum Gothic';
+
+.cardCom03 {
+    margin: 10px 0px 0px 0px;
+    line-height: 1.8;
 }
-.memberPhotos td {
-	text-align: center;
+
+.cardCom03 ul li {
+    display: inline;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 20, 0.5);
+    border-style: ridge;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    padding: 1px 5px 1px 5px;
+    margin: 0px 5px 0px 0px;
+    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
 }
-.memberPhotos td img{
-	height: 30px;
-	width: 30px;
-	border-radius: 30px;
-	margin-top: 3px;
+
+.cardCom04 {
+    margin: 10px 0px 15px 0px;
+    line-height: 1.8;
+}
+
+.cardCom04 ul {}
+
+.cardCom04 ul li {
+    display: inline;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 20, 0.5);
+    border-style: ridge;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    padding: 1px 5px 1px 5px;
+    margin: 0px 5px 0px 0px;
+    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
+}
+
+.title {
+    font-size: 23px;
+    margin: 0px 0px 10px 0px;
+}
+
+.category {
+    font-size: 18px;
+    display: inline;
+    font-family: 'Jeju Hallasan', cursive;
+}
+
+.pname {
+    font-size: 18px;
+    display: inline;
+}
+
+.intro {
+    font-size: 14px;
+    font-family: 'Nanum Gothic', sans-serif;
+    line-height: 1.3;
+    color: dimgray;
 }

@@ -18,7 +18,10 @@
 	<logger name="edu.hexa.leejaehoon">
 		<level value="info" />
 	</logger>
-
+	
+	<logger name="edu.hexa.seungbae">
+		<level value="info" />
+	</logger>
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />

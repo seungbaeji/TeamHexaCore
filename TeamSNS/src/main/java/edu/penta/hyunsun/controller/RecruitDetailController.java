@@ -39,6 +39,7 @@ public class RecruitDetailController {
 		
 	} // end detailView()
 	
+
 	@RequestMapping(value="/project/apply-project", method=RequestMethod.POST)
 	public String applyProject(ApplyProjectVO vo, int rbno, RedirectAttributes attr) {
 		int result = service.create(vo);

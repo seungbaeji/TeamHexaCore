@@ -13,20 +13,35 @@ public class ProjectInfoVO {
    private String meeting_area;
    private String team_id;
    private String uid;
-   
+   private String rbno;
    public ProjectInfoVO(){}
 
    
    
 
-   public ProjectInfoVO(String pname, String category, Date start, Date end, String intro) {
+   public ProjectInfoVO(String pname, String category, Date start, Date end, String intro,String rbno) {
 	
 	this.pname = pname;
 	this.category = category;
 	this.start = start;
 	this.end = end;
 	this.intro = intro;
+	this.rbno=rbno;
 }
+
+public String getRbno() {
+	return rbno;
+}
+
+
+
+
+public void setRbno(String rbno) {
+	this.rbno = rbno;
+}
+
+
+
 
 public String getPid() {
       return pid;
