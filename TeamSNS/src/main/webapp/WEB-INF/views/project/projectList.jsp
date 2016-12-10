@@ -43,7 +43,7 @@
             <p class="category"><${vo.category }></p>
             <p class="pname">${vo.pname }</p>
         </div>
-        <p class="cardCom02"> 조회수: ${vo.recruit_hits }
+        <p class="cardCom02"> 조회수 ${vo.recruit_hits }
             <br>
             <br>모집마감일
             <fmt:formatDate value="${vo.rcend }" pattern="yyyy.MM.dd" var="rcend"/>
@@ -121,6 +121,9 @@ $(document).ready(function(){
       for (var y in districtObjects){
          if (districtObjects[y].toggle == 1) {
             districts.push(districtObjects[y].name);
+            if(districts == null){
+            	districts = [];
+            }
          }   
       }
       
@@ -128,7 +131,7 @@ $(document).ready(function(){
       if (districtObjects.all.toggle == 1){
          districts = [];
       }
-      console.log(districts);
+      console.log("지역선택 수: "+districts);
       
       var cardList ="";
       
@@ -140,15 +143,11 @@ $(document).ready(function(){
             var parts;
             var skillList = '';
             var partList = '';
-            var rchits;
             
             var rcstart = new Date(this.rcstart);
             var rcend = new Date(this.rcend);
             var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
             console.log(this.recruit_hits);
-            if (this.recruit_hits == null){
-            	rchits = 0;
-            }
             console.log(this.rcstart);
             console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
             console.log(this.rcend);
@@ -185,7 +184,7 @@ $(document).ready(function(){
                          + '</div>'
                          + '<p class="cardCom02">'
                          + ' 조회수 '
-                         + rchits + '<br>'
+                         + this.recruit_hits + '<br>'
                          + '<br>모집마감일<br>'
                          + deadline +'<br>'
                          + '</p></div>'

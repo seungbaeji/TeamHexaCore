@@ -23,6 +23,22 @@ public class ProjectsRESTController {
 	@Autowired
 	private ProjectCardService service;
 	
+	// 지역선택을 하지 않은 null 값을 처리해 주는 controller
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public ResponseEntity<List<ProjectCardDTO>> readAllProjects (){
+		final String[] districts = null;
+		//logger.info("readProjectsByDistricts, count: " + districts.length);
+		List<ProjectCardDTO> list = service.read(districts);
+		
+		ResponseEntity<List<ProjectCardDTO>> entity = null;
+		
+		if (list != null) {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.BAD_REQUEST);
+		}		
+		return entity;	
+	}
 	
 	@RequestMapping(value="{districts}", method=RequestMethod.GET)
 	public ResponseEntity<List<ProjectCardDTO>> readProjects (@PathVariable("districts") String[] districts){
