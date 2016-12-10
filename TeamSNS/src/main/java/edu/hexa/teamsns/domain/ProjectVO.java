@@ -16,8 +16,17 @@ public class ProjectVO {
    private String district;
    private String meeting_area;
    private String team_id;
+   private int rbno;
    
-   private Logger logger = LoggerFactory.getLogger(ProjectVO.class);
+   public int getRbno() {
+	return rbno;
+}
+
+public void setRbno(int rbno) {
+	this.rbno = rbno;
+}
+
+private Logger logger = LoggerFactory.getLogger(ProjectVO.class);
    
    public ProjectVO(){
 	   pid = "p" + UUID.randomUUID().toString();

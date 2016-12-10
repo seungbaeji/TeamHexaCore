@@ -26,6 +26,11 @@ public class RecruitDetailDTO {
 		this.team_leader = team_leader;
 	}
 	
+	
+	public RecruitDetailDTO(RecruitProjectVO recruit) {
+		
+		this.recruit = recruit;
+	}
 	public RecruitProjectVO getRecruit() {
 		return recruit;
 	}
