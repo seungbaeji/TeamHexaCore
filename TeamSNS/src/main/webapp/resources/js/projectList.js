@@ -25,7 +25,46 @@ $(document).ready(function(){
       foreignCountry: {name: "해외", toggle: 0}    
    } 
    
-   var districts = []; 
+   // 저장된 선택지역 목록
+   var districts = [];
+   // 이전 스크롤 좌표
+   var lastScrollTop = 0;
+   var easeEffect = 'easeInQuint';
+   // 스크롤 이벤트 최초발생
+   $(window).scroll(function(){
+	   
+	   // 현재 스크롤 좌표
+	   var currentScrollTop = $(window).scrollTop();
+	   
+	   // 다운 스크롤
+	   if (currentScrollTop - lastScrollTop > 0) {
+		   // 현재 스크롤 좌표를 이전 스크롤 좌표로 할당
+		   lastScrollTop = currentScrollTop;
+		   
+		   // 현재 스크롤의 위치가 화면의 위치보다 크다면,
+		   if($(window).scrollTop() >= $(document).height() - $(window).height()){
+			   var lastRbno = $(".title a:last").attr("href");
+
+			   var url2 = "/teamsns/projects/infinite" + lastRbno;
+			   $.getJSON(url2, projectListCallback);
+			
+			   var position = $(".projectCard:first").offset();
+			   $('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
+			   
+		   }
+		   		   
+	   } 
+	   // 업 스크롤
+	   else {
+		   // 현재 스크롤 좌표를 이전 스크롤 좌표로 할당
+		   lastScrollTop = currentScrollTop;
+	   } // end if-else
+	   
+	   
+	   
+	   
+	   
+   }); // end scrollEvent()
    
    $(".district li").click(function(){
 	  console.log("지역선택 개수"+districts.length);
@@ -64,123 +103,24 @@ $(document).ready(function(){
       }  */
       console.log("선택 지역: "+districts);
       
-      var cardList ="";
-      var cardNum = 1;
       var url = "/teamsns/projects/" + districts;
-      $.getJSON(url, function(result){
-         //console.log("프로젝트 개수:" + result.length);
-         $(result).each(function(){
-        	console.group("projectCard"+cardNum)
-            var skills;
-            var parts;
-            var skillList = '';
-            var partList = '';
-            
-            var rcstart = new Date(this.rcstart);
-            var rcend = new Date(this.rcend);
-            var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
-            console.log(this.recruit_hits);
-            console.log(this.rcstart);
-            console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
-            console.log(this.rcend);
-            console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
-            console.log(this.rbno);
-            console.log(this.intro);
-            console.log(this.pname);
-            
-         	// 요구기술 li 요소 생성
-            console.log(this.skills);
-            if (this.skills != null) {
-                // ,로 구분된 문자열인 요구스킬의 array화
-            	skills = this.skills.split(",");
-                console.log(skills);
-                skills.sort();
-                skills.forEach(function(item, index) {
-                   skillList += '<li>' + item + '</li>';
-                });
-            }
-            
-            // 모집역할 part 요소 생성
-            console.log(this.parts);
-            if (this.parts != null){
-                parts = this.parts.split(",");
-                console.log(parts);
-                parts.sort();
-                parts.forEach(function(item, index){
-                  partList += '<li>' + item + '</li>'; 
-                });
-            }
-            
-             cardList +='<li class="projectCard">'
-                         + '<div class="cardTop">'
-                         + '<div class="cardCom01">'
-                         + '<p class="title">'
-                         + '<a href="'
-                         + this.rbno+'">'
-                         + this.title + '</a></p>'
-                         + '<p class="category"><'
-                         + this.category + '> </p>'
-                         + '<p class="pname">'
-                         + this.pname + '</p>'
-                         + '</div>'
-                         + '<p class="cardCom02">'
-                         + ' 조회수 '
-                         + this.recruit_hits + '<br>'
-                         + '<br>모집마감일<br>'
-                         + deadline +'<br>'
-                         + '</p></div>'
-                         + '<p class="intro">'
-                         + this.intro +'</p>'
-                         + '<div class="cardCom03">'
-                         + '<p>요구기술</p>'
-                         + '<ul>'
-                         + skillList
-                         + '</ul></div>'
-                         + '<div class="cardCom04">'
-                         + '<p>모집역할</p>'
-                         + '<ul>'
-                         + partList
-                         + '</ul></div>'
-                         + '<p class="cardCom05"></p></li>'
-               console.groupEnd();          
-               cardNum++;
-         });// end result eachLoop
-      		
-      	 //cardList += '<form id="frm"><input type ="hidden" name="rbno"></form>'
-         // 기존 projectCardList 삭제
-         $("#cardContainer").empty();
-         // 새로운 projectCardList 추가
-         $("#cardContainer").html(cardList);
-         
-         // empty() 함수를 실행함에 따라 삭제된 함수를 재선언
-         $('.title a').click(function() {
-     	    var frm = $('#frm');
-     	    event.preventDefault();
-     	    var rbno = $(this).attr("href");
-     	    frm.find("[name='rbno']").val(rbno);
-     	    frm.attr("action", "/teamsns/project/projectDetail");
-     	    frm.attr("method", "get");
-     	    frm.submit();
-     	 });
-                  
-
-      });// end getJSON 
+      $.getJSON(url, projectListCallback);
    });// end district li click
    
-	 $('.title a').click(function() {
-	    var frm = $('#frm');
-	    event.preventDefault();
-	    var rbno = $(this).attr("href");
-	    frm.find("[name='rbno']").val(rbno);
-	    frm.attr("action", "/teamsns/project/projectDetail");
-	    frm.attr("method", "get");
-	    frm.submit();
-	 }); 
+	 $('.title a').click(sendRbno); 
    
 });
 
-
-
+// hidden form으로 rbno 전송
+function sendRbno(){
+    var frm = $('#frm');
+    event.preventDefault();
+    var rbno = $(this).attr("href");
+    frm.find("[name='rbno']").val(rbno);
+    frm.attr("action", "/teamsns/project/projectDetail");
+    frm.attr("method", "get");
+    frm.submit();
+}
 // 지역선택 되었을때의 효과
 function changeColor1(target){
       target.css('backgroundColor', 'lightblue');
@@ -190,4 +130,91 @@ function changeColor1(target){
 function changeColor2(target){
       target.css('backgroundColor', 'white');
       target.css('color', 'black');
+}
+//ajax 콜백 함수
+function projectListCallback(result){
+   var cardList ="";
+   var cardNum = 1;
+   
+   //console.log("프로젝트 개수:" + result.length);
+   // ajax로 받은 result의 개수만큼 반복 실행
+    $(result).each(function(){
+        var skills;
+        var parts;
+        var skillList = '';
+        var partList = '';
+        var rchits;
+        
+        console.group("projectCard"+cardNum)
+        var rcstart = new Date(this.rcstart);
+        var rcend = new Date(this.rcend);
+        var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
+        console.log(this.recruit_hits);
+        if (this.recruit_hits == null){
+           rchits = 0;
+        }
+        console.log(this.rcstart);
+        console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
+        console.log(this.rcend);
+        console.log(rcend.getFullYear(), rcend.getMonth(), rcend.getDate());
+        console.log(this.rbno);
+        console.log(this.intro);
+        console.log(this.pname);
+        console.log(this.skills);
+        if (this.skills != null) {
+            skills = this.skills.split(",");
+            console.log(skills);
+            skills.forEach(function(item, index) {
+               skillList += '<li>' + item + '</li>';
+            });
+         }
+         console.log(this.parts);
+         if (this.parts != null){
+            parts = this.parts.split(",");
+            console.log(parts);
+            parts.forEach(function(item, index){
+              partList += '<li>' + item + '</li>'; 
+            });
+         }
+   
+         cardList +='<li class="projectCard">'
+                     + '<div class="cardTop">'
+                     + '<div class="cardCom01">'
+                     + '<p class="title">'
+                     + this.title + '</p>'
+                     + '<p class="category"><'
+                     + this.category + '> </p>'
+                     + '<p class="pname">'
+                     + this.pname + '</p>'
+                     + '</div>'
+                     + '<p class="cardCom02">'
+                     + ' 조회수 '
+                     + rchits + '<br>'
+                     + '<br>모집마감일<br>'
+                     + deadline +'<br>'
+                     + '</p></div>'
+                     + '<p class="intro">'
+                     + this.intro +'</p>'
+                     + '<div class="cardCom03">'
+                     + '<p>요구기술</p>'
+                     + '<ul>'
+                     + skillList
+                     + '</ul></div>'
+                     + '<div class="cardCom04">'
+                     + '<p>모집역할</p>'
+                     +'<ul>'
+                     + partList
+                     + '</ul></div>'
+                     + '<p class="cardCom05"></p></li>'
+         console.groupEnd();          
+         cardNum++;
+     });// end result each
+
+   // 기존 projectCardList 삭제
+   $("#cardContainer").empty();
+   // 새로운 projectCardList 추가
+   $("#cardContainer").html(cardList);
+   // empty() 함수를 실행함에 따라 삭제된 함수를 재선언
+   $('.title a').click(sendRbno);
+
 }

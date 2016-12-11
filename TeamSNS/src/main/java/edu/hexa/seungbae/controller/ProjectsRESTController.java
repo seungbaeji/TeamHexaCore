@@ -55,6 +55,19 @@ public class ProjectsRESTController {
 		return entity;	
 	}
 	
+	@RequestMapping(value="/infinite/{rbno}", method=RequestMethod.GET)
+	public ResponseEntity<List<ProjectCardDTO>> readProjects (@PathVariable("rbno") int rbno){
+		List<ProjectCardDTO> list = service.read(rbno);
+		logger.info("마지막 카드번호: " + rbno);
+		ResponseEntity<List<ProjectCardDTO>> entity = null;
+		
+		if (list != null) {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.BAD_REQUEST);
+		}		
+		return entity;	
+	}
 	
 	
 

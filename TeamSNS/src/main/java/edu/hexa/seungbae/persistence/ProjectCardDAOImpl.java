@@ -42,6 +42,11 @@ public class ProjectCardDAOImpl implements ProjectCardDAO {
 	}
 
 	@Override
+	public List<ProjectCardDTO> select(int rbno) {
+		return sqlSession.selectList(NAMESPACE + ".selectInfinite", rbno);
+	}
+	
+	@Override
 	public int getNumOfRecords() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -52,6 +57,8 @@ public class ProjectCardDAOImpl implements ProjectCardDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 	
 

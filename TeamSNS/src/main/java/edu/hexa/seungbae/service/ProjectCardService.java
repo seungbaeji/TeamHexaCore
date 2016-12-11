@@ -6,10 +6,8 @@ import edu.hexa.seungbae.domain.ProjectCardDTO;
 
 public interface ProjectCardService {
 	
-	int create();
 	List<ProjectCardDTO>read();
 	List<ProjectCardDTO>read(String[] districts);
-	int update();
-	int delete();
+	List<ProjectCardDTO>read(int rbno);
 	
 }

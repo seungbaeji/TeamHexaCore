@@ -10,6 +10,7 @@ public interface ProjectCardDAO {
 	
 	public abstract List<ProjectCardDTO> select();
 	public abstract List<ProjectCardDTO> select(String[] districts);
+	public abstract List<ProjectCardDTO> select(int rbno);
 	
 	// 페이징 처리를 위한 메소드
 	int getNumOfRecords();
