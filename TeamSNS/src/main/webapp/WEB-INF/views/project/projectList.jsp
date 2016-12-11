@@ -9,7 +9,7 @@
 <link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
-<div class="districtset">
+<header class="districtset">
    <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
       <ul class="district">
          <li id ="all">전체선택</li>
@@ -32,14 +32,15 @@
          <li id ="jeju">제주특별자치도 </li>
          <li id ="foreignCountry">해외</li>
       </ul>
-</div>
+</header>
+<div class="block01"></div>
 <ul id="cardContainer">
 <c:forEach var="vo" items="${projectCardList }">
 <li class="projectCard">
    <div class="cardTop">
         <div class="cardCom01">
             <p class="title"><a href="${vo.rbno }">${vo.title }</a></p>
-            <p class="category"><${vo.category }></p>
+            <p class="category">&lt;${vo.category }&gt;</p>
             <p class="pname">${vo.pname }</p>
         </div>
         <p class="cardCom02"> 조회수 ${vo.recruit_hits }
