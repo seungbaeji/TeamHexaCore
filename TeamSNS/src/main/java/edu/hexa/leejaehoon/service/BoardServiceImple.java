@@ -2,6 +2,8 @@ package edu.hexa.leejaehoon.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,8 @@ import edu.hexa.leejaehoon.persistence.BoardDAO;
 
 @Service
 public class BoardServiceImple implements BoardService {
+
+	
 	
 	@Autowired
 	private BoardDAO boardDao;

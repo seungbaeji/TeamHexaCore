@@ -90,7 +90,7 @@ ul {
 		<div id="main-index">
 			<section class="content">
 				<header>
-					<h2 id="tip">Tip And Tech</h2>
+					<h2 id="tip">Q & A</h2>
 					<div id="btn">
 						<button id="btnNew" type="button" class="btn btn-primary">새
 							글 쓰기</button>
@@ -106,17 +106,15 @@ ul {
 								<th id="two">제목</th>
 								<th id="three">작성자</th>
 								<th id="four">작성일</th>
-								<th id="five">추천수</th>
 								<th id="six">조회수</th>
 
 							</tr>
-							<c:forEach var="VO" items="${tiplist}">
+							<c:forEach var="VO" items="${qalist}">
 								<tr>
 									<td>${VO.bno}</td>
 									<td><a href="${VO.bno}">${VO.title}</a></td>
 									<td>${VO.writer_uid}</td>
 									<td>${VO.regdate}</td>
-									<td>${VO.recommend}</td>
 									<td>${VO.hits}</td>
 								</tr>
 							</c:forEach>
@@ -161,10 +159,10 @@ ul {
 
 			$('#btnNew').click(function() {
 				if ('${login_id}' == '') {
-					location = '/teamsns/board/tipAndTech'
+					location = '/teamsns/qaboard/qaBoard'
 					alert("로그인이 필요합니다!");
 				} else {
-					location = '/teamsns/board/ttRegister'
+					location = '/teamsns/qaboard/qaRegister'
 				}
 
 			});
@@ -174,7 +172,7 @@ ul {
 				event.preventDefault();
 				var bno = $(this).attr('href');
 				frm.find('[name="bno"]').val(bno);
-				frm.attr('action', 'ttDetail');
+				frm.attr('action', 'qaDetail');
 				frm.attr('method', 'get');
 				frm.submit();
 			});
@@ -185,16 +183,16 @@ ul {
 				var targetPage = $(this).attr('href');
 				frm.find('[name="page"]').val(targetPage);
 				// 페이징 화면으로 보내기 위한 action 정보
-				frm.attr('action', 'tipAndTech');
+				frm.attr('action', 'qaBoard');
 				// 페이징 화면을 처리하는 Controller의 method(요청 처리 방식)
 				frm.attr('method', 'get');
 				// 폼 양식을 서버로 전송
 				frm.submit();
 			});
 
-			if ('${insert_tt}' == 'success') {
+			if ('${insert_qa}' == 'success') {
 				alert('글 작성 성공!');
-			} else if ('${insert_tt}' == 'fail') {
+			} else if ('${insert_qa}' == 'fail') {
 				alert('글 작성 실패!');
 			}
 

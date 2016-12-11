@@ -1,5 +1,6 @@
 jQuery(document).ready(function($){
 	var $lateral_menu_trigger = $('#cd-menu-trigger'),
+
 		$content_wrapper = $('.container'),
 		$navigation = $('#mainHeader');
 

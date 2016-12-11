@@ -150,6 +150,7 @@ i {
 		<nav id="cd-top-nav">
 			<ul>
 				<li><a href="#0">로그인</a></li>
+
 			</ul>
 		</nav>
 		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
@@ -459,7 +460,13 @@ i {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
-
+							$('#qaBoard').click(function() {
+								location = '/teamsns/qaboard/qaBoard';
+							});	
+							$('#freeBoard').click(function() {
+								location = '/teamsns/freeboard/freeBoard';
+							});
+							
 							$("#start, #end").datepicker(
 									{
 										dateFormat : 'yymmdd',
