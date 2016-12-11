@@ -192,7 +192,7 @@ i {
 					</h3>
 					<ul>
 						<li id="tipAndTech"><a href="#">Tip & Tech</a></li>
-						<li><a href="#">자유게시판</a></li>
+						<li id="freeBoard"><a href="#">자유게시판</a></li>
 						<li id="qaBoard"><a href="#">Q & A</a></li>
 					</ul>
 				</li>
@@ -535,6 +535,9 @@ i {
 							$('#qaBoard').click(function() {
 								location = '/teamsns/qaboard/qaBoard';
 							});	
+							$('#freeBoard').click(function() {
+								location = '/teamsns/freeboard/freeBoard';
+							});
 							
 							$("#start, #end").datepicker(
 									{
