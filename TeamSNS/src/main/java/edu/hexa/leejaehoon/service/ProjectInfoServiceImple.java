@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import edu.hexa.leejaehoon.domain.ProjectInfoVO;
 import edu.hexa.leejaehoon.persistence.ProjectInfoDAOImple;
+import edu.hexa.teamsns.domain.ProjectVO;
+import edu.hexa.teamsns.domain.RecruitProjectVO;
+import edu.hexa.teamsns.domain.RequiredSkillVO;
+import edu.penta.hyunsun.domain.RecruitDetailDTO;
 
 @Service
 public class ProjectInfoServiceImple implements ProjectInfoService {
@@ -24,4 +28,20 @@ public class ProjectInfoServiceImple implements ProjectInfoService {
 		return dao.select(uid);
 	}
 
+	@Override
+	public int update(RecruitProjectVO vo) {
+		logger.info("service vo = " + vo); 
+		return dao.update(vo);
+	}
+	@Override
+	public int update2(ProjectVO vo) {
+		logger.info("service vo = " + vo); 
+		return dao.update2(vo);
+	}
+	
+	@Override
+	public int update3(RequiredSkillVO vo) {
+		// TODO Auto-generated method stub
+		return dao.update3(vo);
+	}
 }

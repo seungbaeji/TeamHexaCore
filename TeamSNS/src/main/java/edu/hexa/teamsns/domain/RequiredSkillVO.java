@@ -16,6 +16,7 @@ public class RequiredSkillVO {
    private String skill_8;
    private String skill_9;
    private String skill_10;
+   private int rbno;
    
    private Logger logger = LoggerFactory.getLogger(RequiredSkillVO.class);
    
@@ -40,7 +41,17 @@ public class RequiredSkillVO {
       logger.info("RequiredSkillVO 생성 with parameter");
    }
 
-   public String getPid() {
+   
+   
+   public int getRbno() {
+	return rbno;
+}
+
+public void setRbno(int rbno) {
+	this.rbno = rbno;
+}
+
+public String getPid() {
       return pid;
    }
 

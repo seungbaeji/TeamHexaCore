@@ -261,11 +261,9 @@ nav, aside {
 								location = '/teamsns/project/projectInfo';
 							});
 
-							$('#project-register')
-									.click(
-											function() {
-												location = '/teamsns/register/project-register';
-											});
+							$('#project-register').click(function() {
+								location = '/teamsns/register/project-register';
+							});
 
 							$('#tipAndTech').click(function() {
 								location = '/teamsns/board/tipAndTech';
@@ -282,6 +280,10 @@ nav, aside {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
+							$('#qaboard').click(function() {
+								location = '/teamsns/qaboard/qaBoard';
+							});	
+							
 
 							$("#start, #end").datepicker(
 									{

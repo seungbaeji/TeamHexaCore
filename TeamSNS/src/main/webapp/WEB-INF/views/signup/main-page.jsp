@@ -193,7 +193,7 @@ i {
 					<ul>
 						<li id="tipAndTech"><a href="#">Tip & Tech</a></li>
 						<li><a href="#">자유게시판</a></li>
-						<li><a href="#">Q & A</a></li>
+						<li id="qaBoard"><a href="#">Q & A</a></li>
 					</ul>
 				</li>
 				<li>
@@ -232,44 +232,44 @@ i {
 										<div class="form-group form-inline" id="div_user_id">
 											<label for="user_id" class="label label-default">아이디</label>
 											<input type="text" class="form-control user_register"
-												id="user_id" name="user_id" placeholder="아이디 입력">
+												id="user_id" name="uid" placeholder="아이디 입력">
 										</div>
 										<div class="form-group form-inline" id="div_user_pw">
 											<label for="user_pw" class="label label-default">비밀번호</label>
 											<input type="password" class="form-control user_register"
-												id="user_pw" name="user_pw" placeholder="비밀번호 입력">
+												id="user_pw" name="pw" placeholder="비밀번호 입력">
 										</div>
 										<div class="form-group form-inline" id="div_user_email">
 											<label for="user_email" class="label label-default">이메일</label>
 											<input type="email" class="form-control user_register"
-												id="user_email" name="user_email" placeholder="이메일 입력">
+												id="user_email" name="email" placeholder="이메일 입력">
 										</div>
 										<div class="form-group form-inline" id="div_user_name">
 											<label for="user_name" class="label label-default">이름</label>
 											<input type="text" class="form-control user_register"
-												id="user_name" name="user_name" placeholder="이름 입력">
+												id="user_name" name="name" placeholder="이름 입력">
 										</div>
 										<div class="form-group form-inline" id="div_user_nickname">
 											<label for="user_nickname" class="label label-default">닉네임</label>
 											<input type="text" class="form-control user_register"
-												id="user_nickname" name="user_nickname"
+												id="user_nickname" name="nickname"
 												placeholder="닉네임을 입력하시오">
 										</div>
 										<div class="form-group form-inline" id="div_user_number">
 											<label for="user_number" class="label label-default">전화번호</label>
 											<input type="tel" class="form-control user_register"
-												id="user_number" name="user_number"
+												id="user_number" name="phone"
 												placeholder="전화번호를 입력하시오">
 										</div>
 										<div class="form-group form-inline" id="div_user_kkoid">
 											<label for="user_kkoid" class="label label-default">카카오톡</label>
 											<input type="text" class="form-control user_register"
-												id="user_kkoid" name="user_kkoid" placeholder="카톡아이디 입력">
+												id="user_kkoid" name="kkoid" placeholder="카톡아이디 입력">
 										</div>
 										<div class="form-group form-inline" id="div_user_img">
 											<label for="user_kkoid" class="label label-default">사진</label>
 											<input type="text" class="form-control user_register"
-												id="user_img" name="user_img" placeholder="사진 저장 경로">
+												id="user_img" name="profile_img" placeholder="사진 저장 경로">
 										</div>
 										<br> <input type="submit" class="btn btn-primary btn-lg"
 											id="user_submit" value="등록 하기">
@@ -401,8 +401,7 @@ i {
 					<div id="section3">
 						<!-- <div class="label label-info main_table_caption">커뮤니티</div> -->
 						<h4 class="main_header">
-							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q
-							& A
+							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q & A
 						</h4>
 						<table class="table main_table">
 							<tr>
@@ -488,9 +487,7 @@ i {
 			});
 		});
 
-		$(document)
-				.ready(
-						function() {
+		$(document).ready(function() {
 							if ('${insert_result}' == 'success') {
 								alert('신규 회원 가입 성공!');
 							} else if ('${insert_result}' == 'fail') {
@@ -519,11 +516,9 @@ i {
 								location = '/teamsns/project/projectInfo';
 							});
 
-							$('#project-register')
-									.click(
-											function() {
-												location = '/teamsns/register/project-register';
-											});
+							$('#project-register').click(function() {
+								location = '/teamsns/register/project-register';
+							});
 
 							$('#tipAndTech').click(function() {
 								location = '/teamsns/board/tipAndTech';
@@ -537,7 +532,10 @@ i {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
-
+							$('#qaBoard').click(function() {
+								location = '/teamsns/qaboard/qaBoard';
+							});	
+							
 							$("#start, #end").datepicker(
 									{
 										dateFormat : 'yymmdd',
@@ -552,22 +550,10 @@ i {
 									//년 뒤에 월 표시
 									});
 							/* 글자수 체크1 */
-							$('#pname, .part')
-									.keyup(
-											function() {
-												if ($(this).val().length > $(
-														this).attr('maxlength')) {
+							$('#pname, .part').keyup(function() {
+												if ($(this).val().length > $(this).attr('maxlength')) {
 													alert('제한길이 초과');
-													$(this)
-															.val(
-																	$(this)
-																			.val()
-																			.substr(
-																					0,
-																					$(
-																							this)
-																							.attr(
-																									'maxlength')));
+													$(this).val($(this).val().substr(0,$(this).attr('maxlength')));
 												}
 											});
 

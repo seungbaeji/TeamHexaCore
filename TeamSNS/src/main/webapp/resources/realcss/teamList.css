@@ -1,67 +1,89 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
 /*font-family: 'Jeju Gothic', sans-serif;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
 /*font-family: 'Jeju Myeongjo', serif;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+
 /*font-family: 'Jeju Hallasan', cursive;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+
 /*font-family: 'KoPub Batang', serif;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 /*font-family: 'Nanum Gothic', sans-serif;*/
-@import
-   url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+
 /*font-family: 'Nanum Brush Script', cursive;*/
-@import
-   url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
 /*font-family: 'Nanum Gothic Coding', monospace;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
 /*font-family: 'Nanum Pen Script', cursive;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 /*font-family: 'Noto Sans KR', sans-serif;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
 /*font-family: 'Hanna', sans-serif;*/
+
 @import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
 /*font-family: 'Nanum Myeongjo', serif;*/
+
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans|Open+Sans:700');
+
 /*font-family: 'Open Sans', 'Nunito Sans', sans-serif;*/
 
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   /* font-family: 'Jeju Gothic', sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jeju Gothic', sans-serif;
+    list-style: none;
 }
 
 body {
-   display: flex;
-   flex-direction: column;
-   margin: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
 }
 
 .districtset {
-   margin-bottom: 20px;
-   max-width: 650px;
-   min-width: 300px;
-   width: 40%;
+    max-width: 670px;
+    min-width: 320px;
+    width: 75%;
+    position: fixed;
+    padding: 10px 0px 5px 10px;
+    background-color: white;
 }
 
 .district {
-   margin-top: 5px;
-   font-size: 14px;
-   margin-bottom: 5px;
-   line-height: 1.8;
-   font-family: 'Jeju Gothic', sans-serif;
-   cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    line-height: 1.8;
 }
 
 .district li {
-   display: inline;
-   border: 1px solid gray;
-   margin: 2px 3px 2px 0px;
-   padding: 0px 3px 0px 3px;
-   box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
-   float: left;
-   /*margin: 5px 5px 5px 0px;*/
+    display: inline;
+    border: 1px solid gray;
+    margin: 2px 3px 2px 0px;
+    padding: 0px 3px 0px 3px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
+    float: left;
+    cursor: pointer;
 }
 
 #all {
@@ -69,15 +91,21 @@ body {
 	color: white;
 }
 
+.block01 {
+    margin-top: 200px;
+    
+}
+
 .projectCard {
-   padding: 0px 10px 0px 10px;
-   max-width: 650px;
-   min-width: 300px;
-   width: 40%;
-   height: auto;
-   border: 1px solid gray;
-   box-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
-   margin-bottom: 10px;
+    padding: 20px 10px 0px 10px;
+    max-width: 650px;
+    min-width: 300px;
+    width: 70%;
+    height: auto;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .cardTop {
@@ -106,14 +134,13 @@ body {
 }
 
 .cardCom03 ul li {
-    display: inline;
+    float: left;
     border: 1px solid gray;
-    background-color: rgba(255, 255, 20, 0.5);
-    border-style: ridge;
+    background-color: rgba(167, 163, 126, 0.5);
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
-    /* margin: 0px 5px 0px 0px; */
-    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
+    font-family: 'Open Sans', 'Hanna', sans-serif;
+    margin: 0px 5px 5px 0px;
 }
 
 .cardCom04 {
@@ -121,17 +148,23 @@ body {
     line-height: 1.8;
 }
 
-.cardCom04 ul {}
+.cardCom04 p {
+    clear: both;
+}
 
 .cardCom04 ul li {
-    display: inline;
+    float: left;
     border: 1px solid gray;
-    background-color: rgba(255, 255, 20, 0.5);
-    border-style: ridge;
+    background-color: rgba(230, 226, 175, 1);
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
-    /* margin: 0px 5px 0px 0px; */
-    /* font-family: 'Open Sans', 'Hanna', sans-serif; */
+    font-family: 'Open Sans', 'Hanna', sans-serif;
+    margin: 0px 5px 5px 0px;
+}
+
+.cardCom05 {
+    clear: both;
+    margin: 0px 0px 10px 0px;
 }
 
 .title {

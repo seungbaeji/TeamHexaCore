@@ -23,7 +23,9 @@
             margin: 0;
             padding: 0;
         }
-        
+        .projectOne{
+        	cursor: pointer;
+        }
         #projectInfo{
             position: relative;
             display: block;
@@ -196,12 +198,13 @@
 						value="${dto.skills.skill_9 }"/>
 					<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_10" name="required_skill_10"
 						value="${dto.skills.skill_10 }"/>
+					<input id="updaterbno" type="hidden" value="${vo.rbno}">
 				</div>
             </div>                
 	      </div>
 	      <div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-		<button type="button" class="btn btn-primary">수정</button>
+		<button  id="udpate-project-info"type="button" data-dismiss="modal" class="btn btn-primary">수정</button>
 	      </div>
 	    </div>
 	  </div>
@@ -320,6 +323,8 @@
     				$('#required_skill_9').val(skill9);
     				$('#required_skill_10').val(skill10);
     				
+    				$('#updaterbno').val(rbno);
+    				
     				var list = '';
     				var i = result.parts.length;
     				var y = null;
@@ -329,18 +334,123 @@
     				
     				$('#partList').html(list);
     				console.log(list);
-    			};
+    			}; /* end callback */
     			
     			
         		
                 /* $('#projectOne').attr('data-target','#myprojectModal');
                 $('#projectOne').attr('data-toggle','modal'); */
                 
-            });
+            }); /* end click tr */
+        	
+            $('#udpate-project-info').click(function(){
+            		var title = $('#team_info_name').val();		
+            		var rbno = $("#updaterbno").val();
+            		var rcstart = $("#project_recruit_start").val();
+            		var rcend = $('#project_recruit_end').val();
+            		
+            		console.log(title, rbno, rcstart, rcend);
+            		
+            		var pname = $('#team_name').val();
+            		var category = $('#team_category').val();
+    				var start = $('#project_start').val();
+    				var end = $('#project_end').val();
+    				var intro = $('#team_intro').val();
+    				var district = $('#team_area').val();
+    				
+    				console.log(pname, category, start, end , intro, district);
+            		
+    				var skill1 = $('#required_skill').val();
+    				var skill2 = $('#required_skill_2').val();
+    				var skill3 = $('#required_skill_3').val();
+    				var skill4 = $('#required_skill_4').val();
+    				var skill5 = $('#required_skill_5').val();
+    				var skill6 = $('#required_skill_6').val();
+    				var skill7 = $('#required_skill_7').val();
+    				var skill8 = $('#required_skill_8').val();
+    				var skill9 = $('#required_skill_9').val();
+    				var skill10 = $('#required_skill_10').val();
+    				
+    				console.log(skill1,skill2,skill3,skill4,skill5,skill6,skill7,skill8,skill9,skill10);
+    				
+    				
+    				$.ajax({
+    	                  type: 'post',
+    	                 url: '/teamsns/project/recruitProjectUpdate/'+ rbno,
+    	                 headers: {
+    	                    'Content-Type': 'application/json',
+    	                    'X-Http-Method-Override': 'POST'
+    	                 },
+    	                 data: JSON.stringify({
+    	                    
+    	                    title: title,
+    	                    rcstart: rcstart,
+    	                    rcend: rcend,
+    	                    
+    	                 }),
+    	                 success: function(result){
+    	                    if(result == '1'){
+    	                       console.log("recruit 수정 성공!");
+    	                    }
+    	                 }
+    	               }); /* end ajax */
+            	
+				$.ajax({
+            		
+            		type:'post',
+            	    url: '/teamsns/project/ProjectUpdate/'+ rbno,
+            	    headers: {
+        				'Content-Type': 'application/json',
+        				'X-Http-Method-Override': 'POST'
+        			},
+        			data: JSON.stringify({
+        				pname: pname,
+        				category: category,
+        				start: start,
+        				end: end,
+        				intro: intro,
+        				district: district
+        			}),
+        			success: function(result2){
+        				if(result2 == '1'){
+        					console.log("project 수정 성공!");
+        				}
+        			}
+            	}); /* end ajax */
+            	
+				$.ajax({
+            		
+            		type:'post',
+            	    url: '/teamsns/project/skillUpdate/'+ rbno,
+            	    headers: {
+        				'Content-Type': 'application/json',
+        				'X-Http-Method-Override': 'POST'
+        			},
+        			data: JSON.stringify({
+        				skill_1: skill1,
+        				skill_2: skill2,
+        				skill_3: skill3,
+        				skill_4: skill4,
+        				skill_5: skill5,
+        				skill_6: skill6,
+        				skill_7: skill7,
+        				skill_8: skill8,
+        				skill_9: skill9,
+        				skill_10: skill10,
+        			}),
+        			success: function(result3){
+        				if(result3 == '1'){
+        					console.log("project 수정 성공!");
+        				}
+        			}
+            	}); /* end ajax */
+            	
+            	location = '/teamsns/project/projectInfo';
+            	
+            }); /* end click update */
         	
         	
-        	
-        });
+        }); /* end document */
         
         
         
