@@ -34,14 +34,10 @@ public class ProjectRegisterDAOImpl implements ProjectRegisterDAO {
 	public int insert(RecruitProjectVO rpvo) {
 		return sqlSession.insert(NAMESPACE + ".insert_recruit", rpvo);
 	}
-	
-
 	@Override
 	public int insert(ProjectLeaderVO lvo) {
 		return sqlSession.insert(NAMESPACE + ".insert_leader", lvo);
 	}
-
-	
 	@Override
 	public UserVO select(String uid) {
 		return sqlSession.selectOne(NAMESPACE + ".select_user", uid);
