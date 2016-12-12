@@ -11,8 +11,16 @@ public class ManageProjectPartVO {
 	private String user_id;
 	private String part;
 	
-	private Logger logger = LoggerFactory.getLogger(ManageProjectPartVO.class);
-
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+/*	private Logger logger = LoggerFactory.getLogger(ManageProjectPartVO.class);
+*/
 	public ManageProjectPartVO() {
 		part_pk = "pt" + UUID.randomUUID().toString();
 	}

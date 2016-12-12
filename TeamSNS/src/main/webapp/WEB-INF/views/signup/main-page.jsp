@@ -158,6 +158,7 @@ i {
 		</header>
 		<nav id="cd-lateral-nav">
 		<ul class="cd-navigation">
+			<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -180,18 +181,18 @@ i {
 				<a href="#0">community</a>
 				<ul class="sub-menu">
 					<li><a  id="tipAndTech" href="#0">tip & tech</a></li>
-					<li><a href="#0">New York</a></li>
-					<li><a href="#0">Milan</a></li>
+					<li><a id= "qaBoard" href="#0">Q & A</a></li>
+					<li><a id="freeBoard" href="#0">자유게시판</a></li>
 					<li><a href="#0">Paris</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 		</ul> <!-- cd-navigation -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a href="#0">로그인</a></li>
-			<li><a href="#0">Register</a></li>
-			<li><a href="#0">Pricing</a></li>
-			<li><a href="#0">Support</a></li>
+			<li><a id="signIn" href="#0" data-toggle="modal" data-target="#loginModal">로그인</a></li>
+			<li><a id="signUp" href="#0">회원가입</a></li>
+			<li><a id="logout" href="#0">로그아웃</a></li>
+			<li><a id="myPage" href="#0">마이페이지</a></li>
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
@@ -399,21 +400,58 @@ i {
 
 	</div>
 	<!-- end container -->
-    	
+    
+    <!-- 로그인 모달 팝업 -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		<h4 class="modal-title" id="myModalLabel">Login</h4>
+	      </div>
+	      <div class="modal-body">
+		        <form class="form-horizontal" action="/teamsns/signup/login" method="post">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">ID</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="user_id" placeholder="ID">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" name="user_pw" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Remember me
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-default" value="Sign in">
+                    </div>
+                  </div>
+            </form>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		
+	      </div>
+	    </div>
+	  </div>
+	</div>	
 
 	
 	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ자바스크립트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	<script src="../resources/js/main.js"></script> <!-- Resource jQuery -->
 	<script>
-		$(function() {
-			$("#accordian h3").click(function() {
-				$("#accordian ul ul").slideUp();
-				if (!$(this).next().is(":visible")) {
-					$(this).next().slideDown();
-				}
-			});
-		});
-
+		
 		$(document).ready(function() {
 							if ('${insert_result}' == 'success') {
 								alert('신규 회원 가입 성공!');
@@ -422,7 +460,8 @@ i {
 							}
 
 							if ('${success}' == 'success') {
-								$('.loginForm').hide();
+								$('#signIn').hide();
+								$('#signUp').hide();
 							} else {
 								$('.logout').hide();
 								$('.mypage').hide();
@@ -430,7 +469,7 @@ i {
 								$('#project-register').hide();
 							}
 
-							$('.logout').click(function() {
+							$('#logout').click(function() {
 								alert('${login_id}님 로그아웃 되셧습니다!');
 								location = '/teamsns/signup/logout';
 							});
@@ -464,6 +503,9 @@ i {
 							});	
 							$('#freeBoard').click(function() {
 								location = '/teamsns/freeboard/freeBoard';
+							});
+							$('#mainLogo').click(function() {
+								location = '/teamsns/signup/main-page';
 							});
 							
 							$("#start, #end").datepicker(

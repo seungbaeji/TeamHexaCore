@@ -16,9 +16,9 @@
 			<section class="content">
 				<div id="main-section">
 				<header class="districtset">
-				   <h4 style="font-family: 'Noto Sans KR'">지역선택</h4>
+				   <h4>지역선택</h4>
 				      <ul class="district">
-				         <li id ="all">전체선택</li>
+				         <!-- <li id ="all">전체선택</li> -->
 				         <li id ="seoul">서울특별시 </li>
 				         <li id ="busan">부산광역시 </li>
 				         <li id ="daegu">대구광역시 </li>
@@ -45,6 +45,7 @@
 				<li class="projectCard">
 				   <div class="cardTop">
 				        <div class="cardCom01">
+				        	<p class="districtOfProject">${vo.district }</p>
 				            <p class="title"><a href="${vo.rbno }">${vo.title }</a></p>
 				            <p class="category">&lt;${vo.category }&gt;</p>
 				            <p class="pname">${vo.pname }</p>
