@@ -21,7 +21,7 @@
 		Order by 
 			rp.rbno desc
 		Limit
-			0, 10
+			0, 5
 	</select>
 
 	<select id="selectByDistricts" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
@@ -63,7 +63,7 @@
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid and
-			(rp.rbno &gt;= #{rbno}-10) and (rp.rbno &lt; #{rbno})
+			(rp.rbno &gt;= #{rbno}-5) and (rp.rbno &lt; #{rbno})
 		Group by 
 			pid
 		Order by 
@@ -82,7 +82,7 @@
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid and
-			(rp.rbno &gt; #{rbno}) and (rp.rbno &lt;= #{rbno} + 10)
+			(rp.rbno &gt; #{rbno}) and (rp.rbno &lt;= #{rbno} + 5)
 		Group by 
 			pid
 		Order by 
