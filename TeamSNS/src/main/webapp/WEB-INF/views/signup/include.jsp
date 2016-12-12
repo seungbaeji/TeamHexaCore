@@ -89,8 +89,8 @@ aside {
 				<a href="#0">information</a>
 				<ul class="sub-menu">
 					<li id="info_board_edu"><a href="#0">창업교육</a></li>
-					<li id="info_board_event"><a href="#0">멘토링</a></li>
-					<li id="info_board_mentor"><a href="#0">행사</a></li>
+					<li id="info_board_mentor"><a href="#0">멘토링</a></li>
+					<li id="info_board_event"><a href="#0">행사</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 

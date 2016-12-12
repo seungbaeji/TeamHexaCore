@@ -42,6 +42,7 @@
     
     .table_mypage_td1 {
         width: 12rem;
+        font-weight: bold;
     }
     
     .table_board_list {
