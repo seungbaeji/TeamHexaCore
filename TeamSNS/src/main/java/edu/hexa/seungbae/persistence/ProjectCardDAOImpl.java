@@ -50,4 +50,11 @@ public class ProjectCardDAOImpl implements ProjectCardDAO {
 		return sqlSession.selectList(NAMESPACE + ".selectInfiniteUp", rbno);
 	}
 
+	@Override
+	public int selectMaxRbno() {
+		return sqlSession.selectOne(NAMESPACE +".selectMaxRbno");
+	}
+	
+	
+
 }

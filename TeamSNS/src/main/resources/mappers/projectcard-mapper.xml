@@ -47,11 +47,10 @@
 		Order by rp.rbno desc
 	</select>
 	
-	<select id="totalCount" resultType="Integer">
-	SELECT count(*) FROM recruit_project
+	<select id="selectMaxRbno" resultType="Integer">
+	SELECT max(rbno) FROM recruit_project
 	</select>
 	
-	<!-- 페이징 처리를 위한 SQL -->
 	<select id="selectInfiniteDown" resultType="edu.hexa.seungbae.domain.ProjectCardDTO">
 		SELECT
 			p.pid, p.category, p.pname, p.intro, p.district, p.meeting_area, p.start, p.end,
@@ -64,7 +63,7 @@
 			pentacore.recruit_project rp, pentacore.manage_project_part mpp
 		WHERE 
 			p.pid = rs.pid and rs.pid = rp.pid and p.pid = mpp.pid and
-			(rp.rbno &lt;= #{rbno}) and (rp.rbno &gt; #{rbno} - 10)
+			(rp.rbno &gt;= #{rbno}-10) and (rp.rbno &lt; #{rbno})
 		Group by 
 			pid
 		Order by 
