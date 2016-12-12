@@ -667,7 +667,7 @@ footer {
 												}
 											});
 								
-							
+							/* 회원가입 JS  */
 							$('#uid').change(function(){
 								
 						    		var uid = $("#uid").val();
