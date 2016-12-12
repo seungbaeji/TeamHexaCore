@@ -162,7 +162,7 @@ function changeColor1(target){
 }
 // 지역선택 해제 되었을때의 효과   
 function changeColor2(target){
-      target.css('backgroundColor', 'white');
+      target.css('backgroundColor', '#F7FBFC');
       target.css('color', 'black');
 }
 // projectList ajax 콜백 함수
