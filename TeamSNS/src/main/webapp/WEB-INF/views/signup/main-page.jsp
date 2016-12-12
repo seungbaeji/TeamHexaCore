@@ -754,7 +754,7 @@ footer {
 									frm.attr('method', 'post');
 									console.log("업데이트 버튼 확인");
 									frm.submit();
-						    	});
+						    	}); /* submit */
 							
 							
 							
