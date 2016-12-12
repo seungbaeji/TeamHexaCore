@@ -35,6 +35,8 @@ $(document).ready(function(){
 	   
 	   // 현재 스크롤 좌표
 	   var currentScrollTop = $(window).scrollTop();
+	   // console.log('currentScrollTop: ' + currentScrollTop);
+	   // console.log('lastScrollTop: ' + lastScrollTop);
 	   
 	   // 다운 스크롤
 	   if (currentScrollTop - lastScrollTop > 0) {
@@ -44,8 +46,9 @@ $(document).ready(function(){
 		   // 현재 스크롤의 위치가 화면의 위치보다 크다면,
 		   if($(window).scrollTop() >= $(document).height() - $(window).height()){
 			   var lastRbno = $(".title a:last").attr("href");
-			   console.log(lastRbno);
-			   var url2 = "/teamsns/projects/infinite" + lastRbno;
+			   console.log('lastRbno: ' + lastRbno);
+			   var url2 = "/teamsns/projects/infinite/" + lastRbno;
+			   console.log('url2: ' + url2)
 			   $.getJSON(url2, projectListCallback);
 			
 			   var position = $(".projectCard:first").offset();
@@ -131,14 +134,15 @@ function changeColor2(target){
       target.css('backgroundColor', 'white');
       target.css('color', 'black');
 }
-//ajax 콜백 함수
+// projectList ajax 콜백 함수
 function projectListCallback(result){
    var cardList ="";
    var cardNum = 1;
    
    //console.log("프로젝트 개수:" + result.length);
    // ajax로 받은 result의 개수만큼 반복 실행
-    $(result).each(function(){
+    $(result).each(function(index, value){
+    	console.log('value: ' + value);
         var skills;
         var parts;
         var skillList = '';
@@ -187,12 +191,14 @@ function projectListCallback(result){
               partList += '<li>' + item + '</li>'; 
             });
          }
-   
+         
          cardList +='<li class="projectCard">'
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'
                      + '<p class="title">'
-                     + this.title + '</p>'
+                     + '<a href="'
+                     + this.rbno + '">'
+                     + this.title + '</a></p>'
                      + '<p class="category"><'
                      + this.category + '> </p>'
                      + '<p class="pname">'
