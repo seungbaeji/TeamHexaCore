@@ -138,8 +138,23 @@ h4 {
 
 i {
 	color: #1F2D42;
-} 
+}
+ 
+#mainLogo {
+	cursor: pointer !important;
+}
 
+@media (max-width: 768px) {
+	#mainLogo {
+		display: none;
+	}
+}
+
+footer {
+	border-top: 1px solid gray;
+	margin: 
+	
+}
 </style>
 </head>
 <body>
@@ -157,8 +172,8 @@ i {
 			<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
 		</header>
 		<nav id="cd-lateral-nav">
+		<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 		<ul class="cd-navigation">
-			<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -171,9 +186,9 @@ i {
 			<li class="item-has-children">
 				<a href="#0">information</a>
 				<ul class="sub-menu">
-					<li id="#info_board_edu"><a href="#0">창업교육</a></li>
-					<li id="#info_board_event"><a href="#0">멘토링</a></li>
-					<li id="info_board_mentor"><a href="#0">행사</a></li>
+					<li id="info_board_edu"><a href="#0">창업교육</a></li>
+					<li id="info_board_mentor"><a href="#0">멘토링</a></li>
+					<li id="info_board_event"><a href="#0">행사</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
@@ -183,7 +198,7 @@ i {
 					<li><a  id="tipAndTech" href="#0">tip & tech</a></li>
 					<li><a id= "qaBoard" href="#0">Q & A</a></li>
 					<li><a id="freeBoard" href="#0">자유게시판</a></li>
-					<li><a href="#0">Paris</a></li>
+					<!-- <li><a href="#0">Paris</a></li> -->
 				</ul>
 			</li> <!-- item-has-children -->
 		</ul> <!-- cd-navigation -->
@@ -196,11 +211,12 @@ i {
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a class="current" href="#0">Journal</a></li>
-			<li id="#qaboard"><a href="#0">FAQ</a></li>
-			<li><a href="#0">Terms &amp; Conditions</a></li>
+			<!-- <li><a class="current" href="#0">Journal</a></li> -->
+			<li><a href="#0">Journal</a></li>
+			<li><a href="#0">FAQ</a></li>
+			<!-- <li><a href="#0">Terms &amp; Conditions</a></li>
 			<li><a href="#0">Careers</a></li>
-			<li><a href="#0">Students</a></li>
+			<li><a href="#0">Students</a></li> -->
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<div class="cd-navigation socials">
@@ -217,12 +233,12 @@ i {
 					<div id="carousel-example-generic" class="carousel slide"
 						data-ride="carousel">
 						<!-- Indicators -->
-						<ol class="carousel-indicators">
+<!-- 						<ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0"
 								class="active"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						</ol>
+						</ol> -->
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
@@ -392,7 +408,7 @@ i {
 					</div>
 				</div>
 				<!-- 메인섹션 테이블 4개 끝 -->
-				<footer> </footer>
+				<footer> footer </footer>
 			</section>
 		</div>
 		<!-- end main-index -->

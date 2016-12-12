@@ -132,7 +132,7 @@ form>div {
 								<div class="input-group category_type1">
 									<span class="input-group-addon"> <input type="radio"
 										name="category" value="스터디"
-										onclick="this.form.team_category_etc.disabled=true"
+										onclick="category_etc_true()"
 										aria-label="">
 									</span> <input type="text" class="form-control" aria-label=""
 										value="스터디" disabled="true">
@@ -140,7 +140,7 @@ form>div {
 								<div class="input-group category_type1">
 									<span class="input-group-addon"> <input type="radio"
 										name="category" value="공모전"
-										onclick="this.form.team_category_etc.disabled=true"
+										onclick="category_etc_true()"
 										aria-label="">
 									</span> <input type="text" class="form-control" aria-label=""
 										value="공모전" disabled="true">
@@ -149,11 +149,11 @@ form>div {
 								<div class="input-group">
 									<span class="input-group-addon"> <input type="radio"
 										name="category" value="etc"
-										onclick="this.form.team_category_etc.disabled=false"
+										onclick="category_etc_false()"
 										aria-label="">
 									</span> <input type="text" name="category_etc"
 										class="form-control category_type2" aria-label=""
-										placeholder="기타" disabled="true">
+										placeholder="기타" id="team_category_etc">
 								</div>
 							</div>
 							<br>
@@ -307,56 +307,54 @@ form>div {
 
 
 	<script>
-	
-        /* 달력 */
-        $(document).ready(function () {
-            $(".datepicker").datepicker({
-                dateFormat: 'yymmdd'
-                , monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-                , dayNamesMin: ['일', '월', '화', '수', '목', '금', '토']
-                , changeMonth: true, //월변경가능
-                changeYear: true, //년변경가능
-                showMonthAfterYear: true //년 뒤에 월 표시
-            });
-            /* 글자수 체크1 */
-            $('#team_name, .team_part').keyup(function () {
-                if ($(this).val().length > $(this).attr('maxlength')) {
-                    alert('제한길이 초과');
-                    $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
-                }
-            });
-        });
-        
-        /* 글자수 체크2 */
-        function fnChkByte(obj, maxByte) {
-            var str = obj.value;
-            var str_len = str.length;
-            var rbyte = 0;
-            var rlen = 0;
-            var one_char = "";
-            var str2 = "";
-            for (var i = 0; i < str_len; i++) {
-                one_char = str.charAt(i);
-                if (escape(one_char).length > 4) {
-                    rbyte += 2; //한글2Byte
-                }
-                else {
-                    rbyte++; //영문 등 나머지 1Byte
-                }
-                if (rbyte <= maxByte) {
-                    rlen = i + 1; //return할 문자열 갯수
-                }
-            }
-            if (rbyte > maxByte) {
-                alert("한글 " + (maxByte / 2) + "자 / 영문 " + maxByte + "자를 초과 입력할 수 없습니다.");
-                str2 = str.substr(0, rlen); //문자열 자르기
-                obj.value = str2;
-                fnChkByte(obj, maxByte);
+
+	/* 글자수 체크2 */
+    function fnChkByte(obj, maxByte) {
+        var str = obj.value;
+        var str_len = str.length;
+        var rbyte = 0;
+        var rlen = 0;
+        var one_char = "";
+        var str2 = "";
+        for (var i = 0; i < str_len; i++) {
+            one_char = str.charAt(i);
+            if (escape(one_char).length > 4) {
+                rbyte += 2; //한글2Byte
             }
             else {
-                document.getElementById('byteInfo').innerText = rbyte;
+                rbyte++; //영문 등 나머지 1Byte
+            }
+            if (rbyte <= maxByte) {
+                rlen = i + 1; //return할 문자열 갯수
             }
         }
+        if (rbyte > maxByte) {
+            alert("한글 " + (maxByte / 2) + "자 / 영문 " + maxByte + "자를 초과 입력할 수 없습니다.");
+            str2 = str.substr(0, rlen); //문자열 자르기
+            obj.value = str2;
+            fnChkByte(obj, maxByte);
+        }
+        else {
+            document.getElementById('byteInfo').innerText = rbyte;
+        }
+    }
+        function category_etc_true(){
+            var team_category_etc = document.getElementById('team_category_etc');
+            team_category_etc.disabled = true;
+        }
+        function category_etc_false(){
+            var team_category_etc = document.getElementById('team_category_etc');
+            team_category_etc.disabled = false;
+        }
+        /* 
+        window.onload = function(){
+        	var team_category_etc = document.getElementById('team_category_etc');
+            team_category_etc.disabled = "true";
+        	var team_category_etc = document.getElementById('team_category_etc');
+            team_category_etc.disabled = "false";
+        }  */
+
+
     </script>
 </body>
 

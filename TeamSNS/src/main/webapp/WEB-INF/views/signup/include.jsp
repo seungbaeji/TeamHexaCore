@@ -60,6 +60,20 @@ aside {
 	}
 }
 
+#mainLogo {
+		cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+	#mainLogo {
+		display: none;
+	}
+}
+
+footer {
+	border-top: 1px solid gray;
+}
+
 </style>
 </head>
 <body>
@@ -74,9 +88,9 @@ aside {
 		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
 	</header>
 	
-			<nav id="cd-lateral-nav">
+	<nav id="cd-lateral-nav">
+		<img id="mainLogo" src="../resources/img/Logo_white.svg">
 		<ul class="cd-navigation">
-		<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -90,8 +104,8 @@ aside {
 				<a href="#0">information</a>
 				<ul class="sub-menu">
 					<li id="info_board_edu"><a href="#0">창업교육</a></li>
-					<li id="info_board_event"><a href="#0">멘토링</a></li>
-					<li id="info_board_mentor"><a href="#0">행사</a></li>
+					<li id="info_board_mentor"><a href="#0">멘토링</a></li>
+					<li id="info_board_event"><a href="#0">행사</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
@@ -101,24 +115,25 @@ aside {
 					<li id="tipAndTech"><a href="#0">tip & tech</a></li>
 					<li><a id="qaBoard" href="#0">Q & A</a></li>
 					<li><a id="freeBoard" href="#0">자유 게시판</a></li>
-					<li><a href="#0">Paris</a></li>
+					<!-- <li><a href="#0">Paris</a></li> -->
 				</ul>
 			</li> <!-- item-has-children -->
 		</ul> <!-- cd-navigation -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a href="#0">로그인</a></li>
-			<li><a href="#0">Register</a></li>
-			<li><a href="#0">Pricing</a></li>
-			<li><a href="#0">Support</a></li>
+			<li><a id="singIn" href="#0">로그인</a></li>
+			<li><a id="signUp" href="#0">회원가입</a></li>
+			<li><a id="logout" href="#0">로그아웃</a></li>
+			<li><a id="myPage" href="#0">마이페이지</a></li>
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a class="current" href="#0">Journal</a></li>
-			<li id="qaboard"><a href="#0">FAQ</a></li>
-			<li><a href="#0">Terms &amp; Conditions</a></li>
+			<!-- <li><a class="current" href="#0">Journal</a></li> -->
+			<li><a href="#0">Journal</a></li>
+			<li><a href="#0">FAQ</a></li>
+			<!-- <li><a href="#0">Terms &amp; Conditions</a></li>
 			<li><a href="#0">Careers</a></li>
-			<li><a href="#0">Students</a></li>
+			<li><a href="#0">Students</a></li> -->
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<div class="cd-navigation socials">
@@ -150,8 +165,8 @@ aside {
 							}
 
 							if ('${success}' == 'success') {
-								$('.loginForm').hide();
-								$('.loginForm').hide();
+								$('#singIn').hide();
+								$('#signUp').hide();
 							} else {
 								$('.logout').hide();
 								$('.mypage').hide();
@@ -196,9 +211,6 @@ aside {
 							});
 							$('#freeBoard').click(function() {
 								location = '/teamsns/freeboard/freeBoard';
-							});
-							$('#mainLogo').click(function() {
-								location = '/teamsns/signup/main-page';
 							});
 							$('#mainLogo').click(function() {
 								location = '/teamsns/signup/main-page';

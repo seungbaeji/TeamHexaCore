@@ -39,6 +39,8 @@ public class BoardDAOImple implements BoardDAO {
 	public BoardVO select(int bno) {
 			BoardVO vo = sqlsession.selectOne(NAMESPCAE + ".selectBno", bno);
 			logger.info("select() 호출: bno = " + bno);
+			int result = sqlsession.update(NAMESPCAE + ".update_hits", bno);
+			logger.info("조회수↑ : " + result);
 		return vo;
 	}
 
@@ -50,7 +52,7 @@ public class BoardDAOImple implements BoardDAO {
 
 	@Override
 	public List<BoardVO> select(PaginationCriteria c) {
-		
+			
 		
 		return sqlsession.selectList(NAMESPCAE + ".listPage", c);
 	}

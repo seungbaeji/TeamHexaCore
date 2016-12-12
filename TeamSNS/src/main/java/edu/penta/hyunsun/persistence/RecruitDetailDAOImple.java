@@ -13,6 +13,7 @@ import edu.hexa.teamsns.domain.ProjectVO;
 import edu.hexa.teamsns.domain.RecruitProjectVO;
 import edu.hexa.teamsns.domain.RequiredSkillVO;
 import edu.hexa.teamsns.domain.UserVO;
+import edu.penta.hyunsun.domain.ApplyProjectVO;
 import edu.penta.hyunsun.domain.RecruitDetailDTO;
 
 @Repository
@@ -36,7 +37,31 @@ public class RecruitDetailDAOImple implements RecruitDetailDAO {
 		RecruitDetailDTO dto = new RecruitDetailDTO(recruit, project, skill, parts, team_leader);
 		logger.info(dto.getProject().getPname());
 		
+		int result = sqlSession.update(MAPPER + ".update_hits", rbno);
+		logger.info("조회수↑" + result);
 		return dto;
 	} // end select()
+	
+	@Override
+	public int overlapTest1(ApplyProjectVO vo) {
+		logger.info("중복검사 DAO");
+		int overlapResult = sqlSession.selectOne(MAPPER + ".overlap_test1", vo);
+		logger.info("result : "+overlapResult);
+		return overlapResult;
+	}
+
+	@Override
+	public int insert_apply(ApplyProjectVO vo) {
+		logger.info("지원하기 DAO");
+		int result = sqlSession.insert(MAPPER + ".apply_project", vo);
+		logger.info("지원 완료");
+		return result;
+	}
+	
+//	@Override
+//	public int insert_apply(ApplyProjectVO vo) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 	
 }
