@@ -41,13 +41,13 @@
 
 @media (min-width: 425px) {
 	#cd-lateral-nav {
-		flex-basis: 230px;
+		flex-basis: 220px;
 		flex-shrink: 0;
 	}
 }
 
 aside {
-	flex-basis: 190px;
+	flex-basis: 200px;
 	flex-shrink: 0;
 }
 
@@ -98,11 +98,12 @@ aside {
 }
 
 .main_table {
-	font-size: 1.3rem;
+	font-size: 0.9rem;
 	table-layout: fixed;
 	width: 100%;
 	height: auto;
-	border-left: 3px solid #337ab7;
+	border-left: 3px solid #2273AA;
+	background-color: white;
 }
 
 .main_table_name {
@@ -126,17 +127,18 @@ aside {
 }
 
 .main_table_caption {
-	font-size: 1.5rem;
+	background-color: #1F2D42;
+	font-size: 1rem;
 }
 
 h4 {
-	color: #56595c;
-	font-size: 1.5rem;
+	color: #1F2D42;
+	font-size: 1rem;
 }
 
 i {
-	color: #337ab7;
-}
+	color: #1F2D42;
+} 
 
 </style>
 </head>
@@ -259,11 +261,11 @@ i {
 				<!-- 메인섹션 시작 테이블 4개  -->
 				<div id="main-section">
 					<div id="section1">
-						<!-- <div class="label label-info main_table_caption">프로젝트</div> -->
-						<h4 class="main_header">
+						<div class="label label-info main_table_caption">프로젝트</div>
+						<!-- <h4 class="main_header">
 							<i class="material-icons" style="font-size: 1.7rem;">subject</i>
 							프로젝트 리스트
-						</h4>
+						</h4> -->
 						<table class="table main_table">
 							<tr>
 								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>

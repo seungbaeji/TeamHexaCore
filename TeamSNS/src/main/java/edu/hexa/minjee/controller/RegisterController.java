@@ -68,7 +68,9 @@ public class RegisterController {
 		String[] parts = { mdto.getPart1(), mdto.getPart2(), mdto.getPart3(), 
 						mdto.getPart4(), mdto.getPart5(), mdto.getPart6() };	
 		for(String part: parts) {
-			if(part != null && part != "") {
+			if(part == mdto.getPart1()) {
+				mvo = new ManageProjectPartVO(pvo.getPid(), uid, part);
+			} else if(part != null && part != "") {
 				mvo = new ManageProjectPartVO(pvo.getPid(), null, part);
 				int result_part = registerService.create(mvo);
 			}
