@@ -185,8 +185,8 @@ i {
 				<a href="#0">community</a>
 				<ul class="sub-menu">
 					<li><a  id="tipAndTech" href="#0">tip & tech</a></li>
-					<li><a href="#0">New York</a></li>
-					<li><a href="#0">Milan</a></li>
+					<li><a id= "qaBoard" href="#0">Q & A</a></li>
+					<li><a id="freeBoard" href="#0">자유게시판</a></li>
 					<li><a href="#0">Paris</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
