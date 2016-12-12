@@ -20,13 +20,18 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	
-	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="../resources/realcss/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="../resources/realcss/style.css"> <!-- Resource style -->
-	<script src="../resources/js/modernizr.js"></script> <!-- Modernizr -->
 <style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Apple SD Gothic Neo", Arial;
+	background-color: #f8f8f8;
+}
+
 #container {
 	display: flex;
 	flex-direction: row;
@@ -38,17 +43,15 @@
 	}
 }
 
-
-@media (min-width: 425px) {
-	#cd-lateral-nav {
-		flex-basis: 230px;
-		flex-shrink: 0;
-	}
+nav, aside {
+	flex-basis: 210px;
+	flex-shrink: 0;
 }
 
-aside {
-	flex-basis: 190px;
-	flex-shrink: 0;
+@media ( max-width : 768px) {
+	nav {
+		display: none;
+	}
 }
 
 .content {
@@ -62,13 +65,8 @@ aside {
 	}
 }
 
-#car {
+header {
 	width: 100%;
-} 
-@media (max-width: 425px) {
-	#car {
-		display: none;
-	}
 }
 
 #main-section {
@@ -120,9 +118,6 @@ aside {
 
 .main_table_date {
 	width: 30%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
 }
 
 .main_table_caption {
@@ -137,81 +132,158 @@ h4 {
 i {
 	color: #337ab7;
 }
-
 </style>
 </head>
 <body>
 
-	
-	
-	
-  	
-  			<div id="container">
-		
-			<header id="mainHeader">
-		
-		<nav id="cd-top-nav">
+	<div id="container">
+		<nav id="accordian">
+
+			<img id="logo" src="../resources/realcss/Logo_wide.svg" />
+
+			<div class="loginForm">
+
+
+				<form action="/teamsns/signup/login" method="post">
+
+					<div class="box">
+						<input type="text" name="user_id" id="user_id" class="user_id"
+							placeholder="아이디"> <br> <input type="password"
+							name="user_pw" id="user_pw" class="user_pw" placeholder="비밀번호">
+						<br> <input type="submit" id="signIn" class="signIn"
+							value="로그인">
+
+
+						<%-- <input type="hidden" name="query" value="<%=request.getRequestURI() %>"> --%>
+						<!-- 현재 페이지가 가지고 있는 주소  -->
+						<!--  씨부랄 깃 -->
+					</div>
+				</form>
+				<button class="signUp" data-toggle="modal" data-target="#myModal">회원가입</button>
+			</div>
+			<br /> <br />
+
 			<ul>
-				<li><a href="#0">로그인</a></li>
+				<li>
+					<h3>
 
+						<span class="icon-dashboard"></span>프로젝트
+					</h3>
+					<ul>
+						<li id="project-list"><a href="#">프로젝트 리스트</a></li>
+						<li id="project-register"><a href="#">프로젝트 등록</a></li>
+						<li id="projectInfo"><a href="#">프로젝트 관리</a></li>
+					</ul>
+				</li>
+				<li class="active">
+					<h3>
+						<span class="icon-tasks"></span>정보
+					</h3>
+					<ul>
+						<li id="info_board_edu"><a href="#">창업교육</a></li>
+						<li id="info_board_mentor"><a href="#">멘토링</a></li>
+						<li id="info_board_event"><a href="#">행사</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h3>
+						<span class="icon-calendar"></span>커뮤니티
+					</h3>
+					<ul>
+						<li id="tipAndTech"><a href="#">Tip & Tech</a></li>
+						<li><a href="#">자유게시판</a></li>
+						<li><a href="#">Q & A</a></li>
+					</ul>
+				</li>
+				<li>
+					<h3>
+						<span class="icon-heart"></span>null
+					</h3>
+					<ul>
+						<li><a href="#">null</a></li>
+						<li><a href="#">null</a></li>
+						<li><a href="#">null</a></li>
+						<li><a href="#">null</a></li>
+					</ul>
+				</li>
 			</ul>
+			<button class="mypage">마이페이지</button>
+			<button class="logout">로그아웃</button>
+
+
+			<!-- strat modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel"></h4>
+						</div>
+						<div class="modal-body">
+							<div id="div-main">
+								<form method="post">
+									<div>
+										<h1 style="color: black;">회원 가입</h1>
+										<br>
+										<div class="form-group form-inline" id="div_user_id">
+											<label for="user_id" class="label label-default">아이디</label>
+											<input type="text" class="form-control user_register"
+												id="user_id" name="uid" placeholder="아이디 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_pw">
+											<label for="user_pw" class="label label-default">비밀번호</label>
+											<input type="password" class="form-control user_register"
+												id="user_pw" name="pw" placeholder="비밀번호 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_email">
+											<label for="user_email" class="label label-default">이메일</label>
+											<input type="email" class="form-control user_register"
+												id="user_email" name="email" placeholder="이메일 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_name">
+											<label for="user_name" class="label label-default">이름</label>
+											<input type="text" class="form-control user_register"
+												id="user_name" name="name" placeholder="이름 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_nickname">
+											<label for="user_nickname" class="label label-default">닉네임</label>
+											<input type="text" class="form-control user_register"
+												id="user_nickname" name="nickname"
+												placeholder="닉네임을 입력하시오">
+										</div>
+										<div class="form-group form-inline" id="div_user_number">
+											<label for="user_number" class="label label-default">전화번호</label>
+											<input type="tel" class="form-control user_register"
+												id="user_number" name="phone"
+												placeholder="전화번호를 입력하시오">
+										</div>
+										<div class="form-group form-inline" id="div_user_kkoid">
+											<label for="user_kkoid" class="label label-default">카카오톡</label>
+											<input type="text" class="form-control user_register"
+												id="user_kkoid" name="kkoid" placeholder="카톡아이디 입력">
+										</div>
+										<div class="form-group form-inline" id="div_user_img">
+											<label for="user_kkoid" class="label label-default">사진</label>
+											<input type="text" class="form-control user_register"
+												id="user_img" name="profile_img" placeholder="사진 저장 경로">
+										</div>
+										<br> <input type="submit" class="btn btn-primary btn-lg"
+											id="user_submit" value="등록 하기">
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  end modal -->
 		</nav>
-		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
-	</header>
-	
-			<nav id="cd-lateral-nav">
-		<ul class="cd-navigation">
-			<li class="item-has-children">
-				<a href="#0">project</a>
-				<ul class="sub-menu">
-					<li><a href="#0">프로젝트 리스트</a></li>
-					<li><a href="#0">프로젝트 등록</a></li>
-					<li><a href="#0">프로젝트 관리</a></li>
-				</ul>
-			</li> <!-- item-has-children -->
 
-			<li class="item-has-children">
-				<a href="#0">information</a>
-				<ul class="sub-menu">
-					<li><a href="#0">창업교육</a></li>
-					<li><a href="#0">멘토링</a></li>
-					<li><a href="#0">행사</a></li>
-				</ul>
-			</li> <!-- item-has-children -->
-
-			<li class="item-has-children">
-				<a href="#0">community</a>
-				<ul class="sub-menu">
-					<li><a  id="tipAndTech" href="#0">tip & tech</a></li>
-					<li><a href="#0">New York</a></li>
-					<li><a href="#0">Milan</a></li>
-					<li><a href="#0">Paris</a></li>
-				</ul>
-			</li> <!-- item-has-children -->
-		</ul> <!-- cd-navigation -->
-
-		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a href="#0">로그인</a></li>
-			<li><a href="#0">Register</a></li>
-			<li><a href="#0">Pricing</a></li>
-			<li><a href="#0">Support</a></li>
-		</ul> <!-- cd-single-item-wrapper -->
-
-		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a class="current" href="#0">Journal</a></li>
-			<li><a href="#0">FAQ</a></li>
-			<li><a href="#0">Terms &amp; Conditions</a></li>
-			<li><a href="#0">Careers</a></li>
-			<li><a href="#0">Students</a></li>
-		</ul> <!-- cd-single-item-wrapper -->
-
-		<div class="cd-navigation socials">
-			<a class="cd-twitter cd-img-replace" href="#0">Twitter</a>
-			<a class="cd-github cd-img-replace" href="#0">Git Hub</a>
-			<a class="cd-facebook cd-img-replace" href="#0">Facebook</a>
-			<a class="cd-google cd-img-replace" href="#0">Google Plus</a>
-		</div> <!-- socials -->
-	</nav>
 		<!-- end accordian-->
 
 		<div id="main-index">
@@ -338,24 +410,24 @@ i {
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
+								<td>adfsafsafafaf</td>
+								<td>a</td>
+								<td>a</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
+								<td>b</td>
+								<td>b</td>
+								<td>b</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
+								<td>c</td>
+								<td>c</td>
+								<td>c</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
+								<td>d</td>
+								<td>d</td>
+								<td>d</td>
 							</tr>
 						</table>
 					</div>
@@ -372,24 +444,24 @@ i {
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
+								<td>adfsafsafafaf</td>
+								<td>a</td>
+								<td>a</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
+								<td>b</td>
+								<td>b</td>
+								<td>b</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
+								<td>c</td>
+								<td>c</td>
+								<td>c</td>
 							</tr>
 							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
+								<td>d</td>
+								<td>d</td>
+								<td>d</td>
 							</tr>
 						</table>
 					</div>
@@ -403,11 +475,8 @@ i {
 
 	</div>
 	<!-- end container -->
-    	
 
-	
 	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ자바스크립트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
-	<script src="../resources/js/main.js"></script> <!-- Resource jQuery -->
 	<script>
 		$(function() {
 			$("#accordian h3").click(function() {
@@ -463,13 +532,7 @@ i {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
-							$('#qaBoard').click(function() {
-								location = '/teamsns/qaboard/qaBoard';
-							});	
-							$('#freeBoard').click(function() {
-								location = '/teamsns/freeboard/freeBoard';
-							});
-							
+
 							$("#start, #end").datepicker(
 									{
 										dateFormat : 'yymmdd',

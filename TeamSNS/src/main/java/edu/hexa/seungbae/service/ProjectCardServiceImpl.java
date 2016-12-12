@@ -16,13 +16,6 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	
 	@Autowired
 	private ProjectCardDAO dao;
-	
-	
-	@Override
-	public int create() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public List<ProjectCardDTO> read() {
@@ -36,15 +29,11 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	}
 
 	@Override
-	public int update() {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<ProjectCardDTO> read(int rbno) {
+		return dao.select(rbno);
 	}
+	
+	
 
-	@Override
-	public int delete() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
