@@ -47,6 +47,15 @@ WHERE uid = (
 )
 </select>
 
+<select id="apply_cnt" resultType="Integer">
+SELECT * FROM pentacore.manage_recruit;
+SELECT count(*)
+FROM 
+pentacore.manage_recruit
+WHERE part_pk = #{part_pk };
+</select>
+
+
 <!-- 조회수 -->
 <update id="update_hits">
 UPDATE pentacore.recruit_project SET recruit_hits = recruit_hits + 1 
@@ -59,8 +68,8 @@ INSERT INTO pentacore.manage_recruit (part_pk, user_id, comment) VALUE (#{part_p
 </insert>
 
 <!-- 1 ID = 1 프로젝트 - 1 파트 -->
-<select id="overlap_test1" resultType="edu.penta.hyunsun.domain.ApplyProjectVO">
-SELECT recruit.*, part.part, part.pid
+<select id="overlap_test1" resultType="INTEGER">
+SELECT count(*)
 FROM 
 pentacore.manage_recruit AS recruit
 LEFT JOIN pentacore.manage_project_part AS part

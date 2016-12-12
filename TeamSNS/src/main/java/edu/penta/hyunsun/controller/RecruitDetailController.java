@@ -46,13 +46,27 @@ public class RecruitDetailController {
 		logger.info("지원하기 컨트롤러:3c");
 		logger.info("아이디: " + vo.getUser_id());
 		logger.info("코멘트 : " + vo.getComment());
-		int result = service.create(vo);
+		int overLapResult = service.overLapTest(vo);
+		logger.info("중복검사 : " + overLapResult);
+		if(overLapResult == 0) {
+			int applyResult = service.create(vo);
+			logger.info("지원하기 : " + applyResult);
+			if(applyResult == 1) {
+				attr.addFlashAttribute("apply_project", "success");
+			} else {
+				attr.addFlashAttribute("apply_project", "fail");
+			}
+		} else if (overLapResult >0) {
+			attr.addFlashAttribute("apply_project", "over_fail");
+		}
+		
+		/*int result = service.create(vo);
 		logger.info("reuslt : "+result);
 		if(result == 1) {
 			attr.addFlashAttribute("apply_project", "success");
 		} else {
 			attr.addFlashAttribute("apply_project", "fail");
-		}
+		}*/
 		
 		return "redirect:/project/projectDetail?rbno="+rbno;
 	} // end applyProject()
