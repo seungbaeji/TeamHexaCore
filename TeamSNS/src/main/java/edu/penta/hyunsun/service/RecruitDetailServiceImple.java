@@ -19,6 +19,11 @@ public class RecruitDetailServiceImple implements RecruitDetailService {
 	}
 
 	@Override
+	public int overLapTest(ApplyProjectVO vo) {
+		return dao.overlapTest1(vo);
+	}
+	
+	@Override
 	public int create(ApplyProjectVO vo) {
 		return dao.insert_apply(vo);
 	}

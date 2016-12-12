@@ -107,6 +107,10 @@
         font-size: 40px;
     }
     
+    input, textarea {
+   		cursor: default !important;
+    }
+    
 </style>
 
 <body>
@@ -114,20 +118,20 @@
 	<div id="div_info_list_main">
 		<div>
 			<input class="form-control" type="text" id="team_info_name" 
-				name="title" value="${dto.recruit.title }"/> <br/>
+				name="title" value="${dto.recruit.title }" readonly="readonly"/> <br/>
 			<label class="label label-default">프로젝트 이름</label>
 			<input class="form-control" type="text" id="team_name" 
-				name="pname"  value="${dto.project.pname }"/> <br/>
+				name="pname"  value="${dto.project.pname }" readonly="readonly"/> <br/>
 			
 			<label class="label label-default">카테고리</label>
 			<input class="form-control" type="text" id="team_category"
-				name="category" value="${dto.project.category }"/> <br/>
+				name="category" value="${dto.project.category }" readonly="readonly"/> <br/>
 			
 			<div id="div_team_intro">
 			<label for="team_intro" class="label label-default" id="label_team_intro">프로젝트 소개
 				</label> <br/>
 			<textarea class="form-control" id="team_intro" cols="50" rows="5"
-				name="intro">${dto.project.intro }</textarea>
+				name="intro" readonly="readonly">${dto.project.intro }</textarea>
 			</div> <br/>
 		
 			<div>
@@ -158,7 +162,7 @@
 			
 			<label class="label label-default">활동 구역</label>
 			<input class="form-control" type="text" name="district"
-				value="${dto.project.district }" id="team_area">
+				value="${dto.project.district }" id="team_area" readonly="readonly">
 		</div><br/>
 
 		<div>
@@ -166,7 +170,7 @@
 			<div>
 			<c:forEach var="parts" items="${dto.parts }">
 				<input type="text" class="form-control team_part" maxlength="20" 
-					name="part" value="${parts.part }"/>
+					name="part" value="${parts.part }" readonly="readonly"/>
 			</c:forEach>
 <!-- <input type="text" class="form-control team_part" maxlength="20" name="team_part_1" id="team_part_1">
 <input type="text" class="form-control team_part" maxlength="20" name="team_part_2">
@@ -181,25 +185,25 @@
 			<label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
 			<div>
 				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill" name="required_skill_1"
-                    value="${dto.skills.skill_1 }"/>
+                    value="${dto.skills.skill_1 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_2"
-					value="${dto.skills.skill_2 }"/>
+					value="${dto.skills.skill_2 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_3"
-					value="${dto.skills.skill_3 }"/>
+					value="${dto.skills.skill_3 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_4"
-					value="${dto.skills.skill_4 }"/>
+					value="${dto.skills.skill_4 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_5"
-					value="${dto.skills.skill_5 }"/>
+					value="${dto.skills.skill_5 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_6"
-					value="${dto.skills.skill_6 }"/>
+					value="${dto.skills.skill_6 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_7"
-					value="${dto.skills.skill_7 }"/>
+					value="${dto.skills.skill_7 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_8"
-					value="${dto.skills.skill_8 }"/>
+					value="${dto.skills.skill_8 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_9"
-					value="${dto.skills.skill_9 }"/>
+					value="${dto.skills.skill_9 }" readonly="readonly"/>
 				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_10"
-					value="${dto.skills.skill_10 }"/>
+					value="${dto.skills.skill_10 }" readonly="readonly"/>
 			</div>
 		</div> <br/>
 		<div> <a href="projectList" class="btn btn-primary btn-lg" role="button">목록으로</a> </div>
@@ -262,6 +266,7 @@
 			<input type="text" name="comment" placeholder="지원자 코맨트:3c"/><br/>
 			<input type="text" name="user_id" value="${user_id}" hidden="hidden" />
 			<input type="text" name="rbno" value="${dto.recruit.rbno }" hidden="hidden" />
+			<input type="text" name="pid" value="${dto.project.pid }" hidden="hidden" />
 			<input type="submit" class="btn btn-primary btn-lg" value="지원하기" />
  		</form>
 <!-- 			<button id="btnApply" type="button" class="btn btn-primary btn-lg">지원하기</button> -->
@@ -293,6 +298,8 @@ $(document).ready(function () {
 		alert('프로젝트 지원 완료!');
 	} else if('${apply_project}' == 'fail') {
 		alert('프로제트 지원 실패');
+	} else if('${apply_project}' == 'over_fail') {
+		alert('이미 지원하신 프로젝트입니다! 중복 지원은 불가합니다');
 	}
 
 });

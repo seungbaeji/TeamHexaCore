@@ -6,19 +6,44 @@ public class ApplyProjectVO {
 	private String comment;
 	private int state;
 	
+	private String pid;
+	private String part;
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public String getPart() {
+		return part;
+	}
+	public void setPart(String part) {
+		this.part = part;
+	}
+	
+	
 	public ApplyProjectVO() {}
-	public ApplyProjectVO(String part_pk, String user_id, String comment, int state) {
+//	public ApplyProjectVO(String part_pk, String user_id, String comment, int state) {
+//		super();
+//		this.part_pk = part_pk;
+//		this.user_id = user_id;
+//		this.comment = comment;
+//		this.state = state;
+//	}
+	public ApplyProjectVO(String part_pk, String user_id, String comment, int state, String pid, String part) {
 		super();
 		this.part_pk = part_pk;
 		this.user_id = user_id;
 		this.comment = comment;
 		this.state = state;
+		this.pid = pid;
+		this.part = part;
 	}
-	
 	
 	public String getPart_pk() {
 		return part_pk;
 	}
+
 	public void setPart_pk(String part_pk) {
 		this.part_pk = part_pk;
 	}
