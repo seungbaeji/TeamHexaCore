@@ -71,10 +71,10 @@ form>div {
 	width: 480px;
 }
  */
-/* .day, .leader {
+.day, .leader {
 	/* 시작일 / 종료일, 팀장 전화번호 / 이메일 라벨  / 카카오톡 */
 	font-size: 15px;
-} */
+} 
 
 #project_start, #project_end, #project_recruit_start,
 	#project_recruit_end {
@@ -295,10 +295,10 @@ form>div {
 								<input type="submit" class="btn btn-primary btn-lg" value="등록하기">
 							</div>
 					</form>
-				</div>
+				</div><!-- end main-section -->
 
 				<footer>footer</footer>
-		<!-- end main-section -->
+		
 		
 		</section>
 		</div>
