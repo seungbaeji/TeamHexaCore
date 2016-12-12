@@ -175,6 +175,12 @@ body {
     margin: 0px 0px 10px 0px;
 }
 
+.district {
+	font-size: 0.8rem;
+	margin: 0px 0px 0px 2px;
+	
+}
+
 .title {
     font-size: 1.44rem;
     margin: 0px 0px 10px 0px;
