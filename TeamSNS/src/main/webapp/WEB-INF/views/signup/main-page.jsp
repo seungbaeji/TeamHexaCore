@@ -120,6 +120,9 @@ aside {
 
 .main_table_date {
 	width: 30%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .main_table_caption {
@@ -335,24 +338,24 @@ i {
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td>adfsafsafafaf</td>
-								<td>a</td>
-								<td>a</td>
+								<td class="main_table_name">adfsafsafafaf</td>
+								<td class="main_table_id">a</td>
+								<td class="main_table_date">a</td>
 							</tr>
 							<tr>
-								<td>b</td>
-								<td>b</td>
-								<td>b</td>
+								<td class="main_table_name">b</td>
+								<td class="main_table_id">b</td>
+								<td class="main_table_date">b</td>
 							</tr>
 							<tr>
-								<td>c</td>
-								<td>c</td>
-								<td>c</td>
+								<td class="main_table_name">c</td>
+								<td class="main_table_id">c</td>
+								<td class="main_table_date">c</td>
 							</tr>
 							<tr>
-								<td>d</td>
-								<td>d</td>
-								<td>d</td>
+								<td class="main_table_name">d</td>
+								<td class="main_table_id">d</td>
+								<td class="main_table_date">d</td>
 							</tr>
 						</table>
 					</div>
@@ -369,24 +372,24 @@ i {
 								<td class="main_table_date">2016-12-06</td>
 							</tr>
 							<tr>
-								<td>adfsafsafafaf</td>
-								<td>a</td>
-								<td>a</td>
+								<td class="main_table_name">adfsafsafafaf</td>
+								<td class="main_table_id">a</td>
+								<td class="main_table_date">a</td>
 							</tr>
 							<tr>
-								<td>b</td>
-								<td>b</td>
-								<td>b</td>
+								<td class="main_table_name">b</td>
+								<td class="main_table_id">b</td>
+								<td class="main_table_date">b</td>
 							</tr>
 							<tr>
-								<td>c</td>
-								<td>c</td>
-								<td>c</td>
+								<td class="main_table_name">c</td>
+								<td class="main_table_id">c</td>
+								<td class="main_table_date">c</td>
 							</tr>
 							<tr>
-								<td>d</td>
-								<td>d</td>
-								<td>d</td>
+								<td class="main_table_name">d</td>
+								<td class="main_table_id">d</td>
+								<td class="main_table_date">d</td>
 							</tr>
 						</table>
 					</div>
