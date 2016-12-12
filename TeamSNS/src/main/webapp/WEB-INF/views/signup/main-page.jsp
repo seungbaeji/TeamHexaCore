@@ -144,40 +144,35 @@ i {
 </head>
 <body>
 
-	
-	
-	
-  	
-  			<div id="container">
+	<div id="container">
 		
-			<header id="mainHeader">
+		<header id="mainHeader">
 		
-		<nav id="cd-top-nav">
-			<ul>
-				<li><a href="#0">로그인</a></li>
-
-			</ul>
-		</nav>
-		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
-	</header>
+			<nav id="cd-top-nav">
+				<ul>
+					<li><a href="#0">로그인</a></li>
 	
-			<nav id="cd-lateral-nav">
+				</ul>
+			</nav>
+			<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
+		</header>
+		<nav id="cd-lateral-nav">
 		<ul class="cd-navigation">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
-					<li><a href="#0">프로젝트 리스트</a></li>
-					<li><a href="#0">프로젝트 등록</a></li>
-					<li><a href="#0">프로젝트 관리</a></li>
+					<li id="project-list"><a href="#0" >프로젝트 리스트</a></li>
+					<li id="project-register"><a href="#0">프로젝트 등록</a></li>
+					<li id=""><a href="#0">프로젝트 관리</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
 			<li class="item-has-children">
 				<a href="#0">information</a>
 				<ul class="sub-menu">
-					<li><a href="#0">창업교육</a></li>
-					<li><a href="#0">멘토링</a></li>
-					<li><a href="#0">행사</a></li>
+					<li id="#info_board_edu"><a href="#0">창업교육</a></li>
+					<li id="#info_board_event"><a href="#0">멘토링</a></li>
+					<li id="info_board_mentor"><a href="#0">행사</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
@@ -201,7 +196,7 @@ i {
 
 		<ul class="cd-navigation cd-single-item-wrapper">
 			<li><a class="current" href="#0">Journal</a></li>
-			<li><a href="#0">FAQ</a></li>
+			<li id="#qaboard"><a href="#0">FAQ</a></li>
 			<li><a href="#0">Terms &amp; Conditions</a></li>
 			<li><a href="#0">Careers</a></li>
 			<li><a href="#0">Students</a></li>
@@ -214,7 +209,6 @@ i {
 			<a class="cd-google cd-img-replace" href="#0">Google Plus</a>
 		</div> <!-- socials -->
 	</nav>
-		<!-- end accordian-->
 
 		<div id="main-index">
 			<section class="content">
