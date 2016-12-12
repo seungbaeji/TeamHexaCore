@@ -25,21 +25,36 @@ public class MypageController {
 	@Autowired
 	private MypageService service;
 	
-	@RequestMapping(value="/user/mypage", method = RequestMethod.POST)
-	public void mypage(String uid, Model model) {
+	@RequestMapping(value="/user/mypage", method = RequestMethod.GET)
+	public void mypage(Model model, HttpServletRequest request) {
 		logger.info("마이페이지 ");
 		
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("login_id");
+		logger.info("user_id : " + user_id);
 		
+		// 내 정보
+		UserVO user_vo = service.user_mypage(user_id);
+		model.addAttribute("user", user_vo);
 		
-		UserVO vo = service.user_mypage(uid);
-		model.addAttribute("user", vo);
-		
-		// 내가 쓴 글 불러오기
-		List<BoardVO> boardVO = service.my_board(uid);
-		logger.info(boardVO.get(0).getBk());
+		// 내가 쓴글
+		List<BoardVO> boardVO = service.my_board(user_id);
 		model.addAttribute("boardVO", boardVO);
 		
 	} // end mypage
+	
+	@RequestMapping(value="/user/myinfo-update")
+	public void mypage_update(Model model, HttpServletRequest request) {
+		logger.info("내 정보 수정");
+		
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("login_id");
+		logger.info("userID : "+user_id);
+		
+		UserVO vo = service.user_mypage(user_id);
+		model.addAttribute("user", vo);		
+		
+	}
 	
 	// 마이페이지 목록
 /*	@RequestMapping(value="/user/mypage", method = RequestMethod.GET)
@@ -75,7 +90,7 @@ public class MypageController {
 			attr.addFlashAttribute("update_result", "fail");
 		}
 		attr.addFlashAttribute("uid", vo.getUid());
-		return "redirect:/user/mypage-list";
+		return "redirect:/user/mypage";
 	}
 	
 	// TODO: 회원 탈퇴
@@ -87,8 +102,7 @@ public class MypageController {
 	
 	@RequestMapping(value="/user/my-board", method=RequestMethod.GET)
 	public void myBoardList(String uid, Model model) {
-		
-		
+
 		logger.info("내가 쓴 글 리스트");
 		List<BoardVO> vo = service.my_board(uid);
 		logger.info(vo.get(0).getBk());

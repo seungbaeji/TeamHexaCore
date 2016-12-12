@@ -42,6 +42,10 @@ WHERE rownum between #{start } and #{end }
    WHERE bno = #{bno} 
    </update>
    
-   
- 
-  </mapper>
+<!-- 조회수 -->
+<update id="update_hits">
+UPDATE pentacore.tt_board SET hits = hits + 1 
+WHERE bno = #{bno }
+</update>
+
+</mapper>

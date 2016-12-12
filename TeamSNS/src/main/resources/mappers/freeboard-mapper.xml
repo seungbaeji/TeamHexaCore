@@ -38,6 +38,11 @@ WHERE rownum between #{start } and #{end }
    UPDATE pentacore.free_board SET title = #{title }, content = #{content}  
    WHERE bno = #{bno} 
    </update>
+   
+<update id="update_hits">
+UPDATE pentacore.free_board SET hits = hits + 1 
+WHERE bno = #{bno }
+</update>
   
   
   

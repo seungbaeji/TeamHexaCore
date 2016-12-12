@@ -13,7 +13,8 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+<!-- 자바스크립트 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <style>
 #mypage_div {
 	margin: 10px;
@@ -112,7 +113,9 @@
 			</tr>
 		</table>
 		<div id="section1_button">
-		<input type="button" class="btn btn-primary btn-lg" value="수정하기"> </div>
+<!-- 		<input type="button" class="btn btn-primary btn-lg" value="수정하기"> -->
+			<a href="myinfo-update" class="btn btn-primary btn-lg">수정</a>
+		</div>
 	</div>
 	
 	<div id="mypage_section2">
@@ -193,6 +196,16 @@
 	</table>페이지 링크 하든가 </div>
 </div>
 
+<script>
+$(document).ready(function() {
+	if('${update_result}' == 'success') {
+		alert('내 정보 수정 성공!');
+	} else if('${update_result}' == 'fail') {
+		alert('내 정보 수정 실패ㅠㅠ');
+	}
+});
+
+</script>
 
 
 

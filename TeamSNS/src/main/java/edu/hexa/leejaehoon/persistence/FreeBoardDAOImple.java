@@ -38,6 +38,9 @@ public class FreeBoardDAOImple implements FreeBoardDAO {
 		
 		FreeBoardVO vo = sqlSession.selectOne(NAMESPACE + ".selectBno", bno);
 		logger.info("dao bno select" + vo.getContent());
+		
+		int result = sqlSession.update(NAMESPACE + ".update_hits", bno);
+		logger.info("조회수↑ : "+result);
 		return vo;
 	}
 

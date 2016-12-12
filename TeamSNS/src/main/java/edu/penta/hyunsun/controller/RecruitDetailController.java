@@ -17,6 +17,7 @@ import edu.penta.hyunsun.domain.RecruitDetailDTO;
 import edu.penta.hyunsun.service.RecruitDetailService;
 
 @Controller
+@RequestMapping(value="/project")
 public class RecruitDetailController {
 	private static final Logger logger = LoggerFactory.getLogger(RecruitDetailController.class);
 	
@@ -24,7 +25,7 @@ public class RecruitDetailController {
 	private RecruitDetailService service;
 	
 	// /recruit_detail/detail-recruit-bno
-	@RequestMapping(value="/project/projectDetail", method=RequestMethod.GET)
+	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
 	public void recruitDetailView(int rbno, String user_id, Model model, HttpServletRequest request) {
 		logger.info("상세보기 controller");
 		
@@ -40,9 +41,13 @@ public class RecruitDetailController {
 	} // end detailView()
 	
 
-	@RequestMapping(value="/project/apply-project", method=RequestMethod.POST)
+	@RequestMapping(value="apply-project", method=RequestMethod.POST)
 	public String applyProject(ApplyProjectVO vo, int rbno, RedirectAttributes attr) {
+		logger.info("지원하기 컨트롤러:3c");
+		logger.info("아이디: " + vo.getUser_id());
+		logger.info("코멘트 : " + vo.getComment());
 		int result = service.create(vo);
+		logger.info("reuslt : "+result);
 		if(result == 1) {
 			attr.addFlashAttribute("apply_project", "success");
 		} else {

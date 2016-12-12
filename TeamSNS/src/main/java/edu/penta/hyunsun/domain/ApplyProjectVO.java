@@ -15,6 +15,7 @@ public class ApplyProjectVO {
 		this.state = state;
 	}
 	
+	
 	public String getPart_pk() {
 		return part_pk;
 	}
