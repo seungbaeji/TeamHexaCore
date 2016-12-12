@@ -34,6 +34,15 @@ public class SignUpController {
 //		return "main-page";
 	}
 	
+	@RequestMapping(value="signuptest", method=RequestMethod.GET)
+	public void mainTest3(){	
+		
+		
+		
+		logger.info("메인페이지 호출");
+//		return "main-page";
+	}
+	
 	@RequestMapping(value="main-login", method=RequestMethod.GET)
 	public void mainTest2(){	
 		logger.info("로그인완료 화면 호출");
@@ -93,9 +102,18 @@ public class SignUpController {
 	
 	
 	
-	@RequestMapping(value="includeTest")
-	public void Test(){
+	@RequestMapping(value="signup",method=RequestMethod.POST)
+	public String SignUp(SignUpVO vo,RedirectAttributes attr){
+		logger.info("controller vo adress:" + vo.getAddress());	
+		int result = signUpService.singUp(vo);
 		
+		if(result != 1){
+			attr.addFlashAttribute("singUp_result", result);
+		}else{
+			attr.addFlashAttribute("singUp_result", result);
+		}
+		
+		return "redirect:/signup/main-page";
 	}
 	
 	

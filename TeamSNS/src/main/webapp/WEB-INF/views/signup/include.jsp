@@ -84,7 +84,7 @@ aside {
 					<li id="project-register"><a href="#0">프로젝트 등록</a></li>
 					<li id="projectInfo"><a href="#0">프로젝트 관리</a></li>
 				</ul>
-			</li> <!-- item-has-children -->
+			</li> <!-- item-has-children ..-->
 
 			<li class="item-has-children">
 				<a href="#0">information</a>

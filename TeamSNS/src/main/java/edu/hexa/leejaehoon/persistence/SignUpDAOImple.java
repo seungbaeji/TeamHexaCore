@@ -33,5 +33,22 @@ public class SignUpDAOImple implements SignUpDAO {
 		logger.info("DAO login" + vo);
 		return sqlSession.selectOne(NAMESPCAE + ".login", vo);
 	}
-
+	
+	@Override
+	public int selectId(SignUpVO vo) {
+		
+		return sqlSession.selectOne(NAMESPCAE + ".selectid", vo);
+	}
+	
+	@Override
+	public int selectNick(SignUpVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPCAE + ".selectnick", vo);
+	}
+	
+	@Override
+	public int signUp(SignUpVO vo) {
+		int result = sqlSession.insert(NAMESPCAE + ".singup", vo);
+		return result;
+	}
 }
