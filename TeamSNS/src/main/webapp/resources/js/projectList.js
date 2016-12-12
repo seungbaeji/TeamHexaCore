@@ -39,6 +39,7 @@ $(document).ready(function(){
 	   // console.log('lastScrollTop: ' + lastScrollTop);
 	   
 	   // 다운 스크롤
+	   // 스크롤을 내리면서 기존 데이터를 삭제하고 새로운 데이터를 불러옴
 	   if (currentScrollTop - lastScrollTop > 0) {
 		   // 현재 스크롤 좌표를 이전 스크롤 좌표로 할당
 		   lastScrollTop = currentScrollTop;
@@ -49,19 +50,27 @@ $(document).ready(function(){
 			   console.log('lastRbno: ' + lastRbno);
 			   var url2 = "/teamsns/projects/infinite/" + lastRbno;
 			   console.log('url2: ' + url2)
-			   $.getJSON(url2, projectListCallback);
+			   $.getJSON(url2)
+			   // 불러온 데이터가 있는경우 콜백함수 실행
+			   .done(projectListCallback)
+			   // 불러온 데이터가 없는경우 실행될 함수
+			   .fail(function(){
+				   console.log("No date to load")
+			   });
 			
 			   var position = $(".projectCard:first").offset();
 			   $('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
 			   
-		   }
+		   }// end if($(window).scrollTop() >= ...)
 		   		   
-	   } 
+	   }// end if(currentScrollTop - lastScrollTop) 
+	   
 	   // 업 스크롤
+	   // 스크롤을 올리면, 스크롤을 내리면서 지웠던 데이터를 불러옴
 	   else {
 		   // 현재 스크롤 좌표를 이전 스크롤 좌표로 할당
 		   lastScrollTop = currentScrollTop;
-	   } // end if-else
+	   } // end if-else(scroll down and up)
 	   
 	   
 	   
