@@ -601,8 +601,8 @@ footer {
 								$('#signIn').hide();
 								$('#signUp').hide();
 							} else {
-								$('.logout').hide();
-								$('.mypage').hide();
+								$('#logout').hide();
+								$('#myPage').hide();
 								$('#projectInfo').hide();
 								$('#project-register').hide();
 							}

@@ -335,13 +335,13 @@ footer {
 								$('#singIn').hide();
 								$('#signUp').hide();
 							} else {
-								$('.logout').hide();
-								$('.mypage').hide();
-								/* $('#projectInfo').hide();
-								$('#project-register').hide(); */
+								$('#logout').hide();
+								$('#myPage').hide();
+								$('#projectInfo').hide();
+								$('#project-register').hide();
 							}
 
-							$('.logout').click(function() {
+							$('#logout').click(function() {
 								alert('${login_id}님 로그아웃 되셧습니다!');
 								location = '/teamsns/signup/logout';
 							});
