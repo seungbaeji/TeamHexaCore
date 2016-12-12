@@ -76,12 +76,13 @@ aside {
 	
 			<nav id="cd-lateral-nav">
 		<ul class="cd-navigation">
+		<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
-					<li id="project-list"><a>프로젝트 리스트</a></li>
-					<li id="project-register"><a>프로젝트 등록</a></li>
-					<li id="projectInfo"><a>프로젝트 관리</a></li>
+					<li id="project-list"><a href="#0">프로젝트 리스트</a></li>
+					<li id="project-register"><a href="#0">프로젝트 등록</a></li>
+					<li id="projectInfo"><a href="#0">프로젝트 관리</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
@@ -98,8 +99,8 @@ aside {
 				<a href="#0">community</a>
 				<ul class="sub-menu">
 					<li id="tipAndTech"><a href="#0">tip & tech</a></li>
-					<li><a href="#0">New York</a></li>
-					<li><a href="#0">Milan</a></li>
+					<li><a id="qaBoard" href="#0">Q & A</a></li>
+					<li><a id="freeBoard" href="#0">자유 게시판</a></li>
 					<li><a href="#0">Paris</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
@@ -150,6 +151,7 @@ aside {
 
 							if ('${success}' == 'success') {
 								$('.loginForm').hide();
+								$('.loginForm').hide();
 							} else {
 								$('.logout').hide();
 								$('.mypage').hide();
@@ -189,10 +191,18 @@ aside {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
-							$('#qaboard').click(function() {
+							$('#qaBoard').click(function() {
 								location = '/teamsns/qaboard/qaBoard';
-							});	
-							
+							});
+							$('#freeBoard').click(function() {
+								location = '/teamsns/freeboard/freeBoard';
+							});
+							$('#mainLogo').click(function() {
+								location = '/teamsns/signup/main-page';
+							});
+							$('#mainLogo').click(function() {
+								location = '/teamsns/signup/main-page';
+							});
 
 							$("#start, #end").datepicker(
 									{

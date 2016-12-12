@@ -58,8 +58,8 @@ $(document).ready(function(){
 				   console.log("No date to load")
 			   }); // end ajax 데이터 통신
 			
-			   var position = $(".projectCard:first").offset();
-			   $('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
+			   //var position = $(".projectCard:first").offset();
+			   //$('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
 			   
 		   }// end if($(window).scrollTop() >= ...)
 		   		   
@@ -79,8 +79,8 @@ $(document).ready(function(){
 				   console.log("No date to load")
 			   }); // end ajax 데이터 통신
 			   
-			   var position =($(document).height() - $(window).height()) -10;
-			   $('html,body').stop().animate({scrollTop : position}, 600, easeEffect);
+			   //var position =($(document).height() - $(window).height()) -10;
+			   //$('html,body').stop().animate({scrollTop : position}, 600, easeEffect);
 			   
 		   } // end if($(window).scrollTop() <=)
 		   
@@ -150,7 +150,7 @@ function sendRbno(){
 }
 // 지역선택 되었을때의 효과
 function changeColor1(target){
-      target.css('backgroundColor', 'lightblue');
+      target.css('backgroundColor', '#263650');
       target.css('color', 'white');
 }
 // 지역선택 해제 되었을때의 효과   
@@ -204,7 +204,9 @@ function projectListCallback(result){
             skills = this.skills.split(",");
             console.log(skills);
             skills.forEach(function(item, index) {
-               skillList += '<li>' + item + '</li>';
+            	if (item != "" && item != " "){
+            		skillList += '<li>' + item + '</li>';
+            	}
             });
          }
          console.log(this.parts);
@@ -212,14 +214,16 @@ function projectListCallback(result){
             parts = this.parts.split(",");
             console.log(parts);
             parts.forEach(function(item, index){
-              partList += '<li>' + item + '</li>'; 
+            	if (item != "" && item != " "){
+            		partList += '<li>' + item + '</li>';
+            	}
             });
          }
          
          cardList +='<li class="projectCard">'
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'
-                     + '<p class=district>'
+                     + '<p class=districtOfProject>'
                      + this.district+'</p>'
                      + '<p class="title">'
                      + '<a href="'
