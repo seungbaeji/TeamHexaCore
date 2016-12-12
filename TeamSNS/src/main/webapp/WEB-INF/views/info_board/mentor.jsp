@@ -270,7 +270,7 @@ th {
 															id="info_register_end" name="info_end"> <br>
 														<input type="checkbox" id="info_end_every"
 															name="info_end_every" value="상시모집"
-															onclick="checkDisable(this.form)"> <label
+															onclick="checkDisable()"> <label
 															for="info_end_every">상시모집</label>
 													</div>
 													<br> <input type="submit"
@@ -335,11 +335,15 @@ th {
 
 						});
 		/* 상시모집 체크박스 */
-		function checkDisable(frm1) {
-			if (frm1.info_end_every.checked == true) {
-				frm1.info_end.disabled = true;
+		function checkDisable() {
+			var info_end_every = document.getElementById('info_end_every');
+			var info_register_end = document.getElementById('info_register_end');
+			if (info_end_every.checked == true) {
+				info_end.disabled = false;
+				info_register_end.disabled = true;
 			} else {
-				frm1.info_end.disabled = false;
+				info_end.disabled = true;
+				info_register_end.disabled = false;
 			}
 		}
 	</script>
