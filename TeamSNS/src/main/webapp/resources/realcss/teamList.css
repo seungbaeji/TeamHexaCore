@@ -85,6 +85,7 @@ body {
     display: inline-block;
     flex-direction: column;
     text-align: right;
+    color: black;
 }
 
 .cardCom03 {
@@ -103,9 +104,8 @@ body {
     background-color: rgba(167, 163, 126, 0.5);
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
-    font-family: 'Open Sans', 'Hanna', sans-serif;
     margin: 0px 5px 5px 0px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .cardCom04 {
@@ -125,9 +125,8 @@ body {
     background-color: rgba(230, 226, 175, 1);
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
-    font-family: 'Open Sans', 'Hanna', sans-serif;
     margin: 0px 5px 5px 0px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .cardCom05 {
@@ -136,24 +135,25 @@ body {
 }
 
 .districtOfProject {
-	font-size: 0.8rem;
-	margin: 0px 0px 5px 2px !important;
+	font-size: 0.9rem;
+	display: inline;
+	color: black;
 	
 }
 
+.category {
+    font-size: 0.9rem;
+    display: inline;
+    color: black;
+}
 .title {
     font-size: 1.44rem;
-    margin: 0px 0px 10px 0px;
+    margin: 5px 0px 10px 0px;
 }
 .title a {
 	color: black;
 	text-decoration: none !important; 
 	cursor: pointer;
-}
-.category {
-    font-size: 1.125rem;
-    display: inline;
-    font-family: 'Jeju Hallasan', cursive !important;
 }
 
 .pname {
