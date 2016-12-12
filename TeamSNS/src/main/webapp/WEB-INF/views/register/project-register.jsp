@@ -42,9 +42,6 @@ category_contest
 </head>
 <style>
 
-* {
-	font-size: 1.3rem;
-}
 
 @media ( min-width : 768px) {
 	.content {
@@ -205,7 +202,7 @@ form>div {
 								<div>
 									<input type="text" class="form-control team_part"
 										maxlength="20" name="part1" id="team_part_1"
-										placeholder="팀장 역할"> <input type="text"
+										placeholder="팀장 역할" required> <input type="text"
 										class="form-control team_part" maxlength="20" name="part2">
 									<input type="text" class="form-control team_part"
 										maxlength="20" name="part3"> <input type="text"
