@@ -61,7 +61,17 @@ aside {
 }
 
 #mainLogo {
-	cursor: pointer !important;
+		cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+	#mainLogo {
+		display: none;
+	}
+}
+
+footer {
+	border-top: 1px solid gray;
 }
 
 </style>
@@ -78,9 +88,9 @@ aside {
 		<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
 	</header>
 	
-			<nav id="cd-lateral-nav">
-		<ul class="cd-navigation">
+	<nav id="cd-lateral-nav">
 		<img id="mainLogo" src="../resources/img/Logo_white.svg">
+		<ul class="cd-navigation">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -105,7 +115,7 @@ aside {
 					<li id="tipAndTech"><a href="#0">tip & tech</a></li>
 					<li><a id="qaBoard" href="#0">Q & A</a></li>
 					<li><a id="freeBoard" href="#0">자유 게시판</a></li>
-					<li><a href="#0">Paris</a></li>
+					<!-- <li><a href="#0">Paris</a></li> -->
 				</ul>
 			</li> <!-- item-has-children -->
 		</ul> <!-- cd-navigation -->
@@ -118,11 +128,12 @@ aside {
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a class="current" href="#0">Journal</a></li>
-			<li id="qaboard"><a href="#0">FAQ</a></li>
-			<li><a href="#0">Terms &amp; Conditions</a></li>
+			<!-- <li><a class="current" href="#0">Journal</a></li> -->
+			<li><a href="#0">Journal</a></li>
+			<li><a href="#0">FAQ</a></li>
+			<!-- <li><a href="#0">Terms &amp; Conditions</a></li>
 			<li><a href="#0">Careers</a></li>
-			<li><a href="#0">Students</a></li>
+			<li><a href="#0">Students</a></li> -->
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<div class="cd-navigation socials">
@@ -200,9 +211,6 @@ aside {
 							});
 							$('#freeBoard').click(function() {
 								location = '/teamsns/freeboard/freeBoard';
-							});
-							$('#mainLogo').click(function() {
-								location = '/teamsns/signup/main-page';
 							});
 							$('#mainLogo').click(function() {
 								location = '/teamsns/signup/main-page';
