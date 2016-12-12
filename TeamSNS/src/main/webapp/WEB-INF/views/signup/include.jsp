@@ -79,8 +79,8 @@ aside {
 	</header>
 	
 			<nav id="cd-lateral-nav">
-		<ul class="cd-navigation">
 		<img id="mainLogo" src="../resources/img/Logo_white.svg">
+		<ul class="cd-navigation">	
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">

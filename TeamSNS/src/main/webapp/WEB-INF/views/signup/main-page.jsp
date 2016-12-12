@@ -160,8 +160,8 @@ i {
 			<a id="cd-menu-trigger" href="#0"><span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span></a>
 		</header>
 		<nav id="cd-lateral-nav">
+		<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 		<ul class="cd-navigation">
-			<img  id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -220,12 +220,12 @@ i {
 					<div id="carousel-example-generic" class="carousel slide"
 						data-ride="carousel">
 						<!-- Indicators -->
-						<ol class="carousel-indicators">
+<!-- 						<ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0"
 								class="active"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						</ol>
+						</ol> -->
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">

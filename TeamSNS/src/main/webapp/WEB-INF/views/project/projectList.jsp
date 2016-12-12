@@ -8,6 +8,7 @@
 	charset="UTF-8">
 <title>Insert title here</title>
 <link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
+<link href="../resources/realcss/fonts.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
 	<div id="container">
