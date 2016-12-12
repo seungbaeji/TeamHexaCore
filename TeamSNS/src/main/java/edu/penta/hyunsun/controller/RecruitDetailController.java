@@ -50,7 +50,7 @@ public class RecruitDetailController {
 		}
 		
 		return "redirect:/project/projectDetail?rbno="+rbno;
-	}
+	} // end applyProject()
 	
 
 } // end class RecruitDetailController

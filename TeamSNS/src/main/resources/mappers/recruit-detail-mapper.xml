@@ -20,8 +20,14 @@ WHERE pid = (
 </select>
 
 <select id="select_part" resultType="edu.hexa.teamsns.domain.ManageProjectPartVO">
-SELECT * FROM pentacore.manage_project_part 
+<!-- SELECT * FROM pentacore.manage_project_part 
 WHERE pid = 
+(<include refid="find_pid" />) -->
+SELECT part.*, user.name
+FROM pentacore.manage_project_part AS part
+LEFT JOIN pentacore.user AS user
+ON user.uid = part.user_id
+WHERE part.pid = 
 (<include refid="find_pid" />)
 </select>
 
@@ -41,6 +47,7 @@ WHERE uid = (
 )
 </select>
 
+<!-- 지원 -->
 <select id="apply_project" resultType="Integer">
 INSERT INTO pentacore.manage_recruit (part_pk, user_id, comment) VALUE (#{part_pk}, #{user_id}, #{comment})
 </select>

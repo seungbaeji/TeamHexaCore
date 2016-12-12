@@ -25,18 +25,35 @@ public class MypageController {
 	@Autowired
 	private MypageService service;
 	
+	@RequestMapping(value="/user/mypage", method = RequestMethod.POST)
+	public void mypage(String uid, Model model) {
+		logger.info("마이페이지 ");
+		
+		
+		
+		UserVO vo = service.user_mypage(uid);
+		model.addAttribute("user", vo);
+		
+		// 내가 쓴 글 불러오기
+		List<BoardVO> boardVO = service.my_board(uid);
+		logger.info(boardVO.get(0).getBk());
+		model.addAttribute("boardVO", boardVO);
+		
+	} // end mypage
+	
 	// 마이페이지 목록
-	@RequestMapping(value="/user/mypage-list")
+/*	@RequestMapping(value="/user/mypage", method = RequestMethod.GET)
 	public void mypageList(String uid, Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		
-		
-		logger.info("마이페이지 리스트");
+		logger.info("마이페이지");
 		uid = (String)session.getAttribute("login-id");
+		logger.info("uid : "+uid);
+		UserVO vo = service.user_mypage(uid);
+		model.addAttribute("user", vo);
 		
-	}
+	}*/
 	
-	// 내 정보 보기 
+/*	// 내 정보 보기 
 	@RequestMapping(value = "/user/mypage", method = RequestMethod.GET)
 	public void mypageView(String uid, Model model) {
 		logger.info("마이페이지 : uid = " + uid);
@@ -45,7 +62,7 @@ public class MypageController {
 		model.addAttribute("user", vo);
 		
 	} // end mypageView
-	
+*/	
 	// 내 정보 수정 
 	@RequestMapping(value = "/user/update", method = RequestMethod.POST)
 	public String userUpdate(UserVO vo, RedirectAttributes attr) {

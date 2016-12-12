@@ -236,7 +236,7 @@
 				<c:forEach var="parts" items="${dto.parts }">
 					<c:if test="${parts.user_id  ne null}">
 						<tr>
-							<td>망했다</td>
+							<td>${parts.name }</td>
 							<th>${parts.user_id }</th>
 							<td>${parts.part }</td>
 						</tr>
@@ -251,7 +251,8 @@
 <!-- <label for="form_team_part" class="label label-default">모집 팀원 역할</label>
 <input type="text" class="form-control" id="form_team_part" name="" maxlength="20" placeholder="역할을 입력하시오">  -->
 		
-		<form action="apply-project" method="POST">
+<!-- 		<form action="apply-project" method="POST"> -->
+		<div>
 			<select name="part_pk">
 			<c:forEach var="parts" items="${dto.parts }">
 				<c:if test="${parts.user_id eq null}">
@@ -262,9 +263,10 @@
 			<input type="text" name="comment" placeholder="지원자 코맨트:3c"/><br/>
 			<input type="text" name="user_id" value="${user_id}" hidden="hidden" />
 			<input type="text" name="rbno" value="${dto.recruit.rbno }" hidden="hidden" />
-			<input type="submit" class="btn btn-primary btn-lg" value="지원하기" />
-		</form>
-				
+			<!-- <input type="submit" class="btn btn-primary btn-lg" value="지원하기" /> -->
+<!-- 		</form> -->
+			<button id="btnApply" type="button" class="btn btn-primary btn-lg">지원하기</button>
+		</div>
 
 <!-- 			</div>
 			<input type="submit" class="btn btn-primary btn-lg" value="지원하기">
@@ -285,6 +287,12 @@ $(document).ready(function () {
 			$(this).val($(this).val().substr(0, $(this).attr('maxlength')));
 		}
 	}); */
+	
+	$('#btnApply').click(function () {
+		
+		
+		
+	}); // end #btnApply
 		
 	if('${apply_project}'=='success') {
 		alert('프로젝트 지원 완료!');
