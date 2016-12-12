@@ -157,13 +157,13 @@ footer {
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">ID</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="user_id" placeholder="ID">
+                      <input type="text" class="form-control" name="uid" placeholder="ID">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" name="user_pw" placeholder="Password">
+                      <input type="password" class="form-control" name="pw" placeholder="Password">
                     </div>
                   </div>
                   <div class="form-group">
