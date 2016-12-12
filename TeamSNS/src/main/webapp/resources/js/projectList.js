@@ -74,7 +74,8 @@ $(document).ready(function(){
 			   console.log(firstRbno);
 			   var url = "/teamsns/projects/maxRbno"
 			   $.getJSON(url, function(result){
-				  var maxRbno = $(result);
+				   // JSON객체를 int로 parsing
+				  var maxRbno = JSON.parse(result);
 				  console.log("ProjectCard 개수" + maxRbno);
 				   if(firstRbno <= (maxRbno - 10)){
 					   var url = "/teamsns/projects/infiniteUp/" + firstRbno;

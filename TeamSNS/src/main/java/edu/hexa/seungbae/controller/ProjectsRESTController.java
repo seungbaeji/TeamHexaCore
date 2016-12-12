@@ -91,6 +91,7 @@ public class ProjectsRESTController {
 		
 		if (maxRbno != 0) {
 			entity = new ResponseEntity<Integer>(maxRbno, HttpStatus.OK);
+			logger.info("프로젝트 개수: " + maxRbno + "," + entity.hashCode());
 		}else {
 			entity = new ResponseEntity<Integer>(maxRbno, HttpStatus.BAD_REQUEST);
 		}		
