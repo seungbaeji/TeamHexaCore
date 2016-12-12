@@ -29,9 +29,15 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	}
 
 	@Override
-	public List<ProjectCardDTO> read(int rbno) {
-		return dao.select(rbno);
+	public List<ProjectCardDTO> readInfiniteDown(int rbno) {
+		return dao.selectInfiniteDown(rbno);
 	}
+
+	@Override
+	public List<ProjectCardDTO> readInfiniteUp(int rbno) {
+		return dao.selectInfiniteUp(rbno);
+	}
+	
 	
 	
 

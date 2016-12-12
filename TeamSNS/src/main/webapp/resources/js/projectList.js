@@ -48,15 +48,15 @@ $(document).ready(function(){
 		   if($(window).scrollTop() >= $(document).height() - $(window).height()){
 			   var lastRbno = $(".title a:last").attr("href");
 			   console.log('lastRbno: ' + lastRbno);
-			   var url2 = "/teamsns/projects/infinite/" + lastRbno;
-			   console.log('url2: ' + url2)
-			   $.getJSON(url2)
+			   var url = "/teamsns/projects/infiniteDown/" + lastRbno;
+			   console.log('url: ' + url)
+			   $.getJSON(url)
 			   // 불러온 데이터가 있는경우 콜백함수 실행
 			   .done(projectListCallback)
 			   // 불러온 데이터가 없는경우 실행될 함수
 			   .fail(function(){
 				   console.log("No date to load")
-			   });
+			   }); // end ajax 데이터 통신
 			
 			   var position = $(".projectCard:first").offset();
 			   $('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
@@ -68,7 +68,22 @@ $(document).ready(function(){
 	   // 업 스크롤
 	   // 스크롤을 올리면, 스크롤을 내리면서 지웠던 데이터를 불러옴
 	   else {
-		   // 현재 스크롤 좌표를 이전 스크롤 좌표로 할당
+		   if ($(window).scrollTop() <= 0){
+			   var firstRbno = $(".title a:first").attr("href");
+			   var url = "/teamsns/projects/infiniteUp/" + firstRbno;
+			   console.log('url: ' + url)
+			   $.getJSON(url)
+			   .done(projectListCallback)
+			   // 불러온 데이터가 없는경우 실행될 함수
+			   .fail(function(){
+				   console.log("No date to load")
+			   }); // end ajax 데이터 통신
+			   
+			   var position =($(document).height() - $(window).height()) -10;
+			   $('html,body').stop().animate({scrollTop : position}, 600, easeEffect);
+			   
+		   } // end if($(window).scrollTop() <=)
+		   
 		   lastScrollTop = currentScrollTop;
 	   } // end if-else(scroll down and up)
 	   

@@ -8,6 +8,7 @@ public interface ProjectCardService {
 	
 	List<ProjectCardDTO>read();
 	List<ProjectCardDTO>read(String[] districts);
-	List<ProjectCardDTO>read(int rbno);
+	List<ProjectCardDTO>readInfiniteDown(int rbno);
+	List<ProjectCardDTO>readInfiniteUp(int rbno);
 	
 }

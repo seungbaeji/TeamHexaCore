@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.hexa.seungbae.domain.ProjectCardDTO;
-import edu.hexa.seungbae.pagetuil.PaginationCriteria;
 
 @Repository
 public class ProjectCardDAOImpl implements ProjectCardDAO {
@@ -42,24 +41,13 @@ public class ProjectCardDAOImpl implements ProjectCardDAO {
 	}
 
 	@Override
-	public List<ProjectCardDTO> select(int rbno) {
-		return sqlSession.selectList(NAMESPACE + ".selectInfinite", rbno);
+	public List<ProjectCardDTO> selectInfiniteDown(int rbno) {
+		return sqlSession.selectList(NAMESPACE + ".selectInfiniteDown", rbno);
 	}
 	
 	@Override
-	public int getNumOfRecords() {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<ProjectCardDTO> selectInfiniteUp(int rbno) {
+		return sqlSession.selectList(NAMESPACE + ".selectInfiniteUp", rbno);
 	}
-
-	@Override
-	public List<ProjectCardDTO> select(PaginationCriteria c) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	
-	
 
 }

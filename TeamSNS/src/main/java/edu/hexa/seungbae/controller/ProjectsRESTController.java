@@ -55,9 +55,9 @@ public class ProjectsRESTController {
 		return entity;	
 	}
 	
-	@RequestMapping(value="/infinite/{rbno}", method=RequestMethod.GET)
-	public ResponseEntity<List<ProjectCardDTO>> readProjects (@PathVariable("rbno") int rbno){
-		List<ProjectCardDTO> list = service.read(rbno);
+	@RequestMapping(value="/infiniteDown/{rbno}", method=RequestMethod.GET)
+	public ResponseEntity<List<ProjectCardDTO>> readProjectsInfiniteDown (@PathVariable("rbno") int rbno){
+		List<ProjectCardDTO> list = service.readInfiniteDown(rbno);
 		logger.info("마지막 카드번호: " + rbno);
 		ResponseEntity<List<ProjectCardDTO>> entity = null;
 		
@@ -69,6 +69,19 @@ public class ProjectsRESTController {
 		return entity;	
 	}
 	
+	@RequestMapping(value="/infiniteUp/{rbno}", method=RequestMethod.GET)
+	public ResponseEntity<List<ProjectCardDTO>> readProjectInfiniteUp (@PathVariable("rbno") int rbno){
+		List<ProjectCardDTO> list = service.readInfiniteUp(rbno);
+		logger.info("시작 카드번호: " + rbno);
+		ResponseEntity<List<ProjectCardDTO>> entity = null;
+		
+		if (list != null) {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<List<ProjectCardDTO>>(list, HttpStatus.BAD_REQUEST);
+		}		
+		return entity;	
+	}
 	
 
 }
