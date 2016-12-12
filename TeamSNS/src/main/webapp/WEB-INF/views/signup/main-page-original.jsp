@@ -193,7 +193,7 @@ i {
 					<ul>
 						<li id="tipAndTech"><a href="#">Tip & Tech</a></li>
 						<li><a href="#">자유게시판</a></li>
-						<li id="qaBoard"><a href="#">Q & A</a></li>
+						<li><a href="#">Q & A</a></li>
 					</ul>
 				</li>
 				<li>
@@ -532,10 +532,7 @@ i {
 							$('#info_board_mentor').click(function() {
 								location = '/teamsns/info_board/mentor';
 							});
-							$('#qaBoard').click(function() {
-								location = '/teamsns/qaboard/qaBoard';
-							});	
-							
+
 							$("#start, #end").datepicker(
 									{
 										dateFormat : 'yymmdd',

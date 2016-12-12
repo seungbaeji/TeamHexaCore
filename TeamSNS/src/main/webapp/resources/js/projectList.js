@@ -44,7 +44,7 @@ $(document).ready(function(){
 		   // 현재 스크롤의 위치가 화면의 위치보다 크다면,
 		   if($(window).scrollTop() >= $(document).height() - $(window).height()){
 			   var lastRbno = $(".title a:last").attr("href");
-
+			   console.log(lastRbno);
 			   var url2 = "/teamsns/projects/infinite" + lastRbno;
 			   $.getJSON(url2, projectListCallback);
 			
@@ -144,15 +144,26 @@ function projectListCallback(result){
         var skillList = '';
         var partList = '';
         var rchits;
-        
+        var month;
+        var date;
         console.group("projectCard"+cardNum)
         var rcstart = new Date(this.rcstart);
         var rcend = new Date(this.rcend);
-        var deadline = rcend.getFullYear()+"."+rcend.getMonth()+"."+rcend.getDate()
-        console.log(this.recruit_hits);
-        if (this.recruit_hits == null){
-           rchits = 0;
+        
+        // 월, 일 두자리 수로 변경
+        if (rcend.getMonth() < 10){
+        	 month = "0" + rcend.getMonth();
+        } else {
+        	month = rcend.getMonth();
         }
+        if (rcend.getDate() < 10){
+       	 	date = "0" + rcend.getDate();
+        } else {
+       		date = rcend.getDate();
+        }
+        
+        var deadline = rcend.getFullYear()+"."+month+"."+date
+        console.log(this.recruit_hits);
         console.log(this.rcstart);
         console.log(rcstart.getFullYear(), rcstart.getMonth(), rcstart.getDate());
         console.log(this.rcend);
@@ -188,8 +199,8 @@ function projectListCallback(result){
                      + this.pname + '</p>'
                      + '</div>'
                      + '<p class="cardCom02">'
-                     + ' 조회수 '
-                     + rchits + '<br>'
+                     + '조회수 '
+                     + this.recruit_hits + '<br>'
                      + '<br>모집마감일<br>'
                      + deadline +'<br>'
                      + '</p></div>'
