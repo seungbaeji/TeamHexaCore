@@ -4,7 +4,7 @@ $(document).ready(function(){
 	//	- 1: 선택됨
 	//	- 0: 선택안됨
    var districtObjects = {
-      all : {name: "전체선택", toggle: 1},
+     /* all : {name: "전체선택", toggle: 1},*/
       seoul: {name: "서울", toggle: 0}, 
       busan: {name: "부산", toggle: 0}, 
       daegu: {name: "대구", toggle: 0}, 
@@ -219,6 +219,8 @@ function projectListCallback(result){
          cardList +='<li class="projectCard">'
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'
+                     + '<p class=district>'
+                     + this.district+'</p>'
                      + '<p class="title">'
                      + '<a href="'
                      + this.rbno + '">'
