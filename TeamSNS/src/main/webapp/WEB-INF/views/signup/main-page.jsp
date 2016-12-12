@@ -138,8 +138,11 @@ h4 {
 
 i {
 	color: #1F2D42;
-} 
-
+}
+ 
+#mainLogo {
+	cursor: pointer !important;
+}
 </style>
 </head>
 <body>

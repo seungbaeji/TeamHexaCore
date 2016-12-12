@@ -60,6 +60,10 @@ aside {
 	}
 }
 
+#mainLogo {
+	cursor: pointer !important;
+}
+
 </style>
 </head>
 <body>
@@ -76,7 +80,7 @@ aside {
 	
 			<nav id="cd-lateral-nav">
 		<ul class="cd-navigation">
-		<img  id="mainLogo" src="../resources/img/Logo_white.svg">
+		<img id="mainLogo" src="../resources/img/Logo_white.svg">
 			<li class="item-has-children">
 				<a href="#0">project</a>
 				<ul class="sub-menu">
@@ -107,10 +111,10 @@ aside {
 		</ul> <!-- cd-navigation -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
-			<li><a href="#0">로그인</a></li>
-			<li><a href="#0">Register</a></li>
-			<li><a href="#0">Pricing</a></li>
-			<li><a href="#0">Support</a></li>
+			<li><a id="singIn" href="#0">로그인</a></li>
+			<li><a id="signUp" href="#0">회원가입</a></li>
+			<li><a id="logout" href="#0">로그아웃</a></li>
+			<li><a id="myPage" href="#0">마이페이지</a></li>
 		</ul> <!-- cd-single-item-wrapper -->
 
 		<ul class="cd-navigation cd-single-item-wrapper">
@@ -150,8 +154,8 @@ aside {
 							}
 
 							if ('${success}' == 'success') {
-								$('.loginForm').hide();
-								$('.loginForm').hide();
+								$('#singIn').hide();
+								$('#signUp').hide();
 							} else {
 								$('.logout').hide();
 								$('.mypage').hide();
