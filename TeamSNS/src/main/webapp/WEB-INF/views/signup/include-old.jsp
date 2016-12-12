@@ -299,26 +299,13 @@ nav, aside {
 									//년 뒤에 월 표시
 									});
 							/* 글자수 체크1 */
-							$('#pname, .part')
-									.keyup(
-											function() {
-												if ($(this).val().length > $(
-														this).attr('maxlength')) {
-													alert('제한길이 초과');
-													$(this)
-															.val(
-																	$(this)
-																			.val()
-																			.substr(
-																					0,
-																					$(
-																							this)
-																							.attr(
-																									'maxlength')));
-												}
-											});
-
-						});
+							$('#pname, .part').keyup(function() {
+								if ($(this).val().length > $(this).attr('maxlength')) {
+									alert('제한길이 초과');
+									$(this).val($(this).val().substr(0,
+											$(this).attr('maxlength')));}
+								});
+							});
 	</script>
 
 </body>
