@@ -150,7 +150,7 @@ function sendRbno(){
 }
 // 지역선택 되었을때의 효과
 function changeColor1(target){
-      target.css('backgroundColor', 'lightblue');
+      target.css('backgroundColor', '#263650');
       target.css('color', 'white');
 }
 // 지역선택 해제 되었을때의 효과   
