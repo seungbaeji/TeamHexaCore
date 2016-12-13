@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내 정보</title>
+<title>Let's Team! My page</title>
 
 
 <!-- JQuery -->	
@@ -24,14 +24,18 @@
 <!-- CSS 파일 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/mypage-style.css" />
-
 <body>
-
-<div id="div-main">
-<form id="user_info">
-
+<div id="container">
+		<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
+		<div id="main-index">
+			<section class="content">
+				<header>
+					<h1>My Page</h1>
+				</header>
+				
+	<form id="user_info">
+	<div id="main_section">
 	<div>
-	<h1>마이페이지</h1> <br/>
 	
 	<div class="form-group form-inline" id="div_user_id">
 	<label for="user_id" class="label label-default">아이디</label>
@@ -124,13 +128,22 @@
 	</div> <br/>
 	
 	</div>
-	</form>
-		
+	</div>
 	<button class="btn btn-primary btn-lg" type="submit" id="user_update">수정</button>
 	<button class="btn btn-primary btn-lg" type="submit" id="user_bye">탈퇴</button>
 	<button class="btn btn-primary btn-lg" type="submit" id="cancel">취소</button>
+	</form>
+<footer>footer</footer>
+
+
+			</section>
+			
+		</div>
+		<aside>날씨</aside>
+	</div>
 	
-</div>
+	
+
 
 <!-- 자바스크립트 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -29,6 +29,9 @@
 		padding: 20px;
 	}
 }
+#main-section {
+	min-width: 650px;
+}
 
 #mypage_section1 {
 	background-color: gray;
