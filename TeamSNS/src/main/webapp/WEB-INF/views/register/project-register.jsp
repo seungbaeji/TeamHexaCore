@@ -126,26 +126,39 @@ form>div {
 							 <input type="text" class="form-control" id="team_name" name="pname" placeholder="Hexa_Core 25자 내로 작성"
 								maxlength="25" required>
 						</div>
-						<br>
-						<br>
-						<div class="form-group form-inline" id="div_team_category">
-							<label for="info_category" class="label label-default">프로젝트
-								분야</label> <br>
-							<div class="input-group category_type1">
-								<span class="input-group-addon"> <input type="radio"
-									name="category" value="스터디"
-									onclick="category_etc_true()"
-									aria-label="">
-								</span> <input type="text" class="form-control" aria-label=""
-									value="스터디" disabled="true">
-							</div>
-							<div class="input-group category_type1">
-								<span class="input-group-addon"> <input type="radio"
-									name="category" value="공모전"
-									onclick="category_etc_true()"
-									aria-label="">
-								</span> <input type="text" class="form-control" aria-label=""
-									value="공모전" disabled="true">
+						
+							<br>
+							<br>
+							<div class="form-group form-inline" id="div_team_category">
+								<label for="info_category" class="label label-default">프로젝트
+									분야</label> <br>
+								<div class="input-group category_type1">
+									<span class="input-group-addon"> <input type="radio"
+										name="category" value="스터디"
+										onclick="category_etc_true()"
+										aria-label="">
+									</span> <input type="text" class="form-control" aria-label=""
+										value="스터디" disabled="true">
+								</div>
+								<div class="input-group category_type1">
+									<span class="input-group-addon"> <input type="radio"
+										name="category" value="공모전"
+										onclick="category_etc_true()"
+										aria-label="">
+									</span> <input type="text" class="form-control" aria-label=""
+										value="공모전" disabled="true">
+								</div>
+								<!-- team_category=etc & team_category_etc = 텍스트값 -->
+								<div class="input-group">
+									<span class="input-group-addon"> <input type="radio"
+										name="category" value="etc"
+										onclick="category_etc_false()"
+										aria-label="">
+									</span> <input type="text" name="category_etc"
+										class="form-control category_type2" aria-label=""
+										placeholder="기타" id="team_category_etc" disabled="true">
+								</div>
+
 							</div>
 							<!-- team_category=etc & team_category_etc = 텍스트값 -->
 					<div class="input-group">

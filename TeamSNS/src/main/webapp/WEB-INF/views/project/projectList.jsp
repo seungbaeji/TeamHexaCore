@@ -6,7 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
-<title>Insert title here</title>
+<title>Let's Team! Project List</title>
 <link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
 <link href="../resources/realcss/fonts.css" rel="stylesheet" type="text/css"></link>
 </head>
@@ -15,9 +15,8 @@
 		<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
 		<div id="main-index">
 			<section class="content">
-				<div id="main-section">
 				<header class="districtset">
-				   <h4>지역선택</h4>
+				   <h1 style="font-size: 36px">Project List</h1>
 				      <ul class="district">
 				         <!-- <li id ="all">전체선택</li> -->
 				         <li id ="seoul">서울특별시 </li>
@@ -39,8 +38,11 @@
 				         <li id ="jeju">제주특별자치도 </li>
 				         <li id ="foreignCountry">해외</li>
 				      </ul>
+				    
 				</header>
-				<div class="block01"></div>
+				<div id="main-section">
+				
+				
 				<ul id="cardContainer">
 				<c:forEach var="vo" items="${projectCardList }">
 				<li class="projectCard">
