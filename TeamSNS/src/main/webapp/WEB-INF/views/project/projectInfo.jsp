@@ -109,54 +109,125 @@
    
     </style>
 </head>
+
 <body>
 <div id="container">
-		<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
-		<div id="main-index">
-			<section class="content">
-				<header>
-					<h1>프로젝트 관리</h1>
-				</header>
-				<div id="main-section">
-				
-				<!--여기서 부터 오빠코드입니다!!!!!!!!!! -->
-				<div class="projectList">
-					    <table class="table table-hover table-borerd">
-					         <tr>
-					             <td>카테고리</td>
-					             <td>프로젝트 이름</td>
-					             <td>프로젝트 소개</td>
-					             <td>시작일</td>
-					             <td>종료일</td>
-					         </tr>
-							 <c:forEach var ="vo" items="${projectList}">
-							 <tr id="${vo.rbno}" data-target="#myprojectModal" data-toggle="modal" class="projectOne">
-							 	<td>${vo.category}</td>
-							 	<td>${vo.pname}</td>
-							 	<td>${vo.intro}</td>
-							 	<td><fmt:formatDate value="${vo.start }" pattern="yy-MM-dd" /></td>
-							 	<td><fmt:formatDate value="${vo.end }" pattern="yy-MM-dd" /></td>
-							 	
-							 </tr>
-							 </c:forEach>
-							   
-					    </table>
-					    
-					    <br/>
-					    <br/>
-    
-				</div>
+	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
+	<div id="main-index">
+	<section class="content">
+		<header>
+			<h1>프로젝트 관리</h1>
+		</header>
+		
+		<div id="main-section">
+		<!--여기서 부터 오빠코드입니다!!!!!!!!!! -->
+			<div class="projectList">
+				<table class="table table-hover table-borerd">
+					<tr>
+					<td>카테고리</td>
+					<td>프로젝트 이름</td>
+					<td>프로젝트 소개</td>
+					<td>시작일</td>
+					<td>종료일</td>
+					</tr>
 
+					<c:forEach var ="vo" items="${projectList}">
+					<tr id="${vo.rbno}" data-target="#myprojectModal" data-toggle="modal" class="projectOne">
+					<td>${vo.category}</td>
+					<td>${vo.pname}</td>
+					<td>${vo.intro}</td>
+					<td><fmt:formatDate value="${vo.start }" pattern="yy-MM-dd" /></td>
+					<td><fmt:formatDate value="${vo.end }" pattern="yy-MM-dd" /></td>
+					</tr>
+					</c:forEach>
+				</table>
+				<br/><br/>
+			</div>
+			
+			<!-- 모달 팝업 -->
+			<div class="modal fade bs-example-modal-lg" id="myprojectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">팀관리</h4>
+				</div>
+				
+				<div class="modal-body">
+				<label class="label label-default">프로젝트 제목</label>
+				<input class="form-control" type="text" id="team_info_name" name="title" value="${dto.recruit.title }"/>
+				<label class="label label-default">프로젝트 이름</label>
+				<input class="form-control" type="text" id="team_name" name="pname"  value="${dto.project.pname }"/>
+				<label class="label label-default">카테고리</label>
+				<input class="form-control" type="text" id="team_category" name="category" value="${dto.project.category }"/>
+				<label for="team_intro" class="label label-default" id="label_team_intro">프로젝트 소개</label>
+				<textarea class="form-control" id="team_intro" cols="50" rows="5" name="intro">${dto.project.intro }</textarea>             
+				<label class="label label-default" id="label_project_date">프로젝트 기간</label>
+				<label class="label label-default" id="label_project_recruit_date">모집 기간</label>
+				<br/>
+				<div id="pro_start">
+				<label id="start_pro" class="label label-info day">시작일</label>
+				<input type="date" id="project_start" class="form-control" name="project_start" value="">
+				<label  id="pro_end" class="label label-info day">종료일</label>
+				<input type="date" id="project_end" class="form-control" name="end" value="">
+				</div>
+				<div>
+				<label id="prostart-label" class="label label-info day">시작일</label>
+				<input type="text" id="project_recruit_start" class="form-control datepicker" value = ""> 
+				<label class="label label-info day">종료일</label>
+				<input type="text" id="project_recruit_end" class="form-control datepicker" value=""/>
+				</div>
+				<label class="label label-default">활동 구역</label>
+				<input class="form-control" type="text" name="district" value="${dto.project.district }" id="team_area">
+				<label class="label label-default" id="label_team_part">모집 팀원 역할</label>
+				<div id="partList">
+					<!-- <input type="text" class="form-control team_part" maxlength="20" id="partlist" name="part" value="ㅁㄴㅇㅁㄴㅇ"> -->
+				</div> <br/>
+				<label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
+				<div>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill" name="required_skill_1"
+					value="${dto.skills.skill_1 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_2" name="required_skill_2"
+					value="${dto.skills.skill_2 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_3" name="required_skill_3"
+					value="${dto.skills.skill_3 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_4" name="required_skill_4"
+					value="${dto.skills.skill_4 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_5" name="required_skill_5"
+					value="${dto.skills.skill_5 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_6" name="required_skill_6"
+					value="${dto.skills.skill_6 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_7" name="required_skill_7"
+					value="${dto.skills.skill_7 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_8" name="required_skill_8"
+					value="${dto.skills.skill_8 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_9" name="required_skill_9"
+					value="${dto.skills.skill_9 }"/>
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_10" name="required_skill_10"
+					value="${dto.skills.skill_10 }"/>
+				<input id="updaterbno" type="hidden" value="${vo.rbno}">
+				</div>
+				</div>                
+				</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					<button  id="udpate-project-info"type="button" data-dismiss="modal" class="btn btn-primary">수정</button>
+				</div>
+				</div>
+			</div> <!-- end modal -->
+			
 <!-- 현선 :3c -->
 <!-- 내가 지원한 프로젝트 리스트 : 프로젝트 이름, 지원 코멘트, 지원 취소 < 버튼으로 팝업 띄어서 간단하게 처리 -->
 <div class = "myApplyList">
-	<table>
+	<table class="table table-hover table-borerd">
 		<tr>
 			<th>프로젝트 이름</th>
 			<th>지원 업무</th>
 			<th>지원 코멘트</th>
 			<th>신청일</th>
 			<th>지원 상태</th> <!-- 1: 신청중, 2: 신청수락, 3: 거절 -->
+			<th></th>
 		</tr>
 		
  		<c:forEach var="apply" items="${applyList }">
@@ -189,13 +260,15 @@
 <!-- 지원자 관리 :applicant -->
 <div class="myCandidateList">
 <!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
-	<table>
+	<table class="table table-hover table-borerd">
 		<tr>
 			<th>프로젝트 이름</th>
 			<th>지원 업무</th>
 			<th>지원자 아이디</th>
 			<th>지원자 코멘트</th>
 			<th>신청일</th>
+			<th></th>
+			<th></th>
 		</tr>
 		
 		
@@ -212,116 +285,15 @@
 		</tr>
 		</c:if>
 		</c:forEach>
-		
 	</table>
-
-
 </div>
- 
-    
-		    <!-- 모달 팝업 -->
-			<div class="modal fade bs-example-modal-lg" id="myprojectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-			  <div class="modal-dialog modal-lg">
-			    <div class="modal-content">
-			      <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">팀관리</h4>
-			      </div>
-			      <div class="modal-body">
-		              <label class="label label-default">프로젝트 제목</label>
-				        <input class="form-control" type="text" id="team_info_name" 
-						name="title" value="${dto.recruit.title }"/>
-		              <label class="label label-default">프로젝트 이름</label>
-		                <input class="form-control" type="text" id="team_name" 
-						name="pname"  value="${dto.project.pname }"/>
-		              <label class="label label-default">카테고리</label>
-		                <input class="form-control" type="text" id="team_category"
-						name="category" value="${dto.project.category }"/>
-		              <label for="team_intro" class="label label-default" id="label_team_intro">프로젝트 소개</label>
-		              <textarea class="form-control" id="team_intro" cols="50" rows="5"
-						name="intro">${dto.project.intro }</textarea>             
-		              <label class="label label-default" id="label_project_date">프로젝트 기간</label>
-		              <label class="label label-default" id="label_project_recruit_date">모집 기간</label>
-		              <br>
-		              
-		              <div id="pro_start">
-		              <label id="start_pro" class="label label-info day">시작일</label>
-		              <input type="date" id="project_start" class="form-control" name="project_start"
-		                        value="">
-						
-		              <label  id="pro_end" class="label label-info day">종료일</label>
-		              <input type="date" id="project_end" class="form-control" 
-						name="end" value="">
-		              </div>
-		              
-		                  
-		              <div>
-		                  
-		            <label id="prostart-label" class="label label-info day">시작일</label>
-					<input type="text" id="project_recruit_start" class="form-control datepicker" 
-						value = ""> 
-					<label class="label label-info day">종료일</label>
-					<input type="text" id="project_recruit_end" class="form-control datepicker" 
-						value=""/>
-					</div>
-		               <label class="label label-default">활동 구역</label>
-					<input class="form-control" type="text" name="district"
-						value="${dto.project.district }" id="team_area">
-		           <label class="label label-default" id="label_team_part">모집 팀원 역할</label>
-		           <div id="partList">
-							
-					<!-- <input type="text" class="form-control team_part" maxlength="20" id="partlist" name="part" value="ㅁㄴㅇㅁㄴㅇ"> -->
-						
-						</div> <br>
-		                  <label for="required_skill" class="label label-default" id="label_required_skill">업무관련 기술태그</label>
-		                   
-		                   <div>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill" name="required_skill_1"
-		                    	value="${dto.skills.skill_1 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_2" name="required_skill_2"
-		                    	value="${dto.skills.skill_2 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_3" name="required_skill_3"
-								value="${dto.skills.skill_3 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_4" name="required_skill_4"
-								value="${dto.skills.skill_4 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_5" name="required_skill_5"
-								value="${dto.skills.skill_5 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_6" name="required_skill_6"
-								value="${dto.skills.skill_6 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_7" name="required_skill_7"
-								value="${dto.skills.skill_7 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_8" name="required_skill_8"
-								value="${dto.skills.skill_8 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_9" name="required_skill_9"
-								value="${dto.skills.skill_9 }"/>
-							<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_10" name="required_skill_10"
-								value="${dto.skills.skill_10 }"/>
-							<input id="updaterbno" type="hidden" value="${vo.rbno}">
-						</div>
-		            </div>                
-			      </div>
-			      <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				<button  id="udpate-project-info"type="button" data-dismiss="modal" class="btn btn-primary">수정</button>
-			      </div>
-			    </div>
-			  </div>
-		</div><!-- end main-section -->
-
-	<!-- 			<footer>footer</footer> -->
-		
-		
-			</section>
-		</div>
-	<aside>날씨</aside>
+</div><!-- end main-section -->
+</section>
+</div>
+<!-- 	<aside>날씨</aside> -->
 </div> <!-- end container -->
-		   
-            
 
-    
-    
-    
-    <script>
+	<script>
                 
         $(document).ready(function(){
         	$('.logout').click(function(){
@@ -333,7 +305,8 @@
 				location = '/teamsns/register/project-register';
 			});
         	
-        	$("tr").click(function(){
+        	// $("tr") → $(".projectList tr") 로 수정 (hs)
+        	$(".projectList tr").click(function(){
         		
     			var rbno = $(this).attr('id');
     			console.log(rbno);
@@ -547,5 +520,6 @@
         
         
     </script>
+
 </body>
 </html>

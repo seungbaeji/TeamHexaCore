@@ -38,4 +38,11 @@ WHERE rownum between #{start } and #{end }
    UPDATE pentacore.qa_board SET title = #{title }, content = #{content}  
    WHERE bno = #{bno} 
    </update>
-  </mapper>
+
+<!-- 조회수 -->
+<update id="update_hits">
+UPDATE pentacore.qa_board SET hits = hits + 1 
+WHERE bno = #{bno }
+</update>   
+
+</mapper>
