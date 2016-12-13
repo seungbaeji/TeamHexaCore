@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
-<title>Insert title here</title>
+<title>Let's Team! Tip & Tech</title>
 <style>
 * {
 	font-size: 1.3rem;
@@ -201,7 +201,7 @@
 		<div id="main-index">
 			<section class="content">
 				<header>
-					<h2 id="tip">Tip And Tech</h2>
+					<h1 id="tip">Tip And Tech</h1>
 					<div id="btn">
 						<button id="btnNew" type="button" class="btn btn-primary">새
 							글 쓰기</button>

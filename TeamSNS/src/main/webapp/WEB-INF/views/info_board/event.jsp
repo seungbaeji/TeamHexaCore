@@ -53,7 +53,6 @@
 	}
 }
 
-
 #btn {
 	margin: 10px;
 	display: flex;
@@ -73,9 +72,6 @@ table, td, tr, th {
 	text-align: center;
 }
 
-th {
-	background-color: cornflowerblue;
-}
 
 #info_board_bno {
 	width: 10%;
