@@ -37,6 +37,7 @@
 }
 
 
+
 @media (min-width: 425px) {
 	#cd-lateral-nav {
 		flex-basis: 220px;
@@ -49,10 +50,12 @@ aside {
 	flex-shrink: 0;
 }
 
+/* 768px 이하 일 때: column으로 정렬됨 */
 .content {
 	display: flex;
 	flex-direction: column;
 }
+
 
 @media ( min-width : 768px) {
 	.content {

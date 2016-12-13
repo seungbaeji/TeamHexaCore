@@ -3,27 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-<!--
-<< name 목록 >>
-프로젝트 이름 : pname
-프로젝트 소개 : intro
-프로젝트 기간
-    시작일 : start
-    종료일 : end
-프로젝트 분야 : category
-모집 팀원 역할 : part 
-업무관련 기술태그 : skill
-주요 활동 지역 : district
-팀장 연락처 : phone
-팀장 이메일 : email
-<< id 목록 >>
-category_study
-category_contest
--->
 
 <head>
-<meta charset="UTF-8">
-<title>TeamRegi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
+	charset="UTF-8">
+<title>Let's Team! Project Register</title>
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
