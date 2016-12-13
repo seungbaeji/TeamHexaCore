@@ -21,9 +21,11 @@ public interface ProjectInfoDAO {
 	public abstract int update3(RequiredSkillVO vo);
 	
 	
-	// hshs
+	// hshs -----------
 	public abstract List<MyApplyDTO> select_myapply(String uid); // 지원한 프로젝트 관리
 	public abstract List<MyCandidateDTO> select_candidate(String uid); // 지원자 관리
-	public abstract int applyReject(String part_pk, String user_id);
+	
+	public abstract int applyReject(String part_pk, String user_id); // 지원자 거절
+	public abstract int applyAccept(String part_pk, String user_id);
 	
 } // end interface

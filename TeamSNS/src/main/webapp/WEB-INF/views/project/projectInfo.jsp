@@ -55,13 +55,16 @@
             left: 250px; */
             width: 100%;
             height: 500px; 
-            border: 1px solid black;
+            border: 1px solid darkgray;
             margin: 20px 0;
         }
         
         .myApplyList, .myCandidateList {
         	 margin: 20px 0;
         }
+        
+        	
+        
         #project_start{
             width: 150px;
             margin-right: 0;
@@ -264,6 +267,7 @@
 <!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
 	<table class="table table-hover table-borerd">
 		<tr>
+			<th hidden="hidden">파트PK</th>
 			<th>프로젝트 이름</th>
 			<th>지원 업무</th>
 			<th>지원자 아이디</th>
@@ -277,13 +281,14 @@
  		<c:forEach var="cc" items="${candidate }">
  		<c:if test="${cc.state eq 1 }">
 		<tr>
-			<td>${cc.pname }</td>
-			<td>${cc.part }</td>
-			<td>${cc.user_id }</td>
-			<td>${cc.comment }</td>
+			<td class="hs_candi_partpk" hidden="hidden">${cc.part_pk }</td>
+			<td class="hs_candi_pname">${cc.pname }</td>
+			<td class="hs_candi_part">${cc.part }</td>
+			<td class="hs_candi_userid">${cc.user_id }</td>
+			<td class="hs_candi_comment">${cc.comment }</td>
 			<td><fmt:formatDate value="${cc.apply_regdate }" pattern="yy-MM-dd" /></td>
-			<td><a href="#">수락</a></td>
-			<td><a href="/project/apply-reject">거절</a></td>
+			<td><button class="btnApplyAccept">수락</button></td>
+			<td><button class="btnApplyReject">거절</button></td>
 		</tr>
 		</c:if>
 		</c:forEach>
@@ -295,8 +300,72 @@
 <!-- 	<aside>날씨</aside> -->
 </div> <!-- end container -->
 
+<script>
+/* 현선 자바스크립트 */
+$(document).ready(function () {
+	
+	// 지원자 거절 버튼
+	$('.btnApplyReject').click(function () {
+/* 		 var temp = $(this).parent().parent().children('.part_1').text();
+		 alert(temp); */
+		var sel_partpk = $(this).parent().parent().children('.hs_candi_partpk').text();
+		var sel_userid = $(this).parent().parent().children('.hs_candi_userid').text();
+		console.log(sel_partpk);
+		$.ajax({
+			type: 'post',
+			url: 'apply-reject',
+			headers: {
+				'Content-Type' : 'application/json',
+				'X-HTTP-Method-Override' : 'POST'
+			},
+			data : JSON.stringify({
+				part_pk: sel_partpk,
+				user_id: sel_userid
+			}),
+			success: function(result) {
+				if(result == 1) {
+					alert('성공!');
+				}
+			}
+		 });
+		
+	}); // 지원 거절 버튼 처리
+	
+	// 지원 수락 버튼 처리
+	$('.btnApplyAccept').click(function() {
+		
+		var sel_partpk = $(this).parent().parent().children('.hs_candi_partpk').text();
+		var sel_userid = $(this).parent().parent().children('.hs_candi_userid').text();
+		console.log(sel_partpk);
+		
+		$.ajax({
+			type: 'post',
+			url: 'apply-accept',
+			headers: {
+				'Content-Type' : 'application/json',
+				'X-HTTP-Method-Override' : 'POST'
+			},
+			data : JSON.stringify({
+				part_pk: sel_partpk,
+				user_id: sel_userid
+			}),
+			success: function(result) {
+				if(result == 1) {
+					alert('성공!');
+				}
+				
+			}
+		 });
+		
+	}); 
+	
+	
+});
+
+</script>
+
 	<script>
-                
+/* 재훈형 자바스크립트 */                
         $(document).ready(function(){
         	$('.logout').click(function(){
 				alert('${login_id}님 로그아웃 되셧습니다!');

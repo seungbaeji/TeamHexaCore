@@ -79,6 +79,33 @@ public class ProjectInfoDAOImple implements ProjectInfoDAO {
 		int result = sqlsession.update(NAMESPCAE + ".apply-reject", args);
 		return result;
 	}
+	
+	// 지원자 수락
+	@Override
+	public int applyAccept(String part_pk, String user_id) {
+		Map<String, String> args = new HashMap<>();
+		args.put("part_pk", part_pk);
+		args.put("user_id", user_id);
+		
+		int fn_result = 0;
+		
+		int result1 = sqlsession.update(NAMESPCAE + ".apply-accept1", args);
+		logger.info("수락 : " + user_id + ", " + result1);
+		
+		if(result1 == 1) {
+			int result3 = sqlsession.update(NAMESPCAE + ".apply-accept3", args);
+			logger.info("파트 관리 디비 업데이트 : " + result3);
+			
+			if(result3 == 1) {
+				int result2 = sqlsession.update(NAMESPCAE + ".apply-accept2", part_pk);
+				logger.info("나머지 지원자들 자동 거절 : " + result2);
+				
+				fn_result = result2;
+			}
+		}
+		
+		return fn_result;
+	}
 
 	
 

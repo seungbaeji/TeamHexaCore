@@ -24,5 +24,6 @@ public interface ProjectInfoService {
 	public abstract List<MyApplyDTO> select_myapply(String uid); // 지원관리
 	public abstract List<MyCandidateDTO> select_mycandidate(String uid); // 지원자 관리
 	public abstract int apply_reject(String part_pk, String user_id); // 거절하기
+	public abstract int apply_accept(String part_pk, String user_id);
 		
 } // end interface

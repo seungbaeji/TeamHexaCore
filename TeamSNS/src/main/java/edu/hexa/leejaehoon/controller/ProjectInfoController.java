@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mysql.fabric.Response;
+
 import edu.hexa.leejaehoon.domain.MyApplyDTO;
 import edu.hexa.leejaehoon.domain.MyCandidateDTO;
 import edu.hexa.leejaehoon.domain.ProjectInfoVO;
@@ -29,7 +31,7 @@ import edu.hexa.teamsns.domain.RequiredSkillVO;
 import edu.penta.hyunsun.domain.RecruitDetailDTO;
 
 @Controller
-@RequestMapping(value="project")
+@RequestMapping(value="/project")
 public class ProjectInfoController {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectInfoController.class);
 	
@@ -60,11 +62,36 @@ public class ProjectInfoController {
 		
 	}
 	
+	
 	// hshs : 지원 거절 
-	@RequestMapping(value = "apply-reject")
-	public void applyReject() {
+	@RequestMapping(value = "apply-reject", method=RequestMethod.POST)
+	public ResponseEntity<Integer> applyReject(@RequestBody MyCandidateDTO dto) {
+		logger.info("part_pk: " + dto.getPart_pk() + ", user_id: " + dto.getUser_id());
 		
+		ResponseEntity<Integer> entity = null;
+		int result = projectInfoService.apply_reject(dto.getPart_pk(), dto.getUser_id());
+		if(result == 1 ) {
+			entity = new ResponseEntity<Integer>(1, HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
+	
+	@RequestMapping(value = "apply-accept", method=RequestMethod.POST)
+	public ResponseEntity<Integer> applyAccept(@RequestBody MyCandidateDTO dto) {
+		logger.info("part_pk : " + dto.getPart_pk() + ", user_id : " + dto.getUser_id());
+		
+		ResponseEntity<Integer> entity = null;
+		int result = projectInfoService.apply_accept(dto.getPart_pk(), dto.getUser_id());
+		if(result > 0) {
+			entity = new ResponseEntity<Integer>(1, HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<Integer>(0, HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	} // end applyAccept()
 	
 	
 	@RequestMapping(value="/recruitProjectUpdate/{rbno}", method=RequestMethod.POST)
