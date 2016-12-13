@@ -179,7 +179,7 @@ footer {
 				<ul class="sub-menu">
 					<li id="project-list"><a href="#0" >프로젝트 리스트</a></li>
 					<li id="project-register"><a href="#0">프로젝트 등록</a></li>
-					<li id=""><a href="#0">프로젝트 관리</a></li>
+					<li id="project-info"><a href="#0">프로젝트 관리</a></li>
 				</ul>
 			</li> <!-- item-has-children -->
 
@@ -476,7 +476,7 @@ footer {
                   <div id ="a" class="form-group has-feedback">
                       <label for="inputPassword3" class="col-sm-2 control-label">ID</label>
                           <div class="col-sm-10">
-                              <input type="text" class="form-control" id="uid" name="uid" placeholder="Id">
+                              <input type="text" class="form-control" id="uid" name="uid" placeholder="Id" onkeydown="fn_press_han(this);">
                               <span id="successC" class="" aria-hidden="true"></span>
                               <span id="failC" class="" aria-hidden="true"></span>
 	  						  <span id="successI" class="sr-only">사용 할 수 있는 아이디입니다.</span>
@@ -510,7 +510,7 @@ footer {
                   <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">phone</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" maxlength="13">
                     </div>
                   </div>
                   <div class="form-group has-feedback">
@@ -578,7 +578,7 @@ footer {
             </form>
 	      </div> <!--end body-->
 	      <div class="modal-footer">
-	      <button type="button" class="btn btn-default" id="signup">Sign Up</button>
+	      <button type="button" class="btn btn-primary" id="signup">Sign Up</button>
 		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		
 	      </div>
@@ -591,174 +591,227 @@ footer {
 	<script>
 		
 		$(document).ready(function() {
-							if ('${insert_result}' == 'success') {
-								alert('신규 회원 가입 성공!');
-							} else if ('${insert_result}' == 'fail') {
-								alert('신규 회원 가입 실패!');
-							}
+			if ('${insert_result}' == 'success') {
+				alert('신규 회원 가입 성공!');
+			} else if ('${insert_result}' == 'fail') {
+				alert('신규 회원 가입 실패!');
+			}
 
-							if ('${success}' == 'success') {
-								$('#signIn').hide();
-								$('#signUp').hide();
-							} else {
-								$('#logout').hide();
-								$('#myPage').hide();
-								$('#projectInfo').hide();
-								$('#project-register').hide();
-							}
+			if ('${success}' == 'success') {
+				$('#signIn').hide();
+				$('#signUp').hide();
+			} else {
+				$('#logout').hide();
+				$('#myPage').hide();
+				$('#project-info').hide();
+				$('#project-register').hide();
+			}
 
-							$('#logout').click(function() {
-								alert('${login_id}님 로그아웃 되셧습니다!');
-								location = '/teamsns/signup/logout';
-							});
+			$('#logout').click(function() {
+				alert('${login_id}님 로그아웃 되셧습니다!');
+				location = '/teamsns/signup/logout';
+			});
+			$('#myPage').click(function() {
+				location = '/teamsns/user/mypage';
+			});
 
-							$('#project-list').click(function() {
-								location = '/teamsns/project/projectList';
-							});
+			$('#project-list').click(function() {
+				location = '/teamsns/project/projectList';
+			});
 
-							$('#projectInfo').click(function() {
-								location = '/teamsns/project/projectInfo';
-							});
+			$('#projectInfo').click(function() {
+				location = '/teamsns/project/projectInfo';
+			});
 
-							$('#project-register').click(function() {
-								location = '/teamsns/register/project-register';
-							});
+			$('#project-register').click(function() {
+				location = '/teamsns/register/project-register';
+			});
 
-							$('#tipAndTech').click(function() {
-								location = '/teamsns/board/tipAndTech';
+			$('#tipAndTech').click(function() {
+				location = '/teamsns/board/tipAndTech';
+			});
+			$('#info_board_edu').click(function() {
+				location = '/teamsns/info_board/edu';
+			});
+			$('#info_board_event').click(function() {
+				location = '/teamsns/info_board/event';
+			});
+			$('#info_board_mentor').click(function() {
+				location = '/teamsns/info_board/mentor';
+			});
+			$('#qaBoard').click(function() {
+				location = '/teamsns/qaboard/qaBoard';
+			});	
+			$('#freeBoard').click(function() {
+				location = '/teamsns/freeboard/freeBoard';
+			});
+			$('#mainLogo').click(function() {
+				location = '/teamsns/signup/main-page';
+			});
+			
+			$("#start, #end").datepicker(
+					{
+						dateFormat : 'yymmdd',
+						monthNamesShort : [ '1월', '2월', '3월',
+								'4월', '5월', '6월', '7월', '8월',
+								'9월', '10월', '11월', '12월' ],
+						dayNamesMin : [ '일', '월', '화', '수',
+								'목', '금', '토' ],
+						changeMonth : true, //월변경가능
+						changeYear : true, //년변경가능
+						showMonthAfterYear : true
+					//년 뒤에 월 표시
+					});
+			/* 글자수 체크1 */
+			$('#pname, .part').keyup(function() {
+								if ($(this).val().length > $(this).attr('maxlength')) {
+									alert('제한길이 초과');
+									$(this).val($(this).val().substr(0,$(this).attr('maxlength')));
+								}
 							});
-							$('#info_board_edu').click(function() {
-								location = '/teamsns/info_board/edu';
-							});
-							$('#info_board_event').click(function() {
-								location = '/teamsns/info_board/event';
-							});
-							$('#info_board_mentor').click(function() {
-								location = '/teamsns/info_board/mentor';
-							});
-							$('#qaBoard').click(function() {
-								location = '/teamsns/qaboard/qaBoard';
-							});	
-							$('#freeBoard').click(function() {
-								location = '/teamsns/freeboard/freeBoard';
-							});
-							$('#mainLogo').click(function() {
-								location = '/teamsns/signup/main-page';
-							});
-							
-							$("#start, #end").datepicker(
-									{
-										dateFormat : 'yymmdd',
-										monthNamesShort : [ '1월', '2월', '3월',
-												'4월', '5월', '6월', '7월', '8월',
-												'9월', '10월', '11월', '12월' ],
-										dayNamesMin : [ '일', '월', '화', '수',
-												'목', '금', '토' ],
-										changeMonth : true, //월변경가능
-										changeYear : true, //년변경가능
-										showMonthAfterYear : true
-									//년 뒤에 월 표시
-									});
-							/* 글자수 체크1 */
-							$('#pname, .part').keyup(function() {
-												if ($(this).val().length > $(this).attr('maxlength')) {
-													alert('제한길이 초과');
-													$(this).val($(this).val().substr(0,$(this).attr('maxlength')));
-												}
-											});
-								
-							/* 회원가입 JS  */
-							$('#uid').change(function(){
-								
-						    		var uid = $("#uid").val();
-						    		console.log(uid);
-						    		$.ajax({
-						        		type:'post',
-						        	    url: '/teamsns/signup/selectId',
-						        	    headers: {
-						    				'Content-Type': 'application/json',
-						    				'X-Http-Method-Override': 'POST'
-						    			},
-						    			data: JSON.stringify({
-						    				uid: uid
-						    			}),
-						    			success: function(result){
-						    				if(result == 1){
-						    					console.log(result);
-						    					$('#a').addClass("has-error");
-						    					$('#a').removeClass("has-success");
-						    					$('#failI').removeClass("sr-only");
-						    					$('#failI').addClass("help-block");
-						    					$('#successI').addClass("sr-only");
-						    					$('#failC').addClass("glyphicon glyphicon-remove form-control-feedback");
-						    					$('#successC').removeClass("glyphicon glyphicon-ok form-control-feedback");
-						    				} else{
-						    					$('#a').addClass("has-success");
-						    					$('#a').removeClass("has-error");
-						    					$('#successI').removeClass("sr-only");
-						    					$('#successI').addClass("help-block");
-						    					$('#failI').addClass("sr-only");
-						    					$('#failC').removeClass("glyphicon glyphicon-remove form-control-feedback");
-						    					$('#successC').addClass("glyphicon glyphicon-ok form-control-feedback");
-						    				}
-						    			}
-						        	}); /* end ajax */
-						        	
-						    	}); /*  end uid */
-						    	
-								$('#nickName').change(function(){
-						    		
-						    		var nickname = $("#nickName").val();
-						    		console.log(nickName);
-						    		$.ajax({
-						        		type:'post',
-						        	    url: '/teamsns/signup/selectNick',
-						        	    headers: {
-						    				'Content-Type': 'application/json',
-						    				'X-Http-Method-Override': 'POST'
-						    			},
-						    			data: JSON.stringify({
-						    				nickname: nickname
-						    			}),
-						    			success: function(result){
-						    				if(result == 1){
-						    					console.log(result);
-						    					$('#b').addClass("has-error");
-						    					$('#b').removeClass("has-success");
-						    					$('#failN').removeClass("sr-only");
-						    					$('#failN').addClass("help-block");
-						    					$('#successN').addClass("sr-only");
-						    					$('#failD').addClass("glyphicon glyphicon-remove form-control-feedback");
-						    					$('#successD').removeClass("glyphicon glyphicon-ok form-control-feedback");
-						    				} else{
-						    					$('#b').addClass("has-success");
-						    					$('#b').removeClass("has-error");
-						    					$('#successN').removeClass("sr-only");
-						    					$('#successN').addClass("help-block");
-						    					$('#failN').addClass("sr-only");
-						    					$('#failD').removeClass("glyphicon glyphicon-remove form-control-feedback");
-						    					$('#successD').addClass("glyphicon glyphicon-ok form-control-feedback");
-						    					
-						    				}
-						    			}
-						        	}); /* end ajax */
-						        	
-						    	}); /*  end uid */
-						    	
-						    	$('#signup').click(function(){
-						    		var frm = $('#register');
-						    		var address = $('#address').val();
-						    		console.log(address);
-						    		
-						    		frm.attr('action', 'signup');
-									frm.attr('method', 'post');
-									console.log("업데이트 버튼 확인");
-									frm.submit();
-						    	}); /* submit */
-							
-							
-							
-						}); /*  end doucument */
+				
+			/* 회원가입 JS  */
+			$('#uid').change(function(){
+				
+		    		var uid = $("#uid").val();
+		    		console.log(uid);
+		    		$.ajax({
+		        		type:'post',
+		        	    url: '/teamsns/signup/selectId',
+		        	    headers: {
+		    				'Content-Type': 'application/json',
+		    				'X-Http-Method-Override': 'POST'
+		    			},
+		    			data: JSON.stringify({
+		    				uid: uid
+		    			}),
+		    			success: function(result){
+		    				if(result == 1){
+		    					console.log(result);
+		    					$('#a').addClass("has-error");
+		    					$('#a').removeClass("has-success");
+		    					$('#failI').removeClass("sr-only");
+		    					$('#failI').addClass("help-block");
+		    					$('#successI').addClass("sr-only");
+		    					$('#failC').addClass("glyphicon glyphicon-remove form-control-feedback");
+		    					$('#successC').removeClass("glyphicon glyphicon-ok form-control-feedback");
+		    				} else{
+		    					$('#a').addClass("has-success");
+		    					$('#a').removeClass("has-error");
+		    					$('#successI').removeClass("sr-only");
+		    					$('#successI').addClass("help-block");
+		    					$('#failI').addClass("sr-only");
+		    					$('#failC').removeClass("glyphicon glyphicon-remove form-control-feedback");
+		    					$('#successC').addClass("glyphicon glyphicon-ok form-control-feedback");
+		    				}
+		    			}
+		        	}); /* end ajax */
+		        	
+		    	}); /*  end uid */
+		    	
+				$('#nickName').change(function(){
+		    		
+		    		var nickname = $("#nickName").val();
+		    		console.log(nickName);
+		    		$.ajax({
+		        		type:'post',
+		        	    url: '/teamsns/signup/selectNick',
+		        	    headers: {
+		    				'Content-Type': 'application/json',
+		    				'X-Http-Method-Override': 'POST'
+		    			},
+		    			data: JSON.stringify({
+		    				nickname: nickname
+		    			}),
+		    			success: function(result){
+		    				if(result == 1){
+		    					console.log(result);
+		    					$('#b').addClass("has-error");
+		    					$('#b').removeClass("has-success");
+		    					$('#failN').removeClass("sr-only");
+		    					$('#failN').addClass("help-block");
+		    					$('#successN').addClass("sr-only");
+		    					$('#failD').addClass("glyphicon glyphicon-remove form-control-feedback");
+		    					$('#successD').removeClass("glyphicon glyphicon-ok form-control-feedback");
+		    				} else{
+		    					$('#b').addClass("has-success");
+		    					$('#b').removeClass("has-error");
+		    					$('#successN').removeClass("sr-only");
+		    					$('#successN').addClass("help-block");
+		    					$('#failN').addClass("sr-only");
+		    					$('#failD').removeClass("glyphicon glyphicon-remove form-control-feedback");
+		    					$('#successD').addClass("glyphicon glyphicon-ok form-control-feedback");
+		    					
+		    				}
+		    			}
+		        	}); /* end ajax */
+		        	
+		    	}); /*  end uid */
+		    	
+		    	$('#signup').click(function(){
+		    		var frm = $('#register');
+		    		var address = $('#address').val();
+		    		console.log(address);
+		    		
+		    		frm.attr('action', 'signup');
+					frm.attr('method', 'post');
+					console.log("업데이트 버튼 확인");
+					frm.submit();
+		    	}); /* submit */
+			
+			
+			
+		}); /*  end doucument */
+						
+		/* 한글입력 방지 */
+        function fn_press_han(obj) {
+            //좌우 방향키, 백스페이스, 딜리트, 탭키에 대한 예외
+            if (event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 46) return;
+            //obj.value = obj.value.replace(/[\a-zㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+            obj.value = obj.value.replace(/[\ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+        } /*  end 한글입력 방지 */
+        
+        /* 전화번호 입력 */
+        function autoHypenPhone(str) {
+            str = str.replace(/[^0-9]/g, '');
+            var tmp = '';
+            if (str.length < 4) {
+                return str;
+            }
+            else if (str.length < 7) {
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3);
+                return tmp;
+            }
+            else if (str.length < 11) {
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 3);
+                tmp += '-';
+                tmp += str.substr(6);
+                return tmp;
+            }
+            else {
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 4);
+                tmp += '-';
+                tmp += str.substr(7);
+                return tmp;
+            }
+            return str;
+        } /* end  autoHypenPhone */
+        var cellPhone = document.getElementById('phone');
+        cellPhone.onkeyup = function (event) {
+            event = event || window.event;
+            var _val = this.value.trim();
+            this.value = autoHypenPhone(_val);
+        } /* end cellphone */
+        
+        
+        
+        
 	</script>
 
 </body>

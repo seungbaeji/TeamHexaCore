@@ -107,6 +107,7 @@ form>div {
 .category_type1 {
 	width: 150px;
 }
+
 </style>
 
 <body>
@@ -120,11 +121,12 @@ form>div {
 				<div id="main-section">
 					<form action="project-register" method="post">
 							<div class="form-group form-inline" id="div-team-name">
-								<label for="team_name" class="label label-default">프로젝트
-									이름</label> <br> <input type="text" class="form-control"
-									id="team_name" name="pname" placeholder="Hexa_Core 25자 내로 작성"
+								<label for="team_name" class="label label-default">	이름</label>
+								 <br>
+								 <input type="text" class="form-control" id="team_name" name="pname" placeholder="Hexa_Core 25자 내로 작성"
 									maxlength="25" required>
 							</div>
+							<br>
 							<br>
 							<div class="form-group form-inline" id="div_team_category">
 								<label for="info_category" class="label label-default">프로젝트
