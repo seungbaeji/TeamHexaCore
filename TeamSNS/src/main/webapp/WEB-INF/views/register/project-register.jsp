@@ -150,7 +150,7 @@ form>div {
 								<!-- team_category=etc & team_category_etc = 텍스트값 -->
 								<div class="input-group">
 									<span class="input-group-addon"> <input type="radio"
-										name="category" value="etc"
+										name="category" value="기타"
 										onclick="category_etc_false()"
 										aria-label="">
 									</span> <input type="text" name="category_etc"

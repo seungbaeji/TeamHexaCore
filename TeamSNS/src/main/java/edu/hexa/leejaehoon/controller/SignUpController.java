@@ -1,5 +1,7 @@
 package edu.hexa.leejaehoon.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.hexa.leejaehoon.domain.SignUpVO;
 import edu.hexa.leejaehoon.service.SignUpService;
+import edu.hexa.seungbae.domain.MainPageInfoBoardDTO;
+import edu.hexa.seungbae.domain.MainPageProjectDTO;
+import edu.hexa.seungbae.domain.MainPageQABoardDTO;
+import edu.hexa.seungbae.domain.MainPageTTBoardDTO;
+import edu.hexa.seungbae.service.MainPageInfoBoardService;
+import edu.hexa.seungbae.service.MainPageProjectService;
+import edu.hexa.seungbae.service.MainPageQABoardService;
+import edu.hexa.seungbae.service.MainPageTTBoardService;
 import edu.hexa.teamsns.domain.UserVO;
 
 @Controller
@@ -24,12 +34,30 @@ public class SignUpController {
 	
 	@Autowired
 	private SignUpService signUpService;
+	@Autowired
+	private MainPageProjectService mppService;
+	@Autowired
+	private MainPageInfoBoardService mpiService;
+	@Autowired
+	private MainPageQABoardService mpqaService;
+	@Autowired
+	private MainPageTTBoardService mpttService;
+	
 	
 	@RequestMapping(value="main-page", method=RequestMethod.GET)
-	public void mainTest(){	
+	public void mainTest(Model model){
 		
+		List<MainPageInfoBoardDTO> mpiList = mpiService.read();
+		List<MainPageProjectDTO> mppList = mppService.read();
+		List<MainPageQABoardDTO> mpqaList = mpqaService.read();
+		List<MainPageTTBoardDTO> mpttList = mpttService.read();
 		
+		logger.info("projectList size: " + mppList.size());
 		
+		model.addAttribute("projectList", mppList);
+		model.addAttribute("infoList", mpiList);
+		model.addAttribute("qaList", mpqaList);
+		model.addAttribute("ttList", mpttList);		
 		logger.info("메인페이지 호출");
 //		return "main-page";
 	}
