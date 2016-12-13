@@ -99,7 +99,7 @@ ul {
 				<div id="main-section">
 
 
-					<div id="tt_table">
+					<div class="table-responsive" id="tt_table">
 						<table class="table table-bordered ">
 							<tr>
 								<th id="one">글번호</th>
