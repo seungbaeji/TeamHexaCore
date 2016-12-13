@@ -91,6 +91,7 @@ Main components
 	  transform: translateX(260px);
 	}
 }
+
 /* 평소에는 mainHeader 숨겨놓기 */
 #mainHeader {
 	display: none;
@@ -143,7 +144,6 @@ Main components
     height: 70px;
   }
 }
-
 #cd-logo {
   display: block;
   float: left;

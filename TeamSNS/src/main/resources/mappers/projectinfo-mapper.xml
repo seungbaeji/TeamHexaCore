@@ -73,17 +73,17 @@ ON project.pid = search.pid
 
 <!-- 신청 수락 -->
 <!-- 1. 수락한  part_pk 랑 user_id 받아와서 상태변경 (2: 수락) -->
-<update id="apply-ok1">
+<update id="apply-accept1">
 UPDATE pentacore.manage_recruit SET state = 2 
 WHERE part_pk = #{part_pk} AND user_id = #{user_id}
 </update>
 <!-- 2. 다른 지원자들 상태 3으로 변경(거절) -->
-<update id="apply-ok2">
+<update id="apply-accept2">
 UPDATE pentacore.manage_recruit SET state = 3
 WHERE part_pk = #{part_pk} AND state = 1
 </update>
 <!-- 3.manage_project_part에 user_id 추가 -->
-<update id="apply-ok3">
+<update id="apply-accept3">
 UPDATE pentacore.manage_project_part 
 SET user_id = #{user_id }
 WHERE part_pk = #{part_pk}
@@ -92,7 +92,7 @@ WHERE part_pk = #{part_pk}
 <!-- 거절 -->
 <update id="apply-reject">
 UPDATE pentacore.manage_recruit SET state = 3
-WHERE part_pk = #{part_pk} AND user_id = #{user_id]
+WHERE part_pk = #{part_pk} AND user_id = #{user_id}
 </update>
 
 </mapper>

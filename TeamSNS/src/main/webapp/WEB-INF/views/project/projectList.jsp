@@ -93,7 +93,7 @@
 		
 		</section>
 		</div>
-	<aside>날씨</aside>
+		<aside>날씨</aside>
 	</div>
 	<!-- 모달 팝업 -->
 	<div class="modal fade bs-example-modal-lg" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

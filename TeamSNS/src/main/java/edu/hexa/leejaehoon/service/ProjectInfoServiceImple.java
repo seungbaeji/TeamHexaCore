@@ -65,4 +65,9 @@ public class ProjectInfoServiceImple implements ProjectInfoService {
 		return dao.applyReject(part_pk, user_id);
 	}
 	
+	@Override
+	public int apply_accept(String part_pk, String user_id) {
+		return dao.applyAccept(part_pk, user_id);
+	}
+	
 }

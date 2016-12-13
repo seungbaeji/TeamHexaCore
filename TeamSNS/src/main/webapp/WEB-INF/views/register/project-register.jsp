@@ -3,27 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-<!--
-<< name 목록 >>
-프로젝트 이름 : pname
-프로젝트 소개 : intro
-프로젝트 기간
-    시작일 : start
-    종료일 : end
-프로젝트 분야 : category
-모집 팀원 역할 : part 
-업무관련 기술태그 : skill
-주요 활동 지역 : district
-팀장 연락처 : phone
-팀장 이메일 : email
-<< id 목록 >>
-category_study
-category_contest
--->
 
 <head>
-<meta charset="UTF-8">
-<title>TeamRegi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"
+	charset="UTF-8">
+<title>Let's Team! Project Register</title>
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -41,8 +25,6 @@ category_contest
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <style>
-
-
 @media ( min-width : 768px) {
 	.content {
 		padding: 40px;
@@ -54,10 +36,11 @@ category_contest
 		padding: 20px;
 	}
 }
+
 #main-section {
 	width: 100%;
-	
 }
+
 form>div {
 	margin: 20px;
 	font-size: 25px;
@@ -66,15 +49,15 @@ form>div {
 .form-control {
 	font-size: 20px;
 }
-/* 
+
 #team_name {
-	width: 480px;
+	width: 100%;
 }
- */
+
 .day, .leader {
 	/* 시작일 / 종료일, 팀장 전화번호 / 이메일 라벨  / 카카오톡 */
 	font-size: 15px;
-} 
+}
 
 #project_start, #project_end, #project_recruit_start,
 	#project_recruit_end {
@@ -107,68 +90,64 @@ form>div {
 .category_type1 {
 	width: 150px;
 }
-
 </style>
 
 <body>
 	<div id="container">
-	<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
-	<div id="main-index">
-		<section class="content">
-			<header>
-				<h1>프로젝트 등록</h1>
-			</header>
-			<div id="main-section">
-				<form action="project-register" method="post">
-						<div class="form-group form-inline" id="div-team-name">
-							<label for="team_name" class="label label-default">	이름</label>
-							 <br>
-							 <input type="text" class="form-control" id="team_name" name="pname" placeholder="Hexa_Core 25자 내로 작성"
-								maxlength="25" required>
-						</div>
-						
-							<br>
-							<br>
-							<div class="form-group form-inline" id="div_team_category">
-								<label for="info_category" class="label label-default">프로젝트
-									분야</label> <br>
-								<div class="input-group category_type1">
-									<span class="input-group-addon"> <input type="radio"
-										name="category" value="스터디"
-										onclick="category_etc_true()"
-										aria-label="">
-									</span> <input type="text" class="form-control" aria-label=""
-										value="스터디" disabled="true">
-								</div>
-								<div class="input-group category_type1">
-									<span class="input-group-addon"> <input type="radio"
-										name="category" value="공모전"
-										onclick="category_etc_true()"
-										aria-label="">
-									</span> <input type="text" class="form-control" aria-label=""
-										value="공모전" disabled="true">
-								</div>
-								<!-- team_category=etc & team_category_etc = 텍스트값 -->
-								<div class="input-group">
-									<span class="input-group-addon"> <input type="radio"
-										name="category" value="etc"
-										onclick="category_etc_false()"
-										aria-label="">
-									</span> <input type="text" name="category_etc"
-										class="form-control category_type2" aria-label=""
-										placeholder="기타" id="team_category_etc" disabled="true">
-								</div>
+		<jsp:include page="../signup/include.jsp" flush="false"></jsp:include>
+		<div id="main-index">
+			<section class="content">
+				<header>
+					<h1>프로젝트 등록</h1>
+				</header>
 
+				<form action="project-register" method="post">
+					<div id="main-section">
+						<div class="form-group form-inline" id="div-team-name">
+							<label for="team_name" class="label label-default"> 이름</label> <br>
+							<input type="text" class="form-control" id="team_name"
+								name="pname" placeholder="Hexa_Core 25자 내로 작성" maxlength="25"
+								required>
+						</div>
+						<br> <br>
+						<div class="form-group form-inline" id="div_team_category">
+							<label for="info_category" class="label label-default">프로젝트
+								분야</label> <br>
+							<div class="input-group category_type1">
+								<span class="input-group-addon"> <input type="radio"
+									name="category" value="스터디" onclick="category_etc_true()"
+									aria-label="">
+								</span> <input type="text" class="form-control" aria-label=""
+									value="스터디" disabled="true">
+							</div>
+							<div class="input-group category_type1">
+								<span class="input-group-addon"> <input type="radio"
+									name="category" value="공모전" onclick="category_etc_true()"
+									aria-label="">
+								</span> <input type="text" class="form-control" aria-label=""
+									value="공모전" disabled="true">
 							</div>
 							<!-- team_category=etc & team_category_etc = 텍스트값 -->
-					<div class="input-group">
-						<span class="input-group-addon">
-						 <input id="btnetc" type="radio" name="category" value="" onclick="category_etc_false()" aria-label="">
-						</span> 
-						<input type="text" name="category_etc"class="form-control category_type2" aria-label="" placeholder="기타" id="team_category_etc"
-						maxlength="8">
-					</div>
+							<div class="input-group">
+								<span class="input-group-addon"> <input type="radio"
+									name="category" value="etc" onclick="category_etc_false()"
+									aria-label="">
+								</span> <input type="text" name="category_etc"
+									class="form-control category_type2" aria-label=""
+									placeholder="기타" id="team_category_etc" disabled="true">
+							</div>
+
 						</div>
+						<!-- team_category=etc & team_category_etc = 텍스트값 -->
+						<div class="input-group">
+							<span class="input-group-addon"> <input id="btnetc"
+								type="radio" name="category" value=""
+								onclick="category_etc_false()" aria-label="">
+							</span> <input type="text" name="category_etc"
+								class="form-control category_type2" aria-label=""
+								placeholder="기타" id="team_category_etc" maxlength="8">
+						</div>
+
 						<br>
 						<div id="div_team_intro">
 							<label for="team_intro" class="label label-default"
@@ -213,16 +192,16 @@ form>div {
 							<label class="label label-default" id="label_team_part">모집
 								팀원 역할</label>
 							<div>
-								<input type="text" class="form-control team_part"
-									maxlength="20" name="part1" id="team_part_1"
-									placeholder="팀장 역할" required> <input type="text"
-									class="form-control team_part" maxlength="20" name="part2">
-								<input type="text" class="form-control team_part"
-									maxlength="20" name="part3"> <input type="text"
-									class="form-control team_part" maxlength="20" name="part4">
-								<input type="text" class="form-control team_part"
-									maxlength="20" name="part5"> <input type="text"
-									class="form-control team_part" maxlength="20" name="part6">
+								<input type="text" class="form-control team_part" maxlength="20"
+									name="part1" id="team_part_1" placeholder="팀장 역할" required>
+								<input type="text" class="form-control team_part" maxlength="20"
+									name="part2"> <input type="text"
+									class="form-control team_part" maxlength="20" name="part3">
+								<input type="text" class="form-control team_part" maxlength="20"
+									name="part4"> <input type="text"
+									class="form-control team_part" maxlength="20" name="part5">
+								<input type="text" class="form-control team_part" maxlength="20"
+									name="part6">
 							</div>
 						</div>
 						<br>
@@ -304,23 +283,23 @@ form>div {
 						</div>
 						<br>
 						<div>
-							<input id="btnregister" type="submit" class="btn btn-primary btn-lg" value="등록하기">
+							<input id="btnregister" type="submit"
+								class="btn btn-primary btn-lg" value="등록하기">
 						</div>
+					</div><!-- end main-section -->
 				</form>
-			</div><!-- end main-section -->
 
-			<footer>footer</footer>
-	
-	
-	</section>
+
+				<footer>footer</footer>
+
+
+			</section>
+			<aside>날씨</aside>
+		</div>
 	</div>
-<aside>날씨</aside>
-</div>
-
-
 	<script>
 
-	/* 글자수 체크2 */
+   /* 글자수 체크2 */
     function fnChkByte(obj, maxByte) {
         var str = obj.value;
         var str_len = str.length;
@@ -360,20 +339,20 @@ form>div {
         }
         /* 
         window.onload = function(){
-        	var team_category_etc = document.getElementById('team_category_etc');
+           var team_category_etc = document.getElementById('team_category_etc');
             team_category_etc.disabled = "true";
-        	var team_category_etc = document.getElementById('team_category_etc');
+           var team_category_etc = document.getElementById('team_category_etc');
             team_category_etc.disabled = "false";
         }  */
-		
+      
         $(document).ready(function(){
-        	
-        	$('#btnregister').click(function(){
-        		var etc = $('#team_category_etc').val();
-            	
-            	$('#btnetc').val(etc);
-        	});
-        	
+           
+           $('#btnregister').click(function(){
+              var etc = $('#team_category_etc').val();
+               
+               $('#btnetc').val(etc);
+           });
+           
         });
 
     </script>
