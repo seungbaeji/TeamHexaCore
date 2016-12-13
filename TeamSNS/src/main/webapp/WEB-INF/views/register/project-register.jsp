@@ -153,7 +153,7 @@ form>div {
 										aria-label="">
 									</span> <input type="text" name="category_etc"
 										class="form-control category_type2" aria-label=""
-										placeholder="기타" id="team_category_etc">
+										placeholder="기타" id="team_category_etc" disabled="true">
 								</div>
 							</div>
 							<br>
