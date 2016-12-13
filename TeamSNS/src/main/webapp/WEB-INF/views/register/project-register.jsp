@@ -256,7 +256,6 @@ form>div {
 						<div class="form-group">
 							<label class="label label-default" id="label-team-area">주요
 								활동 지역</label> <br> <select name="district">
-								<option value="전국" selected="selected">전국</option>
 								<option value="서울특별시">서울시</option>
 								<option value="부산광역시">부산시</option>
 								<option value="대구광역시">대구시</option>

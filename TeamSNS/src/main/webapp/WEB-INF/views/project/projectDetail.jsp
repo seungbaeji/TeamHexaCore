@@ -61,7 +61,7 @@
         top: 20px;
         width: 520px;
         margin: 20px;
-        background-color: aqua;
+        border: 1px solid darkgray;
         font-size: 20px;
     }
     

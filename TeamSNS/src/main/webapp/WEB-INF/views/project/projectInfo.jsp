@@ -73,7 +73,7 @@
         #project_end{
             width: 150px;
             position: relative;
-            left: -80px;
+            left:0
         }
         #pro_start{
             float: left;
@@ -84,7 +84,7 @@
             margin-left: 25px; 
         }
         #project_start{
-            left: -80px;
+            left: 0;
         }
         #project_recruit_start{
             width: 150px;

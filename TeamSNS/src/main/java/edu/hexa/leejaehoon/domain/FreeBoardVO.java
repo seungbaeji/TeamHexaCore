@@ -1,17 +1,19 @@
 package edu.hexa.leejaehoon.domain;
 
+import java.util.Date;
+
 public class FreeBoardVO {
 
 	private int bno;
 	private String title;
 	private String content;
 	private String writer_uid;
-	private String regdate;
+	private Date regdate;
 	private int hits;
 	
 	public FreeBoardVO(){}
 
-	public FreeBoardVO(int bno, String title, String content, String writer_uid, String regdate, int hits) {
+	public FreeBoardVO(int bno, String title, String content, String writer_uid, Date regdate, int hits) {
 		
 		this.bno = bno;
 		this.title = title;
@@ -53,11 +55,11 @@ public class FreeBoardVO {
 		this.writer_uid = writer_uid;
 	}
 
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 

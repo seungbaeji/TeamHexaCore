@@ -228,7 +228,10 @@ function projectListCallback(result){
             });
          }
          
-         cardList +='<li class="projectCard">'
+         cardList +='<li id ="'
+             		 + this.rbno
+             		 + '">'
+             		 + 'class="projectCard">'
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'
                      + '<p class=districtOfProject>'
@@ -236,8 +239,6 @@ function projectListCallback(result){
                      + '<p class="category">'
                      + this.category+'</p>'
                      + '<p class="title">'
-                     + '<a href="'
-                     + this.rbno + '">'
                      + this.title + '</a></p>'
                      + '<p class="pname">'
                      + this.pname + '</p>'
