@@ -7,21 +7,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
-<title>Insert title here</title>
+<title>Let's Team! Information</title>
 </head>
-<!--
-    << name 목록>>
-    글번호 : ionfo_board_bno
-    글제목 : info_title
-    카테고리 : info_category
-    URL : info_url
-    작성자 : info_id
-    마감일자 : info_end
-    << 라디오 value >>
-    창업교육
-    멘토링
-    행사
-    -->
 <style>
 * {
 	font-size: 1.3rem;
@@ -57,10 +44,7 @@ table {
 table, td, tr, th {
 	border: 1px solid;
 	text-align: center;
-}
-
-th {
-	background-color: cornflowerblue;
+	background-color: white:
 }
 
 #info_board_bno {
@@ -279,47 +263,35 @@ th {
 	</div>
 	<!-- end container -->
 	<script>
-		$(document)
-				.ready(
-						function() {
-							var frm = $("#pageForm");
+		$(document).ready(
+				function() {
+					var frm = $("#pageForm");
 
-							$(".page-links li a").click(function() {
-								event.preventDefault();
-								var targetPage = $(this).attr("href");
-								frm.find("[name='page']").val(targetPage);
-								frm.attr("action", "edu");
-								frm.attr("method", "get");
-								frm.submit();
-							});
+					$(".page-links li a").click(function() {
+						event.preventDefault();
+						var targetPage = $(this).attr("href");
+						frm.find("[name='page']").val(targetPage);
+						frm.attr("action", "edu");
+						frm.attr("method", "get");
+						frm.submit();
+					});
 
-							/* 폼 초기화 */
-							$("#btnReset").click(function() {
-								$("form").each(function() {
-									this.reset();
-								});
-							});
-							/* 글자길이 체크 */
-							$('#info_register_title, #info_register_id')
-									.keyup(
-											function() {
-												if ($(this).val().length > $(
-														this).attr('maxlength')) {
-													alert('제한길이 초과');
-													$(this)
-															.val(
-																	$(this)
-																			.val()
-																			.substr(
-																					0,
-																					$(
-																							this)
-																							.attr(
-																									'maxlength')));
-												}
-											});
-
+					/* 폼 초기화 */
+					$("#btnReset").click(function() {
+						$("form").each(function() {
+							this.reset();
 						});
+					});
+					/* 글자길이 체크 */
+					$('#info_register_title, #info_register_id').keyup(function() {
+						if ($(this).val().length > $(this).attr('maxlength')) {
+							alert('제한길이 초과');
+							$(this).val($(this).val()
+							.substr(0,$(this).attr('maxlength')));
+						}
+					});
+
+	});
 		/* 상시모집 체크박스 */
 		function checkDisable() {
 			var info_end_every = document.getElementById('info_end_every');
