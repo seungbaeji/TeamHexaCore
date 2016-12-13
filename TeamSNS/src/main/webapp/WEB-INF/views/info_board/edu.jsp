@@ -171,7 +171,7 @@ th {
 							</tr>
 						</c:forEach>
 					</table>
-					<ul class="page-links list_ul">
+					<ul class="page-links list_ul pager">
 						<c:if test="${pageMaker.hasPrev }">
 							<li class="list_li"><a href="${pageMaker.startPageNum -1 }">이전</a></li>
 						</c:if>

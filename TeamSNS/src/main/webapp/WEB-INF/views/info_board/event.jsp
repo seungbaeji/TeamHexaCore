@@ -167,7 +167,7 @@ th {
 					</div>
 				</header>
 				<div id="main-section">
-					<table>
+					<table class="table table-bordered ">
 						<tr>
 							<th class="table_th">글번호</th>
 							<th class="table_th">글제목</th>
@@ -186,7 +186,7 @@ th {
 							</tr>
 						</c:forEach>
 					</table>
-					<ul class="page-links list_ul">
+					<ul class="page-links list_ul pager">
 						<c:if test="${pageMaker.hasPrev }">
 							<li class="list_li"><a href="${pageMaker.startPageNum -1 }">이전</a></li>
 						</c:if>
