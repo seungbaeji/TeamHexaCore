@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
+    <title>Let's Team! Project Management</title>
 
 <link rel="stylesheet" href="../resources/realcss/sidemenu.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -30,18 +30,15 @@
 		@media ( max-width : 767px) {
 			.content {
 			padding: 20px;
-		}
+			}
 		}
 		#main-section {
 			width: 100%;
+			display: flex;
+			flex-direction: column;
 		}
-	
+		
     	/* 민지가 추가 */
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        
         .projectOne{
         	cursor: pointer;
         }
@@ -59,6 +56,11 @@
             width: 100%;
             height: 500px; 
             border: 1px solid black;
+            margin: 20px 0;
+        }
+        
+        .myApplyList, .myCandidateList {
+        	 margin: 20px 0;
         }
         #project_start{
             width: 150px;
@@ -116,7 +118,7 @@
 	<div id="main-index">
 	<section class="content">
 		<header>
-			<h1>프로젝트 관리</h1>
+			<h1>Project Management</h1>
 		</header>
 		
 		<div id="main-section">
@@ -288,8 +290,8 @@
 	</table>
 </div>
 </div><!-- end main-section -->
-</section>
-</div>
+	</section>
+	</div>
 <!-- 	<aside>날씨</aside> -->
 </div> <!-- end container -->
 

@@ -30,8 +30,10 @@
 
 @media ( max-width : 767px) {
 	.content {
-		padding: 20px;
+		padding: 12px;
 	}
+	
+	
 }
 #btn {
 	margin: 10px;
@@ -104,9 +106,9 @@ ul {
 				<div id="main-section">
 
 
-					<div id="tt_table">
+					<div class="table-responsive" id="tt_table">
 						<table class="table table-bordered ">
-							<tr>
+							<tr id="ttTest">
 								<th id="one">글번호</th>
 								<th id="two">제목</th>
 								<th id="three">작성자</th>
@@ -115,13 +117,13 @@ ul {
 								<th id="six">조회수</th>
 
 							</tr>
-							<fmt:formatDate value="${VO.regdate}" pattern="yy-MM-dd" var="rcend"/>
 							<c:forEach var="VO" items="${tiplist}">
 								<tr>
 									<td>${VO.bno}</td>
 									<td><a href="${VO.bno}">${VO.title}</a></td>
 									<td>${VO.writer_uid}</td>
-									<td id="ttregdate">${VO.regdate}</td>
+									<fmt:formatDate value="${VO.regdate}" pattern="yy-MM-dd" var="regdate"/>
+									<td id="ttregdate">${regdate}</td>
 									<td>${VO.recommend}</td>
 									<td>${VO.hits}</td>
 								</tr>
