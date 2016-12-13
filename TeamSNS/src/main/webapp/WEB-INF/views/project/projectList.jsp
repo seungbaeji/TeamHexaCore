@@ -9,6 +9,11 @@
 <title>Let's Team! Project List</title>
 <link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
 <link href="../resources/realcss/fonts.css" rel="stylesheet" type="text/css"></link>
+<style>
+	#part1{
+		visibility: visible;
+	}
+</style>
 </head>
 <body>
 	<div id="container">
@@ -137,10 +142,10 @@
 			<div class="form-group form-inline">
 			<label class="label label-info day">시작일</label>
 			<input type="text" id="project_recruit_start" class="form-control datepicker" 
-				value = "<fmt:formatDate value="${dto.recruit.rcstart }" pattern="yy-MM-dd" />"> ~
+				value = ""> ~
 			<label class="label label-info day">종료일</label>
 			<input type="text" id="project_recruit_end" class="form-control datepicker" 
-				value="<fmt:formatDate value="${dto.recruit.rcend }" pattern="yy-MM-dd" />"/>
+				value=""/>
 			</div>
 			</div><br/>
 		    
@@ -166,23 +171,23 @@
 			<div>
 				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill" name="required_skill_1"
                     value="${dto.skills.skill_1 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_2"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_2" name="required_skill_2"
 					value="${dto.skills.skill_2 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_3"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_3" name="required_skill_3"
 					value="${dto.skills.skill_3 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_4"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_4" name="required_skill_4"
 					value="${dto.skills.skill_4 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_5"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_5" name="required_skill_5"
 					value="${dto.skills.skill_5 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_6"
+				<input type="text" class="form-control required_skill" maxlength="10"  id="required_skill_6" name="required_skill_6"
 					value="${dto.skills.skill_6 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_7"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_7" name="required_skill_7"
 					value="${dto.skills.skill_7 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_8"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_8" name="required_skill_8"
 					value="${dto.skills.skill_8 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_9"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_9" name="required_skill_9"
 					value="${dto.skills.skill_9 }" readonly="readonly"/>
-				<input type="text" class="form-control required_skill" maxlength="10" name="required_skill_10"
+				<input type="text" class="form-control required_skill" maxlength="10" id="required_skill_10" name="required_skill_10"
 					value="${dto.skills.skill_10 }" readonly="readonly"/>
 			</div>
 		    <hr/>
@@ -207,32 +212,23 @@
 		      
 		      <div>
                 <label>모집 팀원 현황</label>
-                <table class="table">
-                    <tr>
+                
+                <table id="partTest" class="table">
+                    	<tr id="part1">
                         <th class="table_member_name">이름</th>
                         <th>ID</th>
                         <th id="table_member_part">역할</th>
                         </tr>
-
-                        <c:forEach var="parts" items="${dto.parts }">
-                            <c:if test="${parts.user_id  ne null}">
-                                <tr>
-                                    <td>${parts.name }</td>
-                                    <th>${parts.user_id }</th>
-                                    <td>${parts.part }</td>
-                                </tr>
-                            </c:if>
-                        </c:forEach>
                 </table>
+                
+                
 		      </div>
                                            
             <form action="apply-project" method="POST">
-                <select name="part_pk" class="">
-                    <c:forEach var="parts" items="${dto.parts }">
-                        <c:if test="${parts.user_id eq null}">
-                            <option value="${parts.part_pk}">${parts.part}</option>
-                        </c:if>
-                    </c:forEach>
+                <select id="partselect" name="part_pk" class="">
+                    
+                      <option value="${parts.part_pk}">${parts.part}</option>
+                    
                 </select>
                 <input type="text" name="comment" placeholder="지원자 코맨트:3c"/><br/><br>
                 <input type="text" name="user_id" value="${user_id}" hidden="hidden" />
@@ -272,16 +268,20 @@
 					
 					console.log(result);
 					console.log(result.recruit.title);
+					
 				    var title = result.recruit.title;
 					var pname = result.project.pname;
 					var category = result.project.category;
 					var intro = result.project.intro;
+					
 					var start = result.project.start;
 					var end = result.project.end;
-					var rcstart = result.recruit.start;
-					var rcend = result.recruit.end;
+					var rcstart = result.recruit.rcstart;
+					var rcend = result.recruit.rcend;
+					
 					var district = result.project.district;
 					var part = result.parts.part;
+					
 					var skill_1 = result.skills.skill_1;
 					var skill_2 = result.skills.skill_2;
 					var skill_3 = result.skills.skill_3;
@@ -293,10 +293,14 @@
 					var skill_9 = result.skills.skill_9;
 					var skill_10 =result.skills.skill_10;
 					
-					var teamname =result.team_leader.name
-					var teamemail =result.team_leader.email;
-					var teamkkoid =result.team_leader.kkoid;
-					var teamphone =result.team_leader.phone;
+					var teamname = result.team_leader.name;
+					var teamemail = result.team_leader.email;
+					var teamkkoid = result.team_leader.kkoid;
+					var teamphone = result.team_leader.phone;
+					
+					
+					
+					console.log(teamname);
 					
 					/* var name
 					var user_id
@@ -310,7 +314,7 @@
 					$('#project_end').val(end);
 					$('#project_recruit_start').val(rcstart);
 					$('#project_recruit_end').val(rcend);
-					$('#district').val(district);
+					$('#team_area').val(district);
 					$('#required_skill').val(skill_1);
 					$('#required_skill_2').val(skill_2);
 					$('#required_skill_3').val(skill_3);
@@ -321,13 +325,34 @@
 					$('#required_skill_8').val(skill_8);
 					$('#required_skill_9').val(skill_9);
 					$('#required_skill_10').val(skill_10);
-					$('#teamname').val(teamname);
-					$('#teamkkoid').val(teamemail);
-					$('#teamemail').val(teamkkoid);
-					$('#teamphone').val(teamphone);
+					$('#teamname').html(teamname);
+					$('#teamkkoid').html(teamemail);
+					$('#teamemail').html(teamkkoid);
+					$('#teamphone').html(teamphone);
 					
 					
 					
+					
+				var list = '';
+				var list2 = '';
+				var i = result.parts.length;
+				console.log(i);
+   				console.log(result.parts[0].name);
+   				 $(result.parts).each(function(i){
+
+							 list += '<tr><td>'+result.parts[i].name +'</td><th>'+result.parts[i].user_id 
+							 +'</th><td>'+result.parts[i].part +'</td></tr>'
+   				});
+   				
+   				$('#partTest').html(list);
+   				console.log(list);
+   				
+   				$(result.parts).each(function(i){
+
+					 list2 += '<option value="' +result.parts[i].part_pk +'">' +result.parts[i].part + '</option>';
+				});
+   				
+   				$('#partselect').html(list2);
 					
 				} /* end project  */ 
 				
