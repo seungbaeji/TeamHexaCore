@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page errorPage="/error/viewErrorMessage.jsp"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
-<title>Main Page</title>
+<title>Let's Team!</title>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -155,6 +159,13 @@ footer {
 	margin: 
 	
 }
+.main_header {
+	display: flex;
+	flex-direction: row;
+}
+.section_header {
+	padding-left: 5px;
+}
 </style>
 </head>
 <body>
@@ -272,138 +283,68 @@ footer {
 				<!-- 메인섹션 시작 테이블 4개  -->
 				<div id="main-section">
 					<div id="section1">
-						<div class="label label-info main_table_caption">프로젝트</div>
-						<!-- <h4 class="main_header">
+						<!-- <div class="label label-info main_table_caption">프로젝트</div> -->
+						<div class="main_header">
 							<i class="material-icons" style="font-size: 1.7rem;">subject</i>
-							프로젝트 리스트
-						</h4> -->
+							<div class="section_header">프로젝트 리스트</div>
+						</div>
 						<table class="table main_table">
+							<c:forEach var="vo" items="${projectList }">
 							<tr>
-								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">asdfafasdfsafafsafsafsafsafsafdasfsaf</td>
-								<td class="main_table_date">2016-12-06</td>
+								<%-- <td class="main_table_name"><a href="">${vo.pname }</a></td> --%>
+								<td class="main_table_id">${vo.pname }</td>
+								<td class="main_table_date">${vo.district }</td>
 							</tr>
-							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
-							</tr>
+							</c:forEach>
 						</table>
 					</div>
 					<div id="section2">
 						<!-- <div class="label label-info main_table_caption">정보</div> -->
-						<h4 class="main_header">
+						<div class="main_header">
 							<i class="material-icons" style="font-size: 1.7rem;">widgets</i>
-							Tip & Tech
-						</h4>
+							<div class="section_header">Tip & Tech</div>
+						</div>
 						<table class="table main_table">
+						<c:forEach var="vo" items="${ttList }">
 							<tr>
-								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">뭐야 왜안돼</td>
-								<td class="main_table_date">2016-12-06</td>
+								<!-- <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td> -->
+								<td class="main_table_id">${vo.title }</td>
+								<td class="main_table_date">${vo.nickname }</td>
 							</tr>
-							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
-							</tr>
+						</c:forEach>
 						</table>
 					</div>
 					<div id="section3">
 						<!-- <div class="label label-info main_table_caption">커뮤니티</div> -->
-						<h4 class="main_header">
-							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q & A
-						</h4>
+						<div class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">forum</i>
+							<div class="section_header"> Q & A</div>
+						</div>
 						<table class="table main_table">
+						<c:forEach var="vo" items="${qaList }">
 							<tr>
-								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">ffasdfsafafsafsafsafsafsafdasfsaf</td>
-								<td class="main_table_date">2016-12-06</td>
+								<!-- <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td> -->
+								<td class="main_table_id">${vo.title }</td>
+								<td class="main_table_date">${vo.nickname }</td>
 							</tr>
-							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
-							</tr>
+						</c:forEach>	
 						</table>
 					</div>
 					<div id="section4">
 						<!-- <div class="label label-info main_table_caption">몰라</div> -->
-						<h4 class="main_header">
-							<i class="material-icons" style="font-size: 1.7rem;">info</i> 정보
-							게시판
-						</h4>
+						<div class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">info</i> 
+							<div class="section_header">정보 게시판</div>
+						</div>
 						<table class="table main_table">
+							<c:forEach var="vo" items="${infoList }">
 							<tr>
-								<td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td>
-								<td class="main_table_id">작성자asdfsafafsafsafsafsafsafdasfsaf</td>
-								<td class="main_table_date">2016-12-06</td>
+								<!-- <td class="main_table_name"><a href="">jasdkfjklasjfklsajflsaasdfsafafafsafsafsfsafsadasfdfsafsafsaf</a></td> -->
+								<td class="main_table_id">${vo.title }</td>
+								<fmt:formatDate value="${vo.regdate }" pattern="yyyy.MM.dd" var="regdate"/>
+								<td class="main_table_date">${regdate }</td>
 							</tr>
-							<tr>
-								<td class="main_table_name">adfsafsafafaf</td>
-								<td class="main_table_id">a</td>
-								<td class="main_table_date">a</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">b</td>
-								<td class="main_table_id">b</td>
-								<td class="main_table_date">b</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">c</td>
-								<td class="main_table_id">c</td>
-								<td class="main_table_date">c</td>
-							</tr>
-							<tr>
-								<td class="main_table_name">d</td>
-								<td class="main_table_id">d</td>
-								<td class="main_table_date">d</td>
-							</tr>
+							</c:forEach>
 						</table>
 					</div>
 				</div>

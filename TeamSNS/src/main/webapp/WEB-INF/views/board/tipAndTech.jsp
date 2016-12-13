@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
-<title>Insert title here</title>
+<title>Let's Team! Tip & Tech</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstra	p.min.css">
 <link rel="stylesheet"
@@ -30,8 +30,10 @@
 
 @media ( max-width : 767px) {
 	.content {
-		padding: 20px;
+		padding: 12px;
 	}
+	
+	
 }
 #btn {
 	margin: 10px;
@@ -95,7 +97,7 @@ ul {
 		<div id="main-index">
 			<section class="content">
 				<header>
-					<h2 id="tip">Tip And Tech</h2>
+					<h1 id="tip">Tip And Tech</h1>
 					<div id="btn">
 						<button id="btnNew" type="button" class="btn btn-primary">새
 							글 쓰기</button>
@@ -104,9 +106,9 @@ ul {
 				<div id="main-section">
 
 
-					<div id="tt_table">
+					<div class="table-responsive" id="tt_table">
 						<table class="table table-bordered ">
-							<tr>
+							<tr id="ttTest">
 								<th id="one">글번호</th>
 								<th id="two">제목</th>
 								<th id="three">작성자</th>
@@ -115,13 +117,13 @@ ul {
 								<th id="six">조회수</th>
 
 							</tr>
-							<fmt:formatDate value="${VO.regdate}" pattern="yy-MM-dd" var="rcend"/>
 							<c:forEach var="VO" items="${tiplist}">
 								<tr>
 									<td>${VO.bno}</td>
 									<td><a href="${VO.bno}">${VO.title}</a></td>
 									<td>${VO.writer_uid}</td>
-									<td id="ttregdate">${VO.regdate}</td>
+									<fmt:formatDate value="${VO.regdate}" pattern="yy-MM-dd" var="regdate"/>
+									<td id="ttregdate">${regdate}</td>
 									<td>${VO.recommend}</td>
 									<td>${VO.hits}</td>
 								</tr>

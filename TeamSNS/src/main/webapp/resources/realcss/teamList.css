@@ -6,17 +6,31 @@
 }
 
 body {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    max-width: 950px;
+    max-width: 950px; */
     overflow-y: scroll; 
 }
 
+@media ( min-width : 768px) {
+	.content {
+		padding: 40px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.content {
+		padding: 20px;
+	}
+}
+
 .districtset {
-    max-width: 670px;
+	
+	max-width: 670px; 
     min-width: 320px;
-    width: 75%;
-    padding: 10px 0px 5px 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    /* padding: 10px 0px 5px 10px; */
     background-color: #F7FBFC;
     font-family: 'Jeju Gothic', sans-serif !important;
     color: black;
@@ -28,9 +42,8 @@ body {
 
 
 .district {
-    margin-top: 5px;
+    margin: 20px 0;
     font-size: 0.875rem;
-    margin-bottom: 5px;
     line-height: 1.8;
 }
 
@@ -56,15 +69,16 @@ body {
 }
 
 .projectCard {
-    padding: 20px 10px 0px 10px;
+    
     max-width: 650px;
-    min-width: 300px;
-    width: 70%;
+    min-width: 300px; 
+    margin: 20px 0;
+    width: 100%;
     height: auto;
     border: 1px solid gray;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .4);
-    margin-left: 10px;
-    margin-bottom: 10px;
+    /* margin-left: 10px;
+    margin-bottom: 10px; */
     cursor: default;
     font-family: 'Jeju Gothic', sans-serif !important;
     background-color: rgba(251, 251, 251, 0.3);
@@ -104,7 +118,7 @@ body {
 .cardCom03 ul li {
     float: left;
     border: 1px solid gray;
-    background-color: rgba(167, 163, 126, 0.5);
+    background-color: #2273AA;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
     margin: 0px 5px 5px 0px;
@@ -125,7 +139,7 @@ body {
 .cardCom04 ul li {
     float: left;
     border: 1px solid gray;
-    background-color: rgba(230, 226, 175, 1);
+    background-color: #57CBFF;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .2);
     padding: 1px 5px 1px 5px;
     margin: 0px 5px 5px 0px;
