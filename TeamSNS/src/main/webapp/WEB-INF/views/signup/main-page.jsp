@@ -159,6 +159,13 @@ footer {
 	margin: 
 	
 }
+.main_header {
+	display: flex;
+	flex-direction: row;
+}
+.section_header {
+	padding-left: 5px;
+}
 </style>
 </head>
 <body>
@@ -276,11 +283,11 @@ footer {
 				<!-- 메인섹션 시작 테이블 4개  -->
 				<div id="main-section">
 					<div id="section1">
-						<div class="label label-info main_table_caption">프로젝트</div>
-						<!-- <h4 class="main_header">
+						<!-- <div class="label label-info main_table_caption">프로젝트</div> -->
+						<div class="main_header">
 							<i class="material-icons" style="font-size: 1.7rem;">subject</i>
-							프로젝트 리스트
-						</h4> -->
+							<div class="section_header">프로젝트 리스트</div>
+						</div>
 						<table class="table main_table">
 							<c:forEach var="vo" items="${projectList }">
 							<tr>
@@ -293,10 +300,10 @@ footer {
 					</div>
 					<div id="section2">
 						<!-- <div class="label label-info main_table_caption">정보</div> -->
-						<h4 class="main_header">
+						<div class="main_header">
 							<i class="material-icons" style="font-size: 1.7rem;">widgets</i>
-							Tip & Tech
-						</h4>
+							<div class="section_header">Tip & Tech</div>
+						</div>
 						<table class="table main_table">
 						<c:forEach var="vo" items="${ttList }">
 							<tr>
@@ -309,9 +316,10 @@ footer {
 					</div>
 					<div id="section3">
 						<!-- <div class="label label-info main_table_caption">커뮤니티</div> -->
-						<h4 class="main_header">
-							<i class="material-icons" style="font-size: 1.7rem;">forum</i> Q & A
-						</h4>
+						<div class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">forum</i>
+							<div class="section_header"> Q & A</div>
+						</div>
 						<table class="table main_table">
 						<c:forEach var="vo" items="${qaList }">
 							<tr>
@@ -324,10 +332,10 @@ footer {
 					</div>
 					<div id="section4">
 						<!-- <div class="label label-info main_table_caption">몰라</div> -->
-						<h4 class="main_header">
-							<i class="material-icons" style="font-size: 1.7rem;">info</i> 정보
-							게시판
-						</h4>
+						<div class="main_header">
+							<i class="material-icons" style="font-size: 1.7rem;">info</i> 
+							<div class="section_header">정보 게시판</div>
+						</div>
 						<table class="table main_table">
 							<c:forEach var="vo" items="${infoList }">
 							<tr>
