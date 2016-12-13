@@ -340,7 +340,10 @@ footer {
 								$('#projectInfo').hide();
 								$('#project-register').hide();
 							}
-
+							$('#myPage').click(function() {
+								location = '/teamsns/user/mypage';
+							});
+							
 							$('#logout').click(function() {
 								alert('${login_id}님 로그아웃 되셧습니다!');
 								location = '/teamsns/signup/logout';
