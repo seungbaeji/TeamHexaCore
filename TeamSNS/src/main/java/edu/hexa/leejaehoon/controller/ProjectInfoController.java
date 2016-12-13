@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.hexa.leejaehoon.domain.MyApplyDTO;
+import edu.hexa.leejaehoon.domain.MyCandidateDTO;
 import edu.hexa.leejaehoon.domain.ProjectInfoVO;
 
 import edu.hexa.leejaehoon.service.ProjectInfoService;
@@ -38,14 +40,32 @@ public class ProjectInfoController {
 	public void projectinfo(String uid,Model model, HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
-		 uid = (String)session.getAttribute("login_id");
+		uid = (String)session.getAttribute("login_id");
 		
 		List<ProjectInfoVO> list = projectInfoService.select(uid);
 		
 		logger.info("프로젝트 리스트 :" + list);
-		
 		model.addAttribute("projectList",list);
+		
+		
+		// hshs >> 지원 프로젝트 목록 불러오기 
+		List<MyApplyDTO> applyList = projectInfoService.select_myapply(uid);
+		logger.info("지원 프로젝트 리스트! : " + applyList.size());
+		model.addAttribute("applyList", applyList);
+		
+		// 지원자 목록 불러오기
+		List<MyCandidateDTO> candidateList = projectInfoService.select_mycandidate(uid);
+		logger.info("지원자 관리 리스트 : " + candidateList.size());
+		model.addAttribute("candidate", candidateList);
+		
 	}
+	
+	// hshs : 지원 거절 
+	@RequestMapping(value = "apply-reject")
+	public void applyReject() {
+		
+	}
+	
 	
 	@RequestMapping(value="/recruitProjectUpdate/{rbno}", method=RequestMethod.POST)
 	public ResponseEntity<Integer> recruitProjectUpdate(@PathVariable("rbno") Integer rbno,@RequestBody RecruitProjectVO vo){
