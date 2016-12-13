@@ -3,27 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-<!--
-<< name 목록 >>
-프로젝트 이름 : pname
-프로젝트 소개 : intro
-프로젝트 기간
-    시작일 : start
-    종료일 : end
-프로젝트 분야 : category
-모집 팀원 역할 : part 
-업무관련 기술태그 : skill
-주요 활동 지역 : district
-팀장 연락처 : phone
-팀장 이메일 : email
-<< id 목록 >>
-category_study
-category_contest
--->
-
 <head>
 <meta charset="UTF-8">
-<title>TeamRegi</title>
+<title>Let's Team! Project Register</title>
 <!-- 부트스트랩 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -56,6 +38,7 @@ category_contest
 }
 #main-section {
 	width: 100%;
+	max-width: 650px;
 	
 }
 form>div {
@@ -66,11 +49,9 @@ form>div {
 .form-control {
 	font-size: 20px;
 }
-/* 
 #team_name {
-	width: 480px;
+	width: 100%;
 }
- */
 .day, .leader {
 	/* 시작일 / 종료일, 팀장 전화번호 / 이메일 라벨  / 카카오톡 */
 	font-size: 15px;
@@ -104,8 +85,12 @@ form>div {
 	background-color: firebrick;
 }
 
-.category_type1 {
+.category_type1, category_type2 {
 	width: 150px;
+} 
+
+h1 {
+	padding: 0 20px;
 }
 
 </style>
@@ -116,10 +101,11 @@ form>div {
 		<div id="main-index">
 			<section class="content">
 				<header>
-					<h1>프로젝트 등록</h1>
+					<h1>Project Register</h1>
 				</header>
-				<div id="main-section">
+				
 					<form action="project-register" method="post">
+						<div id="main-section">
 							<div class="form-group form-inline" id="div-team-name">
 								<label for="team_name" class="label label-default">	이름</label>
 								 <br>
@@ -296,8 +282,9 @@ form>div {
 							<div>
 								<input type="submit" class="btn btn-primary btn-lg" value="등록하기">
 							</div>
+						</div><!-- end main-section -->
 					</form>
-				</div><!-- end main-section -->
+				
 
 				<footer>footer</footer>
 		
