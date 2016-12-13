@@ -8,6 +8,7 @@
 	charset="UTF-8">
 <title>Insert title here</title>
 <link href="../resources/realcss/teamList.css" rel="stylesheet" type="text/css"></link>
+<link href="../resources/realcss/fonts.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
 	<div id="container">
@@ -45,9 +46,9 @@
 				<li class="projectCard">
 				   <div class="cardTop">
 				        <div class="cardCom01">
-				        	<p class="districtOfProject">${vo.district }</p>
+				        	<p class="districtOfProject">${vo.district } / </p>
+				        	<p class="category">${vo.category }</p>
 				            <p class="title"><a href="${vo.rbno }">${vo.title }</a></p>
-				            <p class="category">&lt;${vo.category }&gt;</p>
 				            <p class="pname">${vo.pname }</p>
 				        </div>
 				        <p class="cardCom02"> 조회수 ${vo.recruit_hits }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html >
@@ -119,7 +120,7 @@
 				<div id="main-section">
 				
 				<!--여기서 부터 오빠코드입니다!!!!!!!!!! -->
-					<div class="projectList">
+				<div class="projectList">
 					    <table class="table table-hover table-borerd">
 					         <tr>
 					             <td>카테고리</td>
@@ -133,18 +134,90 @@
 							 	<td>${vo.category}</td>
 							 	<td>${vo.pname}</td>
 							 	<td>${vo.intro}</td>
-							 	<td>${vo.start}</td>
-							 	<td>${vo.end}</td>
+							 	<td><fmt:formatDate value="${vo.start }" pattern="yy-MM-dd" /></td>
+							 	<td><fmt:formatDate value="${vo.end }" pattern="yy-MM-dd" /></td>
 							 	
 							 </tr>
 							 </c:forEach>
 							   
 					    </table>
 					    
-					    <br>
-					    <br>
+					    <br/>
+					    <br/>
     
-			</div>    
+				</div>
+
+<!-- 현선 :3c -->
+<!-- 내가 지원한 프로젝트 리스트 : 프로젝트 이름, 지원 코멘트, 지원 취소 < 버튼으로 팝업 띄어서 간단하게 처리 -->
+<div class = "myApplyList">
+	<table>
+		<tr>
+			<th>프로젝트 이름</th>
+			<th>지원 업무</th>
+			<th>지원 코멘트</th>
+			<th>신청일</th>
+			<th>지원 상태</th> <!-- 1: 신청중, 2: 신청수락, 3: 거절 -->
+		</tr>
+		
+ 		<c:forEach var="apply" items="${applyList }">
+		<tr>
+			<td>${apply.pname }</td>
+			<td>${apply.part }</td>
+			<td>${apply.comment }</td>
+			<td><fmt:formatDate value="${apply.apply_regdate }" pattern="yy-MM-dd" /></td>
+			
+			<!-- 1: 신청중, 2: 수락, 3: 거절 -->
+			<c:if test="${apply.state eq 1 }">
+				<td>신청중</td>
+			</c:if>
+			<c:if test="${apply.state eq 2 }">
+				<td>수락됨</td>
+			</c:if>
+			<c:if test="${apply.state eq 3 }">
+				<td>거절ㅠㅠ</td>
+			</c:if>
+			
+			<td><a href="apply-cancel">신청취소</a></td>
+		</tr>
+		</c:forEach>
+	</table>
+</div>
+<br/>
+<hr/>
+<br/>
+
+<!-- 지원자 관리 :applicant -->
+<div class="myCandidateList">
+<!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
+	<table>
+		<tr>
+			<th>프로젝트 이름</th>
+			<th>지원 업무</th>
+			<th>지원자 아이디</th>
+			<th>지원자 코멘트</th>
+			<th>신청일</th>
+		</tr>
+		
+		
+ 		<c:forEach var="cc" items="${candidate }">
+ 		<c:if test="${cc.state eq 1 }">
+		<tr>
+			<td>${cc.pname }</td>
+			<td>${cc.part }</td>
+			<td>${cc.user_id }</td>
+			<td>${cc.comment }</td>
+			<td><fmt:formatDate value="${cc.apply_regdate }" pattern="yy-MM-dd" /></td>
+			<td><a href="#">수락</a></td>
+			<td><a href="/project/apply-reject">거절</a></td>
+		</tr>
+		</c:if>
+		</c:forEach>
+		
+	</table>
+
+
+</div>
+ 
     
 		    <!-- 모달 팝업 -->
 			<div class="modal fade bs-example-modal-lg" id="myprojectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
@@ -235,7 +308,7 @@
 			  </div>
 		</div><!-- end main-section -->
 
-				<footer>footer</footer>
+	<!-- 			<footer>footer</footer> -->
 		
 		
 			</section>

@@ -9,5 +9,10 @@ public interface SignUpDAO {
 	
 	public abstract SignUpVO login(SignUpVO vo);
 	
+	public abstract int selectId(SignUpVO vo);
+	
+	public abstract int selectNick(SignUpVO vo);
+	
+	public abstract int signUp(SignUpVO vo);
 	
 } // end interface

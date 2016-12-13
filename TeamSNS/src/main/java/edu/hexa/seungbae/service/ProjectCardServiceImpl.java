@@ -37,6 +37,12 @@ public class ProjectCardServiceImpl implements ProjectCardService{
 	public List<ProjectCardDTO> readInfiniteUp(int rbno) {
 		return dao.selectInfiniteUp(rbno);
 	}
+
+	@Override
+	public int readMaxRbno() {
+		return dao.selectMaxRbno();
+	}
+	
 	
 	
 	

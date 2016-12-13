@@ -10,9 +10,31 @@ public class SignUpVO {
 	public String phone;
 	public String kkoid;
 	public String email;
+	public int gender;
+	public String birth;
+	public String address;
 	public String user_level;
 	
 	public SignUpVO(){}
+	
+	public SignUpVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
+			String email, int gender, String birth, String address, String user_level) {
+		super();
+		this.uid = uid;
+		this.pw = pw;
+		this.name = name;
+		this.nickname = nickname;
+		this.profile_img = profile_img;
+		this.phone = phone;
+		this.kkoid = kkoid;
+		this.email = email;
+		this.gender = gender;
+		this.birth = birth;
+		this.address = address;
+		this.user_level = user_level;
+	}
+	
+	
 	public SignUpVO(String uid, String pw, String name, String nickname, String profile_img, String phone, String kkoid,
 			String email, String user_level) {
 		
@@ -26,7 +48,7 @@ public class SignUpVO {
 		this.email = email;
 		this.user_level = user_level;
 	}
-
+	
 
 
 	public SignUpVO(String uid, String pw) {
@@ -34,86 +56,87 @@ public class SignUpVO {
 		this.uid = uid;
 		this.pw = pw;
 	}
-
-
-
-
-
-
-
-
-	public String getUser_id() {
+	public String getUid() {
 		return uid;
 	}
-
-	public void setUser_id(String user_id) {
-		this.uid = user_id;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-
-	public String getUser_pw() {
+	public String getPw() {
 		return pw;
 	}
-
-	public void setUser_pw(String user_pw) {
-		this.pw = user_pw;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-
-	public String getUser_name() {
+	public String getName() {
 		return name;
 	}
-
-	public void setUser_name(String user_name) {
-		this.name = user_name;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getUser_nickname() {
+	public String getNickname() {
 		return nickname;
 	}
-
-	public void setUser_nickname(String user_nickname) {
-		this.nickname = user_nickname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
-
-	public String getUser_img() {
+	public String getProfile_img() {
 		return profile_img;
 	}
-
-	public void setUser_img(String user_img) {
-		this.profile_img = user_img;
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
 	}
-
-	public String getUser_number() {
+	public String getPhone() {
 		return phone;
 	}
-
-	public void setUser_number(String user_number) {
-		this.phone = user_number;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
-	public String getUser_kkoid() {
+	public String getKkoid() {
 		return kkoid;
 	}
-
-	public void setUser_kkoid(String user_kkoid) {
-		this.kkoid = user_kkoid;
+	public void setKkoid(String kkoid) {
+		this.kkoid = kkoid;
 	}
-
-	public String getUser_email() {
+	public String getEmail() {
 		return email;
 	}
-
-	public void setUser_email(String user_email) {
-		this.email = user_email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
+	public int getGender() {
+		return gender;
+	}
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public String getUser_level() {
 		return user_level;
 	}
-
 	public void setUser_level(String user_level) {
 		this.user_level = user_level;
 	}
 	
+
+
+
+
+
+
+
+
 	
 	
 	

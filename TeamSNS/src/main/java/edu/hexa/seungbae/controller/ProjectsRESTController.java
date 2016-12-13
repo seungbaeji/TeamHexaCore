@@ -83,5 +83,20 @@ public class ProjectsRESTController {
 		return entity;	
 	}
 	
+	@RequestMapping(value="/maxRbno", method=RequestMethod.GET)
+	public ResponseEntity<Integer> readMaxRbno(){
+		int maxRbno = service.readMaxRbno();
+		
+		ResponseEntity<Integer> entity = null;
+		
+		if (maxRbno != 0) {
+			entity = new ResponseEntity<Integer>(maxRbno, HttpStatus.OK);
+			logger.info("프로젝트 개수: " + maxRbno + "," + entity.hashCode());
+		}else {
+			entity = new ResponseEntity<Integer>(maxRbno, HttpStatus.BAD_REQUEST);
+		}		
+		return entity;	
+	}
+	
 
 }

@@ -47,17 +47,18 @@ $(document).ready(function(){
 		   // 현재 스크롤의 위치가 화면의 위치보다 크다면,
 		   if($(window).scrollTop() >= $(document).height() - $(window).height()){
 			   var lastRbno = $(".title a:last").attr("href");
-			   console.log('lastRbno: ' + lastRbno);
-			   var url = "/teamsns/projects/infiniteDown/" + lastRbno;
-			   console.log('url: ' + url)
-			   $.getJSON(url)
-			   // 불러온 데이터가 있는경우 콜백함수 실행
-			   .done(projectListCallback)
-			   // 불러온 데이터가 없는경우 실행될 함수
-			   .fail(function(){
-				   console.log("No date to load")
-			   }); // end ajax 데이터 통신
-			
+			   if ((lastRbno - 5) >= 0){
+				   console.log('lastRbno: ' + lastRbno);
+				   var url = "/teamsns/projects/infiniteDown/" + lastRbno;
+				   console.log('url: ' + url)
+				   $.getJSON(url)
+				   // 불러온 데이터가 있는경우 콜백함수 실행
+				   .done(projectListCallback)
+				   // 불러온 데이터가 없는경우 실행될 함수
+				   .fail(function(){
+					   console.log("No date to load")
+				   }); // end ajax 데이터 통신
+			   }
 			   //var position = $(".projectCard:first").offset();
 			   //$('html,body').stop().animate({scrollTop : position.top }, 600, easeEffect);
 			   
@@ -70,18 +71,25 @@ $(document).ready(function(){
 	   else {
 		   if ($(window).scrollTop() <= 0){
 			   var firstRbno = $(".title a:first").attr("href");
-			   var url = "/teamsns/projects/infiniteUp/" + firstRbno;
-			   console.log('url: ' + url)
-			   $.getJSON(url)
-			   .done(projectListCallback)
-			   // 불러온 데이터가 없는경우 실행될 함수
-			   .fail(function(){
-				   console.log("No date to load")
-			   }); // end ajax 데이터 통신
-			   
+			   console.log(firstRbno);
+			   var url = "/teamsns/projects/maxRbno"
+			   $.getJSON(url, function(result){
+				   // JSON객체를 int로 parsing
+				  var maxRbno = JSON.parse(result);
+				  console.log("ProjectCard 개수" + maxRbno);
+				   if(firstRbno <= (maxRbno - 5)){
+					   var url = "/teamsns/projects/infiniteUp/" + firstRbno;
+					   console.log('url: ' + url)
+					   $.getJSON(url)
+					   .done(projectListCallback)
+					   // 불러온 데이터가 없는경우 실행될 함수
+					   .fail(function(){
+						   console.log("No date to load")
+					   }); // end ajax 데이터 통신
+				   }// end if((firstRbno + 10)...)
 			   //var position =($(document).height() - $(window).height()) -10;
 			   //$('html,body').stop().animate({scrollTop : position}, 600, easeEffect);
-			   
+			   }); // end getJSON
 		   } // end if($(window).scrollTop() <=)
 		   
 		   lastScrollTop = currentScrollTop;
@@ -155,7 +163,7 @@ function changeColor1(target){
 }
 // 지역선택 해제 되었을때의 효과   
 function changeColor2(target){
-      target.css('backgroundColor', 'white');
+      target.css('backgroundColor', 'rgba(251, 251, 251, 0.3)');
       target.css('color', 'black');
 }
 // projectList ajax 콜백 함수
@@ -224,13 +232,13 @@ function projectListCallback(result){
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'
                      + '<p class=districtOfProject>'
-                     + this.district+'</p>'
+                     + this.district+' / </p>'
+                     + '<p class="category">'
+                     + this.category+'</p>'
                      + '<p class="title">'
                      + '<a href="'
                      + this.rbno + '">'
                      + this.title + '</a></p>'
-                     + '<p class="category"><'
-                     + this.category + '> </p>'
                      + '<p class="pname">'
                      + this.pname + '</p>'
                      + '</div>'
@@ -252,7 +260,8 @@ function projectListCallback(result){
                      +'<ul>'
                      + partList
                      + '</ul></div>'
-                     + '<p class="cardCom05"></p></li>'
+                     + '<p class="cardCom05"'
+                     + '</p></li>'
          console.groupEnd();          
          cardNum++;
      });// end result each

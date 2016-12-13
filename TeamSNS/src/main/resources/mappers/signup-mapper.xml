@@ -24,15 +24,25 @@
              #{email} )                    
     </insert> -->
     
-<insert id="insert_user">
-INSERT INTO pentacore.user
-VALUE
-(#{uid}, #{pw}, #{name}, #{nickname}, #{profile_img}, #{phone}, #{kkoid}, #{email}, 1, #{gender}, #{birth}, #{address});
-</insert>
+    <select id="selectid" resultType="Integer">
+    	SELECT count(*) FROM pentacore.user WHERE uid = #{uid}
+    </select>
     
-<select id="login" resultType="edu.hexa.leejaehoon.domain.SignUpVO">
-select * from user where uid = #{uid} and pw = #{pw}
-</select>
- 	
+    <select id="selectnick" resultType="Integer">
+    	SELECT count(*) FROM pentacore.user
+		WHERE nickname = #{nickname}
+    </select>
+    
+    
+    
+    
+	<insert id="singup">
+	INSERT INTO pentacore.user VALUE (#{uid}, #{pw}, #{name}, #{nickname}, null, #{phone}, #{kkoid}, #{email}, 1, #{gender}, #{birth}, #{address})
+	</insert>
+	    
+	<select id="login" resultType="edu.hexa.leejaehoon.domain.SignUpVO">
+	select * from user where uid = #{uid} and pw = #{pw}
+	</select>
+	 	
  	
 </mapper> 

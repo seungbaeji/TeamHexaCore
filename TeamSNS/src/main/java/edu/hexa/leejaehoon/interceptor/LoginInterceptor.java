@@ -64,7 +64,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			if(result != null){ // DB 안의 id/pw 정보가 일치
 				logger.info(" 로그인 성공!");
 				// 세션에 로그인 성공 아이디 저장
-				session.setAttribute(SESSION_ATTR_ID, result.getUser_id());
+				session.setAttribute(SESSION_ATTR_ID, result.getUid());
 				session.setAttribute(SESSION_ATTR_SUCCESS, "success");
 				
 				

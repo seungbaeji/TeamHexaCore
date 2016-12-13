@@ -9,5 +9,9 @@ public interface SignUpService {
 	
 	public abstract SignUpVO login(SignUpVO vo);
 	
+	public abstract int select(SignUpVO vo);
 	
+	public abstract int selectNick(SignUpVO vo);
+	
+	public abstract int singUp(SignUpVO vo);
 } // end interface

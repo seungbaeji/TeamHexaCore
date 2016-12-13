@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.hexa.leejaehoon.domain.MyApplyDTO;
+import edu.hexa.leejaehoon.domain.MyCandidateDTO;
 import edu.hexa.leejaehoon.domain.ProjectInfoVO;
 import edu.hexa.leejaehoon.persistence.ProjectInfoDAOImple;
 import edu.hexa.teamsns.domain.ProjectVO;
@@ -44,4 +46,23 @@ public class ProjectInfoServiceImple implements ProjectInfoService {
 		// TODO Auto-generated method stub
 		return dao.update3(vo);
 	}
+	
+	// hshs 
+	// 지원
+	@Override
+	public List<MyApplyDTO> select_myapply(String uid) {
+		return dao.select_myapply(uid);
+	}
+	
+	// 지원자
+	@Override
+	public List<MyCandidateDTO> select_mycandidate(String uid) {
+		return dao.select_candidate(uid);
+	}
+	
+	@Override
+	public int apply_reject(String part_pk, String user_id) {
+		return dao.applyReject(part_pk, user_id);
+	}
+	
 }

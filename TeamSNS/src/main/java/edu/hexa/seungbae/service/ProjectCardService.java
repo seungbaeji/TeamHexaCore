@@ -10,5 +10,6 @@ public interface ProjectCardService {
 	List<ProjectCardDTO>read(String[] districts);
 	List<ProjectCardDTO>readInfiniteDown(int rbno);
 	List<ProjectCardDTO>readInfiniteUp(int rbno);
+	int readMaxRbno();
 	
 }
