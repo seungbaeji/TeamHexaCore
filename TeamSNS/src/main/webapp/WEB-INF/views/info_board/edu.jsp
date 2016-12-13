@@ -152,7 +152,7 @@ th {
 					</div>
 				</header>
 				<div id="main-section">
-					<table>
+					<table class="table table-bordered ">
 						<tr>
 							<th class="table_th">글번호</th>
 							<th class="table_th">글제목</th>
