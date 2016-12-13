@@ -25,6 +25,7 @@ public class QaBoardDAOImple implements QaBoardDAO {
 		
 		List<QaBoardVO> list = sqlSession.selectList(NAMESPACE + ".selectAllQa");
 		logger.info("dao list: " + list.size());
+		
 		return list;
 	}
 
@@ -37,6 +38,10 @@ public class QaBoardDAOImple implements QaBoardDAO {
 	@Override
 	public QaBoardVO select(int bno) {
 		QaBoardVO vo = sqlSession.selectOne(NAMESPACE + ".selectBno", bno);
+		
+		int result = sqlSession.update(NAMESPACE + ".update_hits", bno);
+		logger.info("조회수 ↑ : " + result);
+		
 		return vo;
 	}
 
