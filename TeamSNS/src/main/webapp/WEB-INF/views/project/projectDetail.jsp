@@ -236,7 +236,7 @@
 						</tr>
 					</table>
 					</div><br/>
-			
+					
 					<div>
 					<label class="label label-default">모집 팀원 현황</label>
 					<table class="table">
