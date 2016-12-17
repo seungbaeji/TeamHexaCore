@@ -1,21 +1,25 @@
 @CHARSET "UTF-8";
 
-body {
-	width: 400px;
-}
-    
-form > div {
-	margin: 20px;
-	font-size: 25px;
-}
-    
-h1 {
-	background-color: aquamarine;
+* {
+	font-size: 1.3rem;
 }
 
-#div-main {
+@media ( min-width : 768px) {
+	.content {
+		padding: 40px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.content {
+		padding: 12px;
+	}
+	
+	
+}
+
+#main-section {
 	margin: 20px;
-	width: 300px;
 	border: solid;
 }
 
