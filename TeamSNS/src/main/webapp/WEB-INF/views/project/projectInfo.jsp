@@ -218,7 +218,7 @@
 					</table>
 			</div>
 			
-			<!-- 모달 팝업 -->
+			<!-- 모달 팝업 --> <!-- 엄청길어서 쓸때  줄여서 사용하시길 -->
 			<div class="modal fade bs-example-modal-lg" id="myprojectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 				<div class="modal-dialog modal-lg">
 				<div class="modal-content">
