@@ -31,6 +31,9 @@
 			.content {
 			padding: 20px;
 			}
+			.table{
+				font-size: 12px;
+			}
 		}
 		#main-section {
 			width: 100%;
@@ -55,14 +58,16 @@
             left: 250px; */
             width: 100%;
             height: 500px; 
-            border: 1px solid darkgray;
+            
             margin: 20px 0;
         }
         
         .myApplyList, .myCandidateList {
         	 margin: 20px 0;
         }
-        
+        .table{
+        	border: 1px solid darkgray;
+        }
         	
         
         #project_start{
@@ -147,6 +152,70 @@
 					</c:forEach>
 				</table>
 				<br/><br/>
+				<!-- 지원자 관리 :applicant -->
+				<table class="table table-hover table-borerd">
+					<tr>
+						<th>프로젝트 이름</th>
+						<th>지원 업무</th>
+						<th>지원 코멘트</th>
+						<th>신청일</th>
+						<th>지원 상태</th> <!-- 1: 신청중, 2: 신청수락, 3: 거절 -->
+						<th></th>
+					</tr>
+					
+			 		<c:forEach var="apply" items="${applyList }">
+					<tr>
+						<td>${apply.pname }</td>
+						<td>${apply.part }</td>
+						<td>${apply.comment }</td>
+						<td><fmt:formatDate value="${apply.apply_regdate }" pattern="yy-MM-dd" /></td>
+						
+						<!-- 1: 신청중, 2: 수락, 3: 거절 -->
+						<c:if test="${apply.state eq 1 }">
+							<td>신청중</td>
+						</c:if>
+						<c:if test="${apply.state eq 2 }">
+							<td>수락됨</td>
+						</c:if>
+						<c:if test="${apply.state eq 3 }">
+							<td>거절ㅠㅠ</td>
+						</c:if>
+						
+						<td><a href="apply-cancel">신청취소</a></td>
+					</tr>
+					</c:forEach>
+				</table>
+				<br><br>
+				
+				<!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
+					<table class="table table-hover table-borerd">
+						<tr>
+							<th hidden="hidden">파트PK</th>
+							<th>프로젝트 이름</th>
+							<th>지원 업무</th>
+							<th>지원자 아이디</th>
+							<th>지원자 코멘트</th>
+							<th>신청일</th>
+							<th></th>
+							<th></th>
+						</tr>
+						
+						
+				 		<c:forEach var="cc" items="${candidate }">
+				 		<c:if test="${cc.state eq 1 }">
+						<tr>
+							<td class="hs_candi_partpk" hidden="hidden">${cc.part_pk }</td>
+							<td class="hs_candi_pname">${cc.pname }</td>
+							<td class="hs_candi_part">${cc.part }</td>
+							<td class="hs_candi_userid">${cc.user_id }</td>
+							<td class="hs_candi_comment">${cc.comment }</td>
+							<td><fmt:formatDate value="${cc.apply_regdate }" pattern="yy-MM-dd" /></td>
+							<td><button class="btnApplyAccept">수락</button></td>
+							<td><button class="btnApplyReject">거절</button></td>
+						</tr>
+						</c:if>
+						</c:forEach>
+					</table>
 			</div>
 			
 			<!-- 모달 팝업 -->
@@ -222,81 +291,11 @@
 				</div>
 			</div> <!-- end modal -->
 			
-<!-- 현선 :3c -->
-<!-- 내가 지원한 프로젝트 리스트 : 프로젝트 이름, 지원 코멘트, 지원 취소 < 버튼으로 팝업 띄어서 간단하게 처리 -->
-<div class = "myApplyList">
-	<table class="table table-hover table-borerd">
-		<tr>
-			<th>프로젝트 이름</th>
-			<th>지원 업무</th>
-			<th>지원 코멘트</th>
-			<th>신청일</th>
-			<th>지원 상태</th> <!-- 1: 신청중, 2: 신청수락, 3: 거절 -->
-			<th></th>
-		</tr>
-		
- 		<c:forEach var="apply" items="${applyList }">
-		<tr>
-			<td>${apply.pname }</td>
-			<td>${apply.part }</td>
-			<td>${apply.comment }</td>
-			<td><fmt:formatDate value="${apply.apply_regdate }" pattern="yy-MM-dd" /></td>
-			
-			<!-- 1: 신청중, 2: 수락, 3: 거절 -->
-			<c:if test="${apply.state eq 1 }">
-				<td>신청중</td>
-			</c:if>
-			<c:if test="${apply.state eq 2 }">
-				<td>수락됨</td>
-			</c:if>
-			<c:if test="${apply.state eq 3 }">
-				<td>거절ㅠㅠ</td>
-			</c:if>
-			
-			<td><a href="apply-cancel">신청취소</a></td>
-		</tr>
-		</c:forEach>
-	</table>
-</div>
-<br/>
-<hr/>
-<br/>
 
-<!-- 지원자 관리 :applicant -->
-<div class="myCandidateList">
-<!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
-	<table class="table table-hover table-borerd">
-		<tr>
-			<th hidden="hidden">파트PK</th>
-			<th>프로젝트 이름</th>
-			<th>지원 업무</th>
-			<th>지원자 아이디</th>
-			<th>지원자 코멘트</th>
-			<th>신청일</th>
-			<th></th>
-			<th></th>
-		</tr>
-		
-		
- 		<c:forEach var="cc" items="${candidate }">
- 		<c:if test="${cc.state eq 1 }">
-		<tr>
-			<td class="hs_candi_partpk" hidden="hidden">${cc.part_pk }</td>
-			<td class="hs_candi_pname">${cc.pname }</td>
-			<td class="hs_candi_part">${cc.part }</td>
-			<td class="hs_candi_userid">${cc.user_id }</td>
-			<td class="hs_candi_comment">${cc.comment }</td>
-			<td><fmt:formatDate value="${cc.apply_regdate }" pattern="yy-MM-dd" /></td>
-			<td><button class="btnApplyAccept">수락</button></td>
-			<td><button class="btnApplyReject">거절</button></td>
-		</tr>
-		</c:if>
-		</c:forEach>
-	</table>
-</div>
+
 </div><!-- end main-section -->
 	</section>
-	</div>
+	</div> <!--  end main index -->
 <!-- 	<aside>날씨</aside> -->
 </div> <!-- end container -->
 
@@ -521,12 +520,13 @@ $(document).ready(function () {
     	                    
     	                    title: title,
     	                    rcstart: rcstart,
-    	                    rcend: rcend,
+    	                    rcend: rcend
     	                    
     	                 }),
     	                 success: function(result){
     	                    if(result == '1'){
     	                       console.log("recruit 수정 성공!");
+    	                       
     	                    }
     	                 }
     	               }); /* end ajax */
