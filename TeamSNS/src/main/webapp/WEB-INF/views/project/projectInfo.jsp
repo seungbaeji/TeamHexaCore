@@ -132,6 +132,7 @@
 		<div id="main-section">
 		<!--여기서 부터 오빠코드입니다!!!!!!!!!! -->
 			<div class="projectList">
+				<h1>작성한 프로젝트</h1>
 				<table class="table table-hover table-borerd">
 					<tr>
 					<td>카테고리</td>
@@ -153,6 +154,7 @@
 				</table>
 				<br/><br/>
 				<!-- 지원자 관리 :applicant -->
+				<h1>지원한 프로젝트</h1>
 				<table class="table table-hover table-borerd">
 					<tr>
 						<th>프로젝트 이름</th>
@@ -188,6 +190,7 @@
 				<br><br>
 				
 				<!-- pid, part_pk, pname, part, user_id, comment, apply_regdate, state -->
+					<h1>지원자 목록</h1>
 					<table class="table table-hover table-borerd">
 						<tr>
 							<th hidden="hidden">파트PK</th>

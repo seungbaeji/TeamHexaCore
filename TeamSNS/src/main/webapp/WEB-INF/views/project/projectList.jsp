@@ -22,7 +22,7 @@
 			<section class="content">
 				<header class="districtset">
 				   <h1 style="font-size: 36px">Project List</h1>
-				      <ul class="district">
+				      <ul class="district"> 
 				         <!-- <li id ="all">전체선택</li> -->
 				         <li id ="seoul">서울특별시 </li>
 				         <li id ="busan">부산광역시 </li>
