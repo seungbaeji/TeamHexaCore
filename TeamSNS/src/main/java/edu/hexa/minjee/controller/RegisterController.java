@@ -63,27 +63,42 @@ public class RegisterController {
 		pvo.setEnd(format.parse(pend));
 		int result_project = registerService.create(pvo);
 		
+		logger.info("projet 생성 : " + result_project); //hs 
+
 		
 		// part insert
 		String[] parts = { mdto.getPart1(), mdto.getPart2(), mdto.getPart3(), 
-						mdto.getPart4(), mdto.getPart5(), mdto.getPart6() };	
-		for(String part: parts) {
+				mdto.getPart4(), mdto.getPart5(), mdto.getPart6() };
+		logger.info("Part1 : " + mdto.getPart1());
+		
+		for(String part : parts) {
 			if(part == mdto.getPart1()) {
 				mvo = new ManageProjectPartVO(pvo.getPid(), uid, part);
+				logger.info("part 1 : " + part);
+				logger.info("uid" + uid);
+				
+				int result1 = registerService.create(mvo);
+				logger.info("팀장 파트 삽입 성공? : " + result1);
 			} else if(part != null && part != "") {
 				mvo = new ManageProjectPartVO(pvo.getPid(), null, part);
-				int result_part = registerService.create(mvo);
+				logger.info("파트? : " + part);
+				int result2 = registerService.create(mvo);
+				logger.info("나머지 파트 데이터 삽입 성공?? : " + result2);
 			}
 		}
+		
+		
 		
 		// skill insert
 		rvo.setPid(pvo.getPid());
 		int result_skill = registerService.create(rvo);
+		logger.info("skill 삽입 성공 : " + result_skill);
 		
 		// recruit insert
 		RecruitProjectVO rcvo = new RecruitProjectVO(0, pvo.getPid(), title, 
 						format.parse(rcstart), format.parse(rcend), 0, null);
 		int result_recruit = registerService.create(rcvo);
+		logger.info("recruit 삽입 : " + result_recruit);
 		
 		// leader insert
 		ProjectLeaderVO lvo = new ProjectLeaderVO(pvo.getPid(), uid);
