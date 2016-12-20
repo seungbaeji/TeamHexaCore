@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"
 	charset="UTF-8">
@@ -294,8 +293,9 @@ form>div {
 
 
 			</section>
-			<aside>날씨</aside>
+			
 		</div>
+		<aside>날씨</aside>
 	</div>
 	<script>
 
