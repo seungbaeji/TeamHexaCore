@@ -62,7 +62,8 @@ aside {
 
 @media ( min-width : 768px) {
 	.content {
-		min-width: 768px;
+		min-width: 650px;
+		max-width: 768px;
 	}
 }
 
