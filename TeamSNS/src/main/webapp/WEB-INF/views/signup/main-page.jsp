@@ -561,7 +561,7 @@ footer {
 				location = '/teamsns/project/projectList';
 			});
 
-			$('#projectInfo').click(function() {
+			$('#project-info').click(function() {
 				location = '/teamsns/project/projectInfo';
 			});
 

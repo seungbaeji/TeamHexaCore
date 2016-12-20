@@ -84,6 +84,7 @@ public class MypageController {
 		logger.info("userUPdate 컨트롤러");
 		int result = service.user_update(vo);
 		logger.info("정보 수정: "+result);
+		logger.info("주소" + vo.getAddress());
 		if(result==1) {
 			attr.addFlashAttribute("update_result", "success");
 		} else { 

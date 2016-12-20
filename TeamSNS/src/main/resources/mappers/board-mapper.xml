@@ -24,13 +24,13 @@
    </select>
     
     <select id="listPage" resultType="edu.hexa.leejaehoon.domain.BoardVO">
-   SELECT b.bno, b.title, b.content, b.writer_uid, b.regdate, b.recommend, b.hits
-FROM (
-   SELECT @rownum := @rownum +1 AS rownum, pentacore.tt_board.* 
-   FROM pentacore.tt_board, (SELECT @rownum := 0) bno
-    ORDER BY pentacore.tt_board.regdate DESC
-) b
-WHERE rownum between #{start } and #{end }
+	   SELECT b.bno, b.title, b.content, b.writer_uid, b.regdate, b.recommend, b.hits
+	FROM (
+	   SELECT @rownum := @rownum +1 AS rownum, pentacore.tt_board.* 
+	   FROM pentacore.tt_board, (SELECT @rownum := 0) bno
+	    ORDER BY pentacore.tt_board.regdate DESC
+	) b
+	WHERE rownum between #{start } and #{end }
     </select>    
 
    <delete id="delete">
@@ -42,10 +42,10 @@ WHERE rownum between #{start } and #{end }
    WHERE bno = #{bno} 
    </update>
    
-<!-- 조회수 -->
-<update id="update_hits">
-UPDATE pentacore.tt_board SET hits = hits + 1 
-WHERE bno = #{bno }
-</update>
+	<!-- 조회수 -->
+	<update id="update_hits">
+	UPDATE pentacore.tt_board SET hits = hits + 1 
+	WHERE bno = #{bno }
+	</update>
 
 </mapper>
