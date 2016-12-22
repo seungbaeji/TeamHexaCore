@@ -5,9 +5,10 @@ public class ApplyProjectVO {
 	private String user_id;
 	private String comment;
 	private int state;
-	
 	private String pid;
 	private String part;
+	
+	
 	public String getPid() {
 		return pid;
 	}
