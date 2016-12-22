@@ -67,7 +67,7 @@ public class RecruitDetailController {
 		} else {
 			attr.addFlashAttribute("apply_project", "fail");
 		}*/
-		
+		/* 현선이 안된다해서 주석넣음 */
 		/*return "redirect:/project/projectDetail?rbno="+rbno;*/
 		return "redirect:/project/projectList";
 	} // end applyProject()
