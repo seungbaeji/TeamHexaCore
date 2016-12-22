@@ -231,7 +231,7 @@
                     
                 </select>
                 <input type="text" name="comment" placeholder="지원자 코맨트:3c"/><br/><br>
-                <input type="text" name="user_id" value="${user_id}" hidden="hidden" />
+                <input type="text" id="user_id" name="user_id" value="" hidden="hidden" />
                 <input type="text" name="rbno" value="${dto.recruit.rbno }" hidden="hidden" />
                 <input type="text" name="pid" value="${dto.project.pid }" hidden="hidden" />
                 <input type="submit" class="form-control btn-primary" value="지원하기" />
@@ -257,6 +257,9 @@
 		$(document).ready(function(){
 			$('.projectCard').click(function(){
 				var rbno = $(this).attr('id');
+				var user_id = ${login_id};
+				$("#user_id").val(user_id);
+				console.log("유저저저저저저저아이디" + user_id);
 				console.log(rbno);
 				
 				var url = '/teamsns/project/projectInfo/' + rbno;

@@ -42,7 +42,7 @@ public class RecruitDetailController {
 	
 
 	@RequestMapping(value="apply-project", method=RequestMethod.POST)
-	public String applyProject(ApplyProjectVO vo, int rbno, RedirectAttributes attr) {
+	public String applyProject(ApplyProjectVO vo, String rbno, RedirectAttributes attr) {
 		logger.info("지원하기 컨트롤러:3c");
 		logger.info("아이디: " + vo.getUser_id());
 		logger.info("코멘트 : " + vo.getComment());
@@ -68,7 +68,8 @@ public class RecruitDetailController {
 			attr.addFlashAttribute("apply_project", "fail");
 		}*/
 		
-		return "redirect:/project/projectDetail?rbno="+rbno;
+		/*return "redirect:/project/projectDetail?rbno="+rbno;*/
+		return "redirect:/project/projectList";
 	} // end applyProject()
 	
 
