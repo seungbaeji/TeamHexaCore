@@ -100,6 +100,9 @@
 		</div>
 		<aside>날씨</aside>
 	</div>
+	
+	
+	
 	<!-- 모달 팝업 -->
 	<div class="modal fade bs-example-modal-lg" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	  <div class="modal-dialog modal-lg">
@@ -213,6 +216,7 @@
 		      <div>
                 <label>모집 팀원 현황</label>
                 
+                
                 <table id="partTest" class="table">
                     	<tr id="part1">
                         <th class="table_member_name">이름</th>
@@ -235,7 +239,7 @@
                 <input type="text" name="rbno" value="${dto.recruit.rbno }" hidden="hidden" />
                 <input type="text" name="pid" value="${dto.project.pid }" hidden="hidden" />
                 <input type="submit" class="form-control btn-primary" value="지원하기" />
- 		    </form>           
+ 		    </form>
 		                                       
 	      </div> <!-- main content-->
 	      <div class="modal-footer">
@@ -245,7 +249,7 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
+	</div> <!-- 모달 end -->
 	
 
 
@@ -339,7 +343,6 @@
 				console.log(i);
    				console.log(result.parts[0].name);
    				 $(result.parts).each(function(i){
-
 							 list += '<tr><td>'+result.parts[i].name +'</td><th>'+result.parts[i].user_id 
 							 +'</th><td>'+result.parts[i].part +'</td></tr>'
    				});
