@@ -257,7 +257,7 @@
 		$(document).ready(function(){
 			$('.projectCard').click(function(){
 				var rbno = $(this).attr('id');
-				var user_id = ${login_id};
+				var user_id = '${login_id}';
 				$("#user_id").val(user_id);
 				console.log("유저저저저저저저아이디" + user_id);
 				console.log(rbno);
