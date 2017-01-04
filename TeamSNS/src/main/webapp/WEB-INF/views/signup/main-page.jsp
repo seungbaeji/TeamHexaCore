@@ -39,6 +39,7 @@
 @media ( max-width : 768px) {
 	#container {
 		flex-direction: column;
+		
 	}
 }
 
@@ -47,6 +48,12 @@
 	#cd-lateral-nav {
 		flex-basis: 220px;
 		flex-shrink: 0;
+	}
+	.main_table_id {
+		font-size:12px;
+	}
+	.main_table_date{
+		font-size:12px;
 	}
 }
 
