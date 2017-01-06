@@ -13,6 +13,11 @@
 	#part1{
 		visibility: visible;
 	}
+	@media ( max-width : 768px) {
+	.content {
+		font-size: 20px;
+	}
+}
 </style>
 </head>
 <body>
