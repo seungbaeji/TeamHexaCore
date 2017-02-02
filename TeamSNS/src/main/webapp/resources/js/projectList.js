@@ -230,7 +230,7 @@ function projectListCallback(result){
          
          cardList +='<li id ="'
              		 + this.rbno
-             		 + '">'
+             		 + '"data-target="#projectModal" data-toggle="modal"'
              		 + 'class="projectCard">'
                      + '<div class="cardTop">'
                      + '<div class="cardCom01">'

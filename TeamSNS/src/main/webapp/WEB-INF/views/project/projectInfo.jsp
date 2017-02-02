@@ -430,7 +430,7 @@ $(document).ready(function () {
     				console.log(result);
     				console.log("타이틀" + title);
     				console.log(result.parts[0].part);
-    				console.log(result.parts[1].part);
+    				
     				console.log(result.parts.length);
     				
     				 

@@ -8,173 +8,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"
-	charset="UTF-8">
-<title>Let's Team!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../resources/realcss/sidemenu.css" />
+	<title>Let's Team!</title>
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="../resources/realcss/sidemenu.css" />
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="../resources/realcss/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="../resources/realcss/style.css"> <!-- Resource style -->
 	<script src="../resources/js/modernizr.js"></script> <!-- Modernizr -->
-<style>
-#container {
-	display: flex;
-	flex-direction: row;
-}
-
-@media ( max-width : 768px) {
+	
+	<style>
 	#container {
-		flex-direction: column;
-		
+		display: flex;
+		flex-direction: row;
 	}
-}
-
-
-@media (min-width: 425px) {
-	#cd-lateral-nav {
-		flex-basis: 220px;
+	
+	@media ( max-width : 768px) {
+		#container {
+			flex-direction: column;
+			
+		}
+	}
+	
+	
+	@media (min-width: 425px) {
+		#cd-lateral-nav {
+			flex-basis: 220px;
+			flex-shrink: 0;
+		}
+		.main_table_id {
+			font-size:12px;
+		}
+		.main_table_date{
+			font-size:12px;
+		}
+	}
+	
+	aside {
+		flex-basis: 200px;
 		flex-shrink: 0;
 	}
-	.main_table_id {
-		font-size:12px;
-	}
-	.main_table_date{
-		font-size:12px;
-	}
-}
-
-aside {
-	flex-basis: 200px;
-	flex-shrink: 0;
-}
-
-.content {
-	display: flex;
-	flex-direction: column;
-}
-
-@media ( min-width : 768px) {
+	
 	.content {
-		min-width: 650px;
-		max-width: 768px;
-	}
-}
-
-#car {
-	width: 100%;
-} 
-@media (max-width: 425px) {
-	#car {
-		display: none;
-	}
-}
-
-#main-section {
-	padding: 30px;
-	background-color:;
-}
-
-@media ( max-width : 768px) {
-	#main-section {
-		padding: 20px;
+		display: flex;
 		flex-direction: column;
 	}
-}
-
-#section1, #section2, #section3, #section4 {
-	padding: 10px 15px;
-	width: 50%;
-	height: auto;
-	display: inline-block;
-	margin: -2px;
-}
-
-@media ( max-width : 767px) {
-	#section1, #section2, #section3, #section4 {
-		width: 100%;
-	}
-}
-
-.main_table {
-	font-size: 0.9rem;
-	table-layout: fixed;
-	width: 100%;
-	height: auto;
-	border-left: 3px solid #2273AA;
-	background-color: white;
-}
-
-.main_table_name {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.main_table_id {
-	width: 70%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.main_table_date {
-	width: 30%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.main_table_caption {
-	background-color: #1F2D42;
-	font-size: 1rem;
-}
-
-h4 {
-	color: #1F2D42;
-	font-size: 1rem;
-}
-
-i {
-	color: #1F2D42;
-}
- 
-#mainLogo {
-	cursor: pointer !important;
-}
-
-@media (max-width: 768px) {
-	#mainLogo {
-		display: none;
-	}
-}
-
-footer {
-	border-top: 1px solid gray;
-	margin: 
 	
-}
-.main_header {
-	display: flex;
-	flex-direction: row;
-}
-.section_header {
-	padding-left: 5px;
-}
-</style>
+	@media ( min-width : 768px) {
+		.content {
+			min-width: 650px;
+			max-width: 768px;
+		}
+	}
+	
+	#car {
+		width: 100%;
+	} 
+	@media (max-width: 425px) {
+		#car {
+			display: none;
+		}
+	}
+	
+	#main-section {
+		padding: 30px;
+		background-color:;
+	}
+	
+	@media ( max-width : 768px) {
+		#main-section {
+			padding: 20px;
+			flex-direction: column;
+		}
+	}
+	
+	#section1, #section2, #section3, #section4 {
+		padding: 10px 15px;
+		width: 50%;
+		height: auto;
+		display: inline-block;
+		margin: -2px;
+	}
+	
+	@media ( max-width : 767px) {
+		#section1, #section2, #section3, #section4 {
+			width: 100%;
+		}
+	}
+	
+	.main_table {
+		font-size: 0.9rem;
+		table-layout: fixed;
+		width: 100%;
+		height: auto;
+		border-left: 3px solid #2273AA;
+		background-color: white;
+	}
+	
+	.main_table_name {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+	.main_table_id {
+		width: 70%;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+	.main_table_date {
+		width: 30%;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+	.main_table_caption {
+		background-color: #1F2D42;
+		font-size: 1rem;
+	}
+	
+	h4 {
+		color: #1F2D42;
+		font-size: 1rem;
+	}
+	
+	i {
+		color: #1F2D42;
+	}
+	 
+	#mainLogo {
+		cursor: pointer !important;
+	}
+	
+	@media (max-width: 768px) {
+		#mainLogo {
+			display: none;
+		}
+	}
+	
+	footer {
+		border-top: 1px solid gray;
+		margin: 
+		
+	}
+	.main_header {
+		display: flex;
+		flex-direction: row;
+	}
+	.section_header {
+		padding-left: 5px;
+	}
+	</style>
 </head>
 <body>
 
